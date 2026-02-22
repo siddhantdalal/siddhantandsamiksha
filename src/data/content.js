@@ -210,6 +210,5 @@ export const content = {
     { label: 'Events', href: '#events' },
     { label: 'Gallery', href: '#gallery' },
     { label: 'RSVP', href: '#rsvp' },
-    { label: 'Travel', href: '#travel' },
   ],
 };
