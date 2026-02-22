@@ -126,6 +126,27 @@ export const content = {
     ],
   },
 
+  reception: {
+    heading: 'Reception',
+    subheading: 'An evening of joy, laughter & togetherness',
+    groom: {
+      city: 'Nagpur',
+      venue: 'A stunning venue in the heart of Nagpur — to be revealed soon',
+      date: 'An evening worth the wait',
+      time: 'To be revealed',
+      description: 'Join us for an unforgettable evening of celebration as we toast to new beginnings with the groom\'s loved ones.',
+      dressCode: 'To be announced',
+    },
+    bride: {
+      city: 'Kolhapur',
+      venue: 'A beautiful celebration in Kolhapur — to be revealed soon',
+      date: 'An evening worth the wait',
+      time: 'To be revealed',
+      description: 'An evening filled with warmth, laughter and love as we celebrate with the bride\'s nearest and dearest.',
+      dressCode: 'To be announced',
+    },
+  },
+
   gallery: {
     heading: 'Our Moments',
     subheading: 'A glimpse into our journey together',

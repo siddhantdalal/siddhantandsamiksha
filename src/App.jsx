@@ -7,6 +7,7 @@ import Timeline from './components/Timeline';
 import EngagementDetails from './components/EngagementDetails';
 import WeddingEvents from './components/WeddingEvents';
 import EventSchedule from './components/EventSchedule';
+import Reception from './components/Reception';
 import Gallery from './components/Gallery';
 import RSVP from './components/RSVP';
 import VenueTravel from './components/VenueTravel';
@@ -29,6 +30,7 @@ export default function App() {
         <EngagementDetails />
         <WeddingEvents />
         <EventSchedule />
+        <Reception />
         <Gallery />
         <RSVP />
         <VenueTravel />
