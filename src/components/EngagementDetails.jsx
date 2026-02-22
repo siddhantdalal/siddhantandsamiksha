@@ -40,6 +40,16 @@ export default function EngagementDetails() {
 
           </div>
 
+          <p className={styles.countdownMsg}>Every second brings us closer to forever</p>
+          <div className={styles.countdown}>
+            {['Days', 'Hours', 'Minutes', 'Seconds'].map((label) => (
+              <div key={label} className={styles.countUnit}>
+                <span className={styles.countValue}>--</span>
+                <span className={styles.countLabel}>{label}</span>
+              </div>
+            ))}
+          </div>
+
           {engagement.mapEmbed && (
             <div className={styles.map}>
               <iframe

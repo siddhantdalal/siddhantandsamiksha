@@ -50,6 +50,44 @@
   margin-top: var(--space-xs);
 }
 
+.countdownMsg {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-lg);
+}
+
+.countdown {
+  display: flex;
+  gap: var(--space-xl);
+  justify-content: center;
+  margin-bottom: var(--space-sm);
+}
+
+.countUnit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countValue {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+.countLabel {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: var(--space-xs);
+}
+
 .map {
   margin-top: var(--space-2xl);
   border-radius: var(--border-radius);
