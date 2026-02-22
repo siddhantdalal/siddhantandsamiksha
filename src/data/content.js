@@ -8,7 +8,7 @@ export const content = {
 
   hero: {
     tagline: 'Two Souls. One Journey.',
-    date: 'December 2026',
+    date: 'A beautiful beginning, coming soon',
     cta: 'Save The Date',
   },
 
