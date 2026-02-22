@@ -49,11 +49,10 @@ export const content = {
 
   engagement: {
     heading: 'Engagement Ceremony',
-    date: 'November 2026',
-    time: '6:00 PM onwards',
-    venue: 'Venue Name — Update Here',
-    address: '123 Street Name, City, State',
-    dressCode: 'Festive Formals',
+    date: 'Written in the stars, revealed soon',
+    time: 'Stay tuned for the moment',
+    venue: 'A place as special as this day',
+    address: 'Details coming soon',
     mapEmbed: '', // paste Google Maps embed URL here
   },
 

@@ -38,13 +38,7 @@ export default function EngagementDetails() {
               </div>
             </div>
 
-            <div className={styles.detail}>
-              <span className={styles.icon}>👔</span>
-              <div>
-                <h4 className={styles.label}>Dress Code</h4>
-                <p className={styles.value}>{engagement.dressCode}</p>
-              </div>
-            </div>
+
           </div>
 
           {engagement.mapEmbed && (
