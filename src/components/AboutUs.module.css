@@ -117,19 +117,10 @@
 .photoFrame {
   width: 150px;
   height: 190px;
-  border-radius: 50%;
   margin-bottom: var(--space-lg);
   position: relative;
-}
-
-.photoFrame::after {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, transparent 55%, var(--color-bg-card) 100%);
-  z-index: 1;
-  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at center, black 40%, transparent 70%);
+  mask-image: radial-gradient(ellipse 50% 50% at center, black 40%, transparent 70%);
 }
 
 .leftCard .photoFrame {
