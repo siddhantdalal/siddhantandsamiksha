@@ -1,18 +1,12 @@
 import { useState, useEffect } from 'react';
+
 import { content } from '../data/content';
 import { useSide } from '../context/SideContext';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { side } = useSide();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -28,7 +22,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
+      <nav className={styles.nav}>
         <div className={styles.inner}>
           <a href="#hero" className={styles.logo} onClick={(e) => handleClick(e, '#hero')}>
             <span className={styles.monogram}>
