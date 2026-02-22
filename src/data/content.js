@@ -110,17 +110,17 @@ export const content = {
 
   eventSchedule: {
     heading: 'Wedding Day Schedule',
-    subheading: 'December 12, 2026',
+    subheading: 'The day our forever begins',
     schedule: [
-      { time: '9:00 AM', event: 'Guest Arrival & Seating', icon: '🪷' },
-      { time: '9:30 AM', event: 'Ganesh Puja', icon: '🙏' },
-      { time: '10:00 AM', event: 'Baraat Procession', icon: '🐎' },
-      { time: '10:30 AM', event: 'Varmala Ceremony', icon: '💐' },
-      { time: '11:00 AM', event: 'Kanyadaan & Pheras', icon: '🔥' },
-      { time: '12:00 PM', event: 'Vidaai', icon: '🥹' },
-      { time: '1:00 PM', event: 'Wedding Lunch', icon: '🍽️' },
-      { time: '7:00 PM', event: 'Reception Begins', icon: '🥂' },
-      { time: '8:00 PM', event: 'Dinner & Dancing', icon: '💃' },
+      { time: 'Step 1', event: 'Guest Arrival & Seating', icon: '🪷' },
+      { time: 'Step 2', event: 'Ganesh Puja', icon: '🙏' },
+      { time: 'Step 3', event: 'Baraat Procession', icon: '🐎' },
+      { time: 'Step 4', event: 'Varmala Ceremony', icon: '💐' },
+      { time: 'Step 5', event: 'Kanyadaan & Pheras', icon: '🔥' },
+      { time: 'Step 6', event: 'Vidaai', icon: '🥹' },
+      { time: 'Step 7', event: 'Wedding Lunch', icon: '🍽️' },
+      { time: 'Step 8', event: 'Reception Begins', icon: '🥂' },
+      { time: 'Step 9', event: 'Dinner & Dancing', icon: '💃' },
     ],
   },
 
