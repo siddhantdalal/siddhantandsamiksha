@@ -25,27 +25,22 @@ export const content = {
     subheading: 'From the first spark to forever',
     events: [
       {
-        date: '2020',
         title: 'The First Meeting',
         description: 'A chance encounter that changed everything. Two worlds collided and nothing was ever the same.',
       },
       {
-        date: '2021',
         title: 'The First Date',
         description: 'Coffee turned into dinner, dinner turned into hours of conversation, and hours turned into a connection that would last a lifetime.',
       },
       {
-        date: '2023',
         title: 'Adventures Together',
         description: 'From spontaneous road trips to quiet evenings at home — every moment together became a treasured memory.',
       },
       {
-        date: '2025',
         title: 'The Proposal',
         description: 'Under a sky full of stars, one question changed two lives forever. She said yes, and the rest is history.',
       },
       {
-        date: '2026',
         title: 'Forever Begins',
         description: 'The chapter we\'ve been dreaming of. Our families unite, our hearts become one.',
       },

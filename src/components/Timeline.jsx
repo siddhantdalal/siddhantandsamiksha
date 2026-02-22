@@ -17,7 +17,6 @@ export default function Timeline() {
             <div className={`${styles.item} ${i % 2 === 0 ? styles.left : styles.right}`}>
               <div className={styles.dot} />
               <div className={styles.card}>
-                <span className={styles.date}>{event.date}</span>
                 <h3 className={styles.title}>{event.title}</h3>
                 <p className={styles.desc}>{event.description}</p>
               </div>
