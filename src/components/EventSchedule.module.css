@@ -1,32 +1,92 @@
-.schedule {
-  max-width: 600px;
-  margin: 0 auto;
+/* Prompt & toggle */
+.prompt {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.promptText {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  font-style: italic;
+  text-align: center;
+  max-width: 420px;
+}
+
+.toggleBtn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.toggleBtn:hover {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-gold);
+  transform: scale(1.06);
+}
+
+.chevron {
+  color: var(--color-gold);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toggleOpen .chevron {
+  transform: rotate(180deg);
+}
+
+/* Schedule vertical line layout */
+.scheduleInner {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--space-xl) 0 var(--space-2xl);
+  padding-left: 28px;
+}
+
+.line {
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--color-gold), transparent);
 }
 
 .item {
+  position: relative;
   display: flex;
   align-items: center;
   gap: var(--space-lg);
-  padding: var(--space-lg) var(--space-xl);
-  border-bottom: 1px solid var(--color-border);
-  transition: background var(--transition-fast);
+  padding: var(--space-md) 0 var(--space-md) var(--space-2xl);
 }
 
-.item:hover {
-  background: rgba(201, 169, 110, 0.03);
-}
-
-.item:last-child {
-  border-bottom: none;
+.dot {
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  border: 2px solid var(--color-bg);
+  box-shadow: 0 0 8px rgba(201, 169, 110, 0.4);
 }
 
 .icon {
   font-size: 1.5rem;
   flex-shrink: 0;
-  width: 40px;
+  width: 36px;
   text-align: center;
 }
 
@@ -41,7 +101,7 @@
   font-family: var(--font-sans);
   font-size: var(--text-sm);
   color: var(--color-gold);
-  min-width: 90px;
+  min-width: 60px;
   font-weight: 500;
 }
 
