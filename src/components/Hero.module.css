@@ -10,7 +10,7 @@
 .bgImage {
   position: absolute;
   inset: 0;
-  background: url('/images/hero/hero.jpg') center/cover no-repeat;
+  background: url('/siddhantandsamiksha/images/hero/hero.jpg') center/cover no-repeat;
   animation: slowZoom 25s ease-in-out infinite alternate;
 }
 

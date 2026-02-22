@@ -1,3 +1,5 @@
+const base = import.meta.env.BASE_URL;
+
 export const content = {
   couple: {
     groomFirst: 'Siddhant',
@@ -24,13 +26,13 @@ export const content = {
     subheading: 'The two hearts behind this love story',
     groom: {
       name: 'Siddhant Dalal',
-      photo: '/images/about/siddhant.jpg',
+      photo: `${base}images/about/siddhant.jpg`,
       hometown: 'Nagpur',
       bio: 'Born in Nagpur, now calling Pune home — Siddhant is a Software Developer by day and a biker by night. A big-time bike tourer with an endless love for the open road, he believes the best conversations happen at 100 km/h with the wind in your face.',
     },
     bride: {
       name: 'Samiksha Patil',
-      photo: '/images/about/samiksha.jpg',
+      photo: `${base}images/about/samiksha.jpg`,
       hometown: 'Mumbai',
       bio: 'Born and brought up in the city of dreams, Samiksha is a corporate HR professional by day, and a person who knows how to handle things — be it personal or professional. With a heart as warm as her smile, she brings grace and strength to everything she touches.',
     },
@@ -170,12 +172,12 @@ export const content = {
     subheading: 'A glimpse into our journey together',
     // Add your image paths here — drop images into public/images/gallery/
     images: [
-      { src: '/images/gallery/photo-1.jpg', alt: 'Together' },
-      { src: '/images/gallery/photo-2.jpg', alt: 'Adventure' },
-      { src: '/images/gallery/photo-3.jpg', alt: 'Laughter' },
-      { src: '/images/gallery/photo-4.jpg', alt: 'Love' },
-      { src: '/images/gallery/photo-5.jpg', alt: 'Joy' },
-      { src: '/images/gallery/photo-6.jpg', alt: 'Forever' },
+      { src: `${base}images/gallery/photo-1.jpg`, alt: 'Together' },
+      { src: `${base}images/gallery/photo-2.jpg`, alt: 'Adventure' },
+      { src: `${base}images/gallery/photo-3.jpg`, alt: 'Laughter' },
+      { src: `${base}images/gallery/photo-4.jpg`, alt: 'Love' },
+      { src: `${base}images/gallery/photo-5.jpg`, alt: 'Joy' },
+      { src: `${base}images/gallery/photo-6.jpg`, alt: 'Forever' },
     ],
   },
 
