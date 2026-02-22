@@ -22,9 +22,11 @@ export default function WeddingEvents() {
                 <p>{event.venue}</p>
               </div>
               <p className={styles.desc}>{event.description}</p>
-              <p className={styles.dress}>
-                <span>Dress Code:</span> {event.dressCode}
-              </p>
+              {event.dressCode && (
+                <p className={styles.dress}>
+                  <span>Dress Code:</span> {event.dressCode}
+                </p>
+              )}
             </div>
           </ScrollReveal>
         ))}
