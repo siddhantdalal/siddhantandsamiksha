@@ -36,25 +36,8 @@ export default function VenueTravel() {
             </div>
           </ScrollReveal>
 
-          {/* Hotels */}
-          <ScrollReveal delay={0.1}>
-            <div className={styles.card}>
-              <h3 className={styles.cardTitle}>Nearby Hotels</h3>
-              <div className={styles.hotels}>
-                {hotels.map((hotel, i) => (
-                  <div key={i} className={styles.hotel}>
-                    <h4 className={styles.hotelName}>{hotel.name}</h4>
-                    <p className={styles.hotelMeta}>{hotel.distance}</p>
-                    <p className={styles.hotelMeta}>{hotel.phone}</p>
-                    <p className={styles.hotelNote}>{hotel.note}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-
           {/* Travel */}
-          <ScrollReveal delay={0.2}>
+          <ScrollReveal delay={0.1}>
             <div className={styles.card}>
               <h3 className={styles.cardTitle}>Getting Here</h3>
               <div className={styles.travelList}>
