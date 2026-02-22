@@ -1,13 +1,19 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { content } from '../data/content';
+import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
 import styles from './AboutUs.module.css';
 
 export default function AboutUs() {
   const [open, setOpen] = useState(false);
+  const { side } = useSide();
 
   const { groom, bride } = content.aboutUs;
+  const first = side === 'bride' ? bride : groom;
+  const second = side === 'bride' ? groom : bride;
+  const firstLabel = side === 'bride' ? 'The Bride' : 'The Groom';
+  const secondLabel = side === 'bride' ? 'The Groom' : 'The Bride';
 
   return (
     <section className="section">
@@ -58,34 +64,34 @@ export default function AboutUs() {
 
               <ScrollReveal delay={0.1}>
                 <div className={styles.row}>
-                  <div className={`${styles.card} ${styles.groomCard}`}>
-                    <span className={styles.label}>The Groom</span>
-                    <h3 className={styles.name}>{groom.name}</h3>
+                  <div className={`${styles.card} ${styles.leftCard}`}>
+                    <span className={styles.label}>{firstLabel}</span>
+                    <h3 className={styles.name}>{first.name}</h3>
                     <p className={styles.hometown}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                         <circle cx="12" cy="10" r="3" />
                       </svg>
-                      {groom.hometown}
+                      {first.hometown}
                     </p>
-                    <p className={styles.bio}>{groom.bio}</p>
+                    <p className={styles.bio}>{first.bio}</p>
                   </div>
 
                   <div className={styles.dotCenter}>
                     <div className={styles.dot} />
                   </div>
 
-                  <div className={`${styles.card} ${styles.brideCard}`}>
-                    <span className={styles.label}>The Bride</span>
-                    <h3 className={styles.name}>{bride.name}</h3>
+                  <div className={`${styles.card} ${styles.rightCard}`}>
+                    <span className={styles.label}>{secondLabel}</span>
+                    <h3 className={styles.name}>{second.name}</h3>
                     <p className={styles.hometown}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                         <circle cx="12" cy="10" r="3" />
                       </svg>
-                      {bride.hometown}
+                      {second.hometown}
                     </p>
-                    <p className={styles.bio}>{bride.bio}</p>
+                    <p className={styles.bio}>{second.bio}</p>
                   </div>
                 </div>
               </ScrollReveal>

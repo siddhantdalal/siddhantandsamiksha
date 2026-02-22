@@ -104,12 +104,12 @@
   box-shadow: var(--shadow-gold);
 }
 
-.groomCard {
+.leftCard {
   text-align: right;
   margin-right: var(--space-2xl);
 }
 
-.brideCard {
+.rightCard {
   text-align: left;
   margin-left: var(--space-2xl);
 }
@@ -140,11 +140,11 @@
   margin-bottom: var(--space-lg);
 }
 
-.groomCard .hometown {
+.leftCard .hometown {
   justify-content: flex-end;
 }
 
-.brideCard .hometown {
+.rightCard .hometown {
   justify-content: flex-start;
 }
 
@@ -188,14 +188,14 @@
     gap: var(--space-xl);
   }
 
-  .groomCard,
-  .brideCard {
+  .leftCard,
+  .rightCard {
     text-align: center;
     margin: 0;
   }
 
-  .groomCard .hometown,
-  .brideCard .hometown {
+  .leftCard .hometown,
+  .rightCard .hometown {
     justify-content: center;
   }
 }
