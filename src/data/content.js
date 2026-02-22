@@ -146,30 +146,30 @@ export const content = {
 
   venueTravel: {
     heading: 'Venue & Travel',
-    subheading: 'Everything you need to know to get here',
+    subheading: 'All the details you\'ll need, coming soon with love',
     venue: {
-      name: 'Wedding Venue Name',
-      address: '123 Venue Street, City, State, PIN',
-      mapEmbed: '', // paste Google Maps embed URL here
+      name: 'A place as magical as our love story',
+      address: 'The perfect destination is being chosen — stay tuned',
+      mapEmbed: '',
     },
     hotels: [
       {
-        name: 'Hotel Name 1',
-        distance: '5 min from venue',
-        phone: '+91 XXXXX XXXXX',
-        note: 'Special rates available — mention Dalal-Patil Wedding',
+        name: 'Comfort awaits you',
+        distance: 'Close to all the celebrations',
+        phone: 'Details arriving soon',
+        note: 'We\'re handpicking the best stays for our loved ones',
       },
       {
-        name: 'Hotel Name 2',
-        distance: '10 min from venue',
-        phone: '+91 XXXXX XXXXX',
-        note: 'Complimentary breakfast included',
+        name: 'More options on the way',
+        distance: 'Convenience is our priority',
+        phone: 'Details arriving soon',
+        note: 'Your comfort means the world to us',
       },
     ],
     travel: {
-      airport: 'Nearest Airport — XX km from venue',
-      railway: 'Nearest Railway Station — XX km from venue',
-      parking: 'Complimentary valet parking available at the venue',
+      airport: 'Flight details will be shared once the venue is set',
+      railway: 'Train routes and options coming soon',
+      parking: 'We\'ll make sure getting here is as easy as possible',
     },
   },
 
