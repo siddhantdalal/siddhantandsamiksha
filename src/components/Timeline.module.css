@@ -1,8 +1,59 @@
+/* Prompt & toggle */
+.prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.promptText {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  font-style: italic;
+  text-align: center;
+  max-width: 420px;
+}
+
+.toggleBtn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.toggleBtn:hover {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-gold);
+  transform: scale(1.06);
+}
+
+.chevron {
+  color: var(--color-gold);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toggleOpen .chevron {
+  transform: rotate(180deg);
+}
+
+/* Timeline */
 .timeline {
+  will-change: height;
+}
+
+.timelineInner {
   position: relative;
   max-width: 900px;
   margin: 0 auto;
-  padding: var(--space-xl) 0;
+  padding: var(--space-xl) 0 var(--space-2xl);
 }
 
 .line {
@@ -63,14 +114,6 @@
 .card:hover {
   border-color: var(--color-border-hover);
   box-shadow: var(--shadow-gold);
-}
-
-.date {
-  font-family: var(--font-sans);
-  font-size: var(--text-sm);
-  color: var(--color-gold);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
 }
 
 .title {
