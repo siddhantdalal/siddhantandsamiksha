@@ -58,7 +58,7 @@
   color: var(--color-gold);
 }
 
-/* Hamburger */
+/* Hamburger — fixed position, independent of nav stacking context */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -67,8 +67,10 @@
   cursor: pointer;
   background: none;
   border: none;
+  position: fixed;
+  top: var(--space-md);
+  right: var(--space-xl);
   z-index: 10002;
-  position: relative;
 }
 
 .hamburger span {

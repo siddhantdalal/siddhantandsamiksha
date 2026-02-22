@@ -32,17 +32,7 @@ export default function Navbar() {
             S <span className={styles.amp}>&</span> S
           </a>
 
-          <button
-            className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-
-          <ul className={`${styles.desktopLinks}`}>
+          <ul className={styles.desktopLinks}>
             {content.nav.map((item) => (
               <li key={item.href}>
                 <a href={item.href} onClick={(e) => handleClick(e, item.href)}>
@@ -54,7 +44,18 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile overlay rendered outside the nav to avoid z-index issues */}
+      {/* Hamburger button — rendered outside nav for z-index independence */}
+      <button
+        className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle menu"
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      {/* Mobile overlay */}
       <div className={`${styles.mobileOverlay} ${menuOpen ? styles.show : ''}`}>
         <ul className={styles.mobileLinks}>
           {content.nav.map((item) => (
