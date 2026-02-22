@@ -39,7 +39,20 @@ export default function RSVP() {
       setErrors(errs);
       return;
     }
-    // UI-only — backend wired later
+
+    const lines = [
+      `💍 *Wedding RSVP*`,
+      ``,
+      `*Name:* ${form.name}`,
+      `*Email:* ${form.email}`,
+      form.phone ? `*Phone:* ${form.phone}` : '',
+      `*Attendance:* ${form.attendance === 'joyfully-accept' ? 'Joyfully Accepting ✨' : 'Regretfully Declining 💔'}`,
+      `*Guests:* ${form.guests}`,
+      form.message ? `*Message:* ${form.message}` : '',
+    ].filter(Boolean).join('\n');
+
+    const whatsappUrl = `https://wa.me/917387453882?text=${encodeURIComponent(lines)}`;
+    window.open(whatsappUrl, '_blank');
     setSubmitted(true);
   };
 
