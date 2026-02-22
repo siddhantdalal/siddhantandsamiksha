@@ -1,6 +1,6 @@
 .footer {
   text-align: center;
-  padding: var(--space-4xl) var(--space-xl) var(--space-2xl);
+  padding: var(--space-4xl) var(--space-xl) 6rem;
   border-top: 1px solid var(--color-border);
 }
 

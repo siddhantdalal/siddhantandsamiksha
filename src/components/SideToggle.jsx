@@ -8,19 +8,21 @@ export default function SideToggle() {
   if (!side) return null;
 
   return (
-    <div className={styles.wrapper}>
-      <button
-        className={`${styles.capsule} ${side === 'groom' ? styles.active : ''}`}
-        onClick={() => setSide('groom')}
-      >
-        {content.couple.groomFirst}'s Side
-      </button>
-      <button
-        className={`${styles.capsule} ${side === 'bride' ? styles.active : ''}`}
-        onClick={() => setSide('bride')}
-      >
-        {content.couple.brideFirst}'s Side
-      </button>
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        <button
+          className={`${styles.capsule} ${side === 'groom' ? styles.active : ''}`}
+          onClick={() => setSide('groom')}
+        >
+          {content.couple.groomFirst}'s Side
+        </button>
+        <button
+          className={`${styles.capsule} ${side === 'bride' ? styles.active : ''}`}
+          onClick={() => setSide('bride')}
+        >
+          {content.couple.brideFirst}'s Side
+        </button>
+      </div>
     </div>
   );
 }

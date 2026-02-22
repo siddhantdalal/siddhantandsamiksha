@@ -1,15 +1,26 @@
-.wrapper {
+.container {
   position: fixed;
-  top: var(--space-md);
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 10000;
+  display: flex;
+  justify-content: center;
+  padding-bottom: var(--space-lg);
+  padding-top: var(--space-3xl);
+  background: linear-gradient(to top, var(--color-bg) 40%, transparent 100%);
+  pointer-events: none;
+}
+
+.wrapper {
   display: flex;
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: 100px;
   padding: 3px;
   gap: 2px;
+  box-shadow: var(--shadow-md);
+  pointer-events: auto;
 }
 
 .capsule {
@@ -39,12 +50,4 @@
 .active:hover {
   color: var(--color-bg);
   background: var(--color-gold-light);
-}
-
-@media (max-width: 768px) {
-  .wrapper {
-    top: auto;
-    bottom: var(--space-lg);
-    box-shadow: var(--shadow-md);
-  }
 }
