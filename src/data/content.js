@@ -123,8 +123,6 @@ export const content = {
       { time: 'Step 5', event: 'Kanyadaan & Pheras', icon: '🔥' },
       { time: 'Step 6', event: 'Vidaai', icon: '🥹' },
       { time: 'Step 7', event: 'Wedding Lunch', icon: '🍽️' },
-      { time: 'Step 8', event: 'Reception Begins', icon: '🥂' },
-      { time: 'Step 9', event: 'Dinner & Dancing', icon: '💃' },
     ],
   },
 
