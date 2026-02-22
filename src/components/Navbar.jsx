@@ -12,6 +12,11 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   const handleClick = (e, href) => {
     e.preventDefault();
     setMenuOpen(false);
@@ -20,23 +25,38 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
-      <div className={styles.inner}>
-        <a href="#hero" className={styles.logo} onClick={(e) => handleClick(e, '#hero')}>
-          S <span className={styles.amp}>&</span> S
-        </a>
+    <>
+      <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
+        <div className={styles.inner}>
+          <a href="#hero" className={styles.logo} onClick={(e) => handleClick(e, '#hero')}>
+            S <span className={styles.amp}>&</span> S
+          </a>
 
-        <button
-          className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+          <button
+            className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
 
-        <ul className={`${styles.links} ${menuOpen ? styles.show : ''}`}>
+          <ul className={`${styles.desktopLinks}`}>
+            {content.nav.map((item) => (
+              <li key={item.href}>
+                <a href={item.href} onClick={(e) => handleClick(e, item.href)}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+
+      {/* Mobile overlay rendered outside the nav to avoid z-index issues */}
+      <div className={`${styles.mobileOverlay} ${menuOpen ? styles.show : ''}`}>
+        <ul className={styles.mobileLinks}>
           {content.nav.map((item) => (
             <li key={item.href}>
               <a href={item.href} onClick={(e) => handleClick(e, item.href)}>
@@ -46,6 +66,6 @@ export default function Navbar() {
           ))}
         </ul>
       </div>
-    </nav>
+    </>
   );
 }

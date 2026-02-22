@@ -2,16 +2,32 @@ import { useState, useEffect, memo } from 'react';
 import ReactParticles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 
+function getParticleColors() {
+  const style = getComputedStyle(document.documentElement);
+  return {
+    colors: [
+      style.getPropertyValue('--color-particle-1').trim() || '#c9a96e',
+      style.getPropertyValue('--color-particle-2').trim() || '#d4ba85',
+      style.getPropertyValue('--color-particle-3').trim() || '#e8c4c4',
+    ],
+    twinkle: style.getPropertyValue('--color-particle-1').trim() || '#c9a96e',
+  };
+}
+
 function Particles() {
   const [init, setInit] = useState(false);
+  const [colors, setColors] = useState(null);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
-    }).then(() => setInit(true));
+    }).then(() => {
+      setColors(getParticleColors());
+      setInit(true);
+    });
   }, []);
 
-  if (!init) return null;
+  if (!init || !colors) return null;
 
   return (
     <ReactParticles
@@ -21,7 +37,7 @@ function Particles() {
         fpsLimit: 60,
         particles: {
           number: { value: 30, density: { enable: true, area: 1200 } },
-          color: { value: ['#c9a96e', '#d4ba85', '#e8c4c4'] },
+          color: { value: colors.colors },
           shape: { type: 'circle' },
           opacity: {
             value: { min: 0.1, max: 0.4 },
@@ -40,7 +56,7 @@ function Particles() {
             outModes: { default: 'out' },
           },
           twinkle: {
-            particles: { enable: true, frequency: 0.03, color: '#c9a96e', opacity: 0.6 },
+            particles: { enable: true, frequency: 0.03, color: colors.twinkle, opacity: 0.6 },
           },
         },
         detectRetina: true,

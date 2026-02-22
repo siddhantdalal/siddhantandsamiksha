@@ -3,13 +3,13 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 10000;
   padding: var(--space-md) var(--space-xl);
   transition: background var(--transition-base), box-shadow var(--transition-base);
 }
 
 .scrolled {
-  background: rgba(26, 26, 26, 0.95);
+  background: var(--color-nav-bg);
   backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 var(--color-border);
 }
@@ -36,13 +36,14 @@
   opacity: 0.7;
 }
 
-.links {
+/* Desktop links */
+.desktopLinks {
   display: flex;
   list-style: none;
   gap: var(--space-xl);
 }
 
-.links a {
+.desktopLinks a {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
   font-weight: 400;
@@ -53,10 +54,11 @@
   text-decoration: none;
 }
 
-.links a:hover {
+.desktopLinks a:hover {
   color: var(--color-gold);
 }
 
+/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -65,6 +67,8 @@
   cursor: pointer;
   background: none;
   border: none;
+  z-index: 10002;
+  position: relative;
 }
 
 .hamburger span {
@@ -87,37 +91,64 @@
   transform: rotate(-45deg) translate(4px, -5px);
 }
 
+/* Mobile overlay — rendered outside nav */
+.mobileOverlay {
+  display: none;
+}
+
+/* Mobile links inside overlay */
+.mobileLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xl);
+}
+
+.mobileLinks a {
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition: color var(--transition-fast);
+  text-decoration: none;
+}
+
+.mobileLinks a:hover {
+  color: var(--color-gold);
+}
+
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
-    position: relative;
-    z-index: 10002;
   }
 
-  .links {
+  .desktopLinks {
+    display: none;
+  }
+
+  .mobileOverlay {
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 10001;
-    background: rgba(26, 26, 26, 0.98);
+    background: var(--color-menu-bg);
     backdrop-filter: blur(16px);
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: var(--space-2xl);
+    align-items: center;
     opacity: 0;
     pointer-events: none;
     transition: opacity var(--transition-base);
   }
 
-  .links.show {
+  .mobileOverlay.show {
     opacity: 1;
     pointer-events: auto;
-  }
-
-  .links a {
-    font-size: var(--text-lg);
+    display: flex;
   }
 }

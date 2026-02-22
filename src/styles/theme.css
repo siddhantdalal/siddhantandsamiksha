@@ -1,20 +1,4 @@
 :root {
-  /* Colors */
-  --color-bg: #1a1a1a;
-  --color-bg-light: #242424;
-  --color-bg-card: #1e1e1e;
-  --color-gold: #c9a96e;
-  --color-gold-light: #d4ba85;
-  --color-gold-dark: #a8893e;
-  --color-blush: #e8c4c4;
-  --color-sage: #8a9a7b;
-  --color-text: #f5f0e8;
-  --color-text-muted: #b8b0a4;
-  --color-text-dim: #7a7268;
-  --color-overlay: rgba(26, 26, 26, 0.85);
-  --color-border: rgba(201, 169, 110, 0.2);
-  --color-border-hover: rgba(201, 169, 110, 0.5);
-
   /* Typography */
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -54,9 +38,75 @@
   --transition-slow: 0.6s ease;
   --transition-reveal: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Shadows */
+  /* Shared accent colors */
+  --color-blush: #e8c4c4;
+  --color-sage: #8a9a7b;
+}
+
+/* Dark theme (default) */
+:root {
+  --color-bg: #1a1a1a;
+  --color-bg-light: #242424;
+  --color-bg-card: #1e1e1e;
+  --color-gold: #c9a96e;
+  --color-gold-light: #d4ba85;
+  --color-gold-dark: #a8893e;
+  --color-text: #f5f0e8;
+  --color-text-muted: #b8b0a4;
+  --color-text-dim: #7a7268;
+  --color-overlay: rgba(26, 26, 26, 0.85);
+  --color-border: rgba(201, 169, 110, 0.2);
+  --color-border-hover: rgba(201, 169, 110, 0.5);
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-shadow-md: rgba(0, 0, 0, 0.4);
+  --color-shadow-lg: rgba(0, 0, 0, 0.5);
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
   --shadow-gold: 0 0 20px rgba(201, 169, 110, 0.15);
+  --color-nav-bg: rgba(26, 26, 26, 0.95);
+  --color-menu-bg: rgba(26, 26, 26, 0.98);
+  --color-input-error: #e8594e;
+  --color-hero-overlay-top: rgba(26, 26, 26, 0.6);
+  --color-hero-overlay-mid: rgba(26, 26, 26, 0.75);
+  --color-hero-overlay-bot: rgba(26, 26, 26, 0.9);
+  --color-scrollbar-track: #1a1a1a;
+  --color-particle-1: #c9a96e;
+  --color-particle-2: #d4ba85;
+  --color-particle-3: #e8c4c4;
+}
+
+/* Light theme */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: #faf8f5;
+    --color-bg-light: #f2efe9;
+    --color-bg-card: #ffffff;
+    --color-gold: #a07d3a;
+    --color-gold-light: #b8923f;
+    --color-gold-dark: #8a6a2e;
+    --color-text: #2c2520;
+    --color-text-muted: #6b5f53;
+    --color-text-dim: #9a8e82;
+    --color-overlay: rgba(250, 248, 245, 0.85);
+    --color-border: rgba(160, 125, 58, 0.2);
+    --color-border-hover: rgba(160, 125, 58, 0.45);
+    --color-shadow: rgba(0, 0, 0, 0.06);
+    --color-shadow-md: rgba(0, 0, 0, 0.08);
+    --color-shadow-lg: rgba(0, 0, 0, 0.12);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --shadow-gold: 0 0 20px rgba(160, 125, 58, 0.1);
+    --color-nav-bg: rgba(250, 248, 245, 0.95);
+    --color-menu-bg: rgba(250, 248, 245, 0.98);
+    --color-input-error: #d4362c;
+    --color-hero-overlay-top: rgba(250, 248, 245, 0.5);
+    --color-hero-overlay-mid: rgba(250, 248, 245, 0.7);
+    --color-hero-overlay-bot: rgba(250, 248, 245, 0.88);
+    --color-scrollbar-track: #faf8f5;
+    --color-particle-1: #a07d3a;
+    --color-particle-2: #b8923f;
+    --color-particle-3: #d4a0a0;
+  }
 }
