@@ -8,7 +8,6 @@ export default function OurStory() {
       <ScrollReveal>
         <div className={styles.wrapper}>
           <h2 className="section-heading">{content.ourStory.heading}</h2>
-          <div className="gold-divider" />
           <p className={styles.text}>{content.ourStory.text}</p>
         </div>
       </ScrollReveal>

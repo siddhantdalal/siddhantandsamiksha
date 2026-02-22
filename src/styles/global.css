@@ -84,6 +84,17 @@ input, textarea, select {
   color: var(--color-gold);
   text-align: center;
   margin-bottom: var(--space-lg);
+  position: relative;
+  padding-bottom: var(--space-lg);
+}
+
+.section-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  margin: var(--space-md) auto 0;
 }
 
 .section-subheading {

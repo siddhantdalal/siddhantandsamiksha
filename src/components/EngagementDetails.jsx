@@ -10,7 +10,6 @@ export default function EngagementDetails() {
       <ScrollReveal>
         <div className={styles.wrapper}>
           <h2 className="section-heading">{engagement.heading}</h2>
-          <div className="gold-divider" />
 
           <div className={styles.card}>
             <div className={styles.detail}>
