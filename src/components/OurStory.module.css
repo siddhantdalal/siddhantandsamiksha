@@ -1,0 +1,15 @@
+.wrapper {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.text {
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  line-height: 1.9;
+  font-weight: 300;
+  max-width: 640px;
+  margin: var(--space-2xl) auto 0;
+}

@@ -1,0 +1,132 @@
+@import './theme.css';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-gold-light);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-bg);
+}
+
+/* Section base */
+.section {
+  padding: var(--space-section) var(--space-xl);
+  position: relative;
+}
+
+.section-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section-narrow {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+}
+
+/* Section heading */
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: var(--text-4xl);
+  color: var(--color-gold);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.section-subheading {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+  font-weight: 300;
+}
+
+/* Gold divider */
+.gold-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  margin: var(--space-lg) auto;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-dark);
+  border-radius: 3px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

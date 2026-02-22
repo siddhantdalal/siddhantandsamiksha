@@ -1,0 +1,100 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-xl);
+}
+
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-2xl);
+}
+
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  color: var(--color-gold);
+  margin-bottom: var(--space-lg);
+}
+
+.venueName {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.address {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.map {
+  margin-top: var(--space-lg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.hotels {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.hotel {
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hotel:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.hotelName {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.hotelMeta {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.hotelNote {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--color-gold);
+  margin-top: var(--space-xs);
+  font-style: italic;
+}
+
+.travelList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.travelItem {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.travelIcon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.travelItem p {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}

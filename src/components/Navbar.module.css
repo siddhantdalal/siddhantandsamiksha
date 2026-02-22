@@ -1,0 +1,119 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: var(--space-md) var(--space-xl);
+  transition: background var(--transition-base), box-shadow var(--transition-base);
+}
+
+.scrolled {
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--color-border);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--color-gold);
+  letter-spacing: 0.15em;
+  text-decoration: none;
+}
+
+.amp {
+  font-style: italic;
+  margin: 0 0.15em;
+  opacity: 0.7;
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: var(--space-xl);
+}
+
+.links a {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition: color var(--transition-fast);
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: var(--color-gold);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--color-gold);
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -5px);
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 26, 26, 0.98);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2xl);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base);
+  }
+
+  .links.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .links a {
+    font-size: var(--text-lg);
+  }
+}
