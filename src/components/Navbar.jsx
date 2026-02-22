@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { content } from '../data/content';
+import { useSide } from '../context/SideContext';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { side } = useSide();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -29,7 +31,9 @@ export default function Navbar() {
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
         <div className={styles.inner}>
           <a href="#hero" className={styles.logo} onClick={(e) => handleClick(e, '#hero')}>
-            S <span className={styles.amp}>&</span> S
+            {side === 'bride' ? content.couple.brideFirst[0] : content.couple.groomFirst[0]}
+            {' '}<span className={styles.amp}>&</span>{' '}
+            {side === 'bride' ? content.couple.groomFirst[0] : content.couple.brideFirst[0]}
           </a>
 
           <ul className={styles.desktopLinks}>

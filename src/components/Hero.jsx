@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { content } from '../data/content';
+import { useSide } from '../context/SideContext';
 import styles from './Hero.module.css';
 
 function useCountdown(targetDate) {
@@ -27,6 +28,11 @@ function calcTime(target) {
 
 export default function Hero() {
   const { days, hours, minutes, seconds } = useCountdown(content.weddingDate);
+  const { side } = useSide();
+
+  const firstName = side === 'bride' ? content.couple.brideFirst : content.couple.groomFirst;
+  const secondName = side === 'bride' ? content.couple.groomFirst : content.couple.brideFirst;
+  const welcomeMsg = side ? content.hero.welcome[side] : '';
 
   return (
     <section id="hero" className={styles.hero}>
@@ -42,10 +48,12 @@ export default function Hero() {
         <p className={styles.tagline}>{content.hero.tagline}</p>
 
         <h1 className={styles.names}>
-          <span>{content.couple.groomFirst}</span>
+          <span>{firstName}</span>
           <span className={styles.ampersand}>&</span>
-          <span>{content.couple.brideFirst}</span>
+          <span>{secondName}</span>
         </h1>
+
+        {welcomeMsg && <p className={styles.welcome}>{welcomeMsg}</p>}
 
         <p className={styles.date}>{content.hero.date}</p>
 

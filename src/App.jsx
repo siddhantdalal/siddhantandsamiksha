@@ -1,3 +1,5 @@
+import { SideProvider } from './context/SideContext';
+import SideSelector from './components/SideSelector';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import OurStory from './components/OurStory';
@@ -15,7 +17,8 @@ import Particles from './components/Particles';
 
 export default function App() {
   return (
-    <>
+    <SideProvider>
+      <SideSelector />
       <Particles />
       <FilmGrain />
       <Navbar />
@@ -32,6 +35,6 @@ export default function App() {
         <Hashtag />
       </main>
       <Footer />
-    </>
+    </SideProvider>
   );
 }

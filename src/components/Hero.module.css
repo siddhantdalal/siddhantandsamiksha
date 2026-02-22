@@ -67,6 +67,15 @@
   opacity: 0.8;
 }
 
+.welcome {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-bottom: var(--space-lg);
+  opacity: 0.85;
+}
+
 .date {
   font-family: var(--font-sans);
   font-size: var(--text-lg);

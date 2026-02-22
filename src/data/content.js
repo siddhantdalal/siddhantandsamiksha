@@ -10,6 +10,10 @@ export const content = {
     tagline: 'Two Souls. One Journey.',
     date: 'A beautiful beginning, coming soon',
     cta: 'Save The Date',
+    welcome: {
+      groom: 'Welcome to our celebration — so glad you\'re on Team Groom!',
+      bride: 'Welcome to our celebration — so glad you\'re on Team Bride!',
+    },
   },
 
   // Wedding date — update this to the actual date
