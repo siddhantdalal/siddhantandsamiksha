@@ -25,15 +25,9 @@ export default function Navbar() {
       <nav className={styles.nav}>
         <div className={styles.inner}>
           <a href="#hero" className={styles.logo} onClick={(e) => handleClick(e, '#hero')}>
-            <span className={styles.monogram}>
-              <span className={styles.monoLeft}>
-                {side === 'bride' ? content.couple.brideFirst[0] : content.couple.groomFirst[0]}
-              </span>
-              <span className={styles.monoAmp}>&</span>
-              <span className={styles.monoRight}>
-                {side === 'bride' ? content.couple.groomFirst[0] : content.couple.brideFirst[0]}
-              </span>
-            </span>
+            {side === 'bride' ? content.couple.brideFirst[0] : content.couple.groomFirst[0]}
+            {' '}<span className={styles.amp}>&</span>{' '}
+            {side === 'bride' ? content.couple.groomFirst[0] : content.couple.brideFirst[0]}
           </a>
 
           <ul className={styles.desktopLinks}>
