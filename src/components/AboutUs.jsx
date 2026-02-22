@@ -65,6 +65,9 @@ export default function AboutUs() {
               <ScrollReveal delay={0.1}>
                 <div className={styles.row}>
                   <div className={`${styles.card} ${styles.leftCard}`}>
+                    <div className={styles.photoFrame}>
+                      <img src={first.photo} alt={first.name} className={styles.photo} />
+                    </div>
                     <span className={styles.label}>{firstLabel}</span>
                     <h3 className={styles.name}>{first.name}</h3>
                     <p className={styles.hometown}>
@@ -82,6 +85,9 @@ export default function AboutUs() {
                   </div>
 
                   <div className={`${styles.card} ${styles.rightCard}`}>
+                    <div className={styles.photoFrame}>
+                      <img src={second.photo} alt={second.name} className={styles.photo} />
+                    </div>
                     <span className={styles.label}>{secondLabel}</span>
                     <h3 className={styles.name}>{second.name}</h3>
                     <p className={styles.hometown}>

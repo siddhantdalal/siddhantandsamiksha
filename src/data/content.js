@@ -24,11 +24,13 @@ export const content = {
     subheading: 'The two hearts behind this love story',
     groom: {
       name: 'Siddhant Dalal',
+      photo: '/images/about/siddhant.jpg',
       hometown: 'Nagpur',
       bio: 'Born in Nagpur, now calling Pune home — Siddhant is a Software Developer by day and a biker by night. A big-time bike tourer with an endless love for the open road, he believes the best conversations happen at 100 km/h with the wind in your face.',
     },
     bride: {
       name: 'Samiksha Patil',
+      photo: '/images/about/samiksha.jpg',
       hometown: 'Mumbai',
       bio: 'Born and brought up in the city of dreams, Samiksha is a corporate HR professional by day, and a person who knows how to handle things — be it personal or professional. With a heart as warm as her smile, she brings grace and strength to everything she touches.',
     },
