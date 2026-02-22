@@ -33,8 +33,8 @@ export const content = {
         description: 'Coffee turned into dinner, dinner turned into hours of conversation, and hours turned into a connection that would last a lifetime.',
       },
       {
-        title: 'Adventures Together',
-        description: 'From spontaneous road trips to quiet evenings at home — every moment together became a treasured memory.',
+        title: 'Becoming Each Other\'s Person',
+        description: 'Somewhere between the late-night calls and the comfortable silences, we stopped being two separate lives — and became each other\'s home.',
       },
       {
         title: 'The Proposal',
