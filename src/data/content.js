@@ -37,8 +37,8 @@ export const content = {
         description: 'Somewhere between the late-night calls and the comfortable silences, we stopped being two separate lives — and became each other\'s home.',
       },
       {
-        title: 'The Proposal',
-        description: 'Under a sky full of stars, one question changed two lives forever. She said yes, and the rest is history.',
+        title: 'The Realisation',
+        description: 'Every prayer whispered, every wish made on 11:11 — it was always leading here. The pieces of the puzzle finally fell into place, just as we always manifested. We knew this was forever.',
       },
       {
         title: 'Forever Begins',
