@@ -53,10 +53,10 @@ export const content = {
 
   engagement: {
     heading: 'Engagement Ceremony',
-    date: 'Written in the stars, revealed soon',
+    date: 'First week of May 2026',
     time: 'Stay tuned for the moment',
-    venue: 'A place as special as this day',
-    address: 'Details coming soon',
+    venue: 'Somewhere magical in Mumbai',
+    address: 'Exact venue to be revealed soon',
     mapEmbed: '', // paste Google Maps embed URL here
   },
 
