@@ -1,5 +1,6 @@
 import { SideProvider } from './context/SideContext';
 import SideSelector from './components/SideSelector';
+import SideToggle from './components/SideToggle';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import OurStory from './components/OurStory';
@@ -20,6 +21,7 @@ export default function App() {
   return (
     <SideProvider>
       <SideSelector />
+      <SideToggle />
       <Particles />
       <FilmGrain />
       <Navbar />
