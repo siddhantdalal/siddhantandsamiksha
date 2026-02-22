@@ -19,6 +19,22 @@ export const content = {
   // Wedding date — update this to the actual date
   weddingDate: '2026-12-12T10:00:00',
 
+  aboutUs: {
+    heading: 'About Us',
+    subheading: 'The two hearts behind this love story',
+    groom: {
+      name: 'Siddhant Dalal',
+      hometown: 'Nagpur',
+      bio: 'Born in Nagpur, now calling Pune home — Siddhant is a Software Developer by day and a biker by night. A big-time bike tourer with an endless love for the open road, he believes the best conversations happen at 100 km/h with the wind in your face.',
+    },
+    bride: {
+      name: 'Samiksha Patil',
+      hometown: 'Mumbai',
+      bio: 'Born and brought up in the city of dreams, Samiksha is a corporate HR professional by day, and a person who knows how to handle things — be it personal or professional. With a heart as warm as her smile, she brings grace and strength to everything she touches.',
+    },
+    closingLine: 'She\'s been shuffled across every HR department — but even without being on the recruiting team, she still managed to recruit Siddhant for a lifetime. Best hire ever.',
+  },
+
   ourStory: {
     heading: 'Our Story',
     text: `Some love stories are written in the stars — ours was written in stolen glances and late-night conversations. What started as a simple hello turned into a lifetime of laughter, adventure, and an unshakable bond. We found in each other a best friend, a confidant, and a love that feels like coming home. Now, we're ready to begin our forever — and we want you there to celebrate with us.`,

@@ -1,0 +1,201 @@
+/* Prompt & toggle */
+.prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.promptText {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  font-style: italic;
+  text-align: center;
+  max-width: 420px;
+}
+
+.toggleBtn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.toggleBtn:hover {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-gold);
+  transform: scale(1.06);
+}
+
+.chevron {
+  color: var(--color-gold);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toggleOpen .chevron {
+  transform: rotate(180deg);
+}
+
+/* About layout */
+.aboutWrapper {
+  will-change: height;
+}
+
+.aboutInner {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+.line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--color-gold), transparent);
+  transform: translateX(-50%);
+}
+
+.row {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  position: relative;
+}
+
+.dotCenter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  border: 2px solid var(--color-bg);
+  box-shadow: 0 0 10px rgba(201, 169, 110, 0.4);
+}
+
+.card {
+  flex: 1;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--space-2xl);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-gold);
+}
+
+.groomCard {
+  text-align: right;
+  margin-right: var(--space-2xl);
+}
+
+.brideCard {
+  text-align: left;
+  margin-left: var(--space-2xl);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-gold);
+  font-weight: 500;
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--color-text);
+  margin: var(--space-sm) 0;
+}
+
+.hometown {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.groomCard .hometown {
+  justify-content: flex-end;
+}
+
+.brideCard .hometown {
+  justify-content: flex-start;
+}
+
+.hometown svg {
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.bio {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.closingLine {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--color-gold);
+  text-align: center;
+  font-style: italic;
+  margin-top: var(--space-3xl);
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .line {
+    display: none;
+  }
+
+  .dotCenter {
+    display: none;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .groomCard,
+  .brideCard {
+    text-align: center;
+    margin: 0;
+  }
+
+  .groomCard .hometown,
+  .brideCard .hometown {
+    justify-content: center;
+  }
+}

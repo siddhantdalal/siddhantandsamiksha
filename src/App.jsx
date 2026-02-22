@@ -3,6 +3,7 @@ import SideSelector from './components/SideSelector';
 import SideToggle from './components/SideToggle';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import AboutUs from './components/AboutUs';
 import OurStory from './components/OurStory';
 import Timeline from './components/Timeline';
 import EngagementDetails from './components/EngagementDetails';
@@ -27,6 +28,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <AboutUs />
         <OurStory />
         <Timeline />
         <EngagementDetails />
