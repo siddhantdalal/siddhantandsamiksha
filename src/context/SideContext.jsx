@@ -1,13 +1,9 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const SideContext = createContext();
 
 export function SideProvider({ children }) {
-  const [side, setSide] = useState(() => localStorage.getItem('weddingSide') || null);
-
-  useEffect(() => {
-    if (side) localStorage.setItem('weddingSide', side);
-  }, [side]);
+  const [side, setSide] = useState(null);
 
   return (
     <SideContext.Provider value={{ side, setSide }}>
