@@ -118,27 +118,16 @@
   width: 150px;
   height: 190px;
   border-radius: 50%;
-  overflow: hidden;
   margin-bottom: var(--space-lg);
   position: relative;
 }
 
-.photoFrame::before {
+.photoFrame::after {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: -1px;
   border-radius: 50%;
-  padding: 2px;
-  background: linear-gradient(
-    to bottom,
-    var(--color-gold),
-    transparent 40%,
-    transparent 60%,
-    var(--color-gold)
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  background: radial-gradient(ellipse at center, transparent 55%, var(--color-bg-card) 100%);
   z-index: 1;
   pointer-events: none;
 }
