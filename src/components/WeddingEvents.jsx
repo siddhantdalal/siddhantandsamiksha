@@ -19,7 +19,7 @@ export default function WeddingEvents() {
               <div className={styles.meta}>
                 <p>{event.date}</p>
                 <p>{event.time}</p>
-                <p>{event.venue}</p>
+                <p className={event.venue === 'Coming soon' ? styles.golden : ''}>{event.venue}</p>
               </div>
               <p className={styles.desc}>{event.description}</p>
               {event.dressCode && (
