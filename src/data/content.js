@@ -82,7 +82,7 @@ export const content = {
 
   weddingEvents: {
     heading: 'Wedding Celebrations',
-    subheading: 'Five days of love, laughter & togetherness',
+    subheading: 'Four days of love, laughter & togetherness',
     events: [
       {
         name: 'Haldi',
@@ -119,15 +119,6 @@ export const content = {
         description: 'The sacred ceremony where two hearts become one. Pheras under the mandap.',
         dressCode: '',
         icon: '💍',
-      },
-      {
-        name: 'Reception',
-        date: 'An evening to remember',
-        time: 'To be revealed',
-        venue: 'Coming soon',
-        description: 'An evening of dinner, dancing, and celebration with family and friends.',
-        dressCode: '',
-        icon: '✨',
       },
     ],
   },
