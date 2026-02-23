@@ -119,8 +119,10 @@
   height: 285px;
   margin-bottom: var(--space-lg);
   position: relative;
-  -webkit-mask-image: radial-gradient(ellipse 50% 50% at center, black 40%, transparent 70%);
-  mask-image: radial-gradient(ellipse 50% 50% at center, black 40%, transparent 70%);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  -webkit-mask-image: radial-gradient(ellipse 75% 75% at center, black 60%, transparent 100%);
+  mask-image: radial-gradient(ellipse 75% 75% at center, black 60%, transparent 100%);
 }
 
 .leftCard .photoFrame {
