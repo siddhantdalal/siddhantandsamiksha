@@ -198,7 +198,7 @@ export const content = {
         {
           name: 'Sohel & Aashish',
           photo: `${base}images/groomsmen/sohel-aashish.jpg`,
-          description: 'The Laughmaker & The Anchor',
+          description: 'The Wolfpack Members',
         },
         {
           name: 'Sai',
