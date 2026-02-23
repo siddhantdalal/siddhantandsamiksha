@@ -72,11 +72,11 @@ export default function Hero() {
         </div>
 
         <a
-          href="#rsvp"
+          href="#events"
           className={styles.cta}
           onClick={(e) => {
             e.preventDefault();
-            document.querySelector('#rsvp')?.scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('#events')?.scrollIntoView({ behavior: 'smooth' });
           }}
         >
           {content.hero.cta}
