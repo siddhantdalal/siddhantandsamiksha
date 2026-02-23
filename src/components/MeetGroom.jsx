@@ -93,19 +93,20 @@ export default function MeetGroom() {
         {lightbox && (
           <motion.div
             className={styles.lightbox}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            animate={{ opacity: 1, backdropFilter: 'blur(8px)' }}
+            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             onClick={() => setLightbox(null)}
           >
             <motion.img
               src={lightbox.src}
               alt={lightbox.alt}
               className={styles.lightboxImg}
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              initial={{ scale: 0.6, opacity: 0, rotate: -2, y: 40 }}
+              animate={{ scale: 1, opacity: 1, rotate: 0, y: 0 }}
+              exit={{ scale: 0.6, opacity: 0, rotate: 2, y: 40 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             />
           </motion.div>
         )}
