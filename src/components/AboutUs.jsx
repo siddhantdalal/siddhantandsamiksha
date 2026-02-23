@@ -16,7 +16,7 @@ export default function AboutUs() {
   const secondLabel = side === 'bride' ? 'The Groom' : 'The Bride';
 
   return (
-    <section className="section">
+    <section id="about-us" className="section">
       <ScrollReveal>
         <h2 className="section-heading">{content.aboutUs.heading}</h2>
         <p className="section-subheading">{content.aboutUs.subheading}</p>
@@ -103,7 +103,7 @@ export default function AboutUs() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.3}>
-                <p className={styles.closingLine}>{content.aboutUs.closingLine}</p>
+                <p className={styles.closingLine}>She's been shuffled across every HR department — but even without being on the recruiting team, she still managed to recruit Siddhant for a lifetime.<br /><strong>Best hire ever.</strong></p>
               </ScrollReveal>
             </div>
           </motion.div>

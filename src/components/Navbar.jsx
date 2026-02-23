@@ -20,6 +20,13 @@ export default function Navbar() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const getLabel = (item) => {
+    if (item.sideAware) {
+      return side === 'bride' ? 'Meet the Groom' : 'Meet the Bride';
+    }
+    return item.label;
+  };
+
   return (
     <>
       <nav className={styles.nav}>
@@ -34,7 +41,7 @@ export default function Navbar() {
             {content.nav.map((item) => (
               <li key={item.href}>
                 <a href={item.href} onClick={(e) => handleClick(e, item.href)}>
-                  {item.label}
+                  {getLabel(item)}
                 </a>
               </li>
             ))}
@@ -59,7 +66,7 @@ export default function Navbar() {
           {content.nav.map((item) => (
             <li key={item.href}>
               <a href={item.href} onClick={(e) => handleClick(e, item.href)}>
-                {item.label}
+                {getLabel(item)}
               </a>
             </li>
           ))}

@@ -216,7 +216,7 @@ export const content = {
           description: 'The Home Away From Home',
         },
         {
-          name: 'Fenil & Vandan',
+          name: 'Vandan & Fenil',
           photo: `${base}images/groomsmen/london-2.jpg`,
           description: 'The Home Away From Home',
         },
@@ -304,9 +304,10 @@ export const content = {
 
   nav: [
     { label: 'Home', href: '#hero' },
-    { label: 'Our Story', href: '#our-story' },
+    { label: 'About Us', href: '#about-us' },
+    { label: 'Our Journey', href: '#our-journey' },
     { label: 'Events', href: '#events' },
-    { label: 'Gallery', href: '#gallery' },
+    { label: 'Meet', href: '#meet', sideAware: true },
     { label: 'RSVP', href: '#rsvp' },
   ],
 };

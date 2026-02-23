@@ -84,6 +84,11 @@
   margin-bottom: var(--space-2xl);
 }
 
+.golden {
+  color: var(--color-gold);
+  font-weight: 500;
+}
+
 .countdown {
   display: flex;
   gap: var(--space-xl);

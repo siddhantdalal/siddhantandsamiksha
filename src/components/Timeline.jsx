@@ -8,7 +8,7 @@ export default function Timeline() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="section">
+    <section id="our-journey" className="section">
       <ScrollReveal>
         <h2 className="section-heading">{content.timeline.heading}</h2>
         <p className="section-subheading">{content.timeline.subheading}</p>

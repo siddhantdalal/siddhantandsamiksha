@@ -55,7 +55,7 @@ export default function Hero() {
 
         {welcomeMsg && <p className={styles.welcome}>{welcomeMsg}</p>}
 
-        <p className={styles.date}>{content.hero.date}</p>
+        <p className={styles.date}>A beautiful beginning, <span className={styles.golden}>coming soon</span></p>
 
         <div className={styles.countdown}>
           {[

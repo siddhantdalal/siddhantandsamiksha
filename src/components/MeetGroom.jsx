@@ -24,7 +24,7 @@ export default function MeetGroom() {
   }
 
   return (
-    <section id="gallery" className="section">
+    <section id="meet" className="section">
       <ScrollReveal>
         <h2 className="section-heading">{data.heading}</h2>
         <p className="section-subheading">{data.subheading}</p>
