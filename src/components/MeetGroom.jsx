@@ -7,6 +7,7 @@ import styles from './MeetGroom.module.css';
 
 export default function MeetGroom() {
   const [open, setOpen] = useState(false);
+  const [crewOpen, setCrewOpen] = useState(false);
   const [lightbox, setLightbox] = useState(null);
   const { side } = useSide();
 
@@ -90,6 +91,60 @@ export default function MeetGroom() {
                 </ScrollReveal>
               ))}
             </div>
+
+            {data.groomsmen && (
+              <ScrollReveal>
+                <div className={styles.crewSection}>
+                  <h3 className={styles.crewHeading}>{data.groomsmen.heading}</h3>
+                  <p className={styles.crewSubtext}>{data.groomsmen.promptText}</p>
+                  <button
+                    className={`${styles.toggleBtn} ${styles.crewToggle} ${crewOpen ? styles.toggleOpen : ''}`}
+                    onClick={() => setCrewOpen(!crewOpen)}
+                    aria-label={crewOpen ? 'Collapse crew' : 'Expand crew'}
+                  >
+                    <svg
+                      className={styles.chevron}
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </button>
+
+                  <AnimatePresence>
+                    {crewOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ overflow: 'hidden' }}
+                      >
+                        <div className={styles.crewGrid}>
+                          {data.groomsmen.members.map((member, i) => (
+                            <ScrollReveal key={i} delay={i * 0.08}>
+                              <div className={styles.crewCard}>
+                                <div className={styles.crewPhotoFrame} onClick={() => setLightbox({ src: member.photo, alt: member.name })}>
+                                  <img src={member.photo} alt={member.name} className={styles.crewPhoto} />
+                                </div>
+                                <h4 className={styles.crewName}>{member.name}</h4>
+                                <p className={styles.crewDesc}>{member.description}</p>
+                              </div>
+                            </ScrollReveal>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </ScrollReveal>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

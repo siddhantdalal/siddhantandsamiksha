@@ -191,6 +191,37 @@ export const content = {
         icon: '🏍️',
       },
     ],
+    groomsmen: {
+      heading: 'Meet the Groomsmen',
+      promptText: 'The brothers who\'ve had his back through every chapter — now standing beside him on the biggest day of his life.',
+      members: [
+        {
+          name: 'Sohel & Aashish',
+          photo: `${base}images/groomsmen/sohel-aashish.jpg`,
+          description: 'Sohel, the one who\'ll make you laugh even in the most serious situations — and Aashish, the one who stays even at the lowest. Together, they\'re the perfect balance of light and strength.',
+        },
+        {
+          name: 'Sai',
+          photo: `${base}images/groomsmen/sai.jpg`,
+          description: 'A fellow biker who shares Siddhant\'s love for the open road — and one of the closest souls to talk to when life gets real.',
+        },
+        {
+          name: 'Aditya',
+          photo: `${base}images/groomsmen/aditya.jpg`,
+          description: 'One of the oldest, but one of the best friends to ever have by your side. Late night rides, midnight food cravings — all done together over the years.',
+        },
+        {
+          name: 'The London Crew',
+          photo: `${base}images/groomsmen/london-1.jpg`,
+          description: 'Manan, Vandan, Fenil & Rushabh — the ones who made London feel like home away from home. Manan, the clubbing enthusiast who kept the nights alive, and Vandan, the perfect partner for late night walks and spontaneous trips.',
+        },
+        {
+          name: 'The London Crew',
+          photo: `${base}images/groomsmen/london-2.jpg`,
+          description: 'Rushabh, the caring soul who\'s secretly a crybaby at heart, and Fenil, the allrounder who fits perfectly into every plan. Together, they turned a distant city into a lifetime of memories.',
+        },
+      ],
+    },
   },
 
   meetBride: {
