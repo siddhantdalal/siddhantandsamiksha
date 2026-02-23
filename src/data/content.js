@@ -158,17 +158,38 @@ export const content = {
     },
   },
 
-  gallery: {
-    heading: 'Our Moments',
-    subheading: 'A glimpse into our journey together',
-    // Add your image paths here — drop images into public/images/gallery/
-    images: [
-      { src: `${base}images/gallery/photo-1.jpg`, alt: 'Together' },
-      { src: `${base}images/gallery/photo-2.jpg`, alt: 'Adventure' },
-      { src: `${base}images/gallery/photo-3.jpg`, alt: 'Laughter' },
-      { src: `${base}images/gallery/photo-4.jpg`, alt: 'Love' },
-      { src: `${base}images/gallery/photo-5.jpg`, alt: 'Joy' },
-      { src: `${base}images/gallery/photo-6.jpg`, alt: 'Forever' },
+  meetGroom: {
+    heading: 'Meet the Groom',
+    subheading: 'The man who stole her heart',
+    promptText: 'Curious about the one who swept her off her feet? Take a sneak peek into his world.',
+    photos: [
+      { src: `${base}images/about/siddhant.jpg`, alt: 'Siddhant' },
+      { src: `${base}images/groom/photo-2.jpg`, alt: 'Siddhant' },
+      { src: `${base}images/groom/photo-3.jpg`, alt: 'Siddhant' },
+      { src: `${base}images/groom/photo-4.jpg`, alt: 'Siddhant' },
+      { src: `${base}images/groom/photo-5.jpg`, alt: 'Siddhant' },
+    ],
+    details: [
+      {
+        title: 'Roots',
+        text: 'Born in Umred, a small town near Nagpur, and brought up in the heart of Nagpur — the city that shaped who he is today.',
+        icon: '🏡',
+      },
+      {
+        title: 'The Scholar',
+        text: 'Completed his graduation in BCA, then packed his bags and moved to the UK for 5 years to pursue his Masters in MSc Network Management & Cloud Computing.',
+        icon: '🎓',
+      },
+      {
+        title: 'The Professional',
+        text: 'Worked in the UK for 3.5 years, gaining invaluable experience, and is now back in India building his career forward.',
+        icon: '💼',
+      },
+      {
+        title: 'The Explorer',
+        text: 'A soul that thrives on exploring new places, cooking up a storm in the kitchen, and most of all — bike touring across the open roads.',
+        icon: '🏍️',
+      },
     ],
   },
 

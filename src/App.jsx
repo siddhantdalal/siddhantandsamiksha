@@ -10,7 +10,7 @@ import EngagementDetails from './components/EngagementDetails';
 import WeddingEvents from './components/WeddingEvents';
 import EventSchedule from './components/EventSchedule';
 import Reception from './components/Reception';
-import Gallery from './components/Gallery';
+import MeetGroom from './components/MeetGroom';
 import RSVP from './components/RSVP';
 
 import Hashtag from './components/Hashtag';
@@ -35,7 +35,7 @@ export default function App() {
         <WeddingEvents />
         <EventSchedule />
         <Reception />
-        <Gallery />
+        <MeetGroom />
         <RSVP />
         <Hashtag />
       </main>
