@@ -193,6 +193,41 @@ export const content = {
     ],
   },
 
+  meetBride: {
+    heading: 'Meet the Bride',
+    subheading: 'The woman who made his world complete',
+    promptText: 'Curious about the one who captured his heart? Here\'s a glimpse into her beautiful world.',
+    photos: [
+      { src: `${base}images/about/samiksha.jpg`, alt: 'Samiksha' },
+      { src: `${base}images/bride/photo-2.jpg`, alt: 'Samiksha' },
+      { src: `${base}images/bride/photo-3.jpg`, alt: 'Samiksha' },
+      { src: `${base}images/bride/photo-4.jpg`, alt: 'Samiksha' },
+      { src: `${base}images/bride/photo-5.jpg`, alt: 'Samiksha' },
+    ],
+    details: [
+      {
+        title: 'Roots',
+        text: 'Born and brought up in the city of dreams — Mumbai. A true Mumbaikar at heart, shaped by the energy and spirit of the city.',
+        icon: '🏡',
+      },
+      {
+        title: 'The Scholar',
+        text: 'Completed her Bachelor of Commerce followed by an MBA in Human Resource Management & Services — building a strong foundation for the leader she was becoming.',
+        icon: '🎓',
+      },
+      {
+        title: 'The Professional',
+        text: 'Working in Mumbai\'s corporate world in the HR Department, she found her calling in understanding and managing people.',
+        icon: '💼',
+      },
+      {
+        title: 'The People Person',
+        text: 'She has no match when it comes to connecting with people. Always curious, always eager to learn and try something new — she makes everyone around her feel seen and valued.',
+        icon: '✨',
+      },
+    ],
+  },
+
   rsvp: {
     heading: 'RSVP',
     subheading: 'We would be honored by your presence',

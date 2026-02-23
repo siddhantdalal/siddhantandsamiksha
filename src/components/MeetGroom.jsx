@@ -1,14 +1,19 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { content } from '../data/content';
+import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
 import styles from './MeetGroom.module.css';
 
 export default function MeetGroom() {
   const [open, setOpen] = useState(false);
   const [lightbox, setLightbox] = useState(null);
+  const { side } = useSide();
 
-  const { photos, details } = content.meetGroom;
+  // Bride's side sees the groom, groom's side sees the bride
+  const data = side === 'bride' ? content.meetGroom : content.meetBride;
+
+  const { photos, details } = data;
 
   // Interleave: photo, detail, photo, detail, ..., photo
   const items = [];
@@ -20,13 +25,13 @@ export default function MeetGroom() {
   return (
     <section id="gallery" className="section">
       <ScrollReveal>
-        <h2 className="section-heading">{content.meetGroom.heading}</h2>
-        <p className="section-subheading">{content.meetGroom.subheading}</p>
+        <h2 className="section-heading">{data.heading}</h2>
+        <p className="section-subheading">{data.subheading}</p>
       </ScrollReveal>
 
       <ScrollReveal>
         <div className={styles.prompt}>
-          <p className={styles.promptText}>{content.meetGroom.promptText}</p>
+          <p className={styles.promptText}>{data.promptText}</p>
           <button
             className={`${styles.toggleBtn} ${open ? styles.toggleOpen : ''}`}
             onClick={() => setOpen(!open)}
