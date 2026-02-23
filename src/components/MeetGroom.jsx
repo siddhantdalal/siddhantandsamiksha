@@ -6,6 +6,7 @@ import styles from './MeetGroom.module.css';
 
 export default function MeetGroom() {
   const [open, setOpen] = useState(false);
+  const [lightbox, setLightbox] = useState(null);
 
   const { photos, details } = content.meetGroom;
 
@@ -65,7 +66,7 @@ export default function MeetGroom() {
                   {item.type === 'photo' ? (
                     <div className={`${styles.block} ${item.index % 2 === 0 ? styles.left : styles.right}`}>
                       <div className={styles.dot} />
-                      <div className={styles.photoCard}>
+                      <div className={styles.photoCard} onClick={() => setLightbox(item.data)}>
                         <div className={styles.photoFrame}>
                           <img src={item.data.src} alt={item.data.alt} className={styles.photo} />
                         </div>
@@ -84,6 +85,28 @@ export default function MeetGroom() {
                 </ScrollReveal>
               ))}
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            className={styles.lightbox}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setLightbox(null)}
+          >
+            <motion.img
+              src={lightbox.src}
+              alt={lightbox.alt}
+              className={styles.lightboxImg}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            />
           </motion.div>
         )}
       </AnimatePresence>

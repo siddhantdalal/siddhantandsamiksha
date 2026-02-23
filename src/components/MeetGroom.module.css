@@ -105,6 +105,7 @@
 .photoCard {
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .left .photoCard {
@@ -172,6 +173,26 @@
   color: var(--color-text-muted);
   line-height: 1.7;
   font-weight: 300;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  cursor: pointer;
+}
+
+.lightboxImg {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--border-radius);
 }
 
 @media (max-width: 768px) {
