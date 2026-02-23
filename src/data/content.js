@@ -211,12 +211,12 @@ export const content = {
           description: 'The OG',
         },
         {
-          name: 'The London Crew',
+          name: 'Rushabh & Manan',
           photo: `${base}images/groomsmen/london-1.jpg`,
           description: 'The Home Away From Home',
         },
         {
-          name: 'The London Crew',
+          name: 'Fenil & Vandan',
           photo: `${base}images/groomsmen/london-2.jpg`,
           description: 'The Home Away From Home',
         },
