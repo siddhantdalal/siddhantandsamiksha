@@ -54,7 +54,7 @@ export const content = {
       },
       {
         title: 'The First Date',
-        description: 'Coffee turned into dinner, dinner turned into hours of conversation, and hours turned into a connection that would last a lifetime.',
+        description: 'A dinner that turned into hours of conversation, a drive back that turned into a speeding ticket — and a memory that still makes us laugh. Who knew love could come with a fine?',
       },
       {
         title: 'Becoming Each Other\'s Person',
@@ -73,7 +73,7 @@ export const content = {
 
   engagement: {
     heading: 'Engagement Ceremony',
-    date: '1st May 2026',
+    date: '01 May 2026',
     countdownDate: '2026-05-01T10:00:00',
     time: 'Stay tuned for the moment',
     venue: 'Somewhere magical in Mumbai',
@@ -230,7 +230,7 @@ export const content = {
     subheading: 'The woman who made his world complete',
     promptText: 'Curious about the one who captured his heart? Here\'s a glimpse into her beautiful world.',
     photos: [
-      { src: `${base}images/about/samiksha.jpg`, alt: 'Samiksha' },
+      { src: `${base}images/bride/photo-1.jpg`, alt: 'Samiksha' },
       { src: `${base}images/bride/photo-2.jpg`, alt: 'Samiksha' },
       { src: `${base}images/bride/photo-3.jpg`, alt: 'Samiksha' },
       { src: `${base}images/bride/photo-4.jpg`, alt: 'Samiksha' },
@@ -266,6 +266,11 @@ export const content = {
           name: 'Tanvi',
           photo: `${base}images/bridesmaids/tanvi.jpg`,
           description: 'Solace — the quiet comfort she turns to without words. The gentle place that gathers her back together.',
+        },
+        {
+          name: 'Vibha',
+          photo: `${base}images/bridesmaids/vibha.jpg`,
+          description: 'North Star — the steady light that guides her home, no matter how dark the night.',
         },
         {
           name: 'Priya',

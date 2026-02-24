@@ -40,7 +40,7 @@
 }
 
 .value {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--text-lg);
   color: var(--color-text);
 }
@@ -52,12 +52,20 @@
   margin-top: var(--space-xs);
 }
 
+.sinceLabel {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--color-gold);
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-sm);
+}
+
 .countdownMsg {
   font-family: var(--font-serif);
   font-size: var(--text-base);
   color: var(--color-text-muted);
   font-style: italic;
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-sm);
   margin-bottom: var(--space-lg);
 }
 

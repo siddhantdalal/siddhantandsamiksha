@@ -7,12 +7,14 @@ import styles from './EngagementDetails.module.css';
 function useCountdown(targetDate) {
   const calc = () => {
     const diff = new Date(targetDate) - new Date();
-    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    const isPast = diff <= 0;
+    const absDiff = Math.abs(diff);
     return {
-      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((diff / (1000 * 60)) % 60),
-      seconds: Math.floor((diff / 1000) % 60),
+      isPast,
+      days: Math.floor(absDiff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((absDiff / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((absDiff / (1000 * 60)) % 60),
+      seconds: Math.floor((absDiff / 1000) % 60),
     };
   };
 
@@ -28,7 +30,25 @@ function useCountdown(targetDate) {
 
 export default function EngagementDetails() {
   const { engagement } = content;
-  const { days, hours, minutes, seconds } = useCountdown(engagement.countdownDate);
+  const { isPast, days, hours, minutes, seconds } = useCountdown(engagement.countdownDate);
+
+  const countdownMsg = isPast
+    ? 'And just like that, forever found its beginning.'
+    : 'Every second brings us closer to forever';
+
+  const countdownLabels = isPast
+    ? [
+        { value: days, label: 'Days' },
+        { value: hours, label: 'Hours' },
+        { value: minutes, label: 'Minutes' },
+        { value: seconds, label: 'Seconds' },
+      ]
+    : [
+        { value: days, label: 'Days' },
+        { value: hours, label: 'Hours' },
+        { value: minutes, label: 'Minutes' },
+        { value: seconds, label: 'Seconds' },
+      ];
 
   return (
     <section className="section">
@@ -63,14 +83,12 @@ export default function EngagementDetails() {
             </div>
           </div>
 
-          <p className={styles.countdownMsg}>Every second brings us closer to forever</p>
+          {isPast && (
+            <p className={styles.sinceLabel}>Happily engaged for</p>
+          )}
+          <p className={styles.countdownMsg}>{countdownMsg}</p>
           <div className={styles.countdown}>
-            {[
-              { value: days, label: 'Days' },
-              { value: hours, label: 'Hours' },
-              { value: minutes, label: 'Minutes' },
-              { value: seconds, label: 'Seconds' },
-            ].map(({ value, label }) => (
+            {countdownLabels.map(({ value, label }) => (
               <div key={label} className={styles.countUnit}>
                 <span className={styles.countValue}>{String(value).padStart(2, '0')}</span>
                 <span className={styles.countLabel}>{label}</span>
