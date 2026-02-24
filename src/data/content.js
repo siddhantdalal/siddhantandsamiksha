@@ -76,9 +76,9 @@ export const content = {
     date: '01 May 2026',
     countdownDate: '2026-05-01T18:00:00',
     time: '6:00 PM onwards',
-    venue: 'Somewhere magical in Mumbai',
-    address: 'Exact venue to be revealed soon',
-    mapEmbed: '', // paste Google Maps embed URL here
+    venue: 'Mayor Hall, All India Institute of Local Self-Government',
+    address: 'CD Barfiwala Road, Juhu Lane, Andheri West, Mumbai - 400058',
+    mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.688!2d72.8366!3d19.1275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9c676720b1f%3A0x75f29a4abf5a5961!2sAll%20India%20Institute%20of%20Local%20Self%20Government!5e0!3m2!1sen!2sin!4v1',
   },
 
   weddingEvents: {
