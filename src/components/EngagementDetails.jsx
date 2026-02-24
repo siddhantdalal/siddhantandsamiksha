@@ -73,14 +73,14 @@ export default function EngagementDetails() {
               </div>
             </div>
 
-            <div className={styles.detail}>
+            <a href="https://maps.app.goo.gl/p3QeVZEgaZmBDYV4A" target="_blank" rel="noopener noreferrer" className={styles.detail} style={{ textDecoration: 'none', color: 'inherit' }}>
               <span className={styles.icon}><MapPinIcon size={22} /></span>
               <div>
                 <h4 className={styles.label}>Venue</h4>
                 <p className={styles.value}>{engagement.venue}</p>
                 <p className={styles.address}>{engagement.address}</p>
               </div>
-            </div>
+            </a>
           </div>
 
           {isPast && (
