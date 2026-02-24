@@ -62,7 +62,7 @@ export const content = {
       },
       {
         title: 'The Realisation',
-        description: 'Every prayer whispered, every wish made on 11:11 — it was always leading here. The pieces of the puzzle finally fell into place, just as we always manifested. We knew this was forever.',
+        description: 'Every prayer whispered, every quiet hope held close to the heart — it was always leading here. The pieces of the puzzle finally fell into place, just as we always believed they would. We knew this was forever.',
       },
       {
         title: 'Forever Begins',
@@ -86,8 +86,8 @@ export const content = {
     events: [
       {
         name: 'Haldi',
-        date: 'A golden day awaits',
-        time: 'To be revealed',
+        date: 'A golden December morning',
+        time: 'Wrapped in winter warmth',
         venue: 'Coming soon',
         description: 'A vibrant ceremony of turmeric blessings, laughter, and auspicious beginnings.',
         dressCode: '',
@@ -95,8 +95,8 @@ export const content = {
       },
       {
         name: 'Mehendi',
-        date: 'When the time is just right',
-        time: 'To be revealed',
+        date: 'A December afternoon to cherish',
+        time: 'When henna meets the heart',
         venue: 'Coming soon',
         description: 'Intricate henna designs, music, and an afternoon filled with joy and tradition.',
         dressCode: '',
@@ -104,8 +104,8 @@ export const content = {
       },
       {
         name: 'Sangeet',
-        date: 'A night worth waiting for',
-        time: 'To be revealed',
+        date: 'A magical December evening',
+        time: 'Under the winter sky',
         venue: 'Coming soon',
         description: 'A night of dance, music, and celebration. Come ready to move!',
         dressCode: '',
@@ -113,8 +113,8 @@ export const content = {
       },
       {
         name: 'Wedding',
-        date: 'The day we\'ve dreamed of',
-        time: 'To be revealed',
+        date: 'A December day we\'ve dreamed of',
+        time: 'When forever begins',
         venue: 'Coming soon',
         description: 'The sacred ceremony where two hearts become one. Pheras under the mandap.',
         dressCode: '',
@@ -143,16 +143,16 @@ export const content = {
     groom: {
       city: 'Nagpur',
       venue: 'A stunning venue in the heart of Nagpur — to be revealed soon',
-      date: 'An evening worth the wait',
-      time: 'To be revealed',
+      date: 'A warm December evening in Nagpur',
+      time: 'When the celebrations continue',
       description: 'Join us for an unforgettable evening of celebration as we toast to new beginnings with the groom\'s loved ones.',
       dressCode: 'To be announced',
     },
     bride: {
       city: 'Kolhapur',
       venue: 'A beautiful celebration in Kolhapur — to be revealed soon',
-      date: 'An evening worth the wait',
-      time: 'To be revealed',
+      date: 'A heartfelt December evening in Kolhapur',
+      time: 'When love fills the room',
       description: 'An evening filled with warmth, laughter and love as we celebrate with the bride\'s nearest and dearest.',
       dressCode: 'To be announced',
     },
