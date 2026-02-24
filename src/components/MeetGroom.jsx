@@ -48,14 +48,15 @@ export default function MeetGroom() {
             onClick={() => setOpen(!open)}
             aria-label={open ? 'Collapse' : 'Expand'}
           >
+            <span className={styles.toggleLabel}>{open ? 'Close' : 'Reveal'}</span>
             <svg
               className={styles.chevron}
-              width="36"
-              height="36"
+              width="18"
+              height="18"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.5"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
             >
@@ -112,14 +113,15 @@ export default function MeetGroom() {
                     onClick={() => setCrewOpen(!crewOpen)}
                     aria-label={crewOpen ? 'Collapse crew' : 'Expand crew'}
                   >
+                    <span className={styles.toggleLabel}>{crewOpen ? 'Close' : 'Meet Them'}</span>
                     <svg
                       className={styles.chevron}
-                      width="30"
-                      height="30"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      strokeWidth="1.5"
+                      strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     >

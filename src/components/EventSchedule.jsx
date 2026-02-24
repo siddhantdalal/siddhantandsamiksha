@@ -35,14 +35,15 @@ export default function EventSchedule() {
             onClick={() => setOpen(!open)}
             aria-label={open ? 'Collapse schedule' : 'Expand schedule'}
           >
+            <span className={styles.toggleLabel}>{open ? 'Close' : 'View Schedule'}</span>
             <svg
               className={styles.chevron}
-              width="36"
-              height="36"
+              width="18"
+              height="18"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.5"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
             >

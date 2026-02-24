@@ -197,7 +197,7 @@ export const content = {
       promptText: 'The brothers who\'ve had his back through every chapter — now standing beside him on the biggest day of his life.',
       members: [
         {
-          name: 'Sohel & Aashish',
+          name: 'Aashish & Sohel',
           photo: `${base}images/groomsmen/sohel-aashish.jpg`,
           description: 'The Wolfpack Members',
         },

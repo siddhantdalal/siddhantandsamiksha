@@ -17,34 +17,38 @@
 }
 
 .toggleBtn {
-  background: none;
-  border: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: 999px;
+  border: 1px solid var(--color-gold);
+  background: transparent;
   cursor: pointer;
-  padding: var(--space-sm);
-  animation: bounce 2s ease-in-out infinite;
+  transition: all var(--transition-base);
 }
 
-.toggleOpen .toggleBtn,
 .toggleBtn:hover {
-  animation: none;
+  background: rgba(201, 169, 110, 0.1);
+  box-shadow: var(--shadow-gold);
+}
+
+.toggleLabel {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
 }
 
 .chevron {
   color: var(--color-gold);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: drop-shadow(0 0 6px rgba(201, 169, 110, 0.4));
 }
 
 .toggleOpen .chevron {
   transform: rotate(180deg);
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
 }
 
 /* Timeline */

@@ -24,14 +24,15 @@ export default function Timeline() {
             onClick={() => setOpen(!open)}
             aria-label={open ? 'Collapse journey' : 'Expand journey'}
           >
+            <span className={styles.toggleLabel}>{open ? 'Close' : 'Explore'}</span>
             <svg
               className={styles.chevron}
-              width="36"
-              height="36"
+              width="18"
+              height="18"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.5"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
             >
