@@ -24,6 +24,7 @@ export default function MeetGroom() {
   const data = side === 'bride' ? content.meetGroom : content.meetBride;
 
   const { photos, details } = data;
+  const crew = data.groomsmen || data.bridesmaids;
 
   // Interleave: photo, detail, photo, detail, ..., photo
   const items = [];
@@ -101,11 +102,11 @@ export default function MeetGroom() {
               ))}
             </div>
 
-            {data.groomsmen && (
+            {crew && (
               <ScrollReveal>
                 <div className={styles.crewSection}>
-                  <h3 className={styles.crewHeading}>{data.groomsmen.heading}</h3>
-                  <p className={styles.crewSubtext}>{data.groomsmen.promptText}</p>
+                  <h3 className={styles.crewHeading}>{crew.heading}</h3>
+                  <p className={styles.crewSubtext}>{crew.promptText}</p>
                   <button
                     className={`${styles.toggleBtn} ${styles.crewToggle} ${crewOpen ? styles.toggleOpen : ''}`}
                     onClick={() => setCrewOpen(!crewOpen)}
@@ -136,7 +137,7 @@ export default function MeetGroom() {
                         style={{ overflow: 'hidden' }}
                       >
                         <div className={styles.crewGrid}>
-                          {data.groomsmen.members.map((member, i) => (
+                          {crew.members.map((member, i) => (
                             <ScrollReveal key={i} delay={i * 0.08}>
                               <div className={styles.crewCard}>
                                 <div className={styles.crewPhotoFrame} onClick={() => setLightbox({ src: member.photo, alt: member.name })}>

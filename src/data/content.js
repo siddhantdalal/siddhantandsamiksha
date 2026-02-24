@@ -257,6 +257,27 @@ export const content = {
         icon: '✨',
       },
     ],
+    bridesmaids: {
+      heading: 'Meet the Bridesmaids',
+      promptText: 'The sisters who\'ve held her hand through every chapter — now standing beside her on the most beautiful day of her life.',
+      members: [
+        {
+          name: 'Tanvi',
+          photo: `${base}images/bridesmaids/tanvi.jpg`,
+          description: 'Her Solace — the quiet comfort she turns to without a single word. The gentle soul that gathers her back together, every single time.',
+        },
+        {
+          name: 'Priya',
+          photo: `${base}images/bridesmaids/priya.jpg`,
+          description: 'Serene & Sensible — her calm in the chaos and the clarity in every storm. The one who always knows the right thing to say.',
+        },
+        {
+          name: 'Rasika',
+          photo: `${base}images/bridesmaids/rasika.jpg`,
+          description: 'The Boss Baby — youngest in years, yet the most rooted in love. A little firecracker with the biggest heart.',
+        },
+      ],
+    },
   },
 
   rsvp: {
