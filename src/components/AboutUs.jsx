@@ -22,6 +22,29 @@ export default function AboutUs() {
         <p className="section-subheading">{content.aboutUs.subheading}</p>
       </ScrollReveal>
 
+      <ScrollReveal delay={0.1}>
+        <div className={styles.connectionMap}>
+          <p className={styles.connectionText}>Two cities, one destiny — 800 km apart, yet hearts perfectly aligned.</p>
+          <svg viewBox="0 0 320 90" className={styles.connectionSvg}>
+            {/* Left pin */}
+            <path d="M60 32c0-8 6.5-14.5 14.5-14.5S89 24 89 32c0 10-14.5 22-14.5 22S60 42 60 32z" fill="none" stroke="currentColor" strokeWidth="1.2" />
+            <circle cx="74.5" cy="31" r="4" fill="none" stroke="currentColor" strokeWidth="1.2" />
+            {/* Curved dotted path */}
+            <path d="M90 36 C130 68, 190 68, 230 36" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.5" />
+            {/* Heart in the middle */}
+            <g transform="translate(160, 46)">
+              <path d="M0-6C0-10 5-12 7.5-8.5 10-12 15-10 15-6 15-1 7.5 6 7.5 6S0-1 0-6z" fill="currentColor" opacity="0.7" transform="translate(-7.5, -3) scale(0.8)" />
+            </g>
+            {/* Right pin */}
+            <path d="M231 32c0-8 6.5-14.5 14.5-14.5S260 24 260 32c0 10-14.5 22-14.5 22S231 42 231 32z" fill="none" stroke="currentColor" strokeWidth="1.2" />
+            <circle cx="245.5" cy="31" r="4" fill="none" stroke="currentColor" strokeWidth="1.2" />
+            {/* City labels */}
+            <text x="74.5" y="72" textAnchor="middle" className={styles.cityLabel}>Mumbai</text>
+            <text x="245.5" y="72" textAnchor="middle" className={styles.cityLabel}>Nagpur</text>
+          </svg>
+        </div>
+      </ScrollReveal>
+
       <ScrollReveal>
         <div className={styles.prompt}>
           <p className={styles.promptText}>
@@ -105,6 +128,7 @@ export default function AboutUs() {
               <ScrollReveal delay={0.3}>
                 <p className={styles.closingLine}>They say HR finds the best talent — well, Samiksha didn't even need a job posting. One look and Siddhant's resume was accepted for a lifetime role.<br /><strong>Best hire ever.</strong></p>
               </ScrollReveal>
+
             </div>
           </motion.div>
         )}
