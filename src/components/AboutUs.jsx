@@ -103,7 +103,7 @@ export default function AboutUs() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.3}>
-                <p className={styles.closingLine}>She's been shuffled across every HR department — but even without being on the recruiting team, she still managed to recruit Siddhant for a lifetime.<br /><strong>Best hire ever.</strong></p>
+                <p className={styles.closingLine}>They say HR finds the best talent — well, Samiksha didn't even need a job posting. One look and Siddhant's resume was accepted for a lifetime role.<br /><strong>Best hire ever.</strong></p>
               </ScrollReveal>
             </div>
           </motion.div>
