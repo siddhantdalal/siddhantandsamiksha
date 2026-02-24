@@ -74,8 +74,8 @@ export const content = {
   engagement: {
     heading: 'Engagement Ceremony',
     date: '01 May 2026',
-    countdownDate: '2026-05-01T10:00:00',
-    time: 'Stay tuned for the moment',
+    countdownDate: '2026-05-01T18:00:00',
+    time: '6:00 PM onwards',
     venue: 'Somewhere magical in Mumbai',
     address: 'Exact venue to be revealed soon',
     mapEmbed: '', // paste Google Maps embed URL here
