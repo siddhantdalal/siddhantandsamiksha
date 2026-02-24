@@ -73,7 +73,8 @@ export const content = {
 
   engagement: {
     heading: 'Engagement Ceremony',
-    date: 'First week of May 2026',
+    date: '1st May 2026',
+    countdownDate: '2026-05-01T10:00:00',
     time: 'Stay tuned for the moment',
     venue: 'Somewhere magical in Mumbai',
     address: 'Exact venue to be revealed soon',
@@ -264,17 +265,17 @@ export const content = {
         {
           name: 'Tanvi',
           photo: `${base}images/bridesmaids/tanvi.jpg`,
-          description: 'Her Solace — the quiet comfort she turns to without a single word. The gentle soul that gathers her back together, every single time.',
+          description: 'Solace — the quiet comfort she turns to without words. The gentle place that gathers her back together.',
         },
         {
           name: 'Priya',
           photo: `${base}images/bridesmaids/priya.jpg`,
-          description: 'Serene & Sensible — her calm in the chaos and the clarity in every storm. The one who always knows the right thing to say.',
+          description: 'Serene & Sensible — her calm in the chaos and the clarity in every storm.',
         },
         {
           name: 'Rasika',
           photo: `${base}images/bridesmaids/rasika.jpg`,
-          description: 'The Boss Baby — youngest in years, yet the most rooted in love. A little firecracker with the biggest heart.',
+          description: 'Boss Baby — the youngest in years, yet the most rooted in love.',
         },
       ],
     },

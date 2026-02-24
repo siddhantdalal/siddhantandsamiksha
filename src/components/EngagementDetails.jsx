@@ -1,10 +1,34 @@
+import { useState, useEffect } from 'react';
 import { content } from '../data/content';
 import ScrollReveal from './ScrollReveal';
 import { CalendarIcon, ClockIcon, MapPinIcon } from './Icons';
 import styles from './EngagementDetails.module.css';
 
+function useCountdown(targetDate) {
+  const calc = () => {
+    const diff = new Date(targetDate) - new Date();
+    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    return {
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((diff / (1000 * 60)) % 60),
+      seconds: Math.floor((diff / 1000) % 60),
+    };
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calc);
+
+  useEffect(() => {
+    const id = setInterval(() => setTimeLeft(calc()), 1000);
+    return () => clearInterval(id);
+  }, [targetDate]);
+
+  return timeLeft;
+}
+
 export default function EngagementDetails() {
   const { engagement } = content;
+  const { days, hours, minutes, seconds } = useCountdown(engagement.countdownDate);
 
   return (
     <section className="section">
@@ -37,15 +61,18 @@ export default function EngagementDetails() {
                 <p className={styles.address}>{engagement.address}</p>
               </div>
             </div>
-
-
           </div>
 
           <p className={styles.countdownMsg}>Every second brings us closer to forever</p>
           <div className={styles.countdown}>
-            {['Days', 'Hours', 'Minutes', 'Seconds'].map((label) => (
+            {[
+              { value: days, label: 'Days' },
+              { value: hours, label: 'Hours' },
+              { value: minutes, label: 'Minutes' },
+              { value: seconds, label: 'Seconds' },
+            ].map(({ value, label }) => (
               <div key={label} className={styles.countUnit}>
-                <span className={styles.countValue}>--</span>
+                <span className={styles.countValue}>{String(value).padStart(2, '0')}</span>
                 <span className={styles.countLabel}>{label}</span>
               </div>
             ))}
