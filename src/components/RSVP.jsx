@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { content } from '../data/content';
 import ScrollReveal from './ScrollReveal';
+import { SparkleIcon } from './Icons';
 import styles from './RSVP.module.css';
 
 const initialForm = {
@@ -48,7 +49,7 @@ export default function RSVP() {
       <section id="rsvp" className="section">
         <ScrollReveal>
           <div className={styles.success}>
-            <span className={styles.successIcon}>✨</span>
+            <span className={styles.successIcon}><SparkleIcon size={40} /></span>
             <h2 className="section-heading">Thank You!</h2>
             <p className={styles.successText}>{content.rsvp.successMessage}</p>
           </div>

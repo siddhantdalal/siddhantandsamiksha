@@ -84,10 +84,13 @@
 }
 
 .icon {
-  font-size: 1.5rem;
   flex-shrink: 0;
   width: 36px;
   text-align: center;
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .info {

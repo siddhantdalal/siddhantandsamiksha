@@ -85,15 +85,6 @@ export const content = {
     subheading: 'Four days of love, laughter & togetherness',
     events: [
       {
-        name: 'Haldi',
-        date: 'A golden December morning',
-        time: 'Wrapped in winter warmth',
-        venue: 'Coming soon',
-        description: 'A vibrant ceremony of turmeric blessings, laughter, and auspicious beginnings.',
-        dressCode: '',
-        icon: '☀️',
-      },
-      {
         name: 'Mehendi',
         date: 'A December afternoon to cherish',
         time: 'When henna meets the heart',
@@ -101,6 +92,15 @@ export const content = {
         description: 'Intricate henna designs, music, and an afternoon filled with joy and tradition.',
         dressCode: '',
         icon: '🌿',
+      },
+      {
+        name: 'Haldi',
+        date: 'A golden December morning',
+        time: 'Wrapped in winter warmth',
+        venue: 'Coming soon',
+        description: 'A vibrant ceremony of turmeric blessings, laughter, and auspicious beginnings.',
+        dressCode: '',
+        icon: '☀️',
       },
       {
         name: 'Sangeet',

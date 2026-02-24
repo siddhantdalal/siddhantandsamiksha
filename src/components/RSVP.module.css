@@ -103,9 +103,9 @@
 }
 
 .successIcon {
-  font-size: 3rem;
   display: block;
   margin-bottom: var(--space-lg);
+  color: var(--color-gold);
 }
 
 .successText {

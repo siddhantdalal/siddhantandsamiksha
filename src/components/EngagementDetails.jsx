@@ -1,5 +1,6 @@
 import { content } from '../data/content';
 import ScrollReveal from './ScrollReveal';
+import { CalendarIcon, ClockIcon, MapPinIcon } from './Icons';
 import styles from './EngagementDetails.module.css';
 
 export default function EngagementDetails() {
@@ -13,7 +14,7 @@ export default function EngagementDetails() {
 
           <div className={styles.card}>
             <div className={styles.detail}>
-              <span className={styles.icon}>📅</span>
+              <span className={styles.icon}><CalendarIcon size={22} /></span>
               <div>
                 <h4 className={styles.label}>Date</h4>
                 <p className={styles.value}>{engagement.date}</p>
@@ -21,7 +22,7 @@ export default function EngagementDetails() {
             </div>
 
             <div className={styles.detail}>
-              <span className={styles.icon}>🕕</span>
+              <span className={styles.icon}><ClockIcon size={22} /></span>
               <div>
                 <h4 className={styles.label}>Time</h4>
                 <p className={styles.value}>{engagement.time}</p>
@@ -29,7 +30,7 @@ export default function EngagementDetails() {
             </div>
 
             <div className={styles.detail}>
-              <span className={styles.icon}>📍</span>
+              <span className={styles.icon}><MapPinIcon size={22} /></span>
               <div>
                 <h4 className={styles.label}>Venue</h4>
                 <p className={styles.value}>{engagement.venue}</p>

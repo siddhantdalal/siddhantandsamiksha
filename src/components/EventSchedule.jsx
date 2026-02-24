@@ -2,7 +2,18 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { content } from '../data/content';
 import ScrollReveal from './ScrollReveal';
+import { LotusIcon, PrayerIcon, HorseIcon, GarlandIcon, FlameIcon, FarewellIcon, DiningIcon } from './Icons';
 import styles from './EventSchedule.module.css';
+
+const scheduleIcons = {
+  'Guest Arrival & Seating': <LotusIcon size={22} />,
+  'Ganesh Puja': <PrayerIcon size={22} />,
+  'Baraat Procession': <HorseIcon size={22} />,
+  'Varmala Ceremony': <GarlandIcon size={22} />,
+  'Kanyadaan & Pheras': <FlameIcon size={22} />,
+  'Vidaai': <FarewellIcon size={22} />,
+  'Wedding Lunch': <DiningIcon size={22} />,
+};
 
 export default function EventSchedule() {
   const [open, setOpen] = useState(false);
@@ -56,7 +67,7 @@ export default function EventSchedule() {
                 <ScrollReveal key={i} delay={i * 0.06}>
                   <div className={styles.item}>
                     <div className={styles.dot} />
-                    <span className={styles.icon}>{item.icon}</span>
+                    <span className={styles.icon}>{scheduleIcons[item.event]}</span>
                     <div className={styles.info}>
                       <span className={styles.time}>{item.time}</span>
                       <span className={styles.event}>{item.event}</span>

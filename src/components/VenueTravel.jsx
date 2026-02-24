@@ -1,5 +1,6 @@
 import { content } from '../data/content';
 import ScrollReveal from './ScrollReveal';
+import { PlaneIcon, TrainIcon, ParkingIcon } from './Icons';
 import styles from './VenueTravel.module.css';
 
 export default function VenueTravel() {
@@ -42,15 +43,15 @@ export default function VenueTravel() {
               <h3 className={styles.cardTitle}>Getting Here</h3>
               <div className={styles.travelList}>
                 <div className={styles.travelItem}>
-                  <span className={styles.travelIcon}>✈️</span>
+                  <span className={styles.travelIcon}><PlaneIcon size={20} /></span>
                   <p>{travel.airport}</p>
                 </div>
                 <div className={styles.travelItem}>
-                  <span className={styles.travelIcon}>🚂</span>
+                  <span className={styles.travelIcon}><TrainIcon size={20} /></span>
                   <p>{travel.railway}</p>
                 </div>
                 <div className={styles.travelItem}>
-                  <span className={styles.travelIcon}>🅿️</span>
+                  <span className={styles.travelIcon}><ParkingIcon size={20} /></span>
                   <p>{travel.parking}</p>
                 </div>
               </div>

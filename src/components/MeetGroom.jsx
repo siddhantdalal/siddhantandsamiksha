@@ -3,7 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { content } from '../data/content';
 import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
+import { HomeIcon, GraduationIcon, BriefcaseIcon, BikeIcon, SparkleIcon } from './Icons';
 import styles from './MeetGroom.module.css';
+
+const detailIcons = {
+  'Roots': <HomeIcon size={24} />,
+  'The Scholar': <GraduationIcon size={24} />,
+  'The Professional': <BriefcaseIcon size={24} />,
+  'The Explorer': <BikeIcon size={24} />,
+  'The People Person': <SparkleIcon size={24} />,
+};
 
 export default function MeetGroom() {
   const [open, setOpen] = useState(false);
@@ -82,7 +91,7 @@ export default function MeetGroom() {
                     <div className={`${styles.block} ${item.index % 2 === 0 ? styles.right : styles.left}`}>
                       <div className={styles.dot} />
                       <div className={styles.detailCard}>
-                        <span className={styles.icon}>{item.data.icon}</span>
+                        <span className={styles.icon}>{detailIcons[item.data.title]}</span>
                         <h3 className={styles.detailTitle}>{item.data.title}</h3>
                         <p className={styles.detailText}>{item.data.text}</p>
                       </div>

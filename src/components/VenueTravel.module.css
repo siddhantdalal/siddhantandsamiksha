@@ -88,8 +88,10 @@
 }
 
 .travelIcon {
-  font-size: 1.3rem;
   flex-shrink: 0;
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
 }
 
 .travelItem p {

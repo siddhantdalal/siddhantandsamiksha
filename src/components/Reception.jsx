@@ -1,6 +1,7 @@
 import { content } from '../data/content';
 import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
+import { MapPinIcon, CalendarIcon, ClockIcon } from './Icons';
 import styles from './Reception.module.css';
 
 export default function Reception() {
@@ -22,7 +23,7 @@ export default function Reception() {
 
             <div className={styles.details}>
               <div className={styles.detail}>
-                <span className={styles.icon}>📍</span>
+                <span className={styles.icon}><MapPinIcon size={22} /></span>
                 <div>
                   <h4 className={styles.label}>Venue</h4>
                   <p className={styles.value}>{info.venue}</p>
@@ -30,7 +31,7 @@ export default function Reception() {
               </div>
 
               <div className={styles.detail}>
-                <span className={styles.icon}>📅</span>
+                <span className={styles.icon}><CalendarIcon size={22} /></span>
                 <div>
                   <h4 className={styles.label}>Date</h4>
                   <p className={styles.value}>{info.date}</p>
@@ -38,7 +39,7 @@ export default function Reception() {
               </div>
 
               <div className={styles.detail}>
-                <span className={styles.icon}>🕖</span>
+                <span className={styles.icon}><ClockIcon size={22} /></span>
                 <div>
                   <h4 className={styles.label}>Time</h4>
                   <p className={styles.value}>{info.time}</p>
