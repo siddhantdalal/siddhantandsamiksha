@@ -17,31 +17,34 @@
 }
 
 .toggleBtn {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: 1px solid var(--color-border);
-  background: var(--color-bg-card);
+  background: none;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all var(--transition-base);
+  padding: var(--space-sm);
+  animation: bounce 2s ease-in-out infinite;
 }
 
+.toggleOpen .toggleBtn,
 .toggleBtn:hover {
-  border-color: var(--color-gold);
-  box-shadow: var(--shadow-gold);
-  transform: scale(1.06);
+  animation: none;
 }
 
 .chevron {
   color: var(--color-gold);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 0 6px rgba(201, 169, 110, 0.4));
 }
 
 .toggleOpen .chevron {
   transform: rotate(180deg);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
 
 /* Timeline */

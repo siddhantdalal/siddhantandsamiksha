@@ -50,8 +50,8 @@ export default function MeetGroom() {
           >
             <svg
               className={styles.chevron}
-              width="28"
-              height="28"
+              width="36"
+              height="36"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -114,8 +114,8 @@ export default function MeetGroom() {
                   >
                     <svg
                       className={styles.chevron}
-                      width="24"
-                      height="24"
+                      width="30"
+                      height="30"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"

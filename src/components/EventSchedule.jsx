@@ -37,8 +37,8 @@ export default function EventSchedule() {
           >
             <svg
               className={styles.chevron}
-              width="28"
-              height="28"
+              width="36"
+              height="36"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
