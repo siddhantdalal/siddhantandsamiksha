@@ -5,29 +5,9 @@ import styles from './WeddingEvents.module.css';
 const icons = {
   Mehendi: (
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-      {/* Two hands side by side, both tilted diagonally top-right */}
-      {/* Back hand (slightly behind) */}
-      <g transform="rotate(-20 14 12)">
-        <path d="M16 22v-3c0-.8-.5-1.5-1.2-2S13 15.5 13 14v-2a.7.7 0 0 1 1.4 0v2" />
-        <path d="M14.4 13.5v-4a.7.7 0 0 1 1.4 0v4" />
-        <path d="M15.8 13v-4.5a.7.7 0 0 1 1.4 0v4.5" />
-        <path d="M17.2 13v-4a.7.7 0 0 1 1.4 0v4" />
-        <path d="M18.6 13.5v-2.5a.7.7 0 0 1 1.4 0v3c0 1.5-.7 2.5-1.3 3.5v4.5" />
-        <circle cx="16.5" cy="15.5" r=".8" />
-        <path d="M15.3 17.5c.7-.3 1.8-.3 2.5 0" />
-      </g>
-      {/* Front hand */}
-      <g transform="rotate(-20 8 12)">
-        <path d="M6 22v-3c0-.8-.5-1.5-1.2-2S3 15.5 3 14v-2a.7.7 0 0 1 1.4 0v2" />
-        <path d="M4.4 13.5v-4a.7.7 0 0 1 1.4 0v4" />
-        <path d="M5.8 13v-4.5a.7.7 0 0 1 1.4 0v4.5" />
-        <path d="M7.2 13v-4a.7.7 0 0 1 1.4 0v4" />
-        <path d="M8.6 13.5v-2.5a.7.7 0 0 1 1.4 0v3c0 1.5-.7 2.5-1.3 3.5v4.5" />
-        <circle cx="6.5" cy="15.5" r=".8" />
-        <circle cx="6.5" cy="15.5" r=".25" />
-        <path d="M5.3 17.5c.7-.3 1.8-.3 2.5 0" />
-        <path d="M5.6 19c.5-.2 1.3-.2 1.8 0" />
-      </g>
+      <path d="M12 22c0-6-4-8-4-14a4 4 0 1 1 8 0c0 6-4 8-4 14z" />
+      <path d="M12 6c0 2.5-1.5 4-1.5 7" />
+      <path d="M12 6c0 2.5 1.5 4 1.5 7" />
     </svg>
   ),
   Haldi: (
@@ -43,42 +23,48 @@ const icons = {
   ),
   Sangeet: (
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-      {/* Her head */}
-      <circle cx="9" cy="3.5" r="1.5" />
-      {/* His head */}
-      <circle cx="15" cy="2.5" r="1.5" />
-      {/* Her body */}
-      <path d="M9 5v5" />
-      {/* Her skirt flared */}
-      <path d="M4 22q5-6 5-12" />
-      <path d="M14 22q-5-6-5-12" />
-      {/* Her arms - one up, one held */}
-      <path d="M5 6l4 2" />
-      <path d="M9 8l3-1" />
-      {/* His body */}
-      <path d="M15 4v8" />
-      {/* His legs */}
-      <path d="M15 12l-2 10" />
-      <path d="M15 12l3 10" />
-      {/* His arms - one up, one holding hers */}
-      <path d="M12 7l3-2" />
-      <path d="M15 5l4-2" />
+      {/* Her - head */}
+      <circle cx="8" cy="2.5" r="1.5" fill="currentColor" />
+      {/* Her - upper body */}
+      <path d="M8 4 C8 5 8 6 7.5 8" />
+      {/* Her - lehenga/skirt flared elegantly */}
+      <path d="M7.5 8 C6 10 4 14 2 22 L13 22 C11 14 9.5 10 7.5 8z" />
+      {/* Her - dupatta flowing */}
+      <path d="M6 5 C4 4 2 5 1 7" />
+      {/* Her - arm raised gracefully */}
+      <path d="M8 5 C9 4 10 3 11 2" />
+      {/* Her - arm holding his */}
+      <path d="M8 6 C9 6.5 10 7 11 7" />
+      {/* Him - head */}
+      <circle cx="16" cy="1.5" r="1.5" fill="currentColor" />
+      {/* Him - torso / sherwani */}
+      <path d="M15 3 L14.5 5 L13 10 L19 10 L17.5 5 L17 3z" />
+      {/* Him - legs in motion */}
+      <path d="M14 10 C13.5 14 12.5 18 12 22" />
+      <path d="M18 10 C18.5 14 19 18 20 22" />
+      {/* Him - arm up celebrating */}
+      <path d="M16 4 C17 3 19 1.5 21 1" />
+      {/* Him - arm connecting to her */}
+      <path d="M15 5 C14 6 12 7 11 7" />
     </svg>
   ),
   Wedding: (
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-      {/* Circular varmala garland */}
-      <circle cx="12" cy="12" r="8" />
-      <circle cx="12" cy="12" r="5.5" />
-      {/* Flowers around the garland ring */}
-      <circle cx="12" cy="4" r="1.5" fill="currentColor" />
-      <circle cx="17.7" cy="6.3" r="1.5" fill="currentColor" />
-      <circle cx="20" cy="12" r="1.5" fill="currentColor" />
-      <circle cx="17.7" cy="17.7" r="1.5" fill="currentColor" />
-      <circle cx="12" cy="20" r="1.5" fill="currentColor" />
-      <circle cx="6.3" cy="17.7" r="1.5" fill="currentColor" />
-      <circle cx="4" cy="12" r="1.5" fill="currentColor" />
-      <circle cx="6.3" cy="6.3" r="1.5" fill="currentColor" />
+      {/* Gathbandhan - two cloths tied in a knot */}
+      {/* Left cloth - outer edge going up */}
+      <path d="M10 8 C8 5 5 3 1 1" />
+      <path d="M10 8 C7 6 4 5 0 4" />
+      {/* Right cloth - outer edge going up */}
+      <path d="M14 8 C16 5 19 3 23 1" />
+      <path d="M14 8 C17 6 20 5 24 4" />
+      {/* Central knot - two loops tied together */}
+      <path d="M10 8 C10 6.5 11 6 12 7 C13 6 14 6.5 14 8 C14 9.5 13 10.5 12 10 C11 10.5 10 9.5 10 8z" fill="currentColor" />
+      {/* Left hanging cloth - continuous from knot */}
+      <path d="M10 9 C9 12 8 15 6 19 C7 21 9 21 10 19 C10.5 16 11 13 11.5 10" />
+      <path d="M6 19 C6.5 20 7 20.5 8 20" />
+      {/* Right hanging cloth - continuous from knot */}
+      <path d="M14 9 C15 12 16 15 18 19 C17 21 15 21 14 19 C13.5 16 13 13 12.5 10" />
+      <path d="M18 19 C17.5 20 17 20.5 16 20" />
     </svg>
   ),
 };
