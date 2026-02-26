@@ -36,15 +36,15 @@ function Particles() {
         fullScreen: { enable: true, zIndex: 1 },
         fpsLimit: 60,
         particles: {
-          number: { value: 30, density: { enable: true, area: 1200 } },
+          number: { value: 55, density: { enable: true, area: 1000 } },
           color: { value: colors.colors },
           shape: { type: 'circle' },
           opacity: {
-            value: { min: 0.1, max: 0.4 },
-            animation: { enable: true, speed: 0.5, minimumValue: 0.05 },
+            value: { min: 0.2, max: 0.6 },
+            animation: { enable: true, speed: 0.5, minimumValue: 0.1 },
           },
           size: {
-            value: { min: 1, max: 3 },
+            value: { min: 1, max: 3.5 },
             animation: { enable: true, speed: 1, minimumValue: 0.5 },
           },
           move: {
@@ -56,7 +56,7 @@ function Particles() {
             outModes: { default: 'out' },
           },
           twinkle: {
-            particles: { enable: true, frequency: 0.03, color: colors.twinkle, opacity: 0.6 },
+            particles: { enable: true, frequency: 0.05, color: colors.twinkle, opacity: 0.8 },
           },
         },
         detectRetina: true,
