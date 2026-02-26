@@ -5,17 +5,29 @@ import styles from './WeddingEvents.module.css';
 const icons = {
   Mehendi: (
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-      {/* Palm */}
-      <path d="M8 22v-4c0-1-.5-2-1.5-2.5S4 14 4 12V8a1 1 0 0 1 2 0v3" />
-      <path d="M6 11V5a1 1 0 0 1 2 0v6" />
-      <path d="M8 10V4a1 1 0 0 1 2 0v7" />
-      <path d="M10 10V5a1 1 0 0 1 2 0v6" />
-      <path d="M12 11V7a1 1 0 0 1 2 0v5c0 2-1 3.5-2 5v5" />
-      {/* Mehendi designs on palm */}
-      <circle cx="9" cy="13" r="1.2" />
-      <circle cx="9" cy="13" r="0.4" />
-      <path d="M7.5 16.5c1-.5 2-.5 3 0" />
-      <path d="M8 18.5c.5-.3 1.5-.3 2 0" />
+      {/* Two hands side by side, both tilted diagonally top-right */}
+      {/* Back hand (slightly behind) */}
+      <g transform="rotate(-20 14 12)">
+        <path d="M16 22v-3c0-.8-.5-1.5-1.2-2S13 15.5 13 14v-2a.7.7 0 0 1 1.4 0v2" />
+        <path d="M14.4 13.5v-4a.7.7 0 0 1 1.4 0v4" />
+        <path d="M15.8 13v-4.5a.7.7 0 0 1 1.4 0v4.5" />
+        <path d="M17.2 13v-4a.7.7 0 0 1 1.4 0v4" />
+        <path d="M18.6 13.5v-2.5a.7.7 0 0 1 1.4 0v3c0 1.5-.7 2.5-1.3 3.5v4.5" />
+        <circle cx="16.5" cy="15.5" r=".8" />
+        <path d="M15.3 17.5c.7-.3 1.8-.3 2.5 0" />
+      </g>
+      {/* Front hand */}
+      <g transform="rotate(-20 8 12)">
+        <path d="M6 22v-3c0-.8-.5-1.5-1.2-2S3 15.5 3 14v-2a.7.7 0 0 1 1.4 0v2" />
+        <path d="M4.4 13.5v-4a.7.7 0 0 1 1.4 0v4" />
+        <path d="M5.8 13v-4.5a.7.7 0 0 1 1.4 0v4.5" />
+        <path d="M7.2 13v-4a.7.7 0 0 1 1.4 0v4" />
+        <path d="M8.6 13.5v-2.5a.7.7 0 0 1 1.4 0v3c0 1.5-.7 2.5-1.3 3.5v4.5" />
+        <circle cx="6.5" cy="15.5" r=".8" />
+        <circle cx="6.5" cy="15.5" r=".25" />
+        <path d="M5.3 17.5c.7-.3 1.8-.3 2.5 0" />
+        <path d="M5.6 19c.5-.2 1.3-.2 1.8 0" />
+      </g>
     </svg>
   ),
   Haldi: (
