@@ -72,7 +72,7 @@ export const content = {
   },
 
   engagement: {
-    heading: 'Engagement Ceremony',
+    heading: 'Ring Ceremony',
     date: '01 May 2026',
     countdownDate: '2026-05-01T18:00:00',
     time: '6:00 PM onwards',
