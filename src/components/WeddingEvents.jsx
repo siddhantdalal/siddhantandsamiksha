@@ -11,14 +11,24 @@ const icons = {
     </svg>
   ),
   Haldi: (
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-      {/* Bowl */}
-      <path d="M3 12c0 5 4 8 9 8s9-3 9-8" />
-      <ellipse cx="12" cy="12" rx="9" ry="3" />
-      {/* Haldi mound inside bowl - filled */}
-      <path d="M7 11c0-2.5 2.2-4.5 5-4.5s5 2 5 4.5z" fill="currentColor" />
-      {/* Base */}
-      <path d="M9 20c0 1 1.3 2 3 2s3-1 3-2" />
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round">
+      {/* Wooden bowl */}
+      <ellipse cx="11" cy="13" rx="8" ry="2.5" />
+      <path d="M3 13 C3 18 6.5 20 11 20 C15.5 20 19 18 19 13" />
+      {/* Bowl wood grain lines */}
+      <path d="M4.5 15.5 C7 17 15 17 17.5 15.5" strokeWidth="0.7" />
+      <path d="M5.5 17.5 C8 19 14 19 16.5 17.5" strokeWidth="0.7" />
+      {/* Haldi powder mound - filled */}
+      <path d="M5 12 C5 8 7.5 5 11 5 C14.5 5 17 8 17 12z" fill="currentColor" />
+      {/* Powder texture lines */}
+      <path d="M7 10 C9 8.5 13 8.5 15 10" strokeWidth="0.7" />
+      <path d="M8 8 C9.5 7 12.5 7 14 8" strokeWidth="0.7" />
+      {/* Turmeric roots beside bowl */}
+      <path d="M19 16 C20 15 21.5 14.5 22 15.5 C22.5 16.5 21 17 20 17" strokeWidth="1" />
+      <path d="M19.5 17.5 C20.5 17 22 16.5 22.5 17.5 C23 18.5 21.5 19 20.5 18.5" strokeWidth="1" />
+      {/* Small leaves */}
+      <path d="M18.5 15 C19 13.5 20 13 20.5 14" fill="currentColor" strokeWidth="0.7" />
+      <path d="M19.5 14.5 C20 13 21 12.5 21.5 13.5" fill="currentColor" strokeWidth="0.7" />
     </svg>
   ),
   Sangeet: (
