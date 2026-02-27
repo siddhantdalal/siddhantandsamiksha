@@ -4,7 +4,7 @@ import ScrollReveal from './ScrollReveal';
 import { SparkleIcon } from './Icons';
 import styles from './RSVP.module.css';
 
-const GOOGLE_SHEET_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyUITb9UTVCYMn-Gjs3gwjse304XopkM_Tztc5cCaZFDalXXIAvq1odYk61z1N_T-r0/exec';
 
 const initialForm = {
   name: '',
