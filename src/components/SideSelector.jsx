@@ -25,7 +25,9 @@ export default function SideSelector() {
         >
           <p className={styles.welcome}>You are cordially invited to the wedding of</p>
           <h1 className={styles.names}>
-            {content.couple.groomFirst} <span className={styles.amp}>&</span> {content.couple.brideFirst}
+            <span>{content.couple.groomFirst}</span>
+            <span className={styles.amp}>&</span>
+            <span>{content.couple.brideFirst}</span>
           </h1>
           <div className={styles.divider} />
           <p className={styles.question}>Which side are you here for?</p>
