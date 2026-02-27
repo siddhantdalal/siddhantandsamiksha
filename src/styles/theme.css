@@ -4,16 +4,16 @@
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Font sizes */
-  --text-xs: clamp(0.7rem, 0.8vw, 0.75rem);
-  --text-sm: clamp(0.8rem, 1vw, 0.875rem);
-  --text-base: clamp(0.9rem, 1.2vw, 1rem);
-  --text-lg: clamp(1rem, 1.4vw, 1.125rem);
-  --text-xl: clamp(1.15rem, 1.8vw, 1.25rem);
-  --text-2xl: clamp(1.4rem, 2.5vw, 1.75rem);
-  --text-3xl: clamp(1.8rem, 3vw, 2.25rem);
-  --text-4xl: clamp(2.2rem, 4vw, 3rem);
-  --text-5xl: clamp(2.8rem, 5vw, 4rem);
-  --text-hero: clamp(3rem, 7vw, 5.5rem);
+  --text-xs: clamp(0.735rem, 0.84vw, 0.788rem);
+  --text-sm: clamp(0.84rem, 1.05vw, 0.919rem);
+  --text-base: clamp(0.945rem, 1.26vw, 1.05rem);
+  --text-lg: clamp(1.05rem, 1.47vw, 1.181rem);
+  --text-xl: clamp(1.208rem, 1.89vw, 1.313rem);
+  --text-2xl: clamp(1.47rem, 2.625vw, 1.838rem);
+  --text-3xl: clamp(1.89rem, 3.15vw, 2.363rem);
+  --text-4xl: clamp(2.31rem, 4.2vw, 3.15rem);
+  --text-5xl: clamp(2.94rem, 5.25vw, 4.2rem);
+  --text-hero: clamp(3.15rem, 7.35vw, 5.775rem);
 
   /* Spacing */
   --space-xs: 0.25rem;
