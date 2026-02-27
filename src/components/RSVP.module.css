@@ -59,6 +59,11 @@
   cursor: pointer;
 }
 
+.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .textarea {
   resize: vertical;
   min-height: 100px;
@@ -93,6 +98,18 @@
 
 .submit:active {
   transform: translateY(0);
+}
+
+.submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submitError {
+  text-align: center;
+  color: var(--color-input-error);
+  font-size: var(--text-sm);
 }
 
 /* Success */

@@ -4,9 +4,10 @@ import ScrollReveal from './ScrollReveal';
 import { SparkleIcon } from './Icons';
 import styles from './RSVP.module.css';
 
+const GOOGLE_SHEET_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
 const initialForm = {
   name: '',
-  email: '',
   phone: '',
   attendance: '',
   guests: '1',
@@ -16,13 +17,13 @@ const initialForm = {
 export default function RSVP() {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const validate = () => {
     const errs = {};
     if (!form.name.trim()) errs.name = 'Name is required';
-    if (!form.email.trim()) errs.email = 'Email is required';
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = 'Invalid email';
     if (!form.attendance) errs.attendance = 'Please select attendance';
     return errs;
   };
@@ -33,15 +34,33 @@ export default function RSVP() {
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: '' }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
       return;
     }
-    // UI-only — backend wired later
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError('');
+    try {
+      const payload = {
+        ...form,
+        guests: form.attendance === 'regretfully-decline' ? '0' : form.guests,
+        timestamp: new Date().toISOString(),
+      };
+      await fetch(GOOGLE_SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      setSubmitted(true);
+    } catch {
+      setSubmitError('Something went wrong. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -83,22 +102,6 @@ export default function RSVP() {
             </div>
 
             <div className={styles.field}>
-              <label htmlFor="rsvp-email" className={styles.label}>Email *</label>
-              <input
-                id="rsvp-email"
-                name="email"
-                type="email"
-                value={form.email}
-                onChange={handleChange}
-                className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
-                placeholder="your@email.com"
-              />
-              {errors.email && <span className={styles.error}>{errors.email}</span>}
-            </div>
-          </div>
-
-          <div className={styles.row}>
-            <div className={styles.field}>
               <label htmlFor="rsvp-phone" className={styles.label}>Phone</label>
               <input
                 id="rsvp-phone"
@@ -110,7 +113,9 @@ export default function RSVP() {
                 placeholder="+91 XXXXX XXXXX"
               />
             </div>
+          </div>
 
+          <div className={styles.row}>
             <div className={styles.field}>
               <label htmlFor="rsvp-attendance" className={styles.label}>Attendance *</label>
               <select
@@ -134,9 +139,10 @@ export default function RSVP() {
               <select
                 id="rsvp-guests"
                 name="guests"
-                value={form.guests}
+                value={form.attendance === 'regretfully-decline' ? '0' : form.guests}
                 onChange={handleChange}
-                className={`${styles.input} ${styles.select}`}
+                disabled={form.attendance === 'regretfully-decline'}
+                className={`${styles.input} ${styles.select} ${form.attendance === 'regretfully-decline' ? styles.disabled : ''}`}
               >
                 {[1, 2, 3, 4, 5].map((n) => (
                   <option key={n} value={n}>{n}</option>
@@ -158,8 +164,10 @@ export default function RSVP() {
             />
           </div>
 
-          <button type="submit" className={styles.submit}>
-            Send RSVP
+          {submitError && <p className={styles.submitError}>{submitError}</p>}
+
+          <button type="submit" className={styles.submit} disabled={submitting}>
+            {submitting ? 'Sending...' : 'Send RSVP'}
           </button>
         </form>
       </ScrollReveal>
