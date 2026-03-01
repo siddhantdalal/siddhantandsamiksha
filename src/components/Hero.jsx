@@ -65,7 +65,7 @@ export default function Hero() {
             { value: seconds, label: 'Seconds' },
           ].map(({ value, label }) => (
             <div key={label} className={styles.countUnit}>
-              <span className={styles.countValue}>{String(value).padStart(2, '0')}</span>
+              <span key={value} className={styles.countValue}>{String(value).padStart(2, '0')}</span>
               <span className={styles.countLabel}>{label}</span>
             </div>
           ))}
