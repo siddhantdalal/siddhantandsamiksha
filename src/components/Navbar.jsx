@@ -38,7 +38,7 @@ export default function Navbar() {
     <>
       <nav className={styles.nav}>
         <div className={styles.inner}>
-          <a href="#hero" className={styles.logo} onClick={(e) => handleClick(e, '#hero')}>
+          <a href="#hero" className={`${styles.logo} ${scrolled ? styles.logoScrolled : ''}`} onClick={(e) => handleClick(e, '#hero')}>
             <img
               src={`${import.meta.env.BASE_URL}images/logo.png`}
               alt="S &amp; S"

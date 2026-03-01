@@ -17,18 +17,28 @@
   align-items: center;
   justify-content: space-between;
   pointer-events: auto;
+  position: relative;
 }
 
 .logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   text-decoration: none;
+  transition: left 0.4s ease, transform 0.4s ease;
+}
+
+.logoScrolled {
+  left: 0;
+  transform: translateX(0);
 }
 
 .logoImg {
   height: 63px;
   width: auto;
-  transition: height 0.3s ease;
+  transition: height 0.4s ease;
 }
 
 .logoSmall {
@@ -40,6 +50,7 @@
   display: flex;
   list-style: none;
   gap: var(--space-xl);
+  margin-left: auto;
 }
 
 .desktopLinks a {
