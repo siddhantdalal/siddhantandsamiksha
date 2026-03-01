@@ -54,8 +54,9 @@ export default function EngagementDetails() {
     <section className="section">
       <ScrollReveal>
         <div className={styles.wrapper}>
-          <div className={styles.headingRow}>
-            <h2 className="section-heading">{engagement.heading}</h2>
+          <h2 className="section-heading">{engagement.heading}</h2>
+
+          <div className={styles.card}>
             <a
               href={`${import.meta.env.BASE_URL}ring_ceremony_invitation.svg`}
               download="Ring_Ceremony_Invitation.svg"
@@ -64,9 +65,6 @@ export default function EngagementDetails() {
             >
               <DownloadIcon size={18} />
             </a>
-          </div>
-
-          <div className={styles.card}>
             <div className={styles.detail}>
               <span className={styles.icon}><CalendarIcon size={22} /></span>
               <div>
