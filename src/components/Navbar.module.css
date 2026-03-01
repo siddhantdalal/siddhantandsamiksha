@@ -15,30 +15,33 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   pointer-events: auto;
-  position: relative;
 }
 
 .logo {
-  position: absolute;
+  position: fixed;
+  z-index: 10001;
   left: 50%;
+  top: calc(50vh - 240px);
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   text-decoration: none;
-  transition: left 0.4s ease, transform 0.4s ease;
+  pointer-events: auto;
+  transition: left 0.5s ease, top 0.5s ease, transform 0.5s ease;
 }
 
 .logoScrolled {
-  left: 0;
+  left: var(--space-xl);
+  top: var(--space-md);
   transform: translateX(0);
 }
 
 .logoImg {
-  height: 63px;
+  height: 95px;
   width: auto;
-  transition: height 0.4s ease;
+  transition: height 0.5s ease;
 }
 
 .logoSmall {

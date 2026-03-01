@@ -36,16 +36,21 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Logo — independent fixed element for hero → navbar animation */}
+      <a
+        href="#hero"
+        className={`${styles.logo} ${scrolled ? styles.logoScrolled : ''}`}
+        onClick={(e) => handleClick(e, '#hero')}
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}images/logo.png`}
+          alt="S &amp; S"
+          className={`${styles.logoImg} ${scrolled ? styles.logoSmall : ''}`}
+        />
+      </a>
+
       <nav className={styles.nav}>
         <div className={styles.inner}>
-          <a href="#hero" className={`${styles.logo} ${scrolled ? styles.logoScrolled : ''}`} onClick={(e) => handleClick(e, '#hero')}>
-            <img
-              src={`${import.meta.env.BASE_URL}images/logo.png`}
-              alt="S &amp; S"
-              className={`${styles.logoImg} ${scrolled ? styles.logoSmall : ''}`}
-            />
-          </a>
-
           <ul className={styles.desktopLinks}>
             {content.nav.map((item) => (
               <li key={item.href}>
