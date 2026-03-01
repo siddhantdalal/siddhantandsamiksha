@@ -1,5 +1,5 @@
 .venueInfo {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--text-lg);
   color: var(--color-gold);
   margin-top: var(--space-sm);
