@@ -2,6 +2,29 @@
   max-width: var(--max-width-narrow);
   margin: 0 auto;
   text-align: center;
+  position: relative;
+}
+
+.headingRow {
+  position: relative;
+}
+
+.downloadBtn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  color: var(--color-gold);
+  opacity: 0.5;
+  transition: opacity var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xs);
+}
+
+.downloadBtn:hover {
+  opacity: 1;
 }
 
 .card {

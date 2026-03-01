@@ -155,3 +155,11 @@ export const CheckSparkleIcon = ({ size = 24 }) => (
     <path d="M9 12l2 2 4-4" />
   </svg>
 );
+
+export const DownloadIcon = ({ size = 24 }) => (
+  <svg style={s} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 3v12" />
+    <path d="M8 11l4 4 4-4" />
+    <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+  </svg>
+);

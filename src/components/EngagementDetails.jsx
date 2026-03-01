@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { content } from '../data/content';
 import ScrollReveal from './ScrollReveal';
-import { CalendarIcon, ClockIcon, MapPinIcon } from './Icons';
+import { CalendarIcon, ClockIcon, MapPinIcon, DownloadIcon } from './Icons';
 import styles from './EngagementDetails.module.css';
 
 function useCountdown(targetDate) {
@@ -54,7 +54,17 @@ export default function EngagementDetails() {
     <section className="section">
       <ScrollReveal>
         <div className={styles.wrapper}>
-          <h2 className="section-heading">{engagement.heading}</h2>
+          <div className={styles.headingRow}>
+            <h2 className="section-heading">{engagement.heading}</h2>
+            <a
+              href={`${import.meta.env.BASE_URL}ring_ceremony_invitation.svg`}
+              download="Ring_Ceremony_Invitation.svg"
+              className={styles.downloadBtn}
+              title="Download Invitation"
+            >
+              <DownloadIcon size={18} />
+            </a>
+          </div>
 
           <div className={styles.card}>
             <div className={styles.detail}>
