@@ -28,6 +28,9 @@
   align-items: center;
   justify-content: center;
   padding: var(--space-xs);
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .downloadBtn:hover {
