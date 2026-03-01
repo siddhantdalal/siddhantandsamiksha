@@ -8,7 +8,7 @@ import OurStory from './components/OurStory';
 import Timeline from './components/Timeline';
 import EngagementDetails from './components/EngagementDetails';
 import WeddingEvents from './components/WeddingEvents';
-import EventSchedule from './components/EventSchedule';
+
 import Reception from './components/Reception';
 import MeetGroom from './components/MeetGroom';
 import RSVP from './components/RSVP';
@@ -33,7 +33,7 @@ export default function App() {
         <Timeline />
         <EngagementDetails />
         <WeddingEvents />
-        <EventSchedule />
+
         <Reception />
         <MeetGroom />
         <RSVP />

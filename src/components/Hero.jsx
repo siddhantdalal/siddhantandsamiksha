@@ -55,7 +55,7 @@ export default function Hero() {
 
         {welcomeMsg && <p className={styles.welcome}>{welcomeMsg}</p>}
 
-        <p className={styles.date}>A beautiful beginning,<br /><span className={styles.golden}>coming soon</span></p>
+        <p className={styles.date}><span className={styles.golden}>{content.hero.date}</span></p>
 
         <div className={styles.countdown}>
           {[
@@ -65,7 +65,7 @@ export default function Hero() {
             { value: seconds, label: 'Seconds' },
           ].map(({ value, label }) => (
             <div key={label} className={styles.countUnit}>
-              <span className={styles.countValue}>--</span>
+              <span className={styles.countValue}>{String(value).padStart(2, '0')}</span>
               <span className={styles.countLabel}>{label}</span>
             </div>
           ))}

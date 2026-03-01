@@ -10,7 +10,7 @@ export const content = {
 
   hero: {
     tagline: 'Two Souls. One Journey.',
-    date: 'A beautiful beginning, coming soon',
+    date: '05 December 2026',
     cta: 'Save The Date',
     welcome: {
       groom: 'Welcome to our celebration — so glad you\'re on Team Groom!',
@@ -18,8 +18,7 @@ export const content = {
     },
   },
 
-  // Wedding date — update this to the actual date
-  weddingDate: '2026-12-12T10:00:00',
+  weddingDate: '2026-12-05T09:07:00',
 
   aboutUs: {
     heading: 'About Us',
@@ -84,6 +83,8 @@ export const content = {
   weddingEvents: {
     heading: 'Wedding Celebrations',
     subheading: 'Four days of love, laughter & togetherness',
+    dates: '3rd – 5th December 2026',
+    venue: 'Suvi Palace, Sasunavghar, Mumbai-Ahmedabad Highway, Opp. Royal Garden, Vasai-Virar, Maharashtra 401208',
     events: [
       {
         name: 'Mehendi',
@@ -114,9 +115,9 @@ export const content = {
       },
       {
         name: 'Wedding',
-        date: 'A December day we\'ve dreamed of',
-        time: 'When forever begins',
-        venue: 'Coming soon',
+        date: '05 December 2026',
+        time: '09:07 AM onwards',
+        venue: 'Suvi Palace, Sasunavghar',
         description: 'The sacred ceremony where two hearts become one. Pheras under the mandap.',
         dressCode: '',
         icon: '💍',
@@ -296,8 +297,8 @@ export const content = {
     heading: 'Venue & Travel',
     subheading: 'All the details you\'ll need, coming soon with love',
     venue: {
-      name: 'A place as magical as our love story',
-      address: 'The perfect destination is being chosen — stay tuned',
+      name: 'Suvi Palace, Sasunavghar',
+      address: 'Mumbai-Ahmedabad Highway, Opp. Royal Garden, Vasai-Virar, Maharashtra 401208',
       mapEmbed: '',
     },
     hotels: [

@@ -85,6 +85,8 @@ export default function WeddingEvents() {
       <ScrollReveal>
         <h2 className="section-heading">{content.weddingEvents.heading}</h2>
         <p className="section-subheading">{content.weddingEvents.subheading}</p>
+        <p className={styles.venueInfo}>{content.weddingEvents.dates}</p>
+        <p className={styles.venueAddress}>{content.weddingEvents.venue}</p>
       </ScrollReveal>
 
       <div className={`section-inner ${styles.grid}`}>

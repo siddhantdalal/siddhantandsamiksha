@@ -1,3 +1,21 @@
+.venueInfo {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--color-gold);
+  margin-top: var(--space-md);
+}
+
+.venueAddress {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-lg);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
