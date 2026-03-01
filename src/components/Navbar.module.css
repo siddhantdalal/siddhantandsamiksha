@@ -20,17 +20,14 @@
 }
 
 .logo {
-  font-family: var(--font-serif);
-  font-size: var(--text-2xl);
-  color: var(--color-gold);
-  letter-spacing: 0.15em;
+  display: flex;
+  align-items: center;
   text-decoration: none;
 }
 
-.amp {
-  font-style: italic;
-  margin: 0 0.15em;
-  opacity: 0.7;
+.logoImg {
+  height: 42px;
+  width: auto;
 }
 
 /* Desktop links */

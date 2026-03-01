@@ -32,9 +32,11 @@ export default function Navbar() {
       <nav className={styles.nav}>
         <div className={styles.inner}>
           <a href="#hero" className={styles.logo} onClick={(e) => handleClick(e, '#hero')}>
-            {side === 'bride' ? content.couple.brideFirst[0] : content.couple.groomFirst[0]}
-            {' '}<span className={styles.amp}>&</span>{' '}
-            {side === 'bride' ? content.couple.groomFirst[0] : content.couple.brideFirst[0]}
+            <img
+              src={`${import.meta.env.BASE_URL}images/logo.png`}
+              alt="S &amp; S"
+              className={styles.logoImg}
+            />
           </a>
 
           <ul className={styles.desktopLinks}>
