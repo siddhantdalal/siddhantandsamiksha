@@ -11,7 +11,6 @@ import WeddingEvents from './components/WeddingEvents';
 
 import Reception from './components/Reception';
 import MeetGroom from './components/MeetGroom';
-import RSVP from './components/RSVP';
 
 import Hashtag from './components/Hashtag';
 import Footer from './components/Footer';
@@ -36,7 +35,6 @@ export default function App() {
 
         <Reception />
         <MeetGroom />
-        <RSVP />
         <Hashtag />
       </main>
       <Footer />

@@ -20,6 +20,13 @@
   line-height: 1.6;
   font-weight: 300;
   letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  display: block;
+}
+
+.venueAddress:hover {
+  color: var(--color-gold);
 }
 
 .divider {

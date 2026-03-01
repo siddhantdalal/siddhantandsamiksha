@@ -122,20 +122,20 @@
   <text x="540" y="505" text-anchor="middle" font-family="'Playfair Display', Georgia, serif"
         font-size="26" fill="#a09080" font-style="italic">of</text>
 
-  <!-- Groom name -->
-  <text x="540" y="610" text-anchor="middle" font-family="'Playfair Display', Georgia, serif"
-        font-size="80" fill="#c9a96e" font-weight="400" filter="url(#glow-lg)">Siddhant</text>
-
-  <!-- Ampersand -->
-  <text x="540" y="675" text-anchor="middle" font-family="'Playfair Display', Georgia, serif"
-        font-size="40" fill="#c9a96e" font-style="italic" opacity="0.8">&amp;</text>
-
   <!-- Bride name -->
-  <text x="540" y="760" text-anchor="middle" font-family="'Playfair Display', Georgia, serif"
+  <text x="540" y="610" text-anchor="middle" font-family="'Playfair Display', Georgia, serif"
         font-size="80" fill="#c9a96e" font-weight="400" filter="url(#glow-lg)">Samiksha</text>
 
+  <!-- Ampersand -->
+  <text x="540" y="685" text-anchor="middle" font-family="'Playfair Display', Georgia, serif"
+        font-size="40" fill="#c9a96e" font-style="italic" opacity="0.8">&amp;</text>
+
+  <!-- Groom name -->
+  <text x="540" y="795" text-anchor="middle" font-family="'Playfair Display', Georgia, serif"
+        font-size="80" fill="#c9a96e" font-weight="400" filter="url(#glow-lg)">Siddhant</text>
+
   <!-- ═══ Section divider ═══ (45px above, 55px below) -->
-  <line x1="340" y1="790" x2="740" y2="790" stroke="url(#line-grad)" stroke-width="0.8"/>
+  <line x1="340" y1="825" x2="740" y2="825" stroke="url(#line-grad)" stroke-width="0.8"/>
 
   <!-- Date section -->
   <g transform="translate(540, 850)">
@@ -162,14 +162,14 @@
     <text x="0" y="48" text-anchor="middle" font-family="'Playfair Display', Georgia, serif"
           font-size="30" fill="#e8dcc8" font-weight="400">Mayor Hall</text>
     <text x="0" y="85" text-anchor="middle" font-family="'Outfit', Helvetica, sans-serif"
-          font-size="20" fill="#a09080" font-weight="300">All India Institute of</text>
-    <text x="0" y="113" text-anchor="middle" font-family="'Outfit', Helvetica, sans-serif"
-          font-size="20" fill="#a09080" font-weight="300">Local Self-Government</text>
+          font-size="28" fill="#a09080" font-weight="300">All India Institute of</text>
+    <text x="0" y="118" text-anchor="middle" font-family="'Outfit', Helvetica, sans-serif"
+          font-size="28" fill="#a09080" font-weight="300">Local Self-Government</text>
 
-    <text x="0" y="160" text-anchor="middle" font-family="'Outfit', Helvetica, sans-serif"
-          font-size="18" fill="#706050" font-weight="300">CD Barfiwala Road, Juhu Lane</text>
-    <text x="0" y="188" text-anchor="middle" font-family="'Outfit', Helvetica, sans-serif"
-          font-size="18" fill="#706050" font-weight="300">Andheri West, Mumbai - 400058</text>
+    <text x="0" y="170" text-anchor="middle" font-family="'Outfit', Helvetica, sans-serif"
+          font-size="25" fill="#706050" font-weight="300">CD Barfiwala Road, Juhu Lane</text>
+    <text x="0" y="203" text-anchor="middle" font-family="'Outfit', Helvetica, sans-serif"
+          font-size="25" fill="#706050" font-weight="300">Andheri West, Mumbai - 400058</text>
   </g>
 
   <!-- ═══ Section divider ═══ (45px above, 55px below) -->

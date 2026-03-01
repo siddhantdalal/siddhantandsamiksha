@@ -332,6 +332,5 @@ export const content = {
     { label: 'Our Journey', href: '#our-journey' },
     { label: 'Events', href: '#events' },
     { label: 'Meet', href: '#meet', sideAware: true },
-    { label: 'RSVP', href: '#rsvp' },
   ],
 };

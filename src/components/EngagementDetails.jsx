@@ -56,10 +56,10 @@ export default function EngagementDetails() {
     const res = await fetch(`${import.meta.env.BASE_URL}ring_ceremony_invitation.svg`);
     let svg = await res.text();
 
-    if (side === 'bride') {
+    if (side === 'groom') {
       svg = svg
-        .replace(/(<!-- Groom name -->[\s\S]*?>)Siddhant(<\/text>)/, '$1Samiksha$2')
-        .replace(/(<!-- Bride name -->[\s\S]*?>)Samiksha(<\/text>)/, '$1Siddhant$2');
+        .replace(/(<!-- Bride name -->[\s\S]*?>)Samiksha(<\/text>)/, '$1Siddhant$2')
+        .replace(/(<!-- Groom name -->[\s\S]*?>)Siddhant(<\/text>)/, '$1Samiksha$2');
     }
 
     const blob = new Blob([svg], { type: 'image/svg+xml' });

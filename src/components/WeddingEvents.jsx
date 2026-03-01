@@ -86,7 +86,7 @@ export default function WeddingEvents() {
         <h2 className="section-heading">{content.weddingEvents.heading}</h2>
         <p className="section-subheading">{content.weddingEvents.subheading}</p>
         <p className={styles.venueInfo}>{content.weddingEvents.dates}</p>
-        <p className={styles.venueAddress}>{content.weddingEvents.venue}</p>
+        <a href="https://maps.app.goo.gl/eRJSuJ9jhdc5ivFP7" target="_blank" rel="noopener noreferrer" className={styles.venueAddress}>{content.weddingEvents.venue}</a>
         <div className={styles.divider} />
       </ScrollReveal>
 

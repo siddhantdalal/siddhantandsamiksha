@@ -105,7 +105,7 @@
 
 .countValue {
   font-family: var(--font-sans);
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   color: var(--color-gold);
   line-height: 1;
   display: inline-block;
