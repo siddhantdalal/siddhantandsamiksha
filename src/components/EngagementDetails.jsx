@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { content } from '../data/content';
 import ScrollReveal from './ScrollReveal';
 import { CalendarIcon, ClockIcon, MapPinIcon, DownloadIcon } from './Icons';
-import { useSide } from '../context/SideContext';
 import styles from './EngagementDetails.module.css';
 
 function useCountdown(targetDate) {
@@ -31,7 +30,6 @@ function useCountdown(targetDate) {
 
 export default function EngagementDetails() {
   const { engagement } = content;
-  const { side } = useSide();
   const { isPast, days, hours, minutes, seconds } = useCountdown(engagement.countdownDate);
 
   const countdownMsg = isPast
@@ -52,35 +50,11 @@ export default function EngagementDetails() {
         { value: seconds, label: 'Seconds' },
       ];
 
-  const handleDownload = async () => {
-    const res = await fetch(`${import.meta.env.BASE_URL}ring_ceremony_invitation.svg`);
-    let svg = await res.text();
-
-    if (side === 'groom') {
-      svg = svg
-        .replace(/(<!-- Bride name -->[\s\S]*?>)Samiksha(<\/text>)/, '$1Siddhant$2')
-        .replace(/(<!-- Groom name -->[\s\S]*?>)Siddhant(<\/text>)/, '$1Samiksha$2');
-    }
-
-    const blob = new Blob([svg], { type: 'image/svg+xml' });
-    const url = URL.createObjectURL(blob);
-    const img = new Image();
-    img.onload = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = 1080;
-      canvas.height = 1620;
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0, 1080, 1620);
-      URL.revokeObjectURL(url);
-      canvas.toBlob((jpegBlob) => {
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(jpegBlob);
-        a.download = 'Ring_Ceremony_Invitation.jpg';
-        a.click();
-        URL.revokeObjectURL(a.href);
-      }, 'image/jpeg', 0.95);
-    };
-    img.src = url;
+  const handleDownload = () => {
+    const a = document.createElement('a');
+    a.href = `${import.meta.env.BASE_URL}ring_ceremony_invitation.jpg`;
+    a.download = 'Ring_Ceremony_Invitation.jpg';
+    a.click();
   };
 
   return (
