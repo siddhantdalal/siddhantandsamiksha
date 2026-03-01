@@ -2,18 +2,31 @@
   font-family: var(--font-serif);
   font-size: var(--text-lg);
   color: var(--color-gold);
-  margin-top: var(--space-md);
+  margin-top: var(--space-lg);
+  text-align: center;
+  letter-spacing: 0.05em;
 }
 
 .venueAddress {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  margin-top: var(--space-xs);
-  margin-bottom: var(--space-lg);
-  max-width: 600px;
+  color: var(--color-text-dim);
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+  line-height: 1.6;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  margin: var(--space-xl) auto;
 }
 
 .grid {
