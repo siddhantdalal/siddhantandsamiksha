@@ -6,12 +6,19 @@ import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { side } = useSide();
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const handleClick = (e, href) => {
     e.preventDefault();
@@ -35,7 +42,7 @@ export default function Navbar() {
             <img
               src={`${import.meta.env.BASE_URL}images/logo.png`}
               alt="S &amp; S"
-              className={styles.logoImg}
+              className={`${styles.logoImg} ${scrolled ? styles.logoSmall : ''}`}
             />
           </a>
 

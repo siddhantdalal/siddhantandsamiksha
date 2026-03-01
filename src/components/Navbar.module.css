@@ -26,8 +26,13 @@
 }
 
 .logoImg {
-  height: 126px;
+  height: 63px;
   width: auto;
+  transition: height 0.3s ease;
+}
+
+.logoSmall {
+  height: 42px;
 }
 
 /* Desktop links */
