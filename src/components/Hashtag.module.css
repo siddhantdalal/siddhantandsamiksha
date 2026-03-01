@@ -20,7 +20,7 @@
 
 .tag {
   font-family: var(--font-serif);
-  font-size: var(--text-3xl);
+  font-size: var(--text-xl);
   color: var(--color-gold);
   text-shadow: 0 0 40px rgba(201, 169, 110, 0.2);
 }

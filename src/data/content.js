@@ -113,8 +113,8 @@ export const content = {
       {
         name: 'Wedding',
         date: '05 December 2026',
-        time: '09:07 AM onwards',
-        description: 'The sacred ceremony where two hearts become one. Pheras under the mandap.',
+        time: 'Muhurth at 09:07 AM',
+        description: 'The sacred ceremony where two hearts become one. Pheras under the mandap, followed by wedding celebrations.',
         dressCode: '',
         icon: '💍',
       },
@@ -318,7 +318,7 @@ export const content = {
     },
   },
 
-  hashtags: ['#SidKiSami', '#SamSaidSid', '#SiddhantWedsSamiksha'],
+  hashtags: ['#SidKiSami', '#SamSaidSid', '#SiddhantWedsSamiksha', '#TheSidAndSamSaga'],
 
   footer: {
     closing: 'With Love',
