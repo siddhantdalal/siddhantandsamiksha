@@ -121,20 +121,6 @@ export const content = {
     ],
   },
 
-  eventSchedule: {
-    heading: 'Wedding Day Schedule',
-    subheading: 'The day our forever begins',
-    schedule: [
-      { time: 'Step 1', event: 'Guest Arrival & Seating', icon: '🪷' },
-      { time: 'Step 2', event: 'Ganesh Puja', icon: '🙏' },
-      { time: 'Step 3', event: 'Baraat Procession', icon: '🐎' },
-      { time: 'Step 4', event: 'Varmala Ceremony', icon: '💐' },
-      { time: 'Step 5', event: 'Kanyadaan & Pheras', icon: '🔥' },
-      { time: 'Step 6', event: 'Vidaai', icon: '🥹' },
-      { time: 'Step 7', event: 'Wedding Lunch', icon: '🍽️' },
-    ],
-  },
-
   reception: {
     heading: 'Reception',
     subheading: 'An evening of joy, laughter & togetherness',
@@ -280,41 +266,6 @@ export const content = {
           description: 'Boss Baby — the youngest in years, yet the most rooted in love.',
         },
       ],
-    },
-  },
-
-  rsvp: {
-    heading: 'RSVP',
-    subheading: 'We would be honored by your presence',
-    successMessage: 'Thank you! We can\'t wait to celebrate with you.',
-  },
-
-  venueTravel: {
-    heading: 'Venue & Travel',
-    subheading: 'All the details you\'ll need, coming soon with love',
-    venue: {
-      name: 'Suvi Palace, Sasunavghar',
-      address: 'Mumbai-Ahmedabad Highway, Opp. Royal Garden, Vasai-Virar, Maharashtra 401208',
-      mapEmbed: '',
-    },
-    hotels: [
-      {
-        name: 'Comfort awaits you',
-        distance: 'Close to all the celebrations',
-        phone: 'Details arriving soon',
-        note: 'We\'re handpicking the best stays for our loved ones',
-      },
-      {
-        name: 'More options on the way',
-        distance: 'Convenience is our priority',
-        phone: 'Details arriving soon',
-        note: 'Your comfort means the world to us',
-      },
-    ],
-    travel: {
-      airport: 'Flight details will be shared once the venue is set',
-      railway: 'Train routes and options coming soon',
-      parking: 'We\'ll make sure getting here is as easy as possible',
     },
   },
 
