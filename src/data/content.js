@@ -147,11 +147,11 @@ export const content = {
     subheading: 'The man who stole her heart',
     promptText: 'Curious about the one who swept her off her feet? Take a sneak peek into his world.',
     photos: [
-      { src: `${base}images/groom/photo-3.jpg`, alt: 'Siddhant' },
+      { src: `${base}images/groom/the-roots.jpg`, alt: 'Siddhant' },
       { src: `${base}images/groom/the-scholar.jpg`, alt: 'Siddhant' },
-      { src: `${base}images/groom/the-professional.jpg`, alt: 'Siddhant' },
+      { src: `${base}images/groom/photo-3.jpg`, alt: 'Siddhant' },
       { src: `${base}images/groom/the-explorer.jpg`, alt: 'Siddhant' },
-      { src: `${base}images/groom/photo-4.jpg`, alt: 'Siddhant' },
+      { src: `${base}images/groom/the-professional.jpg`, alt: 'Siddhant' },
     ],
     details: [
       {
