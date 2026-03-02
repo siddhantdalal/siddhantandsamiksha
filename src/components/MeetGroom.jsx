@@ -85,7 +85,7 @@ export default function MeetGroom() {
                       <div className={styles.dot} />
                       <div className={styles.photoCard} onClick={() => setLightbox(item.data)}>
                         <div className={styles.photoFrame}>
-                          <img src={item.data.src} alt={item.data.alt} className={styles.photo} />
+                          <img src={item.data.src} alt={item.data.alt} className={styles.photo} loading="lazy" />
                         </div>
                       </div>
                     </div>
@@ -143,7 +143,7 @@ export default function MeetGroom() {
                             <ScrollReveal key={i} delay={i * 0.08}>
                               <div className={styles.crewCard}>
                                 <div className={styles.crewPhotoFrame} onClick={() => setLightbox({ src: member.photo, alt: member.name })}>
-                                  <img src={member.photo} alt={member.name} className={styles.crewPhoto} />
+                                  <img src={member.photo} alt={member.name} className={styles.crewPhoto} loading="lazy" />
                                 </div>
                                 <h4 className={styles.crewName}>{member.name}</h4>
                                 <p className={styles.crewDesc}>{member.description}</p>
