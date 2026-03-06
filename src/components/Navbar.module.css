@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 10000;
-  padding: var(--space-md) var(--space-xl);
+  padding: calc(var(--space-md) + env(safe-area-inset-top)) var(--space-xl);
   padding-bottom: var(--space-3xl);
   background: linear-gradient(to bottom, var(--color-bg) 40%, transparent 100%);
   pointer-events: none;
@@ -68,7 +68,7 @@
   background: none;
   border: none;
   position: fixed;
-  top: var(--space-md);
+  top: calc(var(--space-md) + env(safe-area-inset-top));
   right: var(--space-xl);
   z-index: 10002;
 }
