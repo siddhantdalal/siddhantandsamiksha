@@ -6,7 +6,7 @@
   z-index: 10000;
   padding: calc(var(--space-md) + env(safe-area-inset-top)) var(--space-xl);
   padding-bottom: var(--space-3xl);
-  background: linear-gradient(to bottom, var(--color-bg) 40%, transparent 100%);
+  background: linear-gradient(to bottom, var(--color-bg) 60%, transparent 100%);
   pointer-events: none;
 }
 
