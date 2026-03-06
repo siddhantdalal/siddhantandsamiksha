@@ -84,7 +84,7 @@ export const content = {
     heading: 'Wedding Celebrations',
     subheading: 'Four days of love, laughter & togetherness',
     dates: '3rd – 5th December 2026',
-    venue: 'Suvi Palace, Sasunavghar, Mumbai-Ahmedabad Highway, Opp. Royal Garden, Vasai-Virar, Maharashtra 401208',
+    venue: 'Somewhere beautiful in Mumbai — the venue will be revealed soon, stay tuned 💛',
     events: [
       {
         name: 'Mehendi',
