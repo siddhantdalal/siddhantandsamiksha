@@ -36,19 +36,12 @@ export default function EngagementDetails() {
     ? 'And just like that, forever found its beginning.'
     : 'Every second brings us closer to forever';
 
-  const countdownLabels = isPast
-    ? [
-        { value: days, label: 'Days' },
-        { value: hours, label: 'Hours' },
-        { value: minutes, label: 'Minutes' },
-        { value: seconds, label: 'Seconds' },
-      ]
-    : [
-        { value: days, label: 'Days' },
-        { value: hours, label: 'Hours' },
-        { value: minutes, label: 'Minutes' },
-        { value: seconds, label: 'Seconds' },
-      ];
+  const countdownLabels = [
+    { value: days, label: 'Days' },
+    { value: hours, label: 'Hours' },
+    { value: minutes, label: 'Minutes' },
+    { value: seconds, label: 'Seconds' },
+  ];
 
   const handleDownload = () => {
     const a = document.createElement('a');

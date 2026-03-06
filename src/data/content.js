@@ -3,9 +3,7 @@ const base = import.meta.env.BASE_URL;
 export const content = {
   couple: {
     groomFirst: 'Siddhant',
-    groomLast: 'Dalal',
     brideFirst: 'Samiksha',
-    brideLast: 'Patil',
   },
 
   hero: {

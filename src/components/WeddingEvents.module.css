@@ -20,13 +20,6 @@
   line-height: 1.6;
   font-weight: 300;
   letter-spacing: 0.04em;
-  text-decoration: none;
-  transition: color var(--transition-fast);
-  display: block;
-}
-
-.venueAddress:hover {
-  color: var(--color-gold);
 }
 
 .divider {
@@ -82,11 +75,6 @@
   color: var(--color-text-muted);
   line-height: 1.8;
   margin-bottom: var(--space-md);
-}
-
-.golden {
-  color: var(--color-gold);
-  font-weight: 500;
 }
 
 .desc {
