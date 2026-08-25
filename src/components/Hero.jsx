@@ -71,7 +71,6 @@ export default function Hero() {
   return (
     <section id="hero" ref={ref} className={styles.hero}>
       <div className={styles.glowTop} aria-hidden="true" />
-      <div className={styles.glowBottom} aria-hidden="true" />
 
       <motion.div
         className={styles.content}

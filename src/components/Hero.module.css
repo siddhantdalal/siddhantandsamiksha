@@ -19,17 +19,6 @@
   pointer-events: none;
 }
 
-.glowBottom {
-  position: absolute;
-  bottom: -30%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140vmin;
-  height: 80vmin;
-  background: radial-gradient(ellipse at center, rgba(193, 58, 107, 0.08), transparent 65%);
-  pointer-events: none;
-}
-
 .content {
   position: relative;
   z-index: 2;
