@@ -147,9 +147,9 @@ export default {
     subheading: 'An evening of joy, laughter & togetherness',
     groom: {
       city: 'Nagpur',
-      venue: 'A stunning venue in the heart of Nagpur — to be revealed soon',
-      date: 'A warm December evening in Nagpur',
-      time: 'When the celebrations continue',
+      venue: 'Jerryl Lawns, Near Police Training School, Opp. Neeri High School, Kotwal Nagar, Laxminagar, Nagpur, Maharashtra 440022',
+      date: '07 December 2026',
+      time: '7:00 PM onwards',
       description: 'Join us for an unforgettable evening of celebration as we toast to new beginnings with the groom\'s loved ones.',
       note: 'You\'re seeing details for the Nagpur reception based on your side selection.',
     },
