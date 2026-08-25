@@ -9,14 +9,27 @@
 }
 
 html {
-  scroll-behavior: smooth;
   padding-top: env(safe-area-inset-top);
   background-color: var(--color-bg);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
 body {
   font-family: var(--font-sans);
   background-color: var(--color-bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(214, 173, 96, 0.06), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 40%, rgba(193, 58, 107, 0.04), transparent),
+    radial-gradient(ellipse 60% 40% at 0% 75%, rgba(42, 127, 116, 0.04), transparent);
+  background-attachment: fixed;
   color: var(--color-text);
   line-height: 1.6;
   overflow-x: hidden;
@@ -79,10 +92,16 @@ input, textarea, select {
   margin: 0 auto;
 }
 
-/* Section heading */
+/* Section heading — gold serif with ornamental rule */
 .section-heading {
   font-family: var(--font-serif);
   font-size: var(--text-4xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background: var(--color-gold-foil);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: var(--color-gold);
   text-align: center;
   margin-bottom: var(--space-lg);
@@ -93,19 +112,24 @@ input, textarea, select {
 .section-heading::after {
   content: '';
   display: block;
-  width: 60px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  width: 180px;
+  height: 9px;
   margin: var(--space-md) auto 0;
+  -webkit-text-fill-color: initial;
+  background:
+    radial-gradient(circle 3.5px at 50% 50%, var(--color-gold) 98%, transparent) center / 9px 9px no-repeat,
+    linear-gradient(90deg, transparent, var(--color-gold) 45%, transparent 46%, transparent 54%, var(--color-gold) 55%, transparent) center / 100% 1px no-repeat;
+  opacity: 0.9;
 }
 
 .section-subheading {
-  font-family: var(--font-sans);
-  font-size: var(--text-base);
+  font-family: var(--font-script);
+  font-size: var(--text-script-lg);
   color: var(--color-text-muted);
   text-align: center;
   margin-bottom: var(--space-3xl);
-  font-weight: 300;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 /* Gold divider */
@@ -114,6 +138,36 @@ input, textarea, select {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
   margin: var(--space-lg) auto;
+}
+
+/* Ornate frame corners — apply to any card wanting royal corners */
+.ornate-corners {
+  position: relative;
+}
+
+.ornate-corners::before,
+.ornate-corners::after {
+  content: '';
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--color-gold);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.ornate-corners::before {
+  top: 8px;
+  left: 8px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.ornate-corners::after {
+  bottom: 8px;
+  right: 8px;
+  border-left: none;
+  border-top: none;
 }
 
 /* Scrollbar */

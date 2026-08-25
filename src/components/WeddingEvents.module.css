@@ -1,10 +1,11 @@
 .venueInfo {
-  font-family: var(--font-sans);
-  font-size: var(--text-lg);
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 600;
   color: var(--color-gold);
   margin-top: var(--space-sm);
   text-align: center;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
 .venueAddress {
@@ -23,10 +24,13 @@
 }
 
 .divider {
-  width: 60px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  width: 180px;
+  height: 9px;
   margin: var(--space-xl) auto;
+  background:
+    radial-gradient(circle 3.5px at 50% 50%, var(--color-gold) 98%, transparent) center / 9px 9px no-repeat,
+    linear-gradient(90deg, transparent, var(--color-gold) 45%, transparent 46%, transparent 54%, var(--color-gold) 55%, transparent) center / 100% 1px no-repeat;
+  opacity: 0.9;
 }
 
 .grid {
@@ -37,7 +41,8 @@
 }
 
 .card {
-  background: var(--color-bg-card);
+  position: relative;
+  background: linear-gradient(160deg, var(--color-bg-card) 0%, var(--color-bg-card-2) 100%);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-lg);
   padding: var(--space-2xl);
@@ -49,22 +54,72 @@
   transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
+/* Inner hairline for the double-border royal look */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--border-radius-lg) - 5px);
+  pointer-events: none;
+  transition: border-color var(--transition-base);
+}
+
+/* Gold corner diamonds */
+.card::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--color-gold);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-gold-strong);
+}
+
+.card:hover::before {
+  border-color: var(--color-border-hover);
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  margin-bottom: var(--space-lg);
+  color: var(--color-gold);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: rgba(214, 173, 96, 0.05);
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.card:hover .icon {
   border-color: var(--color-border-hover);
   box-shadow: var(--shadow-gold);
 }
 
-.icon {
-  display: block;
-  margin-bottom: var(--space-md);
-  color: var(--color-gold);
-}
-
-
 .name {
   font-family: var(--font-serif);
   font-size: var(--text-2xl);
+  font-weight: 600;
+  background: var(--color-gold-foil);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: var(--color-gold);
   margin-bottom: var(--space-md);
 }
@@ -75,6 +130,7 @@
   color: var(--color-text-muted);
   line-height: 1.8;
   margin-bottom: var(--space-md);
+  letter-spacing: 0.06em;
 }
 
 .desc {

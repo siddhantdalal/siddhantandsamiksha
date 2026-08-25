@@ -1,6 +1,7 @@
 :root {
-  /* Typography */
-  --font-serif: 'Playfair Display', Georgia, serif;
+  /* Typography — Paithani & Gold */
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Font sizes */
@@ -11,8 +12,9 @@
   --text-xl: clamp(1.208rem, 1.89vw, 1.313rem);
   --text-2xl: clamp(1.47rem, 2.625vw, 1.838rem);
   --text-3xl: clamp(1.89rem, 3.15vw, 2.363rem);
-  --text-4xl: clamp(2.31rem, 4.2vw, 3.15rem);
-  --text-hero: clamp(3rem, 7vw, 5.5rem);
+  --text-4xl: clamp(2.52rem, 4.6vw, 3.6rem);
+  --text-hero: clamp(3.4rem, 8.5vw, 7rem);
+  --text-script-lg: clamp(1.8rem, 3.4vw, 2.6rem);
 
   /* Spacing */
   --space-xs: 0.25rem;
@@ -23,69 +25,106 @@
   --space-2xl: 3rem;
   --space-3xl: 4rem;
   --space-4xl: 6rem;
-  --space-section: clamp(4rem, 8vw, 8rem);
+  --space-section: clamp(4.5rem, 9vw, 9rem);
 
   /* Layout */
   --max-width: 1200px;
   --max-width-narrow: 800px;
-  --border-radius: 8px;
-  --border-radius-lg: 16px;
+  --border-radius: 6px;
+  --border-radius-lg: 14px;
 
   /* Transitions */
   --transition-fast: 0.2s ease;
-  --transition-base: 0.3s ease;
+  --transition-base: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-royal: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Dark theme (default) */
+/* ————— Dark (default): a royal Marathi evening ————— */
 :root {
-  --color-bg: #1a1a1a;
-  --color-bg-card: #1e1e1e;
-  --color-gold: #c9a96e;
-  --color-gold-light: #d4ba85;
-  --color-gold-dark: #a8893e;
-  --color-text: #e0cda5;
-  --color-text-muted: #b8b0a4;
-  --color-text-dim: #7a7268;
-  --color-border: rgba(201, 169, 110, 0.2);
-  --color-border-hover: rgba(201, 169, 110, 0.5);
-  --color-shadow: rgba(0, 0, 0, 0.3);
-  --color-shadow-md: rgba(0, 0, 0, 0.4);
-  --color-shadow-lg: rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-gold: 0 0 20px rgba(201, 169, 110, 0.15);
-  --color-menu-bg: rgba(26, 26, 26, 0.98);
-  --color-hero-overlay-top: rgba(26, 26, 26, 0.6);
-  --color-hero-overlay-mid: rgba(26, 26, 26, 0.75);
-  --color-hero-overlay-bot: rgba(26, 26, 26, 0.9);
-  --color-particle-1: #c9a96e;
-  --color-particle-2: #d4ba85;
-  --color-particle-3: #e8c4c4;
+  --color-bg: #150c12;
+  --color-bg-deep: #0e070c;
+  --color-bg-card: #1d1119;
+  --color-bg-card-2: #241521;
+
+  --color-gold: #d6ad60;
+  --color-gold-light: #ecd29b;
+  --color-gold-dark: #a97f36;
+  --color-gold-foil: linear-gradient(105deg, #a97f36 0%, #d6ad60 25%, #f4e3b2 50%, #d6ad60 75%, #a97f36 100%);
+
+  --color-rani: #c13a6b;
+  --color-rani-deep: #7c1f43;
+  --color-peacock: #2a7f74;
+  --color-peacock-deep: #123f3a;
+
+  --color-text: #efdfc2;
+  --color-text-muted: #c2ac95;
+  --color-text-dim: #8d7b6d;
+
+  --color-border: rgba(214, 173, 96, 0.22);
+  --color-border-hover: rgba(214, 173, 96, 0.55);
+  --color-shadow: rgba(0, 0, 0, 0.35);
+  --color-shadow-md: rgba(0, 0, 0, 0.45);
+  --color-shadow-lg: rgba(0, 0, 0, 0.55);
+  --shadow-md: 0 4px 18px rgba(0, 0, 0, 0.45);
+  --shadow-gold: 0 0 26px rgba(214, 173, 96, 0.18);
+  --shadow-gold-strong: 0 0 44px rgba(214, 173, 96, 0.3);
+
+  --color-menu-bg: rgba(21, 12, 18, 0.97);
+  --color-hero-overlay-top: rgba(21, 12, 18, 0.55);
+  --color-hero-overlay-mid: rgba(21, 12, 18, 0.72);
+  --color-hero-overlay-bot: rgba(21, 12, 18, 0.92);
+
+  --color-particle-1: #d6ad60;
+  --color-particle-2: #ecd29b;
+  --color-particle-3: #c13a6b;
+
+  --door-groom: linear-gradient(160deg, #123f3a 0%, #0d2a27 55%, #0a1f1d 100%);
+  --door-bride: linear-gradient(200deg, #7c1f43 0%, #58152f 55%, #400f22 100%);
+  --glass-bg: rgba(29, 17, 25, 0.55);
 }
 
-/* Light theme */
+/* ————— Light: ivory paper & antique gold ————— */
 @media (prefers-color-scheme: light) {
   :root {
-    --color-bg: #faf8f5;
-    --color-bg-card: #ffffff;
+    --color-bg: #f7f0e2;
+    --color-bg-deep: #efe5d1;
+    --color-bg-card: #fdf9f0;
+    --color-bg-card-2: #f4ead7;
+
     --color-gold: #a07d3a;
-    --color-gold-light: #b8923f;
-    --color-gold-dark: #8a6a2e;
-    --color-text: #2c2520;
-    --color-text-muted: #6b5f53;
-    --color-text-dim: #9a8e82;
-    --color-border: rgba(160, 125, 58, 0.2);
-    --color-border-hover: rgba(160, 125, 58, 0.45);
-    --color-shadow: rgba(0, 0, 0, 0.06);
-    --color-shadow-md: rgba(0, 0, 0, 0.08);
-    --color-shadow-lg: rgba(0, 0, 0, 0.12);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-    --shadow-gold: 0 0 20px rgba(160, 125, 58, 0.1);
-    --color-menu-bg: rgba(250, 248, 245, 0.98);
-    --color-hero-overlay-top: rgba(250, 248, 245, 0.5);
-    --color-hero-overlay-mid: rgba(250, 248, 245, 0.7);
-    --color-hero-overlay-bot: rgba(250, 248, 245, 0.88);
+    --color-gold-light: #c09a4e;
+    --color-gold-dark: #82632a;
+    --color-gold-foil: linear-gradient(105deg, #82632a 0%, #a07d3a 25%, #d3b269 50%, #a07d3a 75%, #82632a 100%);
+
+    --color-rani: #a52b58;
+    --color-rani-deep: #7c1f43;
+    --color-peacock: #226b61;
+    --color-peacock-deep: #123f3a;
+
+    --color-text: #3a2a20;
+    --color-text-muted: #6f5c4b;
+    --color-text-dim: #9c8a77;
+
+    --color-border: rgba(160, 125, 58, 0.25);
+    --color-border-hover: rgba(160, 125, 58, 0.55);
+    --color-shadow: rgba(58, 42, 32, 0.08);
+    --color-shadow-md: rgba(58, 42, 32, 0.12);
+    --color-shadow-lg: rgba(58, 42, 32, 0.16);
+    --shadow-md: 0 4px 18px rgba(58, 42, 32, 0.1);
+    --shadow-gold: 0 0 26px rgba(160, 125, 58, 0.14);
+    --shadow-gold-strong: 0 0 44px rgba(160, 125, 58, 0.22);
+
+    --color-menu-bg: rgba(247, 240, 226, 0.97);
+    --color-hero-overlay-top: rgba(247, 240, 226, 0.5);
+    --color-hero-overlay-mid: rgba(247, 240, 226, 0.7);
+    --color-hero-overlay-bot: rgba(247, 240, 226, 0.9);
+
     --color-particle-1: #a07d3a;
-    --color-particle-2: #b8923f;
-    --color-particle-3: #d4a0a0;
+    --color-particle-2: #c09a4e;
+    --color-particle-3: #a52b58;
+
+    --door-groom: linear-gradient(160deg, #1c574f 0%, #123f3a 55%, #0d2a27 100%);
+    --door-bride: linear-gradient(200deg, #8e2a4f 0%, #7c1f43 55%, #58152f 100%);
+    --glass-bg: rgba(253, 249, 240, 0.6);
   }
 }

@@ -36,21 +36,21 @@ function Particles() {
         fullScreen: { enable: true, zIndex: 1 },
         fpsLimit: 60,
         particles: {
-          number: { value: 55, density: { enable: true, area: 1000 } },
+          number: { value: 50, density: { enable: true, area: 1000 } },
           color: { value: colors.colors },
           shape: { type: 'circle' },
           opacity: {
-            value: { min: 0.2, max: 0.6 },
+            value: { min: 0.15, max: 0.55 },
             animation: { enable: true, speed: 0.5, minimumValue: 0.1 },
           },
           size: {
-            value: { min: 1, max: 3.5 },
+            value: { min: 0.8, max: 3 },
             animation: { enable: true, speed: 1, minimumValue: 0.5 },
           },
           move: {
             enable: true,
-            speed: 0.3,
-            direction: 'none',
+            speed: 0.45,
+            direction: 'top',
             random: true,
             straight: false,
             outModes: { default: 'out' },

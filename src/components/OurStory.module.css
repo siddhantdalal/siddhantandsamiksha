@@ -5,11 +5,22 @@
 }
 
 .text {
-  font-family: var(--font-sans);
-  font-size: var(--text-lg);
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
   color: var(--color-text-muted);
   line-height: 1.9;
-  font-weight: 300;
-  max-width: 640px;
+  font-weight: 400;
+  max-width: 680px;
   margin: var(--space-2xl) auto 0;
+}
+
+.text::first-letter {
+  font-family: var(--font-serif);
+  font-size: 3.2em;
+  font-weight: 500;
+  color: var(--color-gold);
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.12em;
+  padding-top: 0.06em;
 }

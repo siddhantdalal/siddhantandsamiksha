@@ -6,7 +6,7 @@
   z-index: 10000;
   padding: var(--space-md) var(--space-xl);
   padding-bottom: var(--space-3xl);
-  background: linear-gradient(to bottom, var(--color-bg) 40%, transparent 100%);
+  background: linear-gradient(to bottom, var(--color-bg) 30%, transparent 100%);
   pointer-events: none;
 }
 
@@ -44,18 +44,36 @@
 }
 
 .desktopLinks a {
+  position: relative;
   font-family: var(--font-sans);
   font-size: var(--text-sm);
   font-weight: 400;
   color: var(--color-text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   transition: color var(--transition-fast);
   text-decoration: none;
+  padding-bottom: 4px;
+}
+
+.desktopLinks a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-gold);
+  transition: width 0.4s var(--ease-royal), left 0.4s var(--ease-royal);
 }
 
 .desktopLinks a:hover {
   color: var(--color-gold);
+}
+
+.desktopLinks a:hover::after {
+  width: 100%;
+  left: 0;
 }
 
 /* Hamburger — fixed position, independent of nav stacking context */

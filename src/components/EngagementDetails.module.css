@@ -4,108 +4,64 @@
   text-align: center;
 }
 
-.card {
-  position: relative;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius-lg);
-  padding: var(--space-3xl) var(--space-2xl);
-  margin-top: var(--space-2xl);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-2xl);
-  text-align: left;
-}
-
-.downloadBtn {
-  position: absolute;
-  top: var(--space-md);
-  right: var(--space-md);
-  color: var(--color-gold);
-  opacity: 0.4;
-  transition: opacity var(--transition-fast);
+.ringMark {
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: var(--space-xs);
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.downloadBtn:hover {
-  opacity: 1;
-}
-
-.detail {
-  display: flex;
-  gap: var(--space-md);
-  align-items: flex-start;
-}
-
-.icon {
-  flex-shrink: 0;
-  margin-top: 2px;
   color: var(--color-gold);
-  display: flex;
-  align-items: center;
+  opacity: 0.85;
+  margin-bottom: var(--space-xl);
 }
 
-.label {
-  font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  color: var(--color-gold);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: var(--space-xs);
-}
-
-.value {
-  font-family: var(--font-sans);
-  font-size: var(--text-lg);
-  color: var(--color-text);
-}
-
-.address {
-  font-family: var(--font-sans);
-  font-size: var(--text-sm);
+.note {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
   color: var(--color-text-muted);
-  margin-top: var(--space-xs);
+  line-height: 1.85;
+  max-width: 620px;
+  margin: 0 auto var(--space-lg);
+}
+
+.engagedDate {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--color-gold);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2xl);
 }
 
 .sinceLabel {
-  font-family: var(--font-serif);
-  font-size: var(--text-2xl);
-  color: var(--color-gold);
-  margin-top: var(--space-2xl);
-  margin-bottom: var(--space-sm);
-}
-
-.countdownMsg {
-  font-family: var(--font-serif);
-  font-size: var(--text-base);
-  color: var(--color-text-muted);
-  font-style: italic;
-  margin-top: var(--space-sm);
+  font-family: var(--font-script);
+  font-size: var(--text-script-lg);
+  color: var(--color-rani);
   margin-bottom: var(--space-lg);
 }
 
 .countdown {
   display: flex;
-  gap: var(--space-xl);
+  gap: clamp(0.6rem, 2vw, 1.4rem);
   justify-content: center;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
 }
 
 .countUnit {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: clamp(60px, 8vw, 84px);
+  padding: var(--space-md) var(--space-sm);
+  background: var(--glass-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .countValue {
-  font-family: var(--font-sans);
-  font-size: var(--text-xl);
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 500;
   color: var(--color-gold);
   line-height: 1;
   display: inline-block;
@@ -123,20 +79,12 @@
   color: var(--color-text-dim);
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  margin-top: var(--space-xs);
+  margin-top: var(--space-sm);
 }
 
-.map {
-  margin-top: var(--space-2xl);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  border: 1px solid var(--color-border);
-}
-
-@media (max-width: 600px) {
-  .card {
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
-    padding: var(--space-xl);
-  }
+.countdownMsg {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  font-style: italic;
 }

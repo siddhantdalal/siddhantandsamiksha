@@ -12,6 +12,7 @@ export function SideProvider({ children }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useSide() {
   return useContext(SideContext);
 }

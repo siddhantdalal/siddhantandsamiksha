@@ -69,13 +69,11 @@ export const content = {
   },
 
   engagement: {
-    heading: 'Ring Ceremony',
+    heading: 'Sakharpuda',
+    script: 'We said yes!',
     date: '01 May 2026',
     countdownDate: '2026-05-01T18:00:00',
-    time: '6:00 PM onwards',
-    venue: 'Mayor Hall, All India Institute of Local Self-Government',
-    address: 'CD Barfiwala Road, Juhu Lane, Andheri West, Mumbai - 400058',
-    mapEmbed: '',
+    note: 'With the blessings of our families and rings on our fingers, our forever officially began on the first of May. The Sakharpuda is done — now the countdown to the mandap is on.',
   },
 
   weddingEvents: {

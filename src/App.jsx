@@ -1,6 +1,8 @@
 import { SideProvider } from './context/SideContext';
-import SideSelector from './components/SideSelector';
+import InviteOpening from './components/InviteOpening';
 import SideToggle from './components/SideToggle';
+import SmoothScroll from './components/SmoothScroll';
+import ScrollProgress from './components/ScrollProgress';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
@@ -20,15 +22,17 @@ import Particles from './components/Particles';
 export default function App() {
   return (
     <SideProvider>
-      <SideSelector />
+      <SmoothScroll />
+      <ScrollProgress />
+      <InviteOpening />
       <SideToggle />
       <Particles />
       <FilmGrain />
       <Navbar />
       <main>
         <Hero />
-        <AboutUs />
         <OurStory />
+        <AboutUs />
         <Timeline />
         <EngagementDetails />
         <WeddingEvents />

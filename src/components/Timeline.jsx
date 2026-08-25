@@ -1,11 +1,17 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useRef } from 'react';
+// eslint-disable-next-line no-unused-vars
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { content } from '../data/content';
 import ScrollReveal from './ScrollReveal';
 import styles from './Timeline.module.css';
 
 export default function Timeline() {
-  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start 78%', 'end 55%'],
+  });
+  const scaleY = useSpring(scrollYProgress, { stiffness: 80, damping: 26, restDelta: 0.001 });
 
   return (
     <section id="our-journey" className="section">
@@ -14,61 +20,28 @@ export default function Timeline() {
         <p className="section-subheading">{content.timeline.subheading}</p>
       </ScrollReveal>
 
-      <ScrollReveal>
-        <div className={styles.prompt}>
-          <p className={styles.promptText}>
-            Curious how our story unfolded? Every love story deserves to be told.
-          </p>
-          <button
-            className={`${styles.toggleBtn} ${open ? styles.toggleOpen : ''}`}
-            onClick={() => setOpen(!open)}
-            aria-label={open ? 'Collapse journey' : 'Expand journey'}
-          >
-            <span className={styles.toggleLabel}>{open ? 'Close' : 'Explore'}</span>
-            <svg
-              className={styles.chevron}
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </button>
-        </div>
-      </ScrollReveal>
+      <div ref={ref} className={styles.timelineInner}>
+        <div className={styles.lineTrack} aria-hidden="true" />
+        <motion.div className={styles.line} style={{ scaleY }} aria-hidden="true" />
 
-      <AnimatePresence>
-        {open && (
+        {content.timeline.events.map((event, i) => (
           <motion.div
-            className={styles.timeline}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            style={{ overflow: 'hidden' }}
+            key={i}
+            className={`${styles.item} ${i % 2 === 0 ? styles.left : styles.right}`}
+            initial={{ opacity: 0, x: i % 2 === 0 ? -46 : 46 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className={styles.timelineInner}>
-              <div className={styles.line} />
-              {content.timeline.events.map((event, i) => (
-                <ScrollReveal key={i} delay={i * 0.1}>
-                  <div className={`${styles.item} ${i % 2 === 0 ? styles.left : styles.right}`}>
-                    <div className={styles.dot} />
-                    <div className={styles.card}>
-                      <h3 className={styles.title}>{event.title}</h3>
-                      <p className={styles.desc}>{event.description}</p>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
+            <div className={styles.dot} />
+            <div className={styles.card}>
+              <span className={styles.chapter}>Chapter {['One', 'Two', 'Three', 'Four', 'Five', 'Six'][i] || i + 1}</span>
+              <h3 className={styles.title}>{event.title}</h3>
+              <p className={styles.desc}>{event.description}</p>
             </div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        ))}
+      </div>
     </section>
   );
 }
