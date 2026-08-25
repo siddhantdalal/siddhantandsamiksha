@@ -44,7 +44,7 @@ export default {
     },
   },
 
-  weddingDate: '2026-12-05T09:07:00',
+  weddingDate: '2026-12-05T12:13:00',
 
   aboutUs: {
     heading: 'About Us',
@@ -135,7 +135,7 @@ export default {
         name: 'Lagna Sohala',
         iconKey: 'Wedding',
         date: '05 December 2026',
-        time: 'Muhurth at 09:07 AM',
+        time: 'Muhurth at 12:13 PM',
         description: 'The sacred ceremony where two hearts become one — Antarpat, Mangalashtaka and Saptapadi, followed by wedding celebrations.',
         dressCode: '',
       },
