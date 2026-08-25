@@ -86,7 +86,15 @@ export default function WeddingEvents() {
         <h2 className="section-heading">{content.weddingEvents.heading}</h2>
         <p className="section-subheading">{content.weddingEvents.subheading}</p>
         <p className={styles.venueInfo}>{content.weddingEvents.dates}</p>
-        <p className={styles.venueAddress}>{content.weddingEvents.venue}</p>
+        <a
+          href={content.weddingEvents.mapLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
+          <p className={styles.venueInfo}>{content.weddingEvents.venue}</p>
+          <p className={styles.venueAddress}>{content.weddingEvents.address}</p>
+        </a>
         <div className={styles.divider} />
       </ScrollReveal>
 
@@ -94,7 +102,7 @@ export default function WeddingEvents() {
         {content.weddingEvents.events.map((event, i) => (
           <ScrollReveal key={event.name} delay={i * 0.08}>
             <div className={styles.card}>
-              <span className={styles.icon}>{icons[event.name]}</span>
+              <span className={styles.icon}>{icons[event.iconKey || event.name]}</span>
               <h3 className={styles.name}>{event.name}</h3>
               <div className={styles.meta}>
                 <p>{event.date}</p>
