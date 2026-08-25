@@ -1,7 +1,7 @@
 import { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
-import { content } from '../data/content';
+import { useContent } from '../context/LanguageContext';
 import { useSide } from '../context/SideContext';
 import styles from './InviteOpening.module.css';
 
@@ -30,6 +30,7 @@ function MandalaRing({ className }) {
 }
 
 export default function InviteOpening() {
+  const content = useContent();
   const { side, setSide } = useSide();
   const [phase, setPhase] = useState('seal'); // 'seal' | 'sides'
   const [chosen, setChosen] = useState(null);
@@ -71,7 +72,7 @@ export default function InviteOpening() {
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.9 } }}
                 >
-                  || श्री गणेशाय नमः ||
+                  {content.ui.shloka}
                 </motion.p>
 
                 <motion.p
@@ -79,7 +80,7 @@ export default function InviteOpening() {
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0, transition: { delay: 0.8, duration: 0.9 } }}
                 >
-                  The Wedding of
+                  {content.ui.weddingOf}
                 </motion.p>
 
                 <motion.h1
@@ -98,7 +99,7 @@ export default function InviteOpening() {
                   animate={{ opacity: 1, transition: { delay: 1.35, duration: 0.9 } }}
                 >
                   <span className={styles.dateLine} />
-                  <span className={styles.date}>05 · 12 · 2026</span>
+                  <span className={styles.date}>{content.ui.dateShort}</span>
                   <span className={styles.dateLine} />
                 </motion.div>
 
@@ -110,7 +111,7 @@ export default function InviteOpening() {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  Open the Invitation
+                  {content.ui.openInvitation}
                 </motion.button>
               </motion.div>
             )}
@@ -130,9 +131,9 @@ export default function InviteOpening() {
                 >
                   <span className={styles.doorPattern} aria-hidden="true" />
                   <span className={styles.doorContent}>
-                    <span className={styles.doorScript}>Team</span>
+                    <span className={styles.doorScript}>{content.ui.team}</span>
                     <span className={styles.doorName}>{content.couple.groomFirst}</span>
-                    <span className={styles.doorSub}>The Groom's Side</span>
+                    <span className={styles.doorSub}>{content.ui.groomDoorSub}</span>
                   </span>
                 </motion.button>
 
@@ -151,14 +152,14 @@ export default function InviteOpening() {
                 >
                   <span className={styles.doorPattern} aria-hidden="true" />
                   <span className={styles.doorContent}>
-                    <span className={styles.doorScript}>Team</span>
+                    <span className={styles.doorScript}>{content.ui.team}</span>
                     <span className={styles.doorName}>{content.couple.brideFirst}</span>
-                    <span className={styles.doorSub}>The Bride's Side</span>
+                    <span className={styles.doorSub}>{content.ui.brideDoorSub}</span>
                   </span>
                 </motion.button>
 
                 {!chosen && (
-                  <p className={styles.doorPrompt}>Whose side are you here to celebrate?</p>
+                  <p className={styles.doorPrompt}>{content.ui.doorPrompt}</p>
                 )}
               </motion.div>
             )}

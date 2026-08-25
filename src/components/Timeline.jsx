@@ -1,11 +1,12 @@
 import { useRef } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { content } from '../data/content';
+import { useContent } from '../context/LanguageContext';
 import ScrollReveal from './ScrollReveal';
 import styles from './Timeline.module.css';
 
 export default function Timeline() {
+  const content = useContent();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -35,7 +36,7 @@ export default function Timeline() {
           >
             <div className={styles.dot} />
             <div className={styles.card}>
-              <span className={styles.chapter}>Chapter {['One', 'Two', 'Three', 'Four', 'Five', 'Six'][i] || i + 1}</span>
+              <span className={styles.chapter}>{content.ui.chapters[i] || `${i + 1}`}</span>
               <h3 className={styles.title}>{event.title}</h3>
               <p className={styles.desc}>{event.description}</p>
             </div>

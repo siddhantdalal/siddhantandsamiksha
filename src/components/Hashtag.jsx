@@ -1,14 +1,15 @@
-import { content } from '../data/content';
+import { useContent } from '../context/LanguageContext';
 import ScrollReveal from './ScrollReveal';
 import styles from './Hashtag.module.css';
 
 export default function Hashtag() {
+  const content = useContent();
   const tags = [...content.hashtags, ...content.hashtags, ...content.hashtags];
 
   return (
     <section className={styles.section}>
       <ScrollReveal>
-        <p className={styles.label}>Share your moments with</p>
+        <p className={styles.label}>{content.ui.shareLabel}</p>
       </ScrollReveal>
 
       <div className={styles.marquee}>

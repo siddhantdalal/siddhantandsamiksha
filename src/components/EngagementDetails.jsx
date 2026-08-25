@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { content } from '../data/content';
+import { useContent } from '../context/LanguageContext';
 import ScrollReveal from './ScrollReveal';
 import styles from './EngagementDetails.module.css';
 
@@ -25,14 +25,15 @@ function useCountUp(sinceDate) {
 }
 
 export default function EngagementDetails() {
-  const { engagement } = content;
+  const content = useContent();
+  const { engagement, ui } = content;
   const { days, hours, minutes, seconds } = useCountUp(engagement.countdownDate);
 
   const units = [
-    { value: days, label: 'Days' },
-    { value: hours, label: 'Hours' },
-    { value: minutes, label: 'Minutes' },
-    { value: seconds, label: 'Seconds' },
+    { value: days, label: ui.countdown.days },
+    { value: hours, label: ui.countdown.hours },
+    { value: minutes, label: ui.countdown.minutes },
+    { value: seconds, label: ui.countdown.seconds },
   ];
 
   return (
@@ -52,7 +53,7 @@ export default function EngagementDetails() {
           <p className={styles.note}>{engagement.note}</p>
           <p className={styles.engagedDate}>{engagement.date}</p>
 
-          <p className={styles.sinceLabel}>Happily engaged for</p>
+          <p className={styles.sinceLabel}>{ui.engagedFor}</p>
           <div className={styles.countdown}>
             {units.map(({ value, label }) => (
               <div key={label} className={styles.countUnit}>
@@ -61,7 +62,7 @@ export default function EngagementDetails() {
               </div>
             ))}
           </div>
-          <p className={styles.countdownMsg}>…and counting, all the way to the mandap.</p>
+          <p className={styles.countdownMsg}>{ui.countingLine}</p>
         </div>
       </ScrollReveal>
     </section>

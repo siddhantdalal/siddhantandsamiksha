@@ -1,20 +1,22 @@
 import { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
-import { content } from '../data/content';
+import { useContent } from '../context/LanguageContext';
 import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
 import styles from './AboutUs.module.css';
 
 export default function AboutUs() {
+  const content = useContent();
   const [open, setOpen] = useState(false);
   const { side } = useSide();
 
   const { groom, bride } = content.aboutUs;
-  const first = side === 'bride' ? bride : groom;
-  const second = side === 'bride' ? groom : bride;
-  const firstLabel = side === 'bride' ? 'The Bride' : 'The Groom';
-  const secondLabel = side === 'bride' ? 'The Groom' : 'The Bride';
+  const firstIsGroom = side !== 'bride';
+  const first = firstIsGroom ? groom : bride;
+  const second = firstIsGroom ? bride : groom;
+  const firstLabel = firstIsGroom ? content.ui.groomLabel : content.ui.brideLabel;
+  const secondLabel = firstIsGroom ? content.ui.brideLabel : content.ui.groomLabel;
 
   return (
     <section id="about-us" className="section">
@@ -25,7 +27,7 @@ export default function AboutUs() {
 
       <ScrollReveal delay={0.1}>
         <div className={styles.connectionMap}>
-          <p className={styles.connectionText}>Two cities, one destiny — 800 km apart, yet hearts perfectly aligned.</p>
+          <p className={styles.connectionText}>{content.aboutUs.connectionText}</p>
           <svg viewBox="0 0 320 90" className={styles.connectionSvg}>
             {/* Left pin */}
             <path d="M60 32c0-8 6.5-14.5 14.5-14.5S89 24 89 32c0 10-14.5 22-14.5 22S60 42 60 32z" fill="none" stroke="currentColor" strokeWidth="1.2" />
@@ -40,23 +42,21 @@ export default function AboutUs() {
             <path d="M231 32c0-8 6.5-14.5 14.5-14.5S260 24 260 32c0 10-14.5 22-14.5 22S231 42 231 32z" fill="none" stroke="currentColor" strokeWidth="1.2" />
             <circle cx="245.5" cy="31" r="4" fill="none" stroke="currentColor" strokeWidth="1.2" />
             {/* City labels */}
-            <text x="74.5" y="72" textAnchor="middle" className={styles.cityLabel}>Mumbai</text>
-            <text x="245.5" y="72" textAnchor="middle" className={styles.cityLabel}>Nagpur</text>
+            <text x="74.5" y="72" textAnchor="middle" className={styles.cityLabel}>{content.aboutUs.mapCities.left}</text>
+            <text x="245.5" y="72" textAnchor="middle" className={styles.cityLabel}>{content.aboutUs.mapCities.right}</text>
           </svg>
         </div>
       </ScrollReveal>
 
       <ScrollReveal>
         <div className={styles.prompt}>
-          <p className={styles.promptText}>
-            Get to know the two souls whose worlds are about to become one.
-          </p>
+          <p className={styles.promptText}>{content.aboutUs.prompt}</p>
           <button
             className={`${styles.toggleBtn} ${open ? styles.toggleOpen : ''}`}
             onClick={() => setOpen(!open)}
             aria-label={open ? 'Collapse about us' : 'Expand about us'}
           >
-            <span className={styles.toggleLabel}>{open ? 'Close' : 'Discover'}</span>
+            <span className={styles.toggleLabel}>{open ? content.ui.close : content.ui.discover}</span>
             <svg
               className={styles.chevron}
               width="18"
@@ -91,7 +91,7 @@ export default function AboutUs() {
                 <div className={styles.row}>
                   <div className={`${styles.card} ${styles.leftCard}`}>
                     <div className={styles.photoFrame}>
-                      <img src={first.photo} alt={first.name} className={`${styles.photo} ${firstLabel === 'The Groom' ? styles.groomPhoto : ''}`} loading="lazy" />
+                      <img src={first.photo} alt={first.name} className={`${styles.photo} ${firstIsGroom ? styles.groomPhoto : ''}`} loading="lazy" />
                     </div>
                     <span className={styles.label}>{firstLabel}</span>
                     <h3 className={styles.name}>{first.name}</h3>
@@ -111,7 +111,7 @@ export default function AboutUs() {
 
                   <div className={`${styles.card} ${styles.rightCard}`}>
                     <div className={styles.photoFrame}>
-                      <img src={second.photo} alt={second.name} className={`${styles.photo} ${secondLabel === 'The Groom' ? styles.groomPhoto : ''}`} loading="lazy" />
+                      <img src={second.photo} alt={second.name} className={`${styles.photo} ${!firstIsGroom ? styles.groomPhoto : ''}`} loading="lazy" />
                     </div>
                     <span className={styles.label}>{secondLabel}</span>
                     <h3 className={styles.name}>{second.name}</h3>
@@ -128,7 +128,7 @@ export default function AboutUs() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.3}>
-                <p className={styles.closingLine}>They say HR finds the best talent — well, Samiksha didn't even need a job posting. One look and Siddhant's resume was accepted for a lifetime role.<br /><strong>Best hire ever.</strong></p>
+                <p className={styles.closingLine}>{content.aboutUs.closingLine}<br /><strong>{content.aboutUs.closingStrong}</strong></p>
               </ScrollReveal>
 
             </div>

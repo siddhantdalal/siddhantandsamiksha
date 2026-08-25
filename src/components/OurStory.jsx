@@ -1,8 +1,9 @@
-import { content } from '../data/content';
+import { useContent } from '../context/LanguageContext';
 import ScrollReveal from './ScrollReveal';
 import styles from './OurStory.module.css';
 
 export default function OurStory() {
+  const content = useContent();
   return (
     <section id="our-story" className="section">
       <ScrollReveal>

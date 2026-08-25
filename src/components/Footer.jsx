@@ -1,8 +1,9 @@
-import { content } from '../data/content';
+import { useContent } from '../context/LanguageContext';
 import { useSide } from '../context/SideContext';
 import styles from './Footer.module.css';
 
 export default function Footer() {
+  const content = useContent();
   const { side } = useSide();
 
   const names = side === 'bride'
@@ -15,7 +16,7 @@ export default function Footer() {
       <p className={styles.names}>{names}</p>
       <div className={styles.divider} />
       <p className={styles.copy}>
-        &copy; {content.footer.year} &middot; Made with love
+        &copy; {content.footer.year} &middot; {content.ui.madeWith}
       </p>
     </footer>
   );

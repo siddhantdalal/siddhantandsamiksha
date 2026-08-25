@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 
-import { content } from '../data/content';
+import { useContent } from '../context/LanguageContext';
 import { useSide } from '../context/SideContext';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
+  const content = useContent();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { side } = useSide();
@@ -29,7 +30,7 @@ export default function Navbar() {
 
   const getLabel = (item) => {
     if (item.sideAware) {
-      return side === 'bride' ? 'Meet the Groom' : 'Meet the Bride';
+      return side === 'bride' ? item.groomLabel : item.brideLabel;
     }
     return item.label;
   };

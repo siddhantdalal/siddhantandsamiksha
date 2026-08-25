@@ -1,91 +1,59 @@
-import { content } from '../data/content';
+import { useContent } from '../context/LanguageContext';
 import ScrollReveal from './ScrollReveal';
 import styles from './WeddingEvents.module.css';
 
 const icons = {
-  Mehendi: (
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22c0-6-4-8-4-14a4 4 0 1 1 8 0c0 6-4 8-4 14z" />
-      <path d="M12 6c0 2.5-1.5 4-1.5 7" />
-      <path d="M12 6c0 2.5 1.5 4 1.5 7" />
-    </svg>
-  ),
   Haldi: (
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round">
-      {/* Wooden bowl */}
-      <ellipse cx="11" cy="13" rx="8" ry="2.5" />
-      <path d="M3 13 C3 18 6.5 20 11 20 C15.5 20 19 18 19 13" />
-      {/* Bowl wood grain lines */}
-      <path d="M4.5 15.5 C7 17 15 17 17.5 15.5" strokeWidth="0.7" />
-      <path d="M5.5 17.5 C8 19 14 19 16.5 17.5" strokeWidth="0.7" />
-      {/* Haldi powder mound - filled */}
-      <path d="M5 12 C5 8 7.5 5 11 5 C14.5 5 17 8 17 12z" fill="currentColor" />
-      {/* Powder texture lines */}
-      <path d="M7 10 C9 8.5 13 8.5 15 10" strokeWidth="0.7" />
-      <path d="M8 8 C9.5 7 12.5 7 14 8" strokeWidth="0.7" />
-      {/* Turmeric roots beside bowl */}
-      <path d="M19 16 C20 15 21.5 14.5 22 15.5 C22.5 16.5 21 17 20 17" strokeWidth="1" />
-      <path d="M19.5 17.5 C20.5 17 22 16.5 22.5 17.5 C23 18.5 21.5 19 20.5 18.5" strokeWidth="1" />
-      {/* Small leaves */}
-      <path d="M18.5 15 C19 13.5 20 13 20.5 14" fill="currentColor" strokeWidth="0.7" />
-      <path d="M19.5 14.5 C20 13 21 12.5 21.5 13.5" fill="currentColor" strokeWidth="0.7" />
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+      {/* Turmeric mound */}
+      <path d="M7.2 11.5 C7.2 8.2 9.3 6.3 12 6.3 C14.7 6.3 16.8 8.2 16.8 11.5z" fill="currentColor" stroke="none" />
+      {/* Bowl with foot */}
+      <path d="M5 11.5 L19 11.5 C19 16 16.2 18.2 12 18.2 C7.8 18.2 5 16 5 11.5z" />
+      <path d="M9.8 18.4 L9.3 20.4 L14.7 20.4 L14.2 18.4" />
+      {/* Auspicious sparkles */}
+      <path d="M12 2.8 v1.6 M11.2 3.6 h1.6" />
+      <path d="M6.2 4.4 v1.3 M5.55 5.05 h1.3" />
+      <path d="M17.8 4.4 v1.3 M17.15 5.05 h1.3" />
     </svg>
   ),
   Sangeet: (
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-      {/* Her - head */}
-      <circle cx="8" cy="2.5" r="1.5" fill="currentColor" />
-      {/* Her - upper body */}
-      <path d="M8 4 C8 5 8 6 7.5 8" />
-      {/* Her - lehenga/skirt flared elegantly */}
-      <path d="M7.5 8 C6 10 4 14 2 22 L13 22 C11 14 9.5 10 7.5 8z" />
-      {/* Her - dupatta flowing */}
-      <path d="M6 5 C4 4 2 5 1 7" />
-      {/* Her - arm raised gracefully */}
-      <path d="M8 5 C9 4 10 3 11 2" />
-      {/* Her - arm holding his */}
-      <path d="M8 6 C9 6.5 10 7 11 7" />
-      {/* Him - head */}
-      <circle cx="16" cy="1.5" r="1.5" fill="currentColor" />
-      {/* Him - torso / sherwani */}
-      <path d="M15 3 L14.5 5 L13 10 L19 10 L17.5 5 L17 3z" />
-      {/* Him - legs in motion */}
-      <path d="M14 10 C13.5 14 12.5 18 12 22" />
-      <path d="M18 10 C18.5 14 19 18 20 22" />
-      {/* Him - arm up celebrating */}
-      <path d="M16 4 C17 3 19 1.5 21 1" />
-      {/* Him - arm connecting to her */}
-      <path d="M15 5 C14 6 12 7 11 7" />
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+      {/* Dhol body and heads */}
+      <rect x="4.8" y="9.2" width="14.4" height="9.6" rx="3.2" />
+      <path d="M8.2 9.2 v9.6 M15.8 9.2 v9.6" />
+      {/* Cross lacing */}
+      <path d="M8.2 10.6 L15.8 13.2 M15.8 10.6 L8.2 13.2 M8.2 14.8 L15.8 17.4 M15.8 14.8 L8.2 17.4" strokeWidth="0.8" opacity="0.75" />
+      {/* Music notes */}
+      <circle cx="8.2" cy="5.2" r="1.1" fill="currentColor" stroke="none" />
+      <path d="M9.3 5.2 V2.7 C10.1 2.9 10.7 3.2 11.1 3.8" />
+      <circle cx="14.6" cy="4.4" r="0.95" fill="currentColor" stroke="none" />
+      <path d="M15.55 4.4 V2.3 C16.2 2.45 16.7 2.7 17.1 3.2" />
     </svg>
   ),
   Wedding: (
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-      {/* Gathbandhan - two cloths tied in a knot */}
-      {/* Left cloth - outer edge going up */}
-      <path d="M10 8 C8 5 5 3 1 1" />
-      <path d="M10 8 C7 6 4 5 0 4" />
-      {/* Right cloth - outer edge going up */}
-      <path d="M14 8 C16 5 19 3 23 1" />
-      <path d="M14 8 C17 6 20 5 24 4" />
-      {/* Central knot - two loops tied together */}
-      <path d="M10 8 C10 6.5 11 6 12 7 C13 6 14 6.5 14 8 C14 9.5 13 10.5 12 10 C11 10.5 10 9.5 10 8z" fill="currentColor" />
-      {/* Left hanging cloth - continuous from knot */}
-      <path d="M10 9 C9 12 8 15 6 19 C7 21 9 21 10 19 C10.5 16 11 13 11.5 10" />
-      <path d="M6 19 C6.5 20 7 20.5 8 20" />
-      {/* Right hanging cloth - continuous from knot */}
-      <path d="M14 9 C15 12 16 15 18 19 C17 21 15 21 14 19 C13.5 16 13 13 12.5 10" />
-      <path d="M18 19 C17.5 20 17 20.5 16 20" />
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+      {/* Coconut with tuft */}
+      <circle cx="12" cy="6.4" r="2.2" />
+      <path d="M11.2 4.4 C11.4 3.8 12.6 3.8 12.8 4.4" strokeWidth="1" />
+      {/* Mango leaves */}
+      <path d="M9.7 8.5 C8.1 8.3 6.8 7.3 6.2 5.7 C7.9 5.8 9.2 6.8 9.9 8.3z" fill="currentColor" stroke="none" opacity="0.9" />
+      <path d="M14.3 8.5 C15.9 8.3 17.2 7.3 17.8 5.7 C16.1 5.8 14.8 6.8 14.1 8.3z" fill="currentColor" stroke="none" opacity="0.9" />
+      {/* Kalash rim, body and base */}
+      <path d="M8.5 9 h7" />
+      <path d="M9.4 9 C9.4 10 9 10.7 8.3 11.3 C6.9 12.1 6 13.5 6 15 C6 17.8 8.7 19.8 12 19.8 C15.3 19.8 18 17.8 18 15 C18 13.5 17.1 12.1 15.7 11.3 C15 10.7 14.6 10 14.6 9" />
+      <path d="M12 12.6 L13.3 14.2 L12 15.8 L10.7 14.2z" fill="currentColor" stroke="none" />
+      <path d="M9.6 21.2 h4.8" />
     </svg>
   ),
 };
 
 export default function WeddingEvents() {
+  const content = useContent();
   return (
     <section id="events" className="section">
       <ScrollReveal>
         <h2 className="section-heading">{content.weddingEvents.heading}</h2>
         <p className="section-subheading">{content.weddingEvents.subheading}</p>
-        <p className={styles.venueInfo}>{content.weddingEvents.dates}</p>
         <a
           href={content.weddingEvents.mapLink}
           target="_blank"
@@ -111,7 +79,7 @@ export default function WeddingEvents() {
               <p className={styles.desc}>{event.description}</p>
               {event.dressCode && (
                 <p className={styles.dress}>
-                  <span>Dress Code:</span> {event.dressCode}
+                  <span>{content.ui.dressCode}:</span> {event.dressCode}
                 </p>
               )}
             </div>

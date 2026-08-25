@@ -1,8 +1,8 @@
 :root {
   /* Typography — Paithani & Gold */
-  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  --font-script: 'Great Vibes', cursive;
-  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Cormorant Garamond', 'Tiro Devanagari Marathi', 'Playfair Display', Georgia, serif;
+  --font-script: 'Great Vibes', 'Tiro Devanagari Marathi', cursive;
+  --font-sans: 'Outfit', 'Tiro Devanagari Marathi', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Font sizes */
   --text-xs: clamp(0.735rem, 0.84vw, 0.788rem);

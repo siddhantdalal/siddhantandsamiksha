@@ -41,6 +41,8 @@
   list-style: none;
   gap: var(--space-xl);
   margin-left: auto;
+  /* leave room for the fixed language toggle at the top-right */
+  margin-right: 118px;
 }
 
 .desktopLinks a {

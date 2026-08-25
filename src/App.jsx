@@ -1,5 +1,7 @@
 import { SideProvider } from './context/SideContext';
+import { LanguageProvider } from './context/LanguageContext';
 import InviteOpening from './components/InviteOpening';
+import LanguageToggle from './components/LanguageToggle';
 import SideToggle from './components/SideToggle';
 import SmoothScroll from './components/SmoothScroll';
 import ScrollProgress from './components/ScrollProgress';
@@ -21,10 +23,12 @@ import Particles from './components/Particles';
 
 export default function App() {
   return (
+    <LanguageProvider>
     <SideProvider>
       <SmoothScroll />
       <ScrollProgress />
       <InviteOpening />
+      <LanguageToggle />
       <SideToggle />
       <Particles />
       <FilmGrain />
@@ -43,5 +47,6 @@ export default function App() {
       </main>
       <Footer />
     </SideProvider>
+    </LanguageProvider>
   );
 }

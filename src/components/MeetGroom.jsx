@@ -1,21 +1,22 @@
 import { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
-import { content } from '../data/content';
+import { useContent } from '../context/LanguageContext';
 import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
 import { HomeIcon, GraduationIcon, BriefcaseIcon, BikeIcon, SparkleIcon } from './Icons';
 import styles from './MeetGroom.module.css';
 
 const detailIcons = {
-  'Roots': <HomeIcon size={24} />,
-  'The Scholar': <GraduationIcon size={24} />,
-  'The Professional': <BriefcaseIcon size={24} />,
-  'The Explorer': <BikeIcon size={24} />,
-  'The People Person': <SparkleIcon size={24} />,
+  home: <HomeIcon size={24} />,
+  scholar: <GraduationIcon size={24} />,
+  work: <BriefcaseIcon size={24} />,
+  explore: <BikeIcon size={24} />,
+  people: <SparkleIcon size={24} />,
 };
 
 export default function MeetGroom() {
+  const content = useContent();
   const [open, setOpen] = useState(false);
   const [crewOpen, setCrewOpen] = useState(false);
   const [lightbox, setLightbox] = useState(null);
@@ -49,7 +50,7 @@ export default function MeetGroom() {
             onClick={() => setOpen(!open)}
             aria-label={open ? 'Collapse' : 'Expand'}
           >
-            <span className={styles.toggleLabel}>{open ? 'Close' : 'Reveal'}</span>
+            <span className={styles.toggleLabel}>{open ? content.ui.close : content.ui.reveal}</span>
             <svg
               className={styles.chevron}
               width="18"
@@ -94,7 +95,7 @@ export default function MeetGroom() {
                     <div className={`${styles.block} ${item.index % 2 === 0 ? styles.right : styles.left}`}>
                       <div className={styles.dot} />
                       <div className={styles.detailCard}>
-                        <span className={styles.icon}>{detailIcons[item.data.title]}</span>
+                        <span className={styles.icon}>{detailIcons[item.data.iconKey]}</span>
                         <h3 className={styles.detailTitle}>{item.data.title}</h3>
                         <p className={styles.detailText}>{item.data.text}</p>
                       </div>
@@ -114,7 +115,7 @@ export default function MeetGroom() {
                     onClick={() => setCrewOpen(!crewOpen)}
                     aria-label={crewOpen ? 'Collapse crew' : 'Expand crew'}
                   >
-                    <span className={styles.toggleLabel}>{crewOpen ? 'Close' : 'Meet Them'}</span>
+                    <span className={styles.toggleLabel}>{crewOpen ? content.ui.close : content.ui.meetThem}</span>
                     <svg
                       className={styles.chevron}
                       width="18"

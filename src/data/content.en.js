@@ -1,9 +1,37 @@
 const base = import.meta.env.BASE_URL;
 
-export const content = {
+export default {
   couple: {
     groomFirst: 'Siddhant',
     brideFirst: 'Samiksha',
+  },
+
+  ui: {
+    shloka: '|| श्री गणेशाय नमः ||',
+    weddingOf: 'The Wedding of',
+    dateShort: '05 · 12 · 2026',
+    openInvitation: 'Open the Invitation',
+    team: 'Team',
+    groomDoorSub: "The Groom's Side",
+    brideDoorSub: "The Bride's Side",
+    doorPrompt: 'Whose side are you here to celebrate?',
+    countdown: { days: 'Days', hours: 'Hours', minutes: 'Minutes', seconds: 'Seconds' },
+    sideToggle: { groom: "Siddhant's Side", bride: "Samiksha's Side" },
+    discover: 'Discover',
+    close: 'Close',
+    reveal: 'Reveal',
+    meetThem: 'Meet Them',
+    dressCode: 'Dress Code',
+    venueLabel: 'Venue',
+    dateLabel: 'Date',
+    timeLabel: 'Time',
+    chapters: ['Chapter One', 'Chapter Two', 'Chapter Three', 'Chapter Four', 'Chapter Five', 'Chapter Six'],
+    shareLabel: 'Share your moments with',
+    madeWith: 'Made with love',
+    engagedFor: 'Happily engaged for',
+    countingLine: '…and counting, all the way to the mandap.',
+    groomLabel: 'The Groom',
+    brideLabel: 'The Bride',
   },
 
   hero: {
@@ -21,6 +49,9 @@ export const content = {
   aboutUs: {
     heading: 'About Us',
     subheading: 'The two hearts behind this love story',
+    connectionText: 'Two cities, one destiny — 800 km apart, yet hearts perfectly aligned.',
+    mapCities: { left: 'Mumbai', right: 'Nagpur' },
+    prompt: 'Get to know the two souls whose worlds are about to become one.',
     groom: {
       name: 'Siddhant Dalal',
       photo: `${base}images/about/siddhant-about.jpg`,
@@ -33,7 +64,8 @@ export const content = {
       hometown: 'Mumbai',
       bio: 'Born and brought up in the city of dreams, Samiksha is a corporate HR professional by day, and a person who knows how to handle things — be it personal or professional. With a heart as warm as her smile, she brings grace and strength to everything she touches.',
     },
-    closingLine: 'She\'s been shuffled across every HR department — but even without being on the recruiting team, she still managed to recruit Siddhant for a lifetime. Best hire ever.',
+    closingLine: 'They say HR finds the best talent — well, Samiksha didn\'t even need a job posting. One look and Siddhant\'s resume was accepted for a lifetime role.',
+    closingStrong: 'Best hire ever.',
   },
 
   ourStory: {
@@ -79,7 +111,6 @@ export const content = {
   weddingEvents: {
     heading: 'Wedding Celebrations',
     subheading: 'Two days of love, laughter & togetherness',
-    dates: '4th – 5th December 2026',
     venue: 'Suvi Palace',
     address: 'Sasunavghar, Mumbai-Ahmedabad Highway, Opp. Royal Garden, Vasai-Virar, Maharashtra 401208',
     mapLink: 'https://www.google.com/maps/search/?api=1&query=Suvi+Palace+Sasunavghar+Vasai-Virar',
@@ -91,7 +122,6 @@ export const content = {
         time: 'Morning',
         description: 'The auspicious halad ceremony — turmeric blessings from loved ones, laughter, and the golden glow of new beginnings.',
         dressCode: '',
-        icon: '☀️',
       },
       {
         name: 'Sangeet Sandhya',
@@ -100,7 +130,6 @@ export const content = {
         time: 'Evening',
         description: 'A night of dance, music, and celebration. Come ready to move!',
         dressCode: '',
-        icon: '🎶',
       },
       {
         name: 'Lagna Sohala',
@@ -109,7 +138,6 @@ export const content = {
         time: 'Muhurth at 09:07 AM',
         description: 'The sacred ceremony where two hearts become one — Antarpat, Mangalashtaka and Saptapadi, followed by wedding celebrations.',
         dressCode: '',
-        icon: '💍',
       },
     ],
   },
@@ -123,7 +151,7 @@ export const content = {
       date: 'A warm December evening in Nagpur',
       time: 'When the celebrations continue',
       description: 'Join us for an unforgettable evening of celebration as we toast to new beginnings with the groom\'s loved ones.',
-      dressCode: 'To be announced',
+      note: 'You\'re seeing details for the Nagpur reception based on your side selection.',
     },
     bride: {
       city: 'Kolhapur',
@@ -131,7 +159,7 @@ export const content = {
       date: 'A heartfelt December evening in Kolhapur',
       time: 'When love fills the room',
       description: 'An evening filled with warmth, laughter and love as we celebrate with the bride\'s nearest and dearest.',
-      dressCode: 'To be announced',
+      note: 'You\'re seeing details for the Kolhapur reception based on your side selection.',
     },
   },
 
@@ -149,23 +177,23 @@ export const content = {
     details: [
       {
         title: 'Roots',
+        iconKey: 'home',
         text: 'Born in Umred, a small town near Nagpur, and brought up in the heart of Nagpur — the city that shaped who he is today.',
-        icon: '🏡',
       },
       {
         title: 'The Scholar',
+        iconKey: 'scholar',
         text: 'Completed his graduation in BCA, then packed his bags and moved to the UK for 5 years to pursue his Masters in MSc Network Management & Cloud Computing.',
-        icon: '🎓',
       },
       {
         title: 'The Professional',
+        iconKey: 'work',
         text: 'Worked in the UK for 3.5 years, gaining invaluable experience, and is now back in India building his career forward.',
-        icon: '💼',
       },
       {
         title: 'The Explorer',
+        iconKey: 'explore',
         text: 'A soul that thrives on exploring new places, cooking up a storm in the kitchen, and most of all — bike touring across the open roads.',
-        icon: '🏍️',
       },
     ],
     groomsmen: {
@@ -215,23 +243,23 @@ export const content = {
     details: [
       {
         title: 'Roots',
+        iconKey: 'home',
         text: 'Born and brought up in the city of dreams — Mumbai. A true Mumbaikar at heart, shaped by the energy and spirit of the city.',
-        icon: '🏡',
       },
       {
         title: 'The Scholar',
+        iconKey: 'scholar',
         text: 'Completed her Bachelor of Commerce followed by an MBA in Human Resource Management & Services — building a strong foundation for the leader she was becoming.',
-        icon: '🎓',
       },
       {
         title: 'The Professional',
+        iconKey: 'work',
         text: 'Working in Mumbai\'s corporate world in the HR Department, she found her calling in understanding and managing people.',
-        icon: '💼',
       },
       {
         title: 'The People Person',
+        iconKey: 'people',
         text: 'She has no match when it comes to connecting with people. Always curious, always eager to learn and try something new — she makes everyone around her feel seen and valued.',
-        icon: '✨',
       },
     ],
     bridesmaids: {
@@ -275,6 +303,6 @@ export const content = {
     { label: 'About Us', href: '#about-us' },
     { label: 'Our Journey', href: '#our-journey' },
     { label: 'Events', href: '#events' },
-    { label: 'Meet', href: '#meet', sideAware: true },
+    { label: 'Meet', href: '#meet', sideAware: true, groomLabel: 'Meet the Groom', brideLabel: 'Meet the Bride' },
   ],
 };

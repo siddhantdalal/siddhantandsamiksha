@@ -1,10 +1,11 @@
-import { content } from '../data/content';
+import { useContent } from '../context/LanguageContext';
 import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
 import { MapPinIcon, CalendarIcon, ClockIcon } from './Icons';
 import styles from './Reception.module.css';
 
 export default function Reception() {
+  const content = useContent();
   const { side } = useSide();
   const info = side === 'bride' ? content.reception.bride : content.reception.groom;
 
@@ -25,7 +26,7 @@ export default function Reception() {
               <div className={styles.detail}>
                 <span className={styles.icon}><MapPinIcon size={22} /></span>
                 <div>
-                  <h4 className={styles.label}>Venue</h4>
+                  <h4 className={styles.label}>{content.ui.venueLabel}</h4>
                   <p className={styles.value}>{info.venue}</p>
                 </div>
               </div>
@@ -33,7 +34,7 @@ export default function Reception() {
               <div className={styles.detail}>
                 <span className={styles.icon}><CalendarIcon size={22} /></span>
                 <div>
-                  <h4 className={styles.label}>Date</h4>
+                  <h4 className={styles.label}>{content.ui.dateLabel}</h4>
                   <p className={styles.value}>{info.date}</p>
                 </div>
               </div>
@@ -41,7 +42,7 @@ export default function Reception() {
               <div className={styles.detail}>
                 <span className={styles.icon}><ClockIcon size={22} /></span>
                 <div>
-                  <h4 className={styles.label}>Time</h4>
+                  <h4 className={styles.label}>{content.ui.timeLabel}</h4>
                   <p className={styles.value}>{info.time}</p>
                 </div>
               </div>
@@ -49,9 +50,7 @@ export default function Reception() {
 
             </div>
 
-            <p className={styles.note}>
-              You're seeing details for the <strong>{info.city}</strong> reception based on your side selection.
-            </p>
+            <p className={styles.note}>{info.note}</p>
           </div>
         </div>
       </ScrollReveal>

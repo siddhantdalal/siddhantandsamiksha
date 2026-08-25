@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { content } from '../data/content';
+import { useContent } from '../context/LanguageContext';
 import { useSide } from '../context/SideContext';
 import styles from './Hero.module.css';
 
@@ -37,7 +37,30 @@ const letterVariants = {
   }),
 };
 
+const hasDevanagari = (text) => /[ऀ-ॿ]/.test(text);
+
 function StaggeredName({ text, offset = 0 }) {
+  // Devanagari conjuncts and matras must not be split into separate spans —
+  // animate the whole name as one unit instead
+  if (hasDevanagari(text)) {
+    return (
+      <motion.span
+        className={styles.nameRow}
+        custom={offset}
+        variants={{
+          hidden: { opacity: 0, y: '0.35em' },
+          show: (i) => ({
+            opacity: 1,
+            y: 0,
+            transition: { delay: 0.2 + i * 0.03, duration: 1, ease: [0.16, 1, 0.3, 1] },
+          }),
+        }}
+      >
+        {text}
+      </motion.span>
+    );
+  }
+
   return (
     <span className={styles.nameRow} aria-label={text}>
       {text.split('').map((ch, i) => (
@@ -56,6 +79,7 @@ function StaggeredName({ text, offset = 0 }) {
 }
 
 export default function Hero() {
+  const content = useContent();
   const { days, hours, minutes, seconds } = useCountdown(content.weddingDate);
   const { side } = useSide();
   const ref = useRef(null);
@@ -93,7 +117,7 @@ export default function Hero() {
           {content.hero.tagline}
         </motion.p>
 
-        <h1 className={styles.names}>
+        <h1 className={styles.names} key={`${firstName}-${secondName}`}>
           <StaggeredName text={firstName} />
           <motion.span
             className={styles.ampersand}
@@ -138,10 +162,10 @@ export default function Hero() {
           }}
         >
           {[
-            { value: days, label: 'Days' },
-            { value: hours, label: 'Hours' },
-            { value: minutes, label: 'Minutes' },
-            { value: seconds, label: 'Seconds' },
+            { value: days, label: content.ui.countdown.days },
+            { value: hours, label: content.ui.countdown.hours },
+            { value: minutes, label: content.ui.countdown.minutes },
+            { value: seconds, label: content.ui.countdown.seconds },
           ].map(({ value, label }) => (
             <div key={label} className={styles.countUnit}>
               <span key={value} className={styles.countValue}>{String(value).padStart(2, '0')}</span>
