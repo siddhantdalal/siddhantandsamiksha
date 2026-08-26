@@ -37,7 +37,15 @@ export default function EngagementDetails() {
   ];
 
   return (
-    <section className="section">
+    <section className={`section ${styles.engagementSection}`}>
+      <img
+        src={`${import.meta.env.BASE_URL}images/engagement/ring-hands.jpg`}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        className={styles.bgPhoto}
+      />
+      <div className={styles.bgScrim} aria-hidden="true" />
       <ScrollReveal>
         <div className={styles.wrapper}>
           <h2 className="section-heading">{engagement.heading}</h2>
