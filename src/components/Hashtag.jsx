@@ -1,5 +1,4 @@
 import { useContent } from '../context/LanguageContext';
-import ScrollReveal from './ScrollReveal';
 import styles from './Hashtag.module.css';
 
 export default function Hashtag() {
@@ -8,10 +7,6 @@ export default function Hashtag() {
 
   return (
     <section className={styles.section}>
-      <ScrollReveal>
-        <p className={styles.label}>{content.ui.shareLabel}</p>
-      </ScrollReveal>
-
       <div className={styles.marquee}>
         <div className={styles.fadeLeft} aria-hidden="true" />
         <div className={styles.fadeRight} aria-hidden="true" />

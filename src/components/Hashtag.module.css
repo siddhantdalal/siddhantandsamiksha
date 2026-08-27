@@ -3,14 +3,6 @@
   overflow: hidden;
 }
 
-.label {
-  font-family: var(--font-script);
-  font-size: var(--text-script-lg);
-  color: var(--color-text-muted);
-  text-align: center;
-  margin-bottom: var(--space-2xl);
-}
-
 .marquee {
   position: relative;
   width: 100%;
