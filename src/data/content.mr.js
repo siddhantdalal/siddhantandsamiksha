@@ -110,16 +110,16 @@ export default {
 
   weddingEvents: {
     heading: 'लग्नसोहळा',
-    subheading: 'प्रेम, हास्य आणि जिव्हाळ्याचे दोन दिवस',
+    subheading: 'प्रेम, हास्य आणि जिव्हाळ्याचे तीन दिवस',
     venue: 'सुवी पॅलेस',
     address: 'ससूनवघर, मुंबई-अहमदाबाद महामार्ग, रॉयल गार्डनसमोर, वसई-विरार, महाराष्ट्र ४०१२०८',
     mapLink: 'https://www.google.com/maps/search/?api=1&query=Suvi+Palace+Sasunavghar+Vasai-Virar',
     mehendiGroom: {
       name: 'मेहंदी',
       iconKey: 'Mehendi',
-      date: 'दिनांक व वेळ लवकरच जाहीर होईल',
-      time: '',
-      description: 'वराच्या घरी रंगणारी मेहंदीची घरगुती संध्याकाळ — नाजूक नक्षी, जवळची माणसं आणि गप्पांची मैफल.',
+      date: '०३ डिसेंबर २०२६',
+      time: 'सकाळी ११ वाजल्यापासून',
+      description: 'वराच्या घरी रंगणारी मेहंदीची घरगुती मैफल — नाजूक नक्षी, जवळची माणसं आणि गप्पांची रंगत.',
       venue: 'सिद्धांतच्या निवासस्थानी',
       address: '२०३, वेदांत शाईन अपार्टमेंट, रामकृष्ण हाउसिंग सोसायटी, नरेंद्र नगर, वर्धा रोड, नागपूर – ४४००१५',
       mapLink: 'https://www.google.com/maps/search/?api=1&query=Vedant+Shine+Apartment+Narendra+Nagar+Wardha+Road+Nagpur',
@@ -128,8 +128,8 @@ export default {
     mehendiBride: {
       name: 'मेहंदी',
       iconKey: 'Mehendi',
-      date: 'दिनांक व वेळ लवकरच जाहीर होईल',
-      time: '',
+      date: '०३ डिसेंबर २०२६',
+      time: 'दुपारी १ वाजल्यापासून',
       description: 'नाजूक मेहंदी, गाणी आणि आनंदाने भरलेली दुपार — इथेच, सुवी पॅलेसमध्ये.',
       dressCode: '',
     },
