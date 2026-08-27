@@ -120,9 +120,8 @@ export default {
       date: '०३ डिसेंबर २०२६',
       time: 'सकाळी ११ वाजल्यापासून',
       description: 'वराच्या घरी रंगणारी मेहंदीची घरगुती मैफल — नाजूक नक्षी, जवळची माणसं आणि गप्पांची रंगत.',
-      venue: 'सिद्धांतच्या निवासस्थानी',
       address: '२०३, वेदांत शाईन अपार्टमेंट, रामकृष्ण हाउसिंग सोसायटी, नरेंद्र नगर, वर्धा रोड, नागपूर – ४४००१५',
-      mapLink: 'https://www.google.com/maps/search/?api=1&query=Vedant+Shine+Apartment+Narendra+Nagar+Wardha+Road+Nagpur',
+      mapLink: 'https://www.google.com/maps/search/?api=1&query=203+Vedant+Shine+Appt+Ramkrishna+Housing+Society+Narendra+Nagar+Wardha+Rd+Nagpur+440015',
       dressCode: '',
     },
     mehendiBride: {

@@ -120,9 +120,8 @@ export default {
       date: '03 December 2026',
       time: '11:00 AM onwards',
       description: 'An intimate mehendi gathering at the groom\'s home — intricate henna, close family, and happy chatter.',
-      venue: 'At Siddhant\'s residence',
       address: '203, Vedant Shine Appt., Ramkrishna Housing Society, Narendra Nagar, Wardha Rd., Nagpur – 440015',
-      mapLink: 'https://www.google.com/maps/search/?api=1&query=Vedant+Shine+Apartment+Narendra+Nagar+Wardha+Road+Nagpur',
+      mapLink: 'https://www.google.com/maps/search/?api=1&query=203+Vedant+Shine+Appt+Ramkrishna+Housing+Society+Narendra+Nagar+Wardha+Rd+Nagpur+440015',
       dressCode: '',
     },
     mehendiBride: {

@@ -97,7 +97,6 @@ export default function WeddingEvents() {
                 rel="noopener noreferrer"
                 className={styles.soloVenueLink}
               >
-                <p className={styles.soloVenue}>{mehendiGroom.venue}</p>
                 <p className={styles.soloAddress}>{mehendiGroom.address}</p>
               </a>
             </div>

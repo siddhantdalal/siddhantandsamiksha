@@ -60,18 +60,10 @@
   color: inherit;
 }
 
-.soloVenue {
-  font-family: var(--font-serif);
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: var(--color-gold);
-  margin-bottom: var(--space-xs);
-}
-
 .soloAddress {
   font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  color: var(--color-text-dim);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
   line-height: 1.6;
   font-weight: 300;
   letter-spacing: 0.03em;
