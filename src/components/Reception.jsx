@@ -27,7 +27,20 @@ export default function Reception() {
                 <span className={styles.icon}><MapPinIcon size={22} /></span>
                 <div>
                   <h4 className={styles.label}>{content.ui.venueLabel}</h4>
-                  <p className={styles.value}>{info.venue}</p>
+                  <p className={styles.value}>
+                    {info.mapLink ? (
+                      <a
+                        href={info.mapLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: 'inherit', textDecoration: 'underline', textDecorationColor: 'var(--color-border-hover)', textUnderlineOffset: '4px' }}
+                      >
+                        {info.venue}
+                      </a>
+                    ) : (
+                      info.venue
+                    )}
+                  </p>
                 </div>
               </div>
 

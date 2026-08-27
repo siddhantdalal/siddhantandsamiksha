@@ -166,6 +166,7 @@ export default {
     groom: {
       city: 'Nagpur',
       venue: 'Jerryl Lawns, Near Police Training School, Opp. Neeri High School, Kotwal Nagar, Laxminagar, Nagpur, Maharashtra 440022',
+      mapLink: 'https://www.google.com/maps/place/Jerryl+Lawns/@21.1193596,79.0617629,17z/data=!3m1!4b1!4m6!3m5!1s0x3bd4bf80046faaa7:0xab9978f8400f5ab7!8m2!3d21.1193596!4d79.0643432!16s%2Fg%2F1wk6y6t9?entry=ttu&g_ep=EgoyMDI2MDgyNC4wIKXMDSoASAFQAw%3D%3D',
       date: '07 December 2026',
       time: '7:00 PM onwards',
       description: 'Join us for an unforgettable evening of celebration as we toast to new beginnings with the groom\'s loved ones.',
