@@ -40,6 +40,43 @@
   align-items: stretch;
 }
 
+/* Standalone mehendi card (groom's side — separate venue from Suvi Palace) */
+.soloWrap {
+  max-width: 460px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.soloVenueLink {
+  text-decoration: none;
+  color: inherit;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  width: 100%;
+  transition: opacity var(--transition-fast);
+}
+
+.soloVenueLink:hover {
+  opacity: 0.85;
+  color: inherit;
+}
+
+.soloVenue {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: var(--space-xs);
+}
+
+.soloAddress {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--color-text-dim);
+  line-height: 1.6;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+}
+
 .card {
   position: relative;
   background: linear-gradient(160deg, var(--color-bg-card) 0%, var(--color-bg-card-2) 100%);

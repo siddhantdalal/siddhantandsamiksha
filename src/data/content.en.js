@@ -114,6 +114,25 @@ export default {
     venue: 'Suvi Palace',
     address: 'Sasunavghar, Mumbai-Ahmedabad Highway, Opp. Royal Garden, Vasai-Virar, Maharashtra 401208',
     mapLink: 'https://www.google.com/maps/search/?api=1&query=Suvi+Palace+Sasunavghar+Vasai-Virar',
+    mehendiGroom: {
+      name: 'Mehendi',
+      iconKey: 'Mehendi',
+      date: 'Date & time to be announced',
+      time: '',
+      description: 'An intimate mehendi evening at the groom\'s home — intricate henna, close family, and happy chatter.',
+      venue: 'At Siddhant\'s residence',
+      address: '203, Vedant Shine Appt., Ramkrishna Housing Society, Narendra Nagar, Wardha Rd., Nagpur – 440015',
+      mapLink: 'https://www.google.com/maps/search/?api=1&query=Vedant+Shine+Apartment+Narendra+Nagar+Wardha+Road+Nagpur',
+      dressCode: '',
+    },
+    mehendiBride: {
+      name: 'Mehendi',
+      iconKey: 'Mehendi',
+      date: 'Date & time to be announced',
+      time: '',
+      description: 'Intricate henna, music, and an afternoon full of joy — right here at Suvi Palace.',
+      dressCode: '',
+    },
     events: [
       {
         name: 'Halad Chadavane',

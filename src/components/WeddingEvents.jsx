@@ -1,8 +1,24 @@
 import { useContent } from '../context/LanguageContext';
+import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
 import styles from './WeddingEvents.module.css';
 
 const icons = {
+  Mehendi: (
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+      {/* Henna paisley spiralling inward */}
+      <path d="M14.2 3.6 C18.6 5.3 20.6 10 19 14.3 C17.5 18.3 13.3 20.5 9.3 19.4 C6.1 18.5 4.2 15.6 4.9 12.8 C5.5 10.4 7.8 8.9 10.1 9.5 C11.9 10 13 11.8 12.5 13.5 C12.1 14.8 10.8 15.6 9.6 15.2" />
+      {/* Inner curl tip */}
+      <circle cx="9.9" cy="13" r="0.7" fill="currentColor" stroke="none" />
+      {/* Henna dots tracing the outer curve */}
+      <circle cx="16.9" cy="4.9" r="0.75" fill="currentColor" stroke="none" />
+      <circle cx="20" cy="8.5" r="0.75" fill="currentColor" stroke="none" />
+      <circle cx="20.6" cy="12.6" r="0.75" fill="currentColor" stroke="none" />
+      {/* Leaf accents */}
+      <path d="M11.7 3.9 C10.4 3.3 8.9 3.4 7.8 4.2 C8.9 5 10.4 5.1 11.7 4.5z" fill="currentColor" stroke="none" opacity="0.85" />
+      <path d="M8.6 5.4 C7.3 5.2 6 5.8 5.3 6.9 C6.6 7.2 7.9 6.8 8.8 5.9z" fill="currentColor" stroke="none" opacity="0.85" />
+    </svg>
+  ),
   Haldi: (
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
       {/* Turmeric mound */}
@@ -49,11 +65,47 @@ const icons = {
 
 export default function WeddingEvents() {
   const content = useContent();
+  const { side } = useSide();
+
+  const { mehendiGroom, mehendiBride, events } = content.weddingEvents;
+  const isBride = side === 'bride';
+  // Bride's mehendi happens at Suvi Palace, so it joins the venue grid;
+  // the groom's is at his residence and gets its own card above the venue
+  const gridEvents = isBride ? [mehendiBride, ...events] : events;
+
   return (
     <section id="events" className="section">
       <ScrollReveal>
         <h2 className="section-heading">{content.weddingEvents.heading}</h2>
         <p className="section-subheading">{content.weddingEvents.subheading}</p>
+      </ScrollReveal>
+
+      {!isBride && (
+        <ScrollReveal>
+          <div className={styles.soloWrap}>
+            <div className={styles.card}>
+              <span className={styles.icon}>{icons[mehendiGroom.iconKey]}</span>
+              <h3 className={styles.name}>{mehendiGroom.name}</h3>
+              <div className={styles.meta}>
+                <p>{mehendiGroom.date}</p>
+                {mehendiGroom.time && <p>{mehendiGroom.time}</p>}
+              </div>
+              <p className={styles.desc}>{mehendiGroom.description}</p>
+              <a
+                href={mehendiGroom.mapLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.soloVenueLink}
+              >
+                <p className={styles.soloVenue}>{mehendiGroom.venue}</p>
+                <p className={styles.soloAddress}>{mehendiGroom.address}</p>
+              </a>
+            </div>
+          </div>
+        </ScrollReveal>
+      )}
+
+      <ScrollReveal>
         <a
           href={content.weddingEvents.mapLink}
           target="_blank"
@@ -67,7 +119,7 @@ export default function WeddingEvents() {
       </ScrollReveal>
 
       <div className={`section-inner ${styles.grid}`}>
-        {content.weddingEvents.events.map((event, i) => (
+        {gridEvents.map((event, i) => (
           <ScrollReveal key={event.name} delay={i * 0.08}>
             <div className={styles.card}>
               <span className={styles.icon}>{icons[event.iconKey || event.name]}</span>

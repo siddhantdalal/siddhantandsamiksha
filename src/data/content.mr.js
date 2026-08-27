@@ -114,6 +114,25 @@ export default {
     venue: 'सुवी पॅलेस',
     address: 'ससूनवघर, मुंबई-अहमदाबाद महामार्ग, रॉयल गार्डनसमोर, वसई-विरार, महाराष्ट्र ४०१२०८',
     mapLink: 'https://www.google.com/maps/search/?api=1&query=Suvi+Palace+Sasunavghar+Vasai-Virar',
+    mehendiGroom: {
+      name: 'मेहंदी',
+      iconKey: 'Mehendi',
+      date: 'दिनांक व वेळ लवकरच जाहीर होईल',
+      time: '',
+      description: 'वराच्या घरी रंगणारी मेहंदीची घरगुती संध्याकाळ — नाजूक नक्षी, जवळची माणसं आणि गप्पांची मैफल.',
+      venue: 'सिद्धांतच्या निवासस्थानी',
+      address: '२०३, वेदांत शाईन अपार्टमेंट, रामकृष्ण हाउसिंग सोसायटी, नरेंद्र नगर, वर्धा रोड, नागपूर – ४४००१५',
+      mapLink: 'https://www.google.com/maps/search/?api=1&query=Vedant+Shine+Apartment+Narendra+Nagar+Wardha+Road+Nagpur',
+      dressCode: '',
+    },
+    mehendiBride: {
+      name: 'मेहंदी',
+      iconKey: 'Mehendi',
+      date: 'दिनांक व वेळ लवकरच जाहीर होईल',
+      time: '',
+      description: 'नाजूक मेहंदी, गाणी आणि आनंदाने भरलेली दुपार — इथेच, सुवी पॅलेसमध्ये.',
+      dressCode: '',
+    },
     events: [
       {
         name: 'हळद चढवणे',
