@@ -184,6 +184,13 @@ input, textarea, select {
   border-radius: 3px;
 }
 
+/* Devanagari must never be letter-spaced — spacing tears matras and
+   conjuncts off their base glyphs (esp. in SVG text) */
+html[lang='mr'] *,
+html[lang='mr'] svg text {
+  letter-spacing: normal !important;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html {
