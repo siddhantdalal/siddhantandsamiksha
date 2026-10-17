@@ -1,5 +1,6 @@
 import { useContent } from '../context/LanguageContext';
 import { useSide } from '../context/SideContext';
+import Backdrop from './Backdrop';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -11,7 +12,8 @@ export default function Footer() {
     : `${content.couple.groomFirst} & ${content.couple.brideFirst}`;
 
   return (
-    <footer className={styles.footer}>
+    <footer className={`has-backdrop ${styles.footer}`}>
+      <Backdrop src={`${import.meta.env.BASE_URL}images/backdrops/couple.jpg`} focus="center 30%" />
       <p className={styles.closing}>{content.footer.closing},</p>
       <p className={styles.names}>{names}</p>
       <div className={styles.divider} />

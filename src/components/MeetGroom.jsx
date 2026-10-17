@@ -6,6 +6,7 @@ import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
 import SectionHeading from './SectionHeading';
 import ArchPhoto from './ArchPhoto';
+import Backdrop from './Backdrop';
 import { HomeIcon, GraduationIcon, BriefcaseIcon, BikeIcon, SparkleIcon } from './Icons';
 import styles from './MeetGroom.module.css';
 
@@ -26,6 +27,7 @@ export default function MeetGroom() {
 
   // Bride's side sees the groom, groom's side sees the bride
   const data = side === 'bride' ? content.meetGroom : content.meetBride;
+  const backdrop = side === 'bride' ? 'groom' : 'bride';
 
   const { photos, details } = data;
   const crew = data.groomsmen || data.bridesmaids;
@@ -39,36 +41,40 @@ export default function MeetGroom() {
 
   return (
     <section id="meet" className="section">
-      <ScrollReveal>
-        <SectionHeading>{data.heading}</SectionHeading>
-        <p className="section-subheading">{data.subheading}</p>
-      </ScrollReveal>
+      {/* The faded portrait sits behind the intro only, not the expanded story */}
+      <div className={`has-backdrop ${styles.intro}`}>
+        <Backdrop src={`${import.meta.env.BASE_URL}images/backdrops/${backdrop}.jpg`} focus="center 30%" />
+        <ScrollReveal>
+          <SectionHeading>{data.heading}</SectionHeading>
+          <p className="section-subheading">{data.subheading}</p>
+        </ScrollReveal>
 
-      <ScrollReveal>
-        <div className={styles.prompt}>
-          <p className={styles.promptText}>{data.promptText}</p>
-          <button
-            className={`${styles.toggleBtn} ${open ? styles.toggleOpen : ''}`}
-            onClick={() => setOpen(!open)}
-            aria-label={open ? 'Collapse' : 'Expand'}
-          >
-            <span className={styles.toggleLabel}>{open ? content.ui.close : content.ui.reveal}</span>
-            <svg
-              className={styles.chevron}
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+        <ScrollReveal>
+          <div className={styles.prompt}>
+            <p className={styles.promptText}>{data.promptText}</p>
+            <button
+              className={`${styles.toggleBtn} ${open ? styles.toggleOpen : ''}`}
+              onClick={() => setOpen(!open)}
+              aria-label={open ? 'Collapse' : 'Expand'}
             >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </button>
-        </div>
-      </ScrollReveal>
+              <span className={styles.toggleLabel}>{open ? content.ui.close : content.ui.reveal}</span>
+              <svg
+                className={styles.chevron}
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+          </div>
+        </ScrollReveal>
+      </div>
 
       <AnimatePresence>
         {open && (

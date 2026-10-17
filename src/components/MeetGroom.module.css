@@ -1,10 +1,16 @@
+/* Heading + prompt, with the faded portrait behind. The bottom padding (rather
+   than a margin on .prompt) keeps the button inside this clipped box while it
+   rises into place. */
+.intro {
+  padding-bottom: var(--space-xl);
+}
+
 /* Prompt & toggle */
 .prompt {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-lg);
-  margin-bottom: var(--space-xl);
 }
 
 .promptText {

@@ -140,6 +140,14 @@ input, textarea, select {
   margin: var(--space-lg) auto;
 }
 
+/* Hosts a <Backdrop> photo: clips its feathered edges and isolates it so it
+   stays behind this element's content */
+.has-backdrop {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
 /* Ornate frame corners — apply to any card wanting royal corners */
 .ornate-corners {
   position: relative;

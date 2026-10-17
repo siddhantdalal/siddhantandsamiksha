@@ -3,6 +3,7 @@ import { useContent } from '../context/LanguageContext';
 import ScrollReveal from './ScrollReveal';
 import SectionHeading from './SectionHeading';
 import FlipClock from './FlipClock';
+import Backdrop from './Backdrop';
 import styles from './EngagementDetails.module.css';
 
 function calcElapsed(sinceDate) {
@@ -39,15 +40,8 @@ export default function EngagementDetails() {
   ];
 
   return (
-    <section className={`section ${styles.engagementSection}`}>
-      <img
-        src={`${import.meta.env.BASE_URL}images/engagement/ring-hands.jpg`}
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-        className={styles.bgPhoto}
-      />
-      <div className={styles.bgScrim} aria-hidden="true" />
+    <section className="section has-backdrop">
+      <Backdrop src={`${import.meta.env.BASE_URL}images/engagement/ring-hands.jpg`} focus="62% 42%" />
       <ScrollReveal>
         <div className={styles.wrapper}>
           <SectionHeading>{engagement.heading}</SectionHeading>
