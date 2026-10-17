@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { useContent } from '../context/LanguageContext';
 import ScrollReveal from './ScrollReveal';
+import SectionHeading from './SectionHeading';
 import styles from './Timeline.module.css';
 
 export default function Timeline() {
@@ -17,7 +18,7 @@ export default function Timeline() {
   return (
     <section id="our-journey" className="section">
       <ScrollReveal>
-        <h2 className="section-heading">{content.timeline.heading}</h2>
+        <SectionHeading>{content.timeline.heading}</SectionHeading>
         <p className="section-subheading">{content.timeline.subheading}</p>
       </ScrollReveal>
 

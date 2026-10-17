@@ -5,6 +5,7 @@ import { useContent } from '../context/LanguageContext';
 import { useSide } from '../context/SideContext';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import ScrollReveal from './ScrollReveal';
+import SectionHeading from './SectionHeading';
 import styles from './WeddingEvents.module.css';
 
 // Cards only pile up where a stuck card fits fully on screen; on shorter screens
@@ -127,7 +128,7 @@ export default function WeddingEvents() {
   return (
     <section id="events" className="section">
       <ScrollReveal>
-        <h2 className="section-heading">{content.weddingEvents.heading}</h2>
+        <SectionHeading>{content.weddingEvents.heading}</SectionHeading>
         <p className="section-subheading">{content.weddingEvents.subheading}</p>
       </ScrollReveal>
 

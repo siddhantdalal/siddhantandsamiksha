@@ -1,6 +1,7 @@
 import { useContent } from '../context/LanguageContext';
 import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
+import SectionHeading from './SectionHeading';
 import { MapPinIcon, CalendarIcon, ClockIcon } from './Icons';
 import styles from './Reception.module.css';
 
@@ -12,7 +13,7 @@ export default function Reception() {
   return (
     <section className="section">
       <ScrollReveal>
-        <h2 className="section-heading">{content.reception.heading}</h2>
+        <SectionHeading>{content.reception.heading}</SectionHeading>
         <p className="section-subheading">{content.reception.subheading}</p>
       </ScrollReveal>
 

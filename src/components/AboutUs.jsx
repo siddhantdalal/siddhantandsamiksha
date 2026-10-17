@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useContent } from '../context/LanguageContext';
 import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
+import SectionHeading from './SectionHeading';
 import ArchPhoto from './ArchPhoto';
 import styles from './AboutUs.module.css';
 
@@ -22,7 +23,7 @@ export default function AboutUs() {
   return (
     <section id="about-us" className="section">
       <ScrollReveal>
-        <h2 className="section-heading">{content.aboutUs.heading}</h2>
+        <SectionHeading>{content.aboutUs.heading}</SectionHeading>
         <p className="section-subheading">{content.aboutUs.subheading}</p>
       </ScrollReveal>
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useContent } from '../context/LanguageContext';
 import ScrollReveal from './ScrollReveal';
+import SectionHeading from './SectionHeading';
 import FlipClock from './FlipClock';
 import styles from './EngagementDetails.module.css';
 
@@ -49,7 +50,7 @@ export default function EngagementDetails() {
       <div className={styles.bgScrim} aria-hidden="true" />
       <ScrollReveal>
         <div className={styles.wrapper}>
-          <h2 className="section-heading">{engagement.heading}</h2>
+          <SectionHeading>{engagement.heading}</SectionHeading>
           <p className="section-subheading">{engagement.script}</p>
 
           <div className={styles.ringMark} aria-hidden="true">
