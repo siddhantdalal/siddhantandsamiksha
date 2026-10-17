@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useContent } from '../context/LanguageContext';
 import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
+import ArchPhoto from './ArchPhoto';
 import styles from './AboutUs.module.css';
 
 export default function AboutUs() {
@@ -90,9 +91,12 @@ export default function AboutUs() {
               <ScrollReveal delay={0.1}>
                 <div className={styles.row}>
                   <div className={`${styles.card} ${styles.leftCard}`}>
-                    <div className={styles.photoFrame}>
-                      <img src={first.photo} alt={first.name} className={`${styles.photo} ${firstIsGroom ? styles.groomPhoto : ''}`} loading="lazy" />
-                    </div>
+                    <ArchPhoto
+                      src={first.photo}
+                      alt={first.name}
+                      className={styles.photoFrame}
+                      imgClassName={`${styles.photo} ${firstIsGroom ? styles.groomPhoto : ''}`}
+                    />
                     <span className={styles.label}>{firstLabel}</span>
                     <h3 className={styles.name}>{first.name}</h3>
                     <p className={styles.hometown}>
@@ -110,9 +114,12 @@ export default function AboutUs() {
                   </div>
 
                   <div className={`${styles.card} ${styles.rightCard}`}>
-                    <div className={styles.photoFrame}>
-                      <img src={second.photo} alt={second.name} className={`${styles.photo} ${!firstIsGroom ? styles.groomPhoto : ''}`} loading="lazy" />
-                    </div>
+                    <ArchPhoto
+                      src={second.photo}
+                      alt={second.name}
+                      className={styles.photoFrame}
+                      imgClassName={`${styles.photo} ${!firstIsGroom ? styles.groomPhoto : ''}`}
+                    />
                     <span className={styles.label}>{secondLabel}</span>
                     <h3 className={styles.name}>{second.name}</h3>
                     <p className={styles.hometown}>
