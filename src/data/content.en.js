@@ -15,6 +15,7 @@ export default {
     groomDoorSub: "The Groom's Side",
     brideDoorSub: "The Bride's Side",
     doorPrompt: 'Whose side are you here to celebrate?',
+    sideWelcome: { groom: "Welcome to the groom's side", bride: "Welcome to the bride's side" },
     countdown: { days: 'Days', hours: 'Hours', minutes: 'Minutes', seconds: 'Seconds' },
     sideToggle: { groom: "Siddhant's Side", bride: "Samiksha's Side" },
     discover: 'Discover',

@@ -38,8 +38,8 @@ const letterVariants = {
   }),
 };
 
-// The hero settles from slightly close-up as the palace doors swing open,
-// so it feels like stepping through them
+// The hero settles from slightly close-up as the chosen side's colour opens
+// onto it, so it feels like stepping into the invitation
 const dollyIn = {
   hidden: { scale: 1.12 },
   show: { scale: 1, transition: { duration: 1.8, ease: [0.16, 1, 0.3, 1] } },

@@ -15,6 +15,7 @@ export default {
     groomDoorSub: 'वरपक्ष',
     brideDoorSub: 'वधूपक्ष',
     doorPrompt: 'तुम्ही कोणाच्या बाजूने जल्लोष करायला आलात?',
+    sideWelcome: { groom: 'वरपक्षात आपले स्वागत', bride: 'वधूपक्षात आपले स्वागत' },
     countdown: { days: 'दिवस', hours: 'तास', minutes: 'मिनिटे', seconds: 'सेकंद' },
     sideToggle: { groom: 'सिद्धांतकडचे', bride: 'समीक्षाकडचे' },
     discover: 'पाहा',
