@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useContent } from '../context/LanguageContext';
 import ScrollReveal from './ScrollReveal';
+import FlipClock from './FlipClock';
 import styles from './EngagementDetails.module.css';
 
 function calcElapsed(sinceDate) {
@@ -62,14 +63,7 @@ export default function EngagementDetails() {
           <p className={styles.engagedDate}>{engagement.date}</p>
 
           <p className={styles.sinceLabel}>{ui.engagedFor}</p>
-          <div className={styles.countdown}>
-            {units.map(({ value, label }) => (
-              <div key={label} className={styles.countUnit}>
-                <span key={value} className={styles.countValue}>{String(value).padStart(2, '0')}</span>
-                <span className={styles.countLabel}>{label}</span>
-              </div>
-            ))}
-          </div>
+          <FlipClock units={units} className={styles.countdown} />
           <p className={styles.countdownMsg}>{ui.countingLine}</p>
         </div>
       </ScrollReveal>

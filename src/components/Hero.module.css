@@ -142,47 +142,8 @@
 }
 
 .countdown {
-  display: flex;
-  gap: clamp(0.6rem, 2vw, 1.4rem);
-  justify-content: center;
+  --flip-size: var(--text-3xl);
   margin-bottom: var(--space-2xl);
-}
-
-.countUnit {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: clamp(64px, 9vw, 92px);
-  padding: var(--space-md) var(--space-sm);
-  background: var(--glass-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.countValue {
-  font-family: var(--font-serif);
-  font-size: var(--text-3xl);
-  font-weight: 500;
-  color: var(--color-gold);
-  line-height: 1;
-  display: inline-block;
-  animation: glow-pulse 0.6s ease-out;
-}
-
-@keyframes glow-pulse {
-  0% { text-shadow: 0 0 12px var(--color-gold), 0 0 24px var(--color-gold); }
-  100% { text-shadow: none; }
-}
-
-.countLabel {
-  font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  color: var(--color-text-dim);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-top: var(--space-sm);
 }
 
 .cta {
@@ -245,9 +206,5 @@
 @media (max-width: 768px) {
   .names {
     font-size: clamp(2.6rem, 13vw, 4.2rem);
-  }
-
-  .countdown {
-    flex-wrap: wrap;
   }
 }

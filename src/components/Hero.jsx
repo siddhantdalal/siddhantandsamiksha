@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useContent } from '../context/LanguageContext';
 import { useSide } from '../context/SideContext';
+import FlipClock from './FlipClock';
 import styles from './Hero.module.css';
 
 function useCountdown(targetDate) {
@@ -169,17 +170,14 @@ export default function Hero() {
             show: { opacity: 1, y: 0, transition: { delay: 1.45, duration: 0.9 } },
           }}
         >
-          {[
-            { value: days, label: content.ui.countdown.days },
-            { value: hours, label: content.ui.countdown.hours },
-            { value: minutes, label: content.ui.countdown.minutes },
-            { value: seconds, label: content.ui.countdown.seconds },
-          ].map(({ value, label }) => (
-            <div key={label} className={styles.countUnit}>
-              <span key={value} className={styles.countValue}>{String(value).padStart(2, '0')}</span>
-              <span className={styles.countLabel}>{label}</span>
-            </div>
-          ))}
+          <FlipClock
+            units={[
+              { value: days, label: content.ui.countdown.days },
+              { value: hours, label: content.ui.countdown.hours },
+              { value: minutes, label: content.ui.countdown.minutes },
+              { value: seconds, label: content.ui.countdown.seconds },
+            ]}
+          />
         </motion.div>
 
         <motion.a
