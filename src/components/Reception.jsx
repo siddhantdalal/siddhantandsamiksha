@@ -1,4 +1,4 @@
-import { useContent } from '../context/LanguageContext';
+import content from '../data/content';
 import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
 import SectionHeading from './SectionHeading';
@@ -6,7 +6,6 @@ import { MapPinIcon, CalendarIcon, ClockIcon } from './Icons';
 import styles from './Reception.module.css';
 
 export default function Reception() {
-  const content = useContent();
   const { side } = useSide();
   const info = side === 'bride' ? content.reception.bride : content.reception.groom;
 

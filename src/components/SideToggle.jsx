@@ -1,9 +1,8 @@
-import { useContent } from '../context/LanguageContext';
+import content from '../data/content';
 import { useSide } from '../context/SideContext';
 import styles from './SideToggle.module.css';
 
 export default function SideToggle() {
-  const content = useContent();
   const { side, setSide } = useSide();
 
   if (!side) return null;

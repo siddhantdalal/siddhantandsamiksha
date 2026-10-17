@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { useContent } from '../context/LanguageContext';
+import content from '../data/content';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import ScrollReveal from './ScrollReveal';
 import SectionHeading from './SectionHeading';
@@ -17,7 +17,6 @@ const SINGLE_COLUMN = '(max-width: 768px)';
 const PAGE_FOLD = 80;
 
 export default function Timeline() {
-  const content = useContent();
   const singleColumn = useMediaQuery(SINGLE_COLUMN);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({

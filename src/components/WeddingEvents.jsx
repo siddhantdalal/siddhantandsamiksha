@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
-import { useContent } from '../context/LanguageContext';
+import content from '../data/content';
 import { useSide } from '../context/SideContext';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import ScrollReveal from './ScrollReveal';
@@ -113,7 +113,6 @@ function StackedCard({ index, count, progress, stacked, children }) {
 }
 
 export default function WeddingEvents() {
-  const content = useContent();
   const { side } = useSide();
   const stacked = useMediaQuery(STACK_QUERY);
   const stackRef = useRef(null);

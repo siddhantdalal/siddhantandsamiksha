@@ -1,10 +1,9 @@
-import { useContent } from '../context/LanguageContext';
+import content from '../data/content';
 import { useSide } from '../context/SideContext';
 import Backdrop from './Backdrop';
 import styles from './Footer.module.css';
 
 export default function Footer() {
-  const content = useContent();
   const { side } = useSide();
 
   const names = side === 'bride'

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
-import { useContent } from '../context/LanguageContext';
+import content from '../data/content';
 import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
 import SectionHeading from './SectionHeading';
@@ -9,7 +9,6 @@ import ArchPhoto from './ArchPhoto';
 import styles from './AboutUs.module.css';
 
 export default function AboutUs() {
-  const content = useContent();
   const [open, setOpen] = useState(false);
   const { side } = useSide();
 

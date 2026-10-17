@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useContent } from '../context/LanguageContext';
+import content from '../data/content';
 import { useSide } from '../context/SideContext';
 import FlipClock from './FlipClock';
 import styles from './Hero.module.css';
@@ -45,30 +45,7 @@ const dollyIn = {
   show: { scale: 1, transition: { duration: 1.8, ease: [0.16, 1, 0.3, 1] } },
 };
 
-const hasDevanagari = (text) => /[ऀ-ॿ]/.test(text);
-
 function StaggeredName({ text, offset = 0 }) {
-  // Devanagari conjuncts and matras must not be split into separate spans —
-  // animate the whole name as one unit instead
-  if (hasDevanagari(text)) {
-    return (
-      <motion.span
-        className={styles.nameRow}
-        custom={offset}
-        variants={{
-          hidden: { opacity: 0, y: '0.35em' },
-          show: (i) => ({
-            opacity: 1,
-            y: 0,
-            transition: { delay: 0.2 + i * 0.03, duration: 1, ease: [0.16, 1, 0.3, 1] },
-          }),
-        }}
-      >
-        {text}
-      </motion.span>
-    );
-  }
-
   return (
     <span className={styles.nameRow} aria-label={text}>
       {text.split('').map((ch, i) => (
@@ -87,7 +64,6 @@ function StaggeredName({ text, offset = 0 }) {
 }
 
 export default function Hero() {
-  const content = useContent();
   const { days, hours, minutes, seconds } = useCountdown(content.weddingDate);
   const { side } = useSide();
   const ref = useRef(null);

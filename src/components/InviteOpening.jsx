@@ -1,7 +1,7 @@
 import { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
-import { useContent } from '../context/LanguageContext';
+import content from '../data/content';
 import { useSide } from '../context/SideContext';
 import styles from './InviteOpening.module.css';
 
@@ -145,7 +145,6 @@ function Bloom({ chosen, name, welcome }) {
 }
 
 export default function InviteOpening() {
-  const content = useContent();
   const { side, setSide } = useSide();
   const [phase, setPhase] = useState('seal'); // 'seal' | 'sides'
   const [chosen, setChosen] = useState(null); // the chosen side + where the bloom starts

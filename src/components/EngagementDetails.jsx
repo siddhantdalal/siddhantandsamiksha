@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useContent } from '../context/LanguageContext';
+import content from '../data/content';
 import ScrollReveal from './ScrollReveal';
 import SectionHeading from './SectionHeading';
 import FlipClock from './FlipClock';
@@ -28,7 +28,6 @@ function useCountUp(sinceDate) {
 }
 
 export default function EngagementDetails() {
-  const content = useContent();
   const { engagement, ui } = content;
   const { days, hours, minutes, seconds } = useCountUp(engagement.countdownDate);
 

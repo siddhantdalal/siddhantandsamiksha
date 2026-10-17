@@ -1,9 +1,8 @@
-import { useContent } from '../context/LanguageContext';
+import content from '../data/content';
 import Backdrop from './Backdrop';
 import styles from './Hashtag.module.css';
 
 export default function Hashtag() {
-  const content = useContent();
   const tags = [...content.hashtags, ...content.hashtags, ...content.hashtags];
 
   return (

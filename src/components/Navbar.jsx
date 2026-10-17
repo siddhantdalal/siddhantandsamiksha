@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 
-import { useContent } from '../context/LanguageContext';
+import content from '../data/content';
 import { useSide } from '../context/SideContext';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
-  const content = useContent();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { side } = useSide();

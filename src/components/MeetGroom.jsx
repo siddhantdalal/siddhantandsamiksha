@@ -1,7 +1,7 @@
 import { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
-import { useContent } from '../context/LanguageContext';
+import content from '../data/content';
 import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
 import SectionHeading from './SectionHeading';
@@ -19,7 +19,6 @@ const detailIcons = {
 };
 
 export default function MeetGroom() {
-  const content = useContent();
   const [open, setOpen] = useState(false);
   const [crewOpen, setCrewOpen] = useState(false);
   const [lightbox, setLightbox] = useState(null);
