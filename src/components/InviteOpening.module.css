@@ -162,6 +162,23 @@
   position: absolute;
   inset: 0;
   display: flex;
+  perspective: 1400px;
+}
+
+/* Light spilling through the gap as the doors open — painted behind them */
+.light {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lightGroom {
+  background: radial-gradient(ellipse 50% 65% at 50% 50%, rgba(244, 227, 178, 0.6), rgba(42, 127, 116, 0.22) 50%, transparent 78%);
+}
+
+.lightBride {
+  background: radial-gradient(ellipse 50% 65% at 50% 50%, rgba(244, 227, 178, 0.6), rgba(193, 58, 107, 0.22) 50%, transparent 78%);
 }
 
 .door {
@@ -179,12 +196,15 @@
   flex: 1.35;
 }
 
+/* Hinges sit on the outer edges so the doors swing away from the centre */
 .doorGroom {
   background: var(--door-groom);
+  transform-origin: left center;
 }
 
 .doorBride {
   background: var(--door-bride);
+  transform-origin: right center;
 }
 
 .doorPattern {
@@ -283,10 +303,19 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Mobile: doors stack vertically and part up/down */
+/* Mobile: doors stack vertically and part up/down.
+   Keep this breakpoint in sync with STACKED_DOORS in InviteOpening.jsx */
 @media (max-width: 640px) {
   .doors {
     flex-direction: column;
+  }
+
+  .doorGroom {
+    transform-origin: center top;
+  }
+
+  .doorBride {
+    transform-origin: center bottom;
   }
 
   .seam {

@@ -37,6 +37,13 @@ const letterVariants = {
   }),
 };
 
+// The hero settles from slightly close-up as the palace doors swing open,
+// so it feels like stepping through them
+const dollyIn = {
+  hidden: { scale: 1.12 },
+  show: { scale: 1, transition: { duration: 1.8, ease: [0.16, 1, 0.3, 1] } },
+};
+
 const hasDevanagari = (text) => /[ऀ-ॿ]/.test(text);
 
 function StaggeredName({ text, offset = 0 }) {
@@ -99,6 +106,7 @@ export default function Hero() {
       <motion.div
         className={styles.content}
         style={{ y: contentY, opacity: contentOpacity }}
+        variants={dollyIn}
         initial="hidden"
         animate={side ? 'show' : 'hidden'}
       >

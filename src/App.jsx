@@ -1,3 +1,4 @@
+import { MotionConfig } from 'framer-motion';
 import { SideProvider } from './context/SideContext';
 import { LanguageProvider } from './context/LanguageContext';
 import InviteOpening from './components/InviteOpening';
@@ -23,6 +24,8 @@ import Particles from './components/Particles';
 
 export default function App() {
   return (
+    // Guests with "reduce motion" switched on get fades instead of movement
+    <MotionConfig reducedMotion="user">
     <LanguageProvider>
     <SideProvider>
       <SmoothScroll />
@@ -48,5 +51,6 @@ export default function App() {
       <Footer />
     </SideProvider>
     </LanguageProvider>
+    </MotionConfig>
   );
 }

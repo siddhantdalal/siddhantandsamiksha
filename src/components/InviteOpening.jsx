@@ -7,6 +7,16 @@ import styles from './InviteOpening.module.css';
 
 const doorEase = [0.65, 0, 0.35, 1];
 
+// Must match the breakpoint where the CSS stacks the doors vertically
+const STACKED_DOORS = '(max-width: 640px)';
+
+// Each door swings away from the guest on its outer hinge. Side by side they
+// hinge left/right; stacked on phones they hinge top/bottom and part like a gate.
+function swingOpen(door, stacked) {
+  const angle = door === 'groom' ? 100 : -100;
+  return stacked ? { rotateX: -angle } : { rotateY: angle };
+}
+
 function MandalaRing({ className }) {
   const petals = Array.from({ length: 24 });
   return (
@@ -33,16 +43,17 @@ export default function InviteOpening() {
   const content = useContent();
   const { side, setSide } = useSide();
   const [phase, setPhase] = useState('seal'); // 'seal' | 'sides'
-  const [chosen, setChosen] = useState(null);
-
-  if (side && !chosen) return null;
+  const [chosen, setChosen] = useState(null); // { who, stacked } once a door is picked
 
   const choose = (who) => {
     if (chosen) return;
-    setChosen(who);
-    setTimeout(() => setSide(who), 350);
-    setTimeout(() => setChosen(null), 1600);
+    setChosen({ who, stacked: window.matchMedia(STACKED_DOORS).matches });
+    // Reveal the site while the doors are still swinging; the overlay's exit
+    // fade (below) then clears the doors once they're nearly edge-on
+    setTimeout(() => setSide(who), 300);
   };
+
+  const doorTransition = { duration: 1.5, ease: doorEase };
 
   return (
     <AnimatePresence>
@@ -50,7 +61,7 @@ export default function InviteOpening() {
         <motion.div
           key="opening"
           className={`${styles.overlay} ${phase === 'sides' ? styles.overlayClear : ''}`}
-          exit={{ opacity: 0, transition: { duration: 0.6, delay: 0.9 } }}
+          exit={{ opacity: 0, transition: { duration: 0.7, delay: 0.8 } }}
         >
           {/* ——— Phase 1: the sealed invitation ——— */}
           <AnimatePresence mode="wait">
@@ -124,10 +135,18 @@ export default function InviteOpening() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: 0.5 } }}
               >
+                {/* Warm light spilling through the gap as the doors part */}
+                <motion.span
+                  className={`${styles.light} ${chosen?.who === 'bride' ? styles.lightBride : styles.lightGroom}`}
+                  animate={chosen ? { opacity: [0, 1, 0], scale: [0.6, 1.2, 1.5] } : {}}
+                  transition={{ duration: 1.8, times: [0, 0.4, 1], ease: 'easeOut' }}
+                  aria-hidden="true"
+                />
+
                 <motion.button
                   className={`${styles.door} ${styles.doorGroom}`}
                   onClick={() => choose('groom')}
-                  animate={chosen ? { x: '-102%', transition: { duration: 1.1, ease: doorEase } } : {}}
+                  animate={chosen ? { ...swingOpen('groom', chosen.stacked), transition: doorTransition } : {}}
                 >
                   <span className={styles.doorPattern} aria-hidden="true" />
                   <span className={styles.doorContent}>
@@ -148,7 +167,7 @@ export default function InviteOpening() {
                 <motion.button
                   className={`${styles.door} ${styles.doorBride}`}
                   onClick={() => choose('bride')}
-                  animate={chosen ? { x: '102%', transition: { duration: 1.1, ease: doorEase } } : {}}
+                  animate={chosen ? { ...swingOpen('bride', chosen.stacked), transition: doorTransition } : {}}
                 >
                   <span className={styles.doorPattern} aria-hidden="true" />
                   <span className={styles.doorContent}>
