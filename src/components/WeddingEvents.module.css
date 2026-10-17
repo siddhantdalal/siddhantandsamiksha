@@ -33,11 +33,58 @@
   opacity: 0.9;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-xl);
-  align-items: stretch;
+/* ——— Event cards that pile up like invitations as you scroll ——— */
+.stack {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* Short screens: a plain list */
+.stackItem:not(:last-child) {
+  margin-bottom: var(--space-xl);
+}
+
+/* Tall enough for a stuck card to fit fully on screen.
+   Keep in sync with STACK_QUERY in WeddingEvents.jsx */
+@media (min-height: 700px) {
+  .stack {
+    --stack-top: clamp(96px, 14vh, 136px); /* clear of the fixed navbar */
+    --stack-step: 18px; /* how much of each buried card peeks out */
+  }
+
+  /* Each card sits at the top of a tall slot: the empty part is the scroll
+     distance before the next card lands on it */
+  .stackItem {
+    position: sticky;
+    top: calc(var(--stack-top) + var(--stack-index) * var(--stack-step));
+    min-height: 62vh;
+  }
+
+  .stackItem:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  /* Lets the finished pile rest on screen before it scrolls away */
+  .stack::after {
+    content: '';
+    display: block;
+    height: 18vh;
+  }
+}
+
+.stackCard {
+  position: relative;
+  border-radius: var(--border-radius-lg);
+  transform-origin: center top;
+}
+
+.stackShade {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--color-bg-deep);
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Standalone mehendi card (groom's side — separate venue from Suvi Palace) */

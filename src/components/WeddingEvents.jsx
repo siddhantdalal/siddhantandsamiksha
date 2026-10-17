@@ -1,7 +1,20 @@
+import { useRef } from 'react';
+// eslint-disable-next-line no-unused-vars
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { useContent } from '../context/LanguageContext';
 import { useSide } from '../context/SideContext';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import ScrollReveal from './ScrollReveal';
 import styles from './WeddingEvents.module.css';
+
+// Cards only pile up where a stuck card fits fully on screen; on shorter screens
+// its lower half would be hidden until the next card covered it. Must match the
+// media query on .stack in the CSS.
+const STACK_QUERY = '(min-height: 700px)';
+
+const BURIED_SCALE_STEP = 0.05; // how much smaller each card underneath gets
+const BURIED_TILT = 6; // degrees a buried card leans back into the pile
+const BURIED_SHADE = 0.45; // darkening of a fully buried card
 
 const icons = {
   Mehendi: (
@@ -63,9 +76,47 @@ const icons = {
   ),
 };
 
+// One card in the scroll stack. Each sticks a little lower than the one before,
+// and as later cards slide over it, it shrinks, leans back and darkens, like
+// invitation cards being dealt onto a pile.
+function StackedCard({ index, count, progress, stacked, children }) {
+  const reduceMotion = useReducedMotion();
+  const buriedBy = count - 1 - index; // how many cards end up on top of this one
+  const range = [index / count, 1];
+  const scale = useTransform(progress, range, [1, 1 - buriedBy * BURIED_SCALE_STEP]);
+  const rotateX = useTransform(progress, range, [0, buriedBy ? -BURIED_TILT : 0]);
+  const shade = useTransform(progress, range, [0, buriedBy ? BURIED_SHADE : 0]);
+
+  // Short screens get the plain list. Its fade-in wrapper would break sticky
+  // positioning, which is why it's only used when not stacking.
+  if (!stacked) {
+    return (
+      <ScrollReveal className={styles.stackItem} delay={index * 0.08}>
+        {children}
+      </ScrollReveal>
+    );
+  }
+
+  const depth = !reduceMotion;
+  return (
+    <div className={styles.stackItem} style={{ '--stack-index': index }}>
+      <motion.div
+        className={styles.stackCard}
+        style={depth ? { scale, rotateX, transformPerspective: 1200 } : undefined}
+      >
+        {children}
+        {depth && <motion.span className={styles.stackShade} style={{ opacity: shade }} aria-hidden="true" />}
+      </motion.div>
+    </div>
+  );
+}
+
 export default function WeddingEvents() {
   const content = useContent();
   const { side } = useSide();
+  const stacked = useMediaQuery(STACK_QUERY);
+  const stackRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: stackRef, offset: ['start start', 'end end'] });
 
   const { mehendiGroom, mehendiBride, events } = content.weddingEvents;
   const isBride = side === 'bride';
@@ -117,9 +168,10 @@ export default function WeddingEvents() {
         <div className={styles.divider} />
       </ScrollReveal>
 
-      <div className={`section-inner ${styles.grid}`}>
+      {/* Cards must be direct children of the stack so position: sticky works */}
+      <div ref={stackRef} className={styles.stack}>
         {gridEvents.map((event, i) => (
-          <ScrollReveal key={event.name} delay={i * 0.08}>
+          <StackedCard key={event.name} index={i} count={gridEvents.length} progress={scrollYProgress} stacked={stacked}>
             <div className={styles.card}>
               <span className={styles.icon}>{icons[event.iconKey || event.name]}</span>
               <h3 className={styles.name}>{event.name}</h3>
@@ -134,7 +186,7 @@ export default function WeddingEvents() {
                 </p>
               )}
             </div>
-          </ScrollReveal>
+          </StackedCard>
         ))}
       </div>
     </section>
