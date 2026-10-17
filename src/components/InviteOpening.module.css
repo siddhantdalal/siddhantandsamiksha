@@ -89,7 +89,9 @@
   display: flex;
   align-items: baseline;
   gap: 0.35em;
-  flex-wrap: wrap;
+  /* Never wraps into a lopsided "Siddhant &" / "Samiksha": one line, or the
+     three-line stack below */
+  flex-wrap: nowrap;
   justify-content: center;
   line-height: 1.1;
 }
@@ -100,6 +102,20 @@
   -webkit-text-fill-color: initial;
   background: none;
   color: var(--color-rani);
+}
+
+/* On one line the names need ~369px at phone size (2.6rem), which only fits
+   from a 440px-wide screen; narrower phones get a centred stack: name, &, name */
+@media (max-width: 439px) {
+  .names {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .amp {
+    line-height: 1.5;
+  }
 }
 
 .dateRow {
