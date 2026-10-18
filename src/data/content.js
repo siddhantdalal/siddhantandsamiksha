@@ -221,9 +221,9 @@ export default {
       promptText: 'The brothers who\'ve had his back through every chapter — now standing beside him on the biggest day of his life.',
       members: [
         {
-          name: 'Aashish & Sohel',
-          photo: `${base}images/groomsmen/sohel-aashish.jpg`,
-          description: 'The Wolfpack Members',
+          name: 'Sohel',
+          photo: `${base}images/groomsmen/sohel.jpg`,
+          description: 'The All Rounder',
         },
         {
           name: 'Sai',
@@ -234,16 +234,6 @@ export default {
           name: 'Aditya',
           photo: `${base}images/groomsmen/aditya.jpg`,
           description: 'The OG',
-        },
-        {
-          name: 'Rushabh & Manan',
-          photo: `${base}images/groomsmen/london-1.jpg`,
-          description: 'The Home Away From Home',
-        },
-        {
-          name: 'Vandan & Fenil',
-          photo: `${base}images/groomsmen/london-2.jpg`,
-          description: 'The Home Away From Home',
         },
       ],
     },
