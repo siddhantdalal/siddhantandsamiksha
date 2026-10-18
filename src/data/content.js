@@ -226,6 +226,11 @@ export default {
           description: 'The All Rounder',
         },
         {
+          name: 'Aashish',
+          photo: `${base}images/groomsmen/aashish.jpg`,
+          description: 'The Minion',
+        },
+        {
           name: 'Sai',
           photo: `${base}images/groomsmen/sai.jpg`,
           description: 'The Riding Partner',

@@ -209,13 +209,19 @@
   margin: 0 auto;
 }
 
+/* Centred rows, so a short last row sits in the middle instead of hugging the left */
 .crewGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-xl);
-  max-width: 900px;
+  max-width: 1000px;
   margin: var(--space-2xl) auto 0;
   padding: 0 var(--space-md);
+}
+
+.crewItem {
+  flex: 0 1 200px;
 }
 
 .crewCard {

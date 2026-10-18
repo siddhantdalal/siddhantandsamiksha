@@ -147,7 +147,7 @@ export default function MeetGroom() {
                       >
                         <div className={styles.crewGrid}>
                           {crew.members.map((member, i) => (
-                            <ScrollReveal key={i} delay={i * 0.08}>
+                            <ScrollReveal key={i} delay={i * 0.08} className={styles.crewItem}>
                               <div className={styles.crewCard}>
                                 <ArchPhoto
                                   src={member.photo}
