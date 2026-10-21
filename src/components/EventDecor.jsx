@@ -101,33 +101,11 @@ function Mandap() {
   );
 }
 
-// Marigolds and mango leaves tucked into a corner, from Siddhant's Mehendi invite
-function Spray({ at }) {
-  return (
-    <img
-      className={`${styles.spray} ${at === 'top' ? styles.sprayTop : styles.sprayBottom}`}
-      src={`${import.meta.env.BASE_URL}images/sprays/${at}.webp`}
-      alt=""
-      width="345"
-      height="310"
-      decoding="async"
-    />
-  );
-}
-
 function Frame({ variant }) {
   return <span className={`${styles.frame} ${styles[variant] || ''}`} />;
 }
 
 const DECOR = {
-  'groom-mehendi': () => (
-    <>
-      <Frame variant="frameDouble" />
-      <Spray at="top" />
-      <Spray at="bottom" />
-    </>
-  ),
-
   'groom-lagna': () => <Mandap />,
 
   'groom-reception': () => (

@@ -114,9 +114,8 @@
 
 /* ——— The couple, from the invite; its edges fade into the card ——— */
 .art {
-  --art-fade-x: linear-gradient(to right, transparent, #000 var(--art-edge), #000 calc(100% - var(--art-edge)), transparent);
-  --art-fade-y: linear-gradient(to bottom, transparent, #000 var(--art-edge), #000 calc(100% - var(--art-edge)), transparent);
-  --art-edge: 9%;
+  --art-fade-x: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+  --art-fade-y: linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent);
   display: block;
   width: min(100%, 440px);
   height: auto;
@@ -125,11 +124,6 @@
   mask-composite: intersect;
   -webkit-mask-image: var(--art-fade-x), var(--art-fade-y);
   -webkit-mask-composite: source-in;
-}
-
-/* Siddhant's Mehendi scene comes in its own gold frame; only the paper around it fades */
-:global(.ev-groom-mehendi) .art {
-  --art-edge: 2.5%;
 }
 
 /* ——— Headings ——— */

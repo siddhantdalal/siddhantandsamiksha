@@ -16,8 +16,8 @@ const invite = (file, title, alt) => ({
 });
 
 const invites = {
-  groomMehendi: invite('groom-mehendi', 'Mehendi',
-    'Mehendi invitation from the Dalal family: Thursday 03 December 2026, 11:00 AM onwards, at their home on Wardha Road, Nagpur'),
+  groomMehendi: invite('groom-mehendi', 'Love, Written in Henna',
+    'Mehendi invitation from the Dalal family, “Love, Written in Henna”: Thursday 03 December 2026, from 11:00 AM, at their home on Wardha Road, Nagpur'),
   groomWedding: invite('groom-wedding-reception', 'Lagna Sohala & Reception',
     'Wedding and reception invitation from the Dalal family: Lagna Sohala on Saturday 05 December 2026 at Suvi Palace, Vasai-Virar, and the reception on Monday 07 December 2026 at Jerryl Lawns, Nagpur'),
   brideMehendi: invite('bride-mehendi', 'Love, Written in Henna',
@@ -158,6 +158,8 @@ export default {
         name: 'Mehendi',
         day: 'Thursday',
         date: '03 December 2026',
+        design: 'bride',
+        title: 'Love, Written in Henna',
         groom: {
           time: '11:00 AM onwards',
           description: 'An intimate mehendi gathering at the groom\'s home — intricate henna, close family, and happy chatter.',
@@ -167,10 +169,9 @@ export default {
             mapLink: 'https://www.google.com/maps/search/?api=1&query=203+Vedant+Shine+Appt+Ramkrishna+Housing+Society+Narendra+Nagar+Wardha+Rd+Nagpur+440015',
           },
           invite: invites.groomMehendi,
-          art: art('mehendi-groom', 720, 643, 'Illustration of Siddhant in a green kurta and marigold garland, seated cross-legged under a toran and holding up his hennaed palm, with bolsters and diyas on either side'),
+          art: art('mehendi-groom', 720, 610, 'Illustration of Siddhant laughing in a green kurta and marigold garland, seated on a cushion inside a marigold arch and holding up his hennaed hands'),
         },
         bride: {
-          title: 'Love, Written in Henna',
           time: '1:00 PM onwards',
           description: 'Intricate henna, music, and an afternoon full of joy — right here at Suvi Palace.',
           venue: suviPalace,

@@ -144,7 +144,6 @@
 
 /* ————— Event panels: each one mirrors its printed invite —————
    --ev-* tokens are read by EventPanel.module.css and EventDecor. */
-.ev-groom-mehendi,
 .ev-groom-lagna {
   --ev-bg: linear-gradient(180deg, #fffaf0 0%, #fcf0d8 70%, #f7e6c2 100%);
   --ev-ink: #5a2a14;
@@ -159,16 +158,6 @@
   --ev-qr: #7a1f30;
   --ev-frame: rgba(201, 150, 60, 0.6);
   --ev-band: #ecd6aa;
-}
-
-/* The Mehendi invite keeps the maroon and gold but writes its name in henna green */
-.ev-groom-mehendi {
-  --ev-bg: linear-gradient(180deg, #faf5e6 0%, #f7eed8 55%, #f1e2c2 100%);
-  --ev-title-fill: linear-gradient(100deg, #2f5a22 0%, #6f9a35 50%, #2f5a22 100%);
-  --ev-edge: rgba(47, 90, 34, 0.18);
-  --ev-label: #a8682a;
-  --ev-qr: #2f5a22;
-  --ev-band: #e6dfbb;
 }
 
 .ev-groom-reception {

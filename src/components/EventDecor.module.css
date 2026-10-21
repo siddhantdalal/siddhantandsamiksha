@@ -21,12 +21,6 @@
   border: 1px solid var(--ev-frame);
 }
 
-.frameDouble {
-  border: 1px solid var(--ev-frame);
-  outline: 1px solid var(--ev-frame);
-  outline-offset: -6px;
-}
-
 /* The invite's toran across the top and garland along the foot, at the card's full width */
 .inviteToran,
 .inviteGarland {
@@ -69,7 +63,7 @@
   background: repeating-conic-gradient(from 0deg at 50% 40%, rgba(232, 176, 110, 0.18) 0deg 3deg, transparent 3deg 10deg);
 }
 
-/* the Mehendi invite's pale beams behind the bride */
+/* the Mehendi invites' pale beams behind the marigold arch */
 .sunRaysPale {
   background: repeating-conic-gradient(from 0deg at 50% 44%, rgba(236, 216, 128, 0.22) 0deg 3deg, transparent 3deg 10deg);
   mask-image: radial-gradient(circle at 50% 44%, #000 0, transparent 56%);
@@ -88,22 +82,6 @@
   left: 0;
   width: 100%;
   height: 44px;
-}
-
-/* ——— Mehendi: the invite's corner flowers, about a sixth of its width ——— */
-.spray {
-  width: max(84px, 16%);
-  height: auto;
-}
-
-.sprayTop {
-  top: 0;
-  left: 0;
-}
-
-.sprayBottom {
-  right: 0;
-  bottom: 0;
 }
 
 /* ——— Haldi ——— */
