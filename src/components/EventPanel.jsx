@@ -159,15 +159,12 @@ export default function EventPanel({ event, side, onViewInvite }) {
 
           <div className={styles.body}>
             {isBride && <Crest theme={theme} />}
-            {/* Placed as on the invites: above the title on the Dalal family's
-                cards, below it on the Patil family's */}
-            {art && !isBride && <Art art={art} />}
 
             {event.kicker && !isBride && <p className={styles.kicker} lang="mr">{event.kicker}</p>}
             {isBride && event.title && <p className={styles.label}>{event.name}</p>}
             <Title theme={theme} event={event} id={titleId} />
             {event.tagline && <p className={styles.tagline}>{event.tagline}</p>}
-            {art && isBride && <Art art={art} />}
+            {art && <Art art={art} />}
 
             <When event={event} trio={isBride} />
             <p className={styles.description}>{event.description}</p>
