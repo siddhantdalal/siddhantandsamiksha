@@ -14,7 +14,6 @@ import WeddingEvents from './components/WeddingEvents';
 import Reception from './components/Reception';
 import InviteGallery from './components/InviteGallery';
 import MeetGroom from './components/MeetGroom';
-import Hashtag from './components/Hashtag';
 import Footer from './components/Footer';
 import FilmGrain from './components/FilmGrain';
 import { MotifDefs } from './components/Motifs';
@@ -46,7 +45,6 @@ export default function App() {
         <Reception />
         <InviteGallery />
         <MeetGroom />
-        <Hashtag />
       </main>
       <Footer />
     </SideProvider>

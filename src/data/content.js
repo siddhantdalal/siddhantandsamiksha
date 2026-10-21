@@ -55,7 +55,6 @@ export default {
     dateLabel: 'Date',
     timeLabel: 'Time',
     chapters: ['Chapter One', 'Chapter Two', 'Chapter Three', 'Chapter Four', 'Chapter Five', 'Chapter Six'],
-    shareLabel: 'Share your moments with',
     madeWith: 'Made with love',
     engagedFor: 'Happily engaged for',
     countingLine: '…and counting, all the way to the mandap.',
@@ -371,8 +370,6 @@ export default {
       ],
     },
   },
-
-  hashtags: ['#SidKiSami', '#SamSaidSid', '#SiddhantWedsSamiksha', '#TheSidAndSamSaga'],
 
   footer: {
     closing: 'With Love',
