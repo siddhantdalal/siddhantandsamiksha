@@ -13,7 +13,33 @@
   }
 }
 
+/* Grows in place over the card when clicked, and back again on the next click */
+.zoom {
+  position: relative;
+  display: block;
+  padding: 0;
+  border-radius: 10px;
+  cursor: zoom-in;
+  transition: transform 0.4s var(--ease-royal);
+}
+
+.enlarged .zoom {
+  z-index: 5;
+  transform: scale(2.4);
+  cursor: zoom-out;
+}
+
+.enlarged .code {
+  box-shadow: 0 0 0 1.5px rgba(201, 150, 60, 0.25), 0 10px 32px rgba(40, 10, 20, 0.35);
+}
+
+.zoom:focus-visible {
+  outline: 2px solid var(--ev-accent);
+  outline-offset: 4px;
+}
+
 .code {
+  display: block;
   height: auto;
   aspect-ratio: 1;
   padding: 7px;
