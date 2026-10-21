@@ -99,11 +99,11 @@
 
 /* Clearance for each theme's decoration */
 :global(.ev-groom-mehendi) { --ev-pad-top: 84px; }
+/* inside the mandap: below the toran's bell, between the pillars, above the base */
 :global(.ev-groom-lagna) {
-  --pillar: clamp(16px, 3.6vw, 26px);
-  --ev-pad-top: 166px;
-  --ev-pad-x: calc(var(--pillar) + clamp(16px, 4vw, 40px));
-  --ev-pad-bottom: 66px;
+  --ev-pad-top: calc(12px + 46%);
+  --ev-pad-x: calc(12px + 11%);
+  --ev-pad-bottom: calc(36px + 10.5%);
 }
 :global(.ev-groom-reception) { --ev-pad-top: 56px; }
 /* the invite torans leave their window for the title a fifth of the way down */

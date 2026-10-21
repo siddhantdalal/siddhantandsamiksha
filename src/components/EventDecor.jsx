@@ -1,4 +1,4 @@
-import { Band, Firework, Kalash, Note } from './Motifs';
+import { Band, Firework, Note } from './Motifs';
 import styles from './EventDecor.module.css';
 
 // Deterministic scatter, so decorations sit in the same place on every render
@@ -70,6 +70,23 @@ function InviteToran({ name }) {
   );
 }
 
+// The mandap from Siddhant's invitation, in three pieces so it fits any card
+// height: kalashes, carved beam and toran across the top, the gold pillars
+// repeating down the sides, and the plinths and Paithani border at the foot
+const MANDAP = `${import.meta.env.BASE_URL}images/mandap`;
+
+function Mandap() {
+  const pillar = { backgroundImage: `url(${MANDAP}/pillar.png)` };
+  return (
+    <div className={styles.mandap}>
+      <img className={styles.mandapTop} src={`${MANDAP}/top.webp`} alt="" width="998" height="615" decoding="async" />
+      <span className={`${styles.pillar} ${styles.pillarLeft}`} style={pillar} />
+      <span className={`${styles.pillar} ${styles.pillarRight}`} style={pillar} />
+      <img className={styles.mandapBase} src={`${MANDAP}/base.webp`} alt="" width="998" height="104" decoding="async" />
+    </div>
+  );
+}
+
 function Frame({ variant }) {
   return <span className={`${styles.frame} ${styles[variant] || ''}`} />;
 }
@@ -83,21 +100,7 @@ const DECOR = {
     </>
   ),
 
-  // A Maharashtrian mandap: kalash on a carved beam, toran, gold pillars, Paithani base
-  'groom-lagna': () => (
-    <>
-      <div className={styles.mandapTop}>
-        <Kalash className={styles.kalash} />
-        <span className={`${styles.finial} ${styles.finialLeft}`} />
-        <span className={`${styles.finial} ${styles.finialRight}`} />
-        <div className={styles.beam}><Band pattern="rosette" height={28} /></div>
-        <Band pattern="toran" height={48} className={styles.toran} />
-      </div>
-      <span className={`${styles.pillar} ${styles.pillarLeft}`} />
-      <span className={`${styles.pillar} ${styles.pillarRight}`} />
-      <div className={styles.paithaniBase}><Band pattern="narali" height={12} /></div>
-    </>
-  ),
+  'groom-lagna': () => <Mandap />,
 
   'groom-reception': () => (
     <>

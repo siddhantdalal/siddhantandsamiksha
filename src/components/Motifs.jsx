@@ -98,28 +98,11 @@ export function MotifDefs() {
           })}
         </pattern>
 
-        {/* Lotus rosettes along the mandap beam */}
-        <pattern id="pt-rosette" width="44" height="28" patternUnits="userSpaceOnUse">
-          <g transform="translate(22 14)" fill="#e6c27a">
-            {ring(8, 4.6).map(([x, y], i) => (
-              <ellipse key={i} cx={x} cy={y} rx="3.4" ry="1.7" transform={`rotate(${i * 45} ${x} ${y})`} />
-            ))}
-            <circle r="2.4" fill="#f6dfa4" />
-          </g>
-          <circle cx="0" cy="14" r="1.6" fill="#e6c27a" />
-        </pattern>
-
         <radialGradient id="gr-glow" cx="50%" cy="50%" r="50%">
           <stop offset="0" stopColor="#fff3cf" stopOpacity="0.95" />
           <stop offset="0.4" stopColor="#ffd98a" stopOpacity="0.45" />
           <stop offset="1" stopColor="#ffd98a" stopOpacity="0" />
         </radialGradient>
-        <linearGradient id="gr-gold" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#a97f36" />
-          <stop offset="0.45" stopColor="#f6dfa4" />
-          <stop offset="0.6" stopColor="#d6ad60" />
-          <stop offset="1" stopColor="#8a6420" />
-        </linearGradient>
       </defs>
     </svg>
   );
@@ -183,23 +166,6 @@ export function Paisleys({ className }) {
       <path d={paisley} transform="translate(-9 0)" />
       <path d={paisley} transform="translate(9 0) scale(-1 1)" />
       <circle cx="0" cy="-9" r="1.4" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-export function Kalash({ className }) {
-  return (
-    <svg className={className} viewBox="-30 -36 60 66" aria-hidden="true">
-      <use href="#mf-leaf" transform="translate(-4 -14) rotate(125) scale(0.95)" />
-      <use href="#mf-leaf" transform="translate(4 -14) rotate(-125) scale(0.95)" />
-      <use href="#mf-leaf" transform="translate(-2 -16) rotate(160) scale(0.9)" />
-      <use href="#mf-leaf" transform="translate(2 -16) rotate(-160) scale(0.9)" />
-      <ellipse cx="0" cy="-22" rx="9" ry="10" fill="#8a5a2b" />
-      <path d="M-5 -30 Q0 -36 5 -30" stroke="#5c3a1a" strokeWidth="1.6" fill="none" />
-      <path d="M-13 -11 H13 L10 -6 C20 -2 22 12 14 20 C8 25 -8 25 -14 20 C-22 12 -20 -2 -10 -6Z" fill="url(#gr-gold)" />
-      <path d="M-15 4 H15" stroke="#7a1f30" strokeWidth="2.2" />
-      <circle cx="0" cy="4" r="2.6" fill="#7a1f30" />
-      <path d="M-9 25 H9 L11 29 H-11Z" fill="#c9963c" />
     </svg>
   );
 }

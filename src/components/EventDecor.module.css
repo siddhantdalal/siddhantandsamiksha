@@ -120,67 +120,43 @@
 .notePink { color: var(--ev-pink); }
 .noteGold { color: var(--ev-title); }
 
-/* ——— The mandap ——— */
-.mandapTop {
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 150px;
+/* ——— The mandap, inset so no edge meets the card's rounded border.
+   Percentage margins are shares of its width, so the pillars meet the top
+   and base pieces at every size (positions measured on the invite art). ——— */
+.mandap {
+  inset: 12px;
 }
 
-.mandapTop > * {
+.mandap > * {
   position: absolute;
 }
 
-.kalash {
-  top: 6px;
-  left: 50%;
-  width: 58px;
-  transform: translateX(-50%);
-}
-
-.beam {
-  top: 68px;
+.mandapTop,
+.mandapBase {
   left: 0;
-  right: 0;
-  height: 34px;
-  background: linear-gradient(#8e2a3c, #7a1f30 50%, #5e1424);
-  border-top: 3px solid #d6ad60;
-  border-bottom: 3px solid #d6ad60;
-  box-shadow: 0 4px 10px rgba(90, 42, 20, 0.3);
-  display: flex;
-  align-items: center;
+  width: 100%;
+  height: auto;
 }
 
-.toran {
-  top: 102px;
-  left: var(--pillar);
-  width: calc(100% - var(--pillar) * 2);
+.mandapTop {
+  top: 0;
 }
 
-.finial {
-  top: 52px;
-  width: calc(var(--pillar) + 10px);
-  height: 18px;
-  border-radius: 50% 50% 2px 2px;
-  background: linear-gradient(90deg, #8a6420, #f6dfa4 45%, #c9963c 70%, #8a6420);
+.mandapBase {
+  bottom: 0;
 }
-
-.finialLeft { left: -5px; }
-.finialRight { right: -5px; }
 
 .pillar {
-  top: 68px;
+  top: 0;
   bottom: 0;
-  width: var(--pillar);
-  background:
-    repeating-linear-gradient(180deg, transparent 0 60px, rgba(122, 31, 48, 0.55) 60px 62px, transparent 62px 66px, rgba(255, 241, 196, 0.7) 66px 67px, transparent 67px 130px),
-    linear-gradient(90deg, #8a6420 0%, #e9c77f 30%, #fff1c4 45%, #d6ad60 62%, #8a6420 100%);
-  box-shadow: 0 0 8px rgba(90, 42, 20, 0.25);
+  width: 3.81%;
+  margin: 61.4% 0 10.3%;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
 }
 
-.pillarLeft { left: 0; }
-.pillarRight { right: 0; }
+.pillarLeft { left: 3.61%; }
+.pillarRight { right: 3.61%; transform: scaleX(-1); }
 
 .paithaniBase {
   bottom: 0;
