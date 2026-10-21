@@ -34,8 +34,6 @@ export default {
   couple: {
     groomFirst: 'Siddhant',
     brideFirst: 'Samiksha',
-    groomParents: { relation: 'Son of', names: 'Prof. Satish Dalal & Mrs. Sangita Dalal', city: 'Nagpur' },
-    brideParents: { relation: 'Daughter of', names: 'Mr. Ramesh Patil & Mrs. Neelam Patil', city: 'Mumbai' },
   },
 
   ui: {
@@ -69,7 +67,6 @@ export default {
     scanForLocation: 'Scan for location',
     download: 'Download',
     closeInvite: 'Close invitation',
-    citiesLine: 'Two cities, one destiny',
   },
 
   hero: {

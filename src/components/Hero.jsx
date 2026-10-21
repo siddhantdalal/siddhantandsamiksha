@@ -73,14 +73,8 @@ export default function Hero() {
   const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '32%']);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
-  const { couple, ui } = content;
-  const isBride = side === 'bride';
-  const firstName = isBride ? couple.brideFirst : couple.groomFirst;
-  const secondName = isBride ? couple.groomFirst : couple.brideFirst;
-  // Parents and home cities follow the order of the names
-  const [firstFamily, secondFamily] = isBride
-    ? [couple.brideParents, couple.groomParents]
-    : [couple.groomParents, couple.brideParents];
+  const firstName = side === 'bride' ? content.couple.brideFirst : content.couple.groomFirst;
+  const secondName = side === 'bride' ? content.couple.groomFirst : content.couple.brideFirst;
   const welcomeMsg = side ? content.hero.welcome[side] : '';
 
   return (
@@ -106,7 +100,7 @@ export default function Hero() {
             show: { opacity: 1, scale: 1, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } },
           }}
         >
-          <p className={styles.shloka} lang="sa">{ui.shloka}</p>
+          <p className={styles.shloka} lang="sa">{content.ui.shloka}</p>
           <Medallion size={84} alt="" />
         </motion.div>
 
@@ -122,8 +116,12 @@ export default function Hero() {
 
         <h1 className={styles.names} key={`${firstName}-${secondName}`}>
           <StaggeredName text={firstName} />
+          {/* Animates itself: on Samiksha's side the names swap and this heading
+              remounts after the hero has already been told to show */}
           <motion.span
             className={styles.ampersand}
+            initial="hidden"
+            animate={side ? 'show' : 'hidden'}
             variants={{
               hidden: { opacity: 0, scale: 0.6 },
               show: { opacity: 1, scale: 1, transition: { delay: 0.55, duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
@@ -133,31 +131,6 @@ export default function Hero() {
           </motion.span>
           <StaggeredName text={secondName} offset={firstName.length + 2} />
         </h1>
-
-        <motion.div
-          className={styles.families}
-          variants={{
-            hidden: { opacity: 0, y: 12 },
-            show: { opacity: 1, y: 0, transition: { delay: 0.9, duration: 0.9 } },
-          }}
-        >
-          <div className={styles.parents}>
-            <p className={styles.parent}>
-              <span className={styles.relation}>{firstFamily.relation}</span>
-              {firstFamily.names}
-            </p>
-            <span className={styles.parentsDiamond} aria-hidden="true" />
-            <p className={styles.parent}>
-              <span className={styles.relation}>{secondFamily.relation}</span>
-              {secondFamily.names}
-            </p>
-          </div>
-          <p className={styles.cities}>
-            <span className={styles.city}>{firstFamily.city}</span>
-            <span className={styles.citiesLine}>{ui.citiesLine}</span>
-            <span className={styles.city}>{secondFamily.city}</span>
-          </p>
-        </motion.div>
 
         {welcomeMsg && (
           <motion.p

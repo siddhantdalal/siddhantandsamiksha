@@ -106,14 +106,9 @@
 
 .ampersand {
   font-family: var(--font-script);
+  color: var(--color-gold);
   font-size: 0.48em;
   line-height: 1.6;
-  padding: 0 0.15em;
-  background: var(--amp-fill, linear-gradient(var(--color-gold), var(--color-gold)));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--color-gold);
 }
 
 .crest {
@@ -130,108 +125,6 @@
   letter-spacing: 0.06em;
   color: var(--shloka, var(--color-gold));
   margin-bottom: var(--space-lg);
-}
-
-/* Son of / daughter of, then the two home cities */
-.families {
-  margin-bottom: var(--space-lg);
-}
-
-.parents {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-lg);
-  margin-bottom: var(--space-md);
-}
-
-.parent {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: var(--text-lg);
-  line-height: 1.35;
-  color: var(--color-text);
-}
-
-.relation {
-  font-family: var(--font-sans);
-  font-style: normal;
-  font-size: var(--text-xs);
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--color-gold);
-}
-
-.parentsDiamond {
-  flex: none;
-  width: 7px;
-  height: 7px;
-  background: var(--color-gold);
-  transform: rotate(45deg);
-}
-
-.cities {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--space-xs) var(--space-md);
-}
-
-.city {
-  font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--color-gold);
-}
-
-.citiesLine {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: var(--text-lg);
-  color: var(--color-text-muted);
-}
-
-.citiesLine::before,
-.citiesLine::after {
-  content: '';
-  width: clamp(16px, 4vw, 44px);
-  border-top: 2px dotted var(--color-gold);
-}
-
-/* Phones: one family above the other, the cities line on its own row */
-@media (max-width: 600px) {
-  .parents {
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
-
-  .cities {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: var(--space-xs);
-  }
-
-  .citiesLine {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    justify-content: center;
-  }
-
-  .city:first-child {
-    justify-self: end;
-  }
-
-  .city:last-child {
-    justify-self: start;
-  }
 }
 
 .welcome {
