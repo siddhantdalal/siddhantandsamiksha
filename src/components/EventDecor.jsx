@@ -70,6 +70,20 @@ function InviteToran({ name }) {
   );
 }
 
+// The garland swagged along the foot of the printed invite
+function InviteGarland({ name }) {
+  return (
+    <img
+      className={styles.inviteGarland}
+      src={`${import.meta.env.BASE_URL}images/garlands/${name}.webp`}
+      alt=""
+      width="1440"
+      height="156"
+      decoding="async"
+    />
+  );
+}
+
 // The mandap from Siddhant's invitation, in three pieces so it fits any card
 // height: kalashes, carved beam and toran across the top, the gold pillars
 // repeating down the sides, and the plinths and Paithani border at the foot
@@ -87,6 +101,20 @@ function Mandap() {
   );
 }
 
+// Marigolds and mango leaves tucked into a corner, from Siddhant's Mehendi invite
+function Spray({ at }) {
+  return (
+    <img
+      className={`${styles.spray} ${at === 'top' ? styles.sprayTop : styles.sprayBottom}`}
+      src={`${import.meta.env.BASE_URL}images/sprays/${at}.webp`}
+      alt=""
+      width="345"
+      height="310"
+      decoding="async"
+    />
+  );
+}
+
 function Frame({ variant }) {
   return <span className={`${styles.frame} ${styles[variant] || ''}`} />;
 }
@@ -95,8 +123,8 @@ const DECOR = {
   'groom-mehendi': () => (
     <>
       <Frame variant="frameDouble" />
-      <Band pattern="toran" height={46} className={styles.topBand} />
-      <div className={styles.paithaniBase}><Band pattern="narali" height={12} /></div>
+      <Spray at="top" />
+      <Spray at="bottom" />
     </>
   ),
 
@@ -108,6 +136,14 @@ const DECOR = {
       <LightSwag className={styles.lightSwag} />
       <Firework className={`${styles.twinkleSlow} ${styles.fireworkA}`} size={90} />
       <Firework className={`${styles.twinkleSlow} ${styles.fireworkB}`} size={64} />
+    </>
+  ),
+
+  'bride-mehendi': () => (
+    <>
+      <span className={styles.sunRaysPale} />
+      <InviteToran name="mehendi" />
+      <InviteGarland name="mehendi" />
     </>
   ),
 

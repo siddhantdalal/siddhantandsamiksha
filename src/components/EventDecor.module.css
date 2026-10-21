@@ -27,12 +27,20 @@
   outline-offset: -6px;
 }
 
-/* The invite's toran across the top, at the card's full width */
-.inviteToran {
-  top: 0;
+/* The invite's toran across the top and garland along the foot, at the card's full width */
+.inviteToran,
+.inviteGarland {
   left: 0;
   width: 100%;
   height: auto;
+}
+
+.inviteToran {
+  top: 0;
+}
+
+.inviteGarland {
+  bottom: 0;
 }
 
 .bottomSwag {
@@ -49,7 +57,8 @@
 
 /* ——— Light and glow ——— */
 .sunRays,
-.sunRaysSoft {
+.sunRaysSoft,
+.sunRaysPale {
   inset: 0;
   background: repeating-conic-gradient(from 0deg at 50% 36%, rgba(255, 190, 70, 0.2) 0deg 3deg, transparent 3deg 10deg);
   mask-image: radial-gradient(circle at 50% 36%, #000 0, transparent 62%);
@@ -58,6 +67,13 @@
 
 .sunRaysSoft {
   background: repeating-conic-gradient(from 0deg at 50% 40%, rgba(232, 176, 110, 0.18) 0deg 3deg, transparent 3deg 10deg);
+}
+
+/* the Mehendi invite's pale beams behind the bride */
+.sunRaysPale {
+  background: repeating-conic-gradient(from 0deg at 50% 44%, rgba(236, 216, 128, 0.22) 0deg 3deg, transparent 3deg 10deg);
+  mask-image: radial-gradient(circle at 50% 44%, #000 0, transparent 56%);
+  -webkit-mask-image: radial-gradient(circle at 50% 44%, #000 0, transparent 56%);
 }
 
 .lightSwag {
@@ -72,6 +88,22 @@
   left: 0;
   width: 100%;
   height: 44px;
+}
+
+/* ——— Mehendi: the invite's corner flowers, about a sixth of its width ——— */
+.spray {
+  width: max(84px, 16%);
+  height: auto;
+}
+
+.sprayTop {
+  top: 0;
+  left: 0;
+}
+
+.sprayBottom {
+  right: 0;
+  bottom: 0;
 }
 
 /* ——— Haldi ——— */
@@ -157,22 +189,6 @@
 
 .pillarLeft { left: 3.61%; }
 .pillarRight { right: 3.61%; transform: scaleX(-1); }
-
-.paithaniBase {
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 30px;
-  padding-top: 9px;
-  background: linear-gradient(#7a1f30, #5e1424);
-  border-top: 2px solid #d6ad60;
-}
-
-.topBand {
-  top: 11px;
-  left: 11px;
-  width: calc(100% - 22px);
-}
 
 /* ——— Reception ——— */
 .fireworkA,

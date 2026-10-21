@@ -16,8 +16,12 @@ const invite = (file, title, alt) => ({
 });
 
 const invites = {
+  groomMehendi: invite('groom-mehendi', 'Mehendi',
+    'Mehendi invitation from the Dalal family: Thursday 03 December 2026, 11:00 AM onwards, at their home on Wardha Road, Nagpur'),
   groomWedding: invite('groom-wedding-reception', 'Lagna Sohala & Reception',
     'Wedding and reception invitation from the Dalal family: Lagna Sohala on Saturday 05 December 2026 at Suvi Palace, Vasai-Virar, and the reception on Monday 07 December 2026 at Jerryl Lawns, Nagpur'),
+  brideMehendi: invite('bride-mehendi', 'Love, Written in Henna',
+    'Mehendi invitation from the Patil family, “Love, Written in Henna”: Thursday 03 December 2026, from 1:00 PM, at Suvi Palace, Vasai-Virar'),
   brideHaldi: invite('bride-haldi', 'The Glow Before the Vows',
     'Haldi invitation from the Patil family, “The Glow Before the Vows”: Friday 04 December 2026, morning, at Suvi Palace, Vasai-Virar'),
   brideSangeet: invite('bride-sangeet', 'The Dance Before the Seven Steps',
@@ -147,26 +151,31 @@ export default {
     // Shared details sit on the event; `groom` and `bride` hold what differs by side.
     // `design` names the family whose card an event wears on both sides, `title`
     // is its poetic name, `invite` drives "View invite" and `art` is the couple
-    // as drawn on the Patil family's invite for it.
+    // as drawn on one of the invites.
     events: [
       {
         id: 'mehendi',
         name: 'Mehendi',
-        design: 'groom',
         day: 'Thursday',
         date: '03 December 2026',
         groom: {
           time: '11:00 AM onwards',
           description: 'An intimate mehendi gathering at the groom\'s home — intricate henna, close family, and happy chatter.',
           venue: {
+            name: 'Nagpur',
             address: '203, Vedant Shine Appt., Ramkrishna Housing Society, Narendra Nagar, Wardha Rd., Nagpur – 440015',
             mapLink: 'https://www.google.com/maps/search/?api=1&query=203+Vedant+Shine+Appt+Ramkrishna+Housing+Society+Narendra+Nagar+Wardha+Rd+Nagpur+440015',
           },
+          invite: invites.groomMehendi,
+          art: art('mehendi-groom', 720, 643, 'Illustration of Siddhant in a green kurta and marigold garland, seated cross-legged under a toran and holding up his hennaed palm, with bolsters and diyas on either side'),
         },
         bride: {
+          title: 'Love, Written in Henna',
           time: '1:00 PM onwards',
           description: 'Intricate henna, music, and an afternoon full of joy — right here at Suvi Palace.',
           venue: suviPalace,
+          invite: invites.brideMehendi,
+          art: art('mehendi-bride', 720, 610, 'Illustration of Samiksha laughing in a pink blouse and green skirt, seated on a cushion inside a marigold arch and holding up her hennaed hands'),
         },
       },
       {
@@ -228,7 +237,7 @@ export default {
       },
       description: 'Join us for an unforgettable evening of celebration as we toast to new beginnings with the groom\'s loved ones.',
       invite: invites.groomWedding,
-      // The one card that shows the couple as drawn on the Dalal family's invite
+      // The couple as drawn on the Dalal family's wedding invite
       art: art('reception', 720, 636, 'Illustration of Siddhant in a blue suit and Samiksha in an ivory lehenga on a reception stage, framed by a ring of roses, fairy lights and candles'),
       note: 'You\'re seeing details for the Nagpur reception based on your side selection.',
     },

@@ -47,11 +47,6 @@ export function MotifDefs() {
           <MarigoldShape key={name} id={`mf-marigold-${name}`} colors={colors} />
         ))}
 
-        {/* Mango leaf hanging from its stalk at 0,0 */}
-        <g id="mf-leaf">
-          <path d="M0 0 C5.4 4.6 5.6 13.4 0 19 C-5.6 13.4 -5.4 4.6 0 0Z" fill="#2f8150" />
-          <path d="M0 1.5 V17" stroke="#1f5e39" strokeWidth="0.8" />
-        </g>
         <g id="mf-foot">{FOOT}</g>
         <g id="mf-note">
           <ellipse cx="-2.2" cy="5" rx="3.1" ry="2.2" transform="rotate(-22 -2.2 5)" />
@@ -68,26 +63,6 @@ export function MotifDefs() {
         <pattern id="pt-pearls" width="10" height="7.5" patternUnits="userSpaceOnUse">
           <path d="M5 0 V7.5" stroke="#c99a3e" strokeWidth="0.6" />
           <circle cx="5" cy="3.75" r="2.9" fill="url(#gr-pearl)" stroke="#bfa676" strokeWidth="0.45" />
-        </pattern>
-
-        {/* Paithani narali border: a row of gold triangles */}
-        <pattern id="pt-narali" width="14" height="12" patternUnits="userSpaceOnUse">
-          <path d="M0 12 L7 2 L14 12Z" fill="#d6ad60" />
-          <path d="M3.6 12 L7 7.2 L10.4 12Z" fill="#7a1f30" />
-          <circle cx="7" cy="0.9" r="0.9" fill="#d6ad60" />
-        </pattern>
-
-        {/* Toran: mango leaves under the beam with a marigold swag below */}
-        <pattern id="pt-toran" width="36" height="48" patternUnits="userSpaceOnUse">
-          {[0, 9, 18, 27].map((x, i) => (
-            <use key={x} href="#mf-leaf" transform={`translate(${x + 4.5} 0) rotate(${i % 2 ? 6 : -6}) scale(0.82)`} />
-          ))}
-          {[[0, 17], [6, 22], [12, 25.5], [18, 26.5], [24, 25.5], [30, 22]].map(([x, y]) => (
-            <use key={x} href={`#mf-marigold-${x % 12 ? 'orange' : 'yellow'}`} transform={`translate(${x} ${y}) scale(0.5)`} />
-          ))}
-          <use href="#mf-marigold-orange" transform="translate(0 29) scale(0.42)" />
-          <use href="#mf-marigold-yellow" transform="translate(0 36) scale(0.38)" />
-          <use href="#mf-leaf" transform="translate(0 39) scale(0.38)" />
         </pattern>
 
         {/* Marigold swag for the foot of a panel */}
@@ -116,7 +91,6 @@ export function Marigold({ size = 20, color = 'orange', className }) {
   );
 }
 
-// A hanging string of marigolds (or pearls, roses, lights) ending in a tassel
 // A tiling band across the full width of its container
 export function Band({ pattern, height, className }) {
   return (
@@ -153,19 +127,6 @@ export function Note({ size = 18, className, style }) {
   return (
     <svg className={className} style={style} width={size} height={size * 1.1} viewBox="-6 -10 13 18" aria-hidden="true">
       <use href="#mf-note" fill="currentColor" />
-    </svg>
-  );
-}
-
-// A paisley pair facing each other, the mehendi divider
-export function Paisleys({ className }) {
-  const paisley = 'M0 10 C-9 10 -11 -2 -4 -7 C1 -10 7 -8 7 -3 C7 2 2 3 1 0 C0 -2 3 -3 3 -1';
-  return (
-    <svg className={className} viewBox="-60 -14 120 28" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1">
-      <path d="M-58 0 H-20 M20 0 H58" strokeDasharray="1 3" />
-      <path d={paisley} transform="translate(-9 0)" />
-      <path d={paisley} transform="translate(9 0) scale(-1 1)" />
-      <circle cx="0" cy="-9" r="1.4" fill="currentColor" stroke="none" />
     </svg>
   );
 }

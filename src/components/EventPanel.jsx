@@ -2,11 +2,22 @@ import content from '../data/content';
 import ScrollReveal from './ScrollReveal';
 import LocationQR from './LocationQR';
 import EventDecor from './EventDecor';
-import { Footprints, Marigold, Paisleys } from './Motifs';
+import { Footprints, Marigold } from './Motifs';
 import styles from './EventPanel.module.css';
 
 // Each theme sets its title the way its invite does
 function Title({ theme, event, id }) {
+  if (theme === 'bride-mehendi') {
+    return (
+      <h3 id={id} className={styles.poem} aria-label={event.title}>
+        <span className={styles.love}>
+          L<span className={styles.mandalaO} />ve,
+        </span>
+        <span className={styles.joiner}>written in</span>
+        <span className={styles.henna}>Henna</span>
+      </h3>
+    );
+  }
   if (theme === 'bride-haldi') {
     return (
       <h3 id={id} className={styles.poem} aria-label={event.title}>
@@ -51,9 +62,7 @@ function Title({ theme, event, id }) {
   return (
     <>
       <h3 id={id} className={styles.script}>{event.name}</h3>
-      {theme === 'groom-mehendi'
-        ? <Paisleys className={styles.paisleys} />
-        : <span className={styles.flourish} aria-hidden="true" />}
+      <span className={styles.flourish} aria-hidden="true" />
     </>
   );
 }

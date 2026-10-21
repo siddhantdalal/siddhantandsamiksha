@@ -98,7 +98,6 @@
 }
 
 /* Clearance for each theme's decoration */
-:global(.ev-groom-mehendi) { --ev-pad-top: 84px; }
 /* inside the mandap: below the toran's bell, between the pillars, above the base */
 :global(.ev-groom-lagna) {
   --ev-pad-top: calc(12px + 46%);
@@ -106,15 +105,18 @@
   --ev-pad-bottom: calc(36px + 10.5%);
 }
 :global(.ev-groom-reception) { --ev-pad-top: 56px; }
-/* the invite torans leave their window for the title a fifth of the way down */
+/* the invite torans leave their window for the title a fifth of the way down;
+   the Mehendi garland along the foot is a tenth of the card's width tall */
+:global(.ev-bride-mehendi) { --ev-pad-top: 20%; --ev-pad-bottom: calc(28px + 10.8%); }
 :global(.ev-bride-haldi) { --ev-pad-top: 20%; --ev-pad-bottom: 72px; }
 :global(.ev-bride-sangeet) { --ev-pad-top: 20%; --ev-pad-bottom: 72px; }
 :global(.ev-bride-lagna) { --ev-pad-top: 20%; --ev-pad-bottom: 60px; }
 
 /* ——— The couple, from the invite; its edges fade into the card ——— */
 .art {
-  --art-fade-x: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
-  --art-fade-y: linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent);
+  --art-fade-x: linear-gradient(to right, transparent, #000 var(--art-edge), #000 calc(100% - var(--art-edge)), transparent);
+  --art-fade-y: linear-gradient(to bottom, transparent, #000 var(--art-edge), #000 calc(100% - var(--art-edge)), transparent);
+  --art-edge: 9%;
   display: block;
   width: min(100%, 440px);
   height: auto;
@@ -123,6 +125,11 @@
   mask-composite: intersect;
   -webkit-mask-image: var(--art-fade-x), var(--art-fade-y);
   -webkit-mask-composite: source-in;
+}
+
+/* Siddhant's Mehendi scene comes in its own gold frame; only the paper around it fades */
+:global(.ev-groom-mehendi) .art {
+  --art-edge: 2.5%;
 }
 
 /* ——— Headings ——— */
@@ -166,12 +173,6 @@
   background:
     radial-gradient(circle 3.5px at 50% 50%, var(--ev-line) 98%, transparent) center / 9px 9px no-repeat,
     linear-gradient(90deg, transparent, var(--ev-line) 40%, transparent 44%, transparent 56%, var(--ev-line) 60%, transparent) center / 100% 1px no-repeat;
-}
-
-.paisleys {
-  width: 180px;
-  margin: var(--space-xs) 0 var(--space-lg);
-  color: var(--ev-line);
 }
 
 /* Poetic titles on Samiksha's side, set in Fraunces italic */
@@ -218,6 +219,8 @@
   background: var(--ev-line);
 }
 
+.love,
+.henna,
 .glow,
 .vows,
 .dance,
@@ -237,6 +240,43 @@
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 18px rgba(253, 200, 80, 0.55));
   padding-right: 0.08em;
+}
+
+/* Love, written in Henna: leaf green and henna rust, with a glow behind Love */
+.love {
+  display: inline-flex;
+  align-items: baseline;
+  color: var(--ev-love);
+  text-shadow: 0 0 28px rgba(246, 222, 120, 0.6);
+  padding-right: 0.06em;
+}
+
+.henna {
+  color: var(--ev-henna);
+}
+
+/* The "o" of Love is a henna mandala: rings and a dot inside a ring of petals */
+.mandalaO {
+  position: relative;
+  display: inline-block;
+  width: 0.56em;
+  height: 0.56em;
+  margin: 0 0.05em;
+  align-self: center;
+  transform: translateY(0.04em);
+  border: 0.04em solid var(--ev-henna);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--ev-henna) 0 12%, transparent 13% 24%, var(--ev-title) 25% 30%, transparent 31%);
+}
+
+.mandalaO::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: repeating-conic-gradient(var(--ev-pink) 0deg 8deg, transparent 8deg 22.5deg);
+  mask-image: radial-gradient(circle, transparent 40%, #000 42% 68%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle, transparent 40%, #000 42% 68%, transparent 70%);
 }
 
 /* The "o" of Glow is a marigold sun with fine rays */
