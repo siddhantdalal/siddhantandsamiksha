@@ -27,32 +27,12 @@
   outline-offset: -6px;
 }
 
-/* ——— Strings hanging from the top edge ——— */
-.strands {
-  top: 10px;
-  left: 0;
-  right: 0;
-  height: 0;
-}
-
-.strand {
-  position: absolute;
-  top: 0;
-  margin-left: -8px;
-  transform-origin: top center;
-  animation: sway 7s ease-in-out infinite;
-}
-
-@media (max-width: 639px) {
-  .wideOnly {
-    display: none;
-  }
-}
-
-.topGarland {
+/* The invite's toran across the top, at the card's full width */
+.inviteToran {
   top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
+  height: auto;
 }
 
 .bottomSwag {
@@ -103,8 +83,11 @@
 }
 
 /* ——— Sangeet ——— */
+/* Beams from the invite's disco balls; a percentage margin is a share of the
+   card's width, so they stay level with the balls as the toran scales */
 .spot {
-  top: 70px;
+  top: 0;
+  margin-top: 12.5%;
   width: 260px;
   height: 78%;
   background: linear-gradient(to bottom, rgba(246, 220, 160, 0.32), rgba(246, 220, 160, 0) 88%);
@@ -116,26 +99,13 @@
 
 .spotLeft {
   --tilt: 16deg;
-  left: calc(26% - 130px);
+  left: calc(29% - 130px);
 }
 
 .spotRight {
   --tilt: -16deg;
-  right: calc(26% - 130px);
+  right: calc(29% - 130px);
   animation-delay: -4.5s;
-}
-
-.disco {
-  top: 0;
-  width: 34px;
-}
-
-.discoLeft {
-  left: calc(26% - 17px);
-}
-
-.discoRight {
-  right: calc(26% - 17px);
 }
 
 .confetti {
@@ -256,12 +226,6 @@
 
 .float {
   animation: float 6s ease-in-out infinite;
-}
-
-@keyframes sway {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-1.3deg); }
-  75% { transform: rotate(1.3deg); }
 }
 
 @keyframes twinkle {

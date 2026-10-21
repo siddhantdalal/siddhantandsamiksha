@@ -1,39 +1,9 @@
 import content from '../data/content';
 import ScrollReveal from './ScrollReveal';
-import Medallion from './Medallion';
 import LocationQR from './LocationQR';
 import EventDecor from './EventDecor';
 import { Footprints, Marigold, Paisleys } from './Motifs';
 import styles from './EventPanel.module.css';
-
-// Garland worn by the medallion on each bride's-side card
-const CREST_RING = Array.from({ length: 16 }, (_, i) => {
-  const a = (i / 16) * Math.PI * 2 - Math.PI / 2;
-  return [+(Math.cos(a) * 49).toFixed(1), +(Math.sin(a) * 49).toFixed(1)];
-});
-const CREST_BEADS = {
-  'bride-haldi': (i) => `#mf-marigold-${i % 2 ? 'yellow' : 'orange'}`,
-  'bride-sangeet': (i) => (i % 2 ? '#mf-rose-pink' : null),
-  'bride-lagna': (i) => (i % 2 ? '#mf-marigold-pink' : null),
-};
-
-function Crest({ theme }) {
-  const bead = CREST_BEADS[theme];
-  if (!bead) return null;
-  return (
-    <div className={styles.crest}>
-      <svg className={styles.crestRing} viewBox="-62 -62 124 124" aria-hidden="true">
-        {CREST_RING.map(([x, y], i) => {
-          const href = bead(i);
-          return href
-            ? <use key={i} href={href} transform={`translate(${x} ${y}) scale(0.7)`} />
-            : <circle key={i} cx={x} cy={y} r={theme === 'bride-sangeet' ? 2.6 : 3.2} fill={theme === 'bride-sangeet' ? '#fff1c4' : '#fbf6ec'} stroke="#e2d4bd" strokeWidth="0.5" />;
-        })}
-      </svg>
-      <Medallion size={66} sunburst={false} alt="" />
-    </div>
-  );
-}
 
 // Each theme sets its title the way its invite does
 function Title({ theme, event, id }) {
@@ -158,8 +128,6 @@ export default function EventPanel({ event, side, onViewInvite }) {
           <EventDecor theme={theme} />
 
           <div className={styles.body}>
-            {isBride && <Crest theme={theme} />}
-
             {event.kicker && !isBride && <p className={styles.kicker} lang="mr">{event.kicker}</p>}
             {isBride && event.title && <p className={styles.label}>{event.name}</p>}
             <Title theme={theme} event={event} id={titleId} />

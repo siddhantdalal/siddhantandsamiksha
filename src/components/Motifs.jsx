@@ -14,12 +14,6 @@ const MARIGOLD_INNER = ring(8, 3.3, 0.5);
 const MARIGOLDS = {
   orange: ['#c95b0c', '#ea7a17', '#f8a43c'],
   yellow: ['#d98a0b', '#f6b40e', '#fdd35a'],
-  pink: ['#a8204f', '#d63b74', '#f290b2'],
-};
-
-const ROSES = {
-  white: ['#fffaf2', '#e9dccb'],
-  pink: ['#e86a98', '#b8285e'],
 };
 
 function MarigoldShape({ id, colors: [deep, main, light] }) {
@@ -29,16 +23,6 @@ function MarigoldShape({ id, colors: [deep, main, light] }) {
       <circle r="6.6" fill={main} />
       {MARIGOLD_INNER.map(([x, y], i) => <circle key={i} cx={x} cy={y} r="2.3" fill={light} />)}
       <circle r="1.6" fill={deep} />
-    </g>
-  );
-}
-
-function RoseShape({ id, colors: [petal, shade] }) {
-  return (
-    <g id={id}>
-      <circle r="6.4" fill={petal} />
-      <path d="M-4.2 1.5 A4.4 4.4 0 0 1 4.2 -1.2 M-2.6 -2.6 A3 3 0 0 1 3 2.2 A2.4 2.4 0 0 1 -1.6 1.6 A1.4 1.4 0 0 1 0.6 -0.8"
-        fill="none" stroke={shade} strokeWidth="0.9" strokeLinecap="round" />
     </g>
   );
 }
@@ -62,9 +46,6 @@ export function MotifDefs() {
         {Object.entries(MARIGOLDS).map(([name, colors]) => (
           <MarigoldShape key={name} id={`mf-marigold-${name}`} colors={colors} />
         ))}
-        {Object.entries(ROSES).map(([name, colors]) => (
-          <RoseShape key={name} id={`mf-rose-${name}`} colors={colors} />
-        ))}
 
         {/* Mango leaf hanging from its stalk at 0,0 */}
         <g id="mf-leaf">
@@ -72,19 +53,11 @@ export function MotifDefs() {
           <path d="M0 1.5 V17" stroke="#1f5e39" strokeWidth="0.8" />
         </g>
         <g id="mf-foot">{FOOT}</g>
-        <path id="mf-sparkle" d="M0 -7 C0.9 -1.6 1.6 -0.9 7 0 C1.6 0.9 0.9 1.6 0 7 C-0.9 1.6 -1.6 0.9 -7 0 C-1.6 -0.9 -0.9 -1.6 0 -7Z" />
         <g id="mf-note">
           <ellipse cx="-2.2" cy="5" rx="3.1" ry="2.2" transform="rotate(-22 -2.2 5)" />
           <rect x="0.4" y="-9" width="1.3" height="14" />
           <path d="M1.7 -9 C5.6 -7.4 6.6 -3.6 4.2 -0.6 C5.2 -3.8 4 -6 1.7 -6.5Z" />
         </g>
-
-        {/* Marigold ladis: one flower per tile, stacked down a thread */}
-        {Object.keys(MARIGOLDS).map((name) => (
-          <pattern key={name} id={`pt-marigold-${name}`} width="16" height="12.5" patternUnits="userSpaceOnUse">
-            <use href={`#mf-marigold-${name}`} transform="translate(8 6.25) scale(0.68)" />
-          </pattern>
-        ))}
 
         {/* Pearls on a gold thread, shaded so they hold up on cream */}
         <radialGradient id="gr-pearl" cx="38%" cy="32%" r="70%">
@@ -95,22 +68,6 @@ export function MotifDefs() {
         <pattern id="pt-pearls" width="10" height="7.5" patternUnits="userSpaceOnUse">
           <path d="M5 0 V7.5" stroke="#c99a3e" strokeWidth="0.6" />
           <circle cx="5" cy="3.75" r="2.9" fill="url(#gr-pearl)" stroke="#bfa676" strokeWidth="0.45" />
-        </pattern>
-
-        {/* Fairy-light strand: warm bulbs on a fine wire */}
-        <pattern id="pt-lights" width="10" height="18" patternUnits="userSpaceOnUse">
-          <path d="M5 0 V18" stroke="rgba(120, 96, 52, 0.7)" strokeWidth="0.6" />
-          <circle cx="5" cy="9" r="4.6" fill="rgba(255, 214, 140, 0.22)" />
-          <circle cx="5" cy="9" r="2.1" fill="#fff1c4" />
-        </pattern>
-
-        <pattern id="pt-roses" width="16" height="13" patternUnits="userSpaceOnUse">
-          <use href="#mf-rose-pink" transform="translate(8 6.5) scale(0.95)" />
-          <use href="#mf-leaf" transform="translate(13 9) rotate(-60) scale(0.35)" />
-        </pattern>
-        <pattern id="pt-roses-white" width="16" height="13" patternUnits="userSpaceOnUse">
-          <use href="#mf-rose-white" transform="translate(8 6.5) scale(0.95)" />
-          <use href="#mf-leaf" transform="translate(13 9) rotate(-60) scale(0.35)" />
         </pattern>
 
         {/* Paithani narali border: a row of gold triangles */}
@@ -152,12 +109,6 @@ export function MotifDefs() {
           <circle cx="0" cy="14" r="1.6" fill="#e6c27a" />
         </pattern>
 
-        <radialGradient id="gr-disco" cx="38%" cy="32%" r="70%">
-          <stop offset="0" stopColor="#ffffff" />
-          <stop offset="0.5" stopColor="#c9d2d4" />
-          <stop offset="1" stopColor="#6f7f84" />
-        </radialGradient>
-        <clipPath id="cp-disco"><circle r="14" /></clipPath>
         <radialGradient id="gr-glow" cx="50%" cy="50%" r="50%">
           <stop offset="0" stopColor="#fff3cf" stopOpacity="0.95" />
           <stop offset="0.4" stopColor="#ffd98a" stopOpacity="0.45" />
@@ -183,18 +134,6 @@ export function Marigold({ size = 20, color = 'orange', className }) {
 }
 
 // A hanging string of marigolds (or pearls, roses, lights) ending in a tassel
-export function Strand({ pattern, length, tip = 'leaf', className, style }) {
-  const height = length + (tip === 'none' ? 0 : 14);
-  return (
-    <svg className={className} style={style} width="16" height={height} viewBox={`0 0 16 ${height}`} aria-hidden="true">
-      <rect x={pattern === 'pearls' || pattern === 'lights' ? 3 : 0} width={pattern === 'pearls' || pattern === 'lights' ? 10 : 16} height={length} fill={`url(#pt-${pattern})`} />
-      {tip === 'leaf' && <use href="#mf-leaf" transform={`translate(8 ${length - 2}) scale(0.62)`} />}
-      {tip === 'bead' && <circle cx="8" cy={length + 4} r="3.2" fill="#d6ad60" />}
-      {tip === 'bell' && <path d={`M4.5 ${length + 9} Q8 ${length - 3} 11.5 ${length + 9}Z`} fill="#d6ad60" />}
-    </svg>
-  );
-}
-
 // A tiling band across the full width of its container
 export function Band({ pattern, height, className }) {
   return (

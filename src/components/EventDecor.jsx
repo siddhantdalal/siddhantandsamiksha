@@ -1,4 +1,4 @@
-import { Band, Firework, Kalash, Note, Strand } from './Motifs';
+import { Band, Firework, Kalash, Note } from './Motifs';
 import styles from './EventDecor.module.css';
 
 // Deterministic scatter, so decorations sit in the same place on every render
@@ -7,44 +7,6 @@ function scatter(count, seed) {
   const next = () => ((s = (s * 16807) % 2147483647) - 1) / 2147483646;
   return Array.from({ length: count }, () => [next(), next(), next()]);
 }
-
-// Hanging strings across the top of a panel: [left %, length px, pattern, shown on narrow screens]
-function Strands({ items, tip }) {
-  return (
-    <div className={styles.strands}>
-      {items.map(([left, length, pattern, narrow], i) => (
-        <Strand
-          key={i}
-          pattern={pattern}
-          length={length}
-          tip={pattern === 'pearls' ? 'bead' : pattern === 'lights' ? 'none' : tip}
-          className={`${styles.strand} ${narrow ? '' : styles.wideOnly}`}
-          style={{ left: `${left}%`, animationDelay: `${-(i % 5) * 0.9}s` }}
-        />
-      ))}
-    </div>
-  );
-}
-
-// Mirrored around the centre: the short strings frame the medallion, long ones run down the sides
-const mirror = (half) => [...half, ...half.map(([left, ...rest]) => [100 - left, ...rest]).reverse()];
-
-const HALDI_STRANDS = mirror([
-  [1, 250, 'marigold-orange', true], [6.5, 170, 'marigold-yellow', true], [12, 290, 'marigold-orange', false],
-  [17.5, 120, 'marigold-yellow', true], [23, 210, 'marigold-orange', false], [29, 90, 'marigold-yellow', false],
-  [35, 140, 'marigold-orange', false], [41, 60, 'marigold-yellow', false],
-]);
-
-const SANGEET_STRANDS = mirror([
-  [1.5, 260, 'lights', true], [6.5, 190, 'roses', true], [12, 230, 'lights', false], [17.5, 130, 'roses-white', true],
-  [23, 170, 'lights', false], [29, 100, 'roses', false], [35, 140, 'lights', false], [41, 70, 'roses-white', false],
-]);
-
-const LAGNA_STRANDS = mirror([
-  [1, 270, 'marigold-pink', true], [6.5, 190, 'pearls', true], [12, 230, 'marigold-pink', false],
-  [17.5, 120, 'pearls', true], [23, 180, 'marigold-pink', false], [29, 90, 'pearls', false],
-  [35, 150, 'marigold-pink', false], [41, 60, 'pearls', false],
-]);
 
 const CONFETTI_COLORS = ['#f07aa3', '#e3b866', '#f6dca0', '#5fb3a6', '#ffffff'];
 // Kept to the outer edges so it never sits behind the text
@@ -71,24 +33,6 @@ function Petals() {
   return PETALS.map((style, i) => <span key={i} className={styles.petal} style={style} />);
 }
 
-function DiscoBall({ className }) {
-  return (
-    <svg className={className} viewBox="-16 -60 32 78" aria-hidden="true">
-      <line x1="0" y1="-60" x2="0" y2="-15" stroke="#c9b48a" strokeWidth="0.8" />
-      <circle r="14" fill="url(#gr-disco)" />
-      <g clipPath="url(#cp-disco)" stroke="rgba(40, 60, 66, 0.45)" strokeWidth="0.5">
-        {[-12, -8, -4, 0, 4, 8, 12].map((v) => (
-          <g key={v}>
-            <line x1="-16" y1={v} x2="16" y2={v} />
-            <line x1={v} y1="-16" x2={v} y2="16" />
-          </g>
-        ))}
-      </g>
-      <use href="#mf-sparkle" transform="translate(-6 -6) scale(0.7)" fill="#fff" />
-    </svg>
-  );
-}
-
 // A fairy-light swag along the top edge of a card
 function LightSwag({ className }) {
   const bulbs = [];
@@ -108,6 +52,21 @@ function LightSwag({ className }) {
         </g>
       ))}
     </svg>
+  );
+}
+
+// The toran from the printed invite — garland, medallion and hanging strings —
+// with a clear window in the middle for the card's own title
+function InviteToran({ name }) {
+  return (
+    <img
+      className={styles.inviteToran}
+      src={`${import.meta.env.BASE_URL}images/torans/${name}.webp`}
+      alt=""
+      width="1440"
+      height="693"
+      decoding="async"
+    />
   );
 }
 
@@ -152,9 +111,8 @@ const DECOR = {
   'bride-haldi': () => (
     <>
       <span className={styles.sunRays} />
-      <Band pattern="marigold-orange" height={14} className={styles.topGarland} />
-      <Strands items={HALDI_STRANDS} tip="leaf" />
       <Petals />
+      <InviteToran name="haldi" />
       <Band pattern="swag" height={30} className={styles.bottomSwag} />
     </>
   ),
@@ -164,10 +122,7 @@ const DECOR = {
       <span className={`${styles.spot} ${styles.spotLeft}`} />
       <span className={`${styles.spot} ${styles.spotRight}`} />
       <Confetti />
-      <Band pattern="roses" height={13} className={styles.topGarland} />
-      <Strands items={SANGEET_STRANDS} tip="leaf" />
-      <DiscoBall className={`${styles.disco} ${styles.discoLeft}`} />
-      <DiscoBall className={`${styles.disco} ${styles.discoRight}`} />
+      <InviteToran name="sangeet" />
       <Note className={`${styles.float} ${styles.noteA} ${styles.notePink}`} />
       <Note className={`${styles.float} ${styles.noteB} ${styles.noteGold}`} size={14} />
       <Note className={`${styles.float} ${styles.noteC} ${styles.noteGold}`} size={16} />
@@ -178,8 +133,7 @@ const DECOR = {
   'bride-lagna': () => (
     <>
       <span className={styles.sunRaysSoft} />
-      <Band pattern="marigold-pink" height={14} className={styles.topGarland} />
-      <Strands items={LAGNA_STRANDS} tip="leaf" />
+      <InviteToran name="lagna" />
       <Band pattern="pearls" height={8} className={styles.bottomPearls} />
     </>
   ),
