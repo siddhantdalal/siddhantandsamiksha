@@ -7,8 +7,16 @@
   display: flex;
   justify-content: center;
   padding-bottom: var(--space-lg);
-  padding-top: var(--space-3xl);
-  background: linear-gradient(to top, var(--color-bg) 40%, transparent 100%);
+  padding-top: var(--space-xl);
+  /* a short, eased haze, so it doesn't smother bright sections */
+  background: linear-gradient(
+    to top,
+    var(--color-bg) 0%,
+    color-mix(in srgb, var(--color-bg) 85%, transparent) 30%,
+    color-mix(in srgb, var(--color-bg) 55%, transparent) 55%,
+    color-mix(in srgb, var(--color-bg) 22%, transparent) 78%,
+    transparent 100%
+  );
   pointer-events: none;
 }
 

@@ -1,10 +1,34 @@
-/* Full-bleed ground for a card, in a deeper tone of its theme. The colour
-   reaches up into the gap above and fades in there, so neighbouring bands
-   blend into one another and the first and last melt into the page. */
+/* A run of bands. Isolating it keeps every band's colour beneath every
+   card, and the top margin keeps the first fade clear of the heading. */
+.bands {
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  margin-top: clamp(0px, 6vw, 80px);
+}
+
+/* Full-bleed ground for a card, in a deeper tone of its theme. Its colour
+   fades in on an eased curve across a long stretch above it, over the
+   previous band's colour, which runs on beneath so the page never shows
+   through a join. The first and last bands melt into the page. */
 .band {
   --band-gap: clamp(40px, 8vw, 96px);
+  --band-fade: calc(var(--band-gap) * 1.5);
+  --band-fade-in: linear-gradient(
+    to bottom,
+    transparent 0,
+    rgba(0, 0, 0, 0.03) calc(var(--band-fade) * 0.2),
+    rgba(0, 0, 0, 0.1) calc(var(--band-fade) * 0.4),
+    rgba(0, 0, 0, 0.2) calc(var(--band-fade) * 0.6),
+    rgba(0, 0, 0, 0.33) calc(var(--band-fade) * 0.8),
+    rgba(0, 0, 0, 0.5) calc(var(--band-fade) * 1.0),
+    rgba(0, 0, 0, 0.67) calc(var(--band-fade) * 1.2),
+    rgba(0, 0, 0, 0.8) calc(var(--band-fade) * 1.4),
+    rgba(0, 0, 0, 0.9) calc(var(--band-fade) * 1.6),
+    rgba(0, 0, 0, 0.97) calc(var(--band-fade) * 1.8),
+    #000 calc(var(--band-fade) * 2.0)
+  );
   position: relative;
-  isolation: isolate;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   padding: var(--band-gap) var(--space-md);
@@ -13,17 +37,39 @@
 .band::before {
   content: '';
   position: absolute;
-  inset: calc(var(--band-gap) * -1) 0 0;
+  inset: calc(var(--band-fade) * -1) 0;
   z-index: -1;
   background: var(--ev-band);
-  mask-image: linear-gradient(to bottom, transparent, #000 calc(var(--band-gap) * 2));
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 calc(var(--band-gap) * 2));
+  mask-image: var(--band-fade-in);
+  -webkit-mask-image: var(--band-fade-in);
 }
 
-.band:last-child::before {
-  bottom: calc(var(--band-gap) * -1);
-  mask-image: linear-gradient(to bottom, transparent, #000 calc(var(--band-gap) * 2), #000 calc(100% - var(--band-gap) * 2), transparent);
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 calc(var(--band-gap) * 2), #000 calc(100% - var(--band-gap) * 2), transparent);
+.band:last-child {
+  --band-fade-in: linear-gradient(
+    to bottom,
+    transparent 0,
+    rgba(0, 0, 0, 0.03) calc(var(--band-fade) * 0.2),
+    rgba(0, 0, 0, 0.1) calc(var(--band-fade) * 0.4),
+    rgba(0, 0, 0, 0.2) calc(var(--band-fade) * 0.6),
+    rgba(0, 0, 0, 0.33) calc(var(--band-fade) * 0.8),
+    rgba(0, 0, 0, 0.5) calc(var(--band-fade) * 1.0),
+    rgba(0, 0, 0, 0.67) calc(var(--band-fade) * 1.2),
+    rgba(0, 0, 0, 0.8) calc(var(--band-fade) * 1.4),
+    rgba(0, 0, 0, 0.9) calc(var(--band-fade) * 1.6),
+    rgba(0, 0, 0, 0.97) calc(var(--band-fade) * 1.8),
+    #000 calc(var(--band-fade) * 2.0),
+    #000 calc(100% - var(--band-fade) * 2.0),
+    rgba(0, 0, 0, 0.97) calc(100% - var(--band-fade) * 1.8),
+    rgba(0, 0, 0, 0.9) calc(100% - var(--band-fade) * 1.6),
+    rgba(0, 0, 0, 0.8) calc(100% - var(--band-fade) * 1.4),
+    rgba(0, 0, 0, 0.67) calc(100% - var(--band-fade) * 1.2),
+    rgba(0, 0, 0, 0.5) calc(100% - var(--band-fade) * 1.0),
+    rgba(0, 0, 0, 0.33) calc(100% - var(--band-fade) * 0.8),
+    rgba(0, 0, 0, 0.2) calc(100% - var(--band-fade) * 0.6),
+    rgba(0, 0, 0, 0.1) calc(100% - var(--band-fade) * 0.4),
+    rgba(0, 0, 0, 0.03) calc(100% - var(--band-fade) * 0.2),
+    transparent 100%
+  );
 }
 
 /* The event card. Colours come from the --ev-* tokens of its theme class
@@ -38,7 +84,7 @@
   overflow: hidden;
   background: var(--ev-bg);
   color: var(--ev-ink);
-  box-shadow: 0 34px 70px -34px rgba(20, 4, 10, 0.65), 0 0 0 1px rgba(201, 150, 60, 0.25);
+  box-shadow: 0 22px 44px -26px rgba(40, 14, 10, 0.4), 0 0 0 1px rgba(201, 150, 60, 0.22);
 }
 
 .body {

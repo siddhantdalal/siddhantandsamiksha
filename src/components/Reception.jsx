@@ -3,7 +3,7 @@ import content from '../data/content';
 import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
 import SectionHeading from './SectionHeading';
-import EventPanel from './EventPanel';
+import EventPanel, { EventBands } from './EventPanel';
 import InviteLightbox from './InviteLightbox';
 import { MapPinIcon, CalendarIcon, ClockIcon } from './Icons';
 import styles from './Reception.module.css';
@@ -25,7 +25,9 @@ export default function Reception() {
           <KolhapurCard info={content.reception.bride} />
         </ScrollReveal>
       ) : (
-        <EventPanel event={content.reception.groom} side="groom" onViewInvite={setInvite} />
+        <EventBands>
+          <EventPanel event={content.reception.groom} side="groom" onViewInvite={setInvite} />
+        </EventBands>
       )}
 
       <InviteLightbox invite={invite} onClose={() => setInvite(null)} />

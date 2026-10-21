@@ -3,9 +3,8 @@ import content from '../data/content';
 import { useSide } from '../context/SideContext';
 import ScrollReveal from './ScrollReveal';
 import SectionHeading from './SectionHeading';
-import EventPanel, { forSide } from './EventPanel';
+import EventPanel, { EventBands, forSide } from './EventPanel';
 import InviteLightbox from './InviteLightbox';
-import styles from './WeddingEvents.module.css';
 
 // Each celebration gets its own panel, dressed like that side's printed invite
 export default function WeddingEvents() {
@@ -22,11 +21,11 @@ export default function WeddingEvents() {
         <p className="section-subheading">{subheading}</p>
       </ScrollReveal>
 
-      <div className={styles.panels}>
+      <EventBands>
         {events.map((event) => (
           <EventPanel key={`${side}-${event.id}`} event={forSide(event, side)} side={side} onViewInvite={setInvite} />
         ))}
-      </div>
+      </EventBands>
 
       <InviteLightbox invite={invite} onClose={() => setInvite(null)} />
     </section>

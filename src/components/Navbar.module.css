@@ -5,8 +5,16 @@
   right: 0;
   z-index: 10000;
   padding: var(--space-md) var(--space-xl);
-  padding-bottom: var(--space-3xl);
-  background: linear-gradient(to bottom, var(--color-bg) 30%, transparent 100%);
+  padding-bottom: var(--space-xl);
+  /* a short, eased haze, so it doesn't smother bright sections */
+  background: linear-gradient(
+    to bottom,
+    var(--color-bg) 0%,
+    color-mix(in srgb, var(--color-bg) 85%, transparent) 30%,
+    color-mix(in srgb, var(--color-bg) 55%, transparent) 55%,
+    color-mix(in srgb, var(--color-bg) 22%, transparent) 78%,
+    transparent 100%
+  );
   pointer-events: none;
 }
 

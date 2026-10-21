@@ -204,6 +204,11 @@ export default function EventPanel({ event, side, onViewInvite }) {
   );
 }
 
+// Holds one or more panels so their bands blend beneath the cards
+export function EventBands({ children }) {
+  return <div className={styles.bands}>{children}</div>;
+}
+
 // Merge an event's shared details with those for the chosen side
 // eslint-disable-next-line react-refresh/only-export-components
 export function forSide(event, side) {

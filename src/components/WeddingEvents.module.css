@@ -1,5 +1,0 @@
-/* The panels bring their own full-width bands and spacing */
-.panels {
-  display: flex;
-  flex-direction: column;
-}
