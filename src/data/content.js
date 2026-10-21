@@ -16,8 +16,6 @@ const invite = (file, title, alt) => ({
 });
 
 const invites = {
-  groomHaldi: invite('groom-haldi', 'Haldi',
-    'Haldi invitation from the Dalal family: Friday 04 December 2026, morning, at Suvi Palace, Vasai-Virar'),
   groomWedding: invite('groom-wedding-reception', 'Lagna Sohala & Reception',
     'Wedding and reception invitation from the Dalal family: Lagna Sohala on Saturday 05 December 2026 at Suvi Palace, Vasai-Virar, and the reception on Monday 07 December 2026 at Jerryl Lawns, Nagpur'),
   brideMehendi: invite('bride-mehendi', 'Mehendi',
@@ -177,7 +175,6 @@ export default {
         time: 'Morning',
         venue: suviPalace,
         description: 'The auspicious halad ceremony — turmeric blessings from loved ones, laughter, and the golden glow of new beginnings.',
-        groom: { invite: invites.groomHaldi },
         bride: { title: 'The Glow Before the Vows', invite: invites.brideHaldi },
       },
       {
@@ -237,7 +234,7 @@ export default {
   invitations: {
     heading: 'Our Invitations',
     subheading: 'Tap an invitation to view it or save a copy',
-    groom: [invites.groomHaldi, invites.groomWedding],
+    groom: [invites.groomWedding],
     bride: [invites.brideMehendi, invites.brideHaldi, invites.brideSangeet, invites.brideWedding],
   },
 
