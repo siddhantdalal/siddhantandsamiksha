@@ -378,12 +378,4 @@ export default {
     closing: 'With Love',
     year: 2026,
   },
-
-  nav: [
-    { label: 'Home', href: '#hero' },
-    { label: 'About Us', href: '#about-us' },
-    { label: 'Our Journey', href: '#our-journey' },
-    { label: 'Events', href: '#events' },
-    { label: 'Meet', href: '#meet', sideAware: true, groomLabel: 'Meet the Groom', brideLabel: 'Meet the Bride' },
-  ],
 };

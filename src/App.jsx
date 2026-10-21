@@ -5,7 +5,6 @@ import InviteOpening from './components/InviteOpening';
 import SideToggle from './components/SideToggle';
 import SmoothScroll from './components/SmoothScroll';
 import ScrollProgress from './components/ScrollProgress';
-import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
 import OurStory from './components/OurStory';
@@ -37,7 +36,6 @@ export default function App() {
         <Particles />
       </Suspense>
       <FilmGrain />
-      <Navbar />
       <main>
         <Hero />
         <OurStory />
