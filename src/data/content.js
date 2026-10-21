@@ -256,7 +256,7 @@ export default {
     heading: 'Our Invitations',
     subheading: 'Tap an invitation to view it or save a copy',
     groom: [invites.groomWedding],
-    bride: [invites.brideHaldi, invites.brideSangeet, invites.brideWedding],
+    bride: [invites.brideMehendi, invites.brideHaldi, invites.brideSangeet, invites.brideWedding],
   },
 
   meetGroom: {
