@@ -6,22 +6,65 @@
   background: linear-gradient(to bottom, transparent, rgba(214, 173, 96, 0.04));
 }
 
+/* Night falls fully at the foot of Siddhant's side */
+.night {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 110%, rgba(214, 173, 96, 0.14), transparent 70%),
+    #36091a;
+  border-top-color: rgba(236, 199, 124, 0.2);
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.sky > * {
+  position: absolute;
+}
+
+.firework {
+  opacity: 0.7;
+  animation: burst 6s ease-in-out infinite;
+}
+
+.lantern {
+  animation: drift 14s ease-in-out infinite;
+}
+
+@keyframes burst {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.92); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+
 .closing {
-  font-family: var(--font-script);
-  font-size: var(--text-script-lg);
+  position: relative;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-xl);
   color: var(--color-text-muted);
 }
 
-.names {
-  font-family: var(--font-serif);
-  font-size: var(--text-4xl);
-  font-weight: 500;
+.family {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-script);
+  font-size: clamp(3rem, 9vw, 5rem);
+  line-height: 1.25;
+  padding: 0 0.3em;
   background: var(--color-gold-foil);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: var(--color-gold);
-  margin-top: var(--space-sm);
+  filter: drop-shadow(0.02em 0.025em 0 var(--name-edge));
 }
 
 .divider {

@@ -1,9 +1,41 @@
 const base = import.meta.env.BASE_URL;
 
+const suviPalace = {
+  name: 'Suvi Palace',
+  address: 'Sasunavghar, Mumbai–Ahmedabad Highway, Opp. Royal Garden, Vasai-Virar, Maharashtra 401208',
+  mapLink: 'https://maps.app.goo.gl/A9tuAxwJTjTa8rGm9',
+};
+
+// The printed invitations: full size for viewing and saving, plus a small copy for the gallery
+const invite = (file, title, alt) => ({
+  title,
+  alt,
+  src: `${base}images/invites/${file}.jpg`,
+  thumb: `${base}images/invites/thumbs/${file}.jpg`,
+  download: `siddhant-samiksha-${file}-invite.jpg`,
+});
+
+const invites = {
+  groomHaldi: invite('groom-haldi', 'Haldi',
+    'Haldi invitation from the Dalal family: Friday 04 December 2026, morning, at Suvi Palace, Vasai-Virar'),
+  groomWedding: invite('groom-wedding-reception', 'Lagna Sohala & Reception',
+    'Wedding and reception invitation from the Dalal family: Lagna Sohala on Saturday 05 December 2026 at Suvi Palace, Vasai-Virar, and the reception on Monday 07 December 2026 at Jerryl Lawns, Nagpur'),
+  brideMehendi: invite('bride-mehendi', 'Mehendi',
+    'Mehendi invitation from the Patil family: Thursday 03 December 2026, 1:00 PM onwards, at Suvi Palace, Vasai-Virar'),
+  brideHaldi: invite('bride-haldi', 'The Glow Before the Vows',
+    'Haldi invitation from the Patil family, “The Glow Before the Vows”: Friday 04 December 2026, morning, at Suvi Palace, Vasai-Virar'),
+  brideSangeet: invite('bride-sangeet', 'The Dance Before the Seven Steps',
+    'Sangeet invitation from the Patil family, “The Dance Before the Seven Steps”: Friday 04 December 2026, evening, at Suvi Palace, Vasai-Virar'),
+  brideWedding: invite('bride-wedding', 'Seven Steps to Forever',
+    'Wedding invitation from the Patil family, “Seven Steps to Forever”: Lagna Sohala on Saturday 05 December 2026, muhurth 12:13 PM, at Suvi Palace, Vasai-Virar'),
+};
+
 export default {
   couple: {
     groomFirst: 'Siddhant',
     brideFirst: 'Samiksha',
+    groomParents: { relation: 'Son of', names: 'Prof. Satish Dalal & Mrs. Sangita Dalal', city: 'Nagpur' },
+    brideParents: { relation: 'Daughter of', names: 'Mr. Ramesh Patil & Mrs. Neelam Patil', city: 'Mumbai' },
   },
 
   ui: {
@@ -22,7 +54,6 @@ export default {
     close: 'Close',
     reveal: 'Reveal',
     meetThem: 'Meet Them',
-    dressCode: 'Dress Code',
     venueLabel: 'Venue',
     dateLabel: 'Date',
     timeLabel: 'Time',
@@ -33,6 +64,12 @@ export default {
     countingLine: '…and counting, all the way to the mandap.',
     groomLabel: 'The Groom',
     brideLabel: 'The Bride',
+    getDirections: 'Get directions',
+    viewInvite: 'View invite',
+    scanForLocation: 'Scan for location',
+    download: 'Download',
+    closeInvite: 'Close invitation',
+    citiesLine: 'Two cities, one destiny',
   },
 
   hero: {
@@ -112,51 +149,61 @@ export default {
   weddingEvents: {
     heading: 'Wedding Celebrations',
     subheading: 'Three days of love, laughter & togetherness',
-    venue: 'Suvi Palace',
-    address: 'Sasunavghar, Mumbai-Ahmedabad Highway, Opp. Royal Garden, Vasai-Virar, Maharashtra 401208',
-    mapLink: 'https://www.google.com/maps/search/?api=1&query=Suvi+Palace+Sasunavghar+Vasai-Virar',
-    mehendiGroom: {
-      name: 'Mehendi',
-      iconKey: 'Mehendi',
-      date: '03 December 2026',
-      time: '11:00 AM onwards',
-      description: 'An intimate mehendi gathering at the groom\'s home — intricate henna, close family, and happy chatter.',
-      address: '203, Vedant Shine Appt., Ramkrishna Housing Society, Narendra Nagar, Wardha Rd., Nagpur – 440015',
-      mapLink: 'https://www.google.com/maps/search/?api=1&query=203+Vedant+Shine+Appt+Ramkrishna+Housing+Society+Narendra+Nagar+Wardha+Rd+Nagpur+440015',
-      dressCode: '',
-    },
-    mehendiBride: {
-      name: 'Mehendi',
-      iconKey: 'Mehendi',
-      date: '03 December 2026',
-      time: '1:00 PM onwards',
-      description: 'Intricate henna, music, and an afternoon full of joy — right here at Suvi Palace.',
-      dressCode: '',
-    },
+    // Shared details sit on the event; `groom` and `bride` hold what differs by side.
+    // `title` is the bride's poetic name for the event; `invite` drives "View invite".
     events: [
       {
+        id: 'mehendi',
+        name: 'Mehendi',
+        day: 'Thursday',
+        date: '03 December 2026',
+        groom: {
+          time: '11:00 AM onwards',
+          description: 'An intimate mehendi gathering at the groom\'s home — intricate henna, close family, and happy chatter.',
+          venue: {
+            address: '203, Vedant Shine Appt., Ramkrishna Housing Society, Narendra Nagar, Wardha Rd., Nagpur – 440015',
+            mapLink: 'https://www.google.com/maps/search/?api=1&query=203+Vedant+Shine+Appt+Ramkrishna+Housing+Society+Narendra+Nagar+Wardha+Rd+Nagpur+440015',
+          },
+        },
+        bride: {
+          time: '1:00 PM onwards',
+          description: 'Intricate henna, music, and an afternoon full of joy — right here at Suvi Palace.',
+          venue: suviPalace,
+          invite: invites.brideMehendi,
+        },
+      },
+      {
+        id: 'haldi',
         name: 'Halad Chadavane',
-        iconKey: 'Haldi',
+        day: 'Friday',
         date: '04 December 2026',
         time: 'Morning',
+        venue: suviPalace,
         description: 'The auspicious halad ceremony — turmeric blessings from loved ones, laughter, and the golden glow of new beginnings.',
-        dressCode: '',
+        groom: { invite: invites.groomHaldi },
+        bride: { title: 'The Glow Before the Vows', invite: invites.brideHaldi },
       },
       {
+        id: 'sangeet',
         name: 'Sangeet Sandhya',
-        iconKey: 'Sangeet',
+        day: 'Friday',
         date: '04 December 2026',
         time: 'Evening',
+        venue: suviPalace,
         description: 'A night of dance, music, and celebration. Come ready to move!',
-        dressCode: '',
+        bride: { title: 'The Dance Before the Seven Steps', invite: invites.brideSangeet },
       },
       {
+        id: 'lagna',
         name: 'Lagna Sohala',
-        iconKey: 'Wedding',
+        kicker: 'शुभविवाह',
+        day: 'Saturday',
         date: '05 December 2026',
-        time: 'Muhurth at 12:13 PM',
+        time: 'Muhurth · 12:13 PM',
+        venue: suviPalace,
         description: 'The sacred ceremony where two hearts become one — Antarpat, Mangalashtaka and Saptapadi, followed by wedding celebrations.',
-        dressCode: '',
+        groom: { invite: invites.groomWedding },
+        bride: { title: 'Seven Steps to Forever', tagline: 'Two souls. One journey.', invite: invites.brideWedding },
       },
     ],
   },
@@ -165,12 +212,19 @@ export default {
     heading: 'Reception',
     subheading: 'An evening of joy, laughter & togetherness',
     groom: {
-      city: 'Nagpur',
-      venue: 'Jerryl Lawns, Near Police Training School, Opp. Neeri High School, Kotwal Nagar, Laxminagar, Nagpur, Maharashtra 440022',
-      mapLink: 'https://www.google.com/maps/place/Jerryl+Lawns/@21.1193596,79.0617629,17z/data=!3m1!4b1!4m6!3m5!1s0x3bd4bf80046faaa7:0xab9978f8400f5ab7!8m2!3d21.1193596!4d79.0643432!16s%2Fg%2F1wk6y6t9?entry=ttu&g_ep=EgoyMDI2MDgyNC4wIKXMDSoASAFQAw%3D%3D',
+      id: 'reception',
+      name: 'Reception',
+      kicker: 'स्वागत समारंभ',
+      day: 'Monday',
       date: '07 December 2026',
       time: '7:00 PM onwards',
+      venue: {
+        name: 'Jerryl Lawns',
+        address: 'Near Police Training School, Opp. Neeri High School, Laxminagar, Nagpur, Maharashtra 440022',
+        mapLink: 'https://maps.app.goo.gl/mcbGs3rCCwASUY188',
+      },
       description: 'Join us for an unforgettable evening of celebration as we toast to new beginnings with the groom\'s loved ones.',
+      invite: invites.groomWedding,
       note: 'You\'re seeing details for the Nagpur reception based on your side selection.',
     },
     bride: {
@@ -181,6 +235,13 @@ export default {
       description: 'An evening filled with warmth, laughter and love as we celebrate with the bride\'s nearest and dearest.',
       note: 'You\'re seeing details for the Kolhapur reception based on your side selection.',
     },
+  },
+
+  invitations: {
+    heading: 'Our Invitations',
+    subheading: 'Tap an invitation to view it or save a copy',
+    groom: [invites.groomHaldi, invites.groomWedding],
+    bride: [invites.brideMehendi, invites.brideHaldi, invites.brideSangeet, invites.brideWedding],
   },
 
   meetGroom: {
@@ -308,8 +369,8 @@ export default {
   hashtags: ['#SidKiSami', '#SamSaidSid', '#SiddhantWedsSamiksha', '#TheSidAndSamSaga'],
 
   footer: {
-    closing: 'With Love',
-    names: 'Siddhant & Samiksha',
+    groom: { closing: 'With love & blessings', family: 'Dalal Family' },
+    bride: { closing: 'With love', family: 'Patil Family' },
     year: 2026,
   },
 

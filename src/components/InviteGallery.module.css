@@ -1,0 +1,63 @@
+/* Snap-scrolling row; centred when every card fits */
+.row {
+  display: flex;
+  justify-content: safe center;
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: flex-start;
+  list-style: none;
+  margin: 0 calc(var(--space-xl) * -1);
+  padding: var(--space-sm) var(--space-xl) var(--space-lg);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--space-xl);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold-dark) transparent;
+}
+
+.item {
+  flex: 0 0 auto;
+  width: clamp(156px, 44vw, 220px);
+  scroll-snap-align: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: 0;
+  color: inherit;
+  text-align: center;
+}
+
+.thumb {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 16px 34px -18px rgba(20, 4, 10, 0.7), 0 0 0 1px var(--color-border);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card:hover .thumb,
+.card:focus-visible .thumb {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 40px -18px rgba(20, 4, 10, 0.75), 0 0 0 1px var(--color-border-hover);
+}
+
+.card:focus-visible {
+  outline: none;
+}
+
+.card:focus-visible .thumb {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-base);
+  line-height: 1.35;
+  color: var(--color-text-muted);
+}

@@ -94,3 +94,11 @@
     padding: var(--space-2xl) var(--space-lg);
   }
 }
+
+/* The Nagpur panel runs nearly edge to edge on phones */
+@media (max-width: 640px) {
+  .section {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+}

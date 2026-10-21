@@ -1,0 +1,377 @@
+/* Decorative layers behind an event panel's content. Positions are relative
+   to the panel; EventPanel.module.css pads the content clear of them. */
+.decor {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.decor > * {
+  position: absolute;
+}
+
+/* ——— Frames ——— */
+.frame {
+  inset: 10px;
+  border-radius: 4px;
+}
+
+.frameThin {
+  border: 1px solid var(--ev-frame);
+}
+
+.frameDouble {
+  border: 1px solid var(--ev-frame);
+  outline: 1px solid var(--ev-frame);
+  outline-offset: -6px;
+}
+
+/* Gold edge with fine rani and peacock rules inside, as on the Mehendi card */
+.frameMehendi {
+  inset: 8px;
+  border: 1px solid var(--ev-frame);
+  box-shadow:
+    inset 0 0 0 4px #2a0a1c,
+    inset 0 0 0 5px var(--ev-pink),
+    inset 0 0 0 8px #2a0a1c,
+    inset 0 0 0 9px var(--ev-teal);
+}
+
+/* ——— Strings hanging from the top edge ——— */
+.strands {
+  top: 10px;
+  left: 0;
+  right: 0;
+  height: 0;
+}
+
+.strand {
+  position: absolute;
+  top: 0;
+  margin-left: -8px;
+  transform-origin: top center;
+  animation: sway 7s ease-in-out infinite;
+}
+
+@media (max-width: 639px) {
+  .wideOnly {
+    display: none;
+  }
+}
+
+.topGarland {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.bottomSwag {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.bottomPearls {
+  bottom: 14px;
+  left: 0;
+  right: 0;
+}
+
+/* ——— Light and glow ——— */
+.sunRays,
+.sunRaysSoft {
+  inset: 0;
+  background: repeating-conic-gradient(from 0deg at 50% 36%, rgba(255, 190, 70, 0.2) 0deg 3deg, transparent 3deg 10deg);
+  mask-image: radial-gradient(circle at 50% 36%, #000 0, transparent 62%);
+  -webkit-mask-image: radial-gradient(circle at 50% 36%, #000 0, transparent 62%);
+}
+
+.sunRaysSoft {
+  background: repeating-conic-gradient(from 0deg at 50% 40%, rgba(232, 176, 110, 0.18) 0deg 3deg, transparent 3deg 10deg);
+}
+
+.turmericGlow,
+.settingSun,
+.mehendiGlow {
+  left: 50%;
+  top: 34%;
+  width: min(560px, 120%);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(253, 211, 90, 0.4) 0%, rgba(253, 211, 90, 0.12) 40%, transparent 68%);
+}
+
+.settingSun {
+  top: 30%;
+  background: radial-gradient(circle, rgba(255, 240, 200, 0.9) 0%, rgba(255, 214, 150, 0.45) 26%, rgba(240, 160, 120, 0.15) 45%, transparent 66%);
+}
+
+.mehendiGlow {
+  top: 30%;
+  background: radial-gradient(circle, rgba(214, 173, 96, 0.2) 0%, rgba(122, 31, 69, 0.15) 40%, transparent 66%);
+}
+
+.lightSwag {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 44px;
+}
+
+.lightSwagBottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 44px;
+}
+
+/* ——— Haldi ——— */
+.sprayTopLeft,
+.sprayBottomRight {
+  width: clamp(92px, 16vw, 150px);
+}
+
+.sprayTopLeft {
+  top: 0;
+  left: 0;
+}
+
+.sprayBottomRight {
+  bottom: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+.petal {
+  width: 8px;
+  height: 4px;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+/* ——— Sangeet ——— */
+.spot {
+  top: 70px;
+  width: 260px;
+  height: 78%;
+  background: linear-gradient(to bottom, rgba(246, 220, 160, 0.32), rgba(246, 220, 160, 0) 88%);
+  clip-path: polygon(46% 0, 54% 0, 100% 100%, 0 100%);
+  filter: blur(5px);
+  transform-origin: top center;
+  animation: sweep 9s ease-in-out infinite;
+}
+
+.spotLeft {
+  --tilt: 16deg;
+  left: calc(26% - 130px);
+}
+
+.spotRight {
+  --tilt: -16deg;
+  right: calc(26% - 130px);
+  animation-delay: -4.5s;
+}
+
+.disco {
+  top: 0;
+  width: 34px;
+}
+
+.discoLeft {
+  left: calc(26% - 17px);
+}
+
+.discoRight {
+  right: calc(26% - 17px);
+}
+
+.confetti {
+  height: 3px;
+  border-radius: 1px;
+  opacity: 0.75;
+}
+
+.noteA { left: 5%; top: 44%; }
+.noteB { right: 6%; top: 34%; }
+.noteC { left: 6%; top: 74%; }
+.notePink { color: var(--ev-pink); }
+.noteGold { color: var(--ev-title); }
+
+.noteA:not(.notePink):not(.noteGold),
+.noteB:not(.notePink):not(.noteGold) {
+  color: rgba(122, 31, 48, 0.45);
+}
+
+.sparkleA { left: 16%; top: 18%; color: #fff6dc; }
+.sparkleB { right: 18%; top: 24%; color: #fff6dc; }
+
+/* ——— The mandap ——— */
+.mandapTop {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+}
+
+.mandapTop > * {
+  position: absolute;
+}
+
+.kalash {
+  top: 6px;
+  left: 50%;
+  width: 58px;
+  transform: translateX(-50%);
+}
+
+.beam {
+  top: 68px;
+  left: 0;
+  right: 0;
+  height: 34px;
+  background: linear-gradient(#8e2a3c, #7a1f30 50%, #5e1424);
+  border-top: 3px solid #d6ad60;
+  border-bottom: 3px solid #d6ad60;
+  box-shadow: 0 4px 10px rgba(90, 42, 20, 0.3);
+  display: flex;
+  align-items: center;
+}
+
+.toran {
+  top: 102px;
+  left: var(--pillar);
+  width: calc(100% - var(--pillar) * 2);
+}
+
+.finial {
+  top: 52px;
+  width: calc(var(--pillar) + 10px);
+  height: 18px;
+  border-radius: 50% 50% 2px 2px;
+  background: linear-gradient(90deg, #8a6420, #f6dfa4 45%, #c9963c 70%, #8a6420);
+}
+
+.finialLeft { left: -5px; }
+.finialRight { right: -5px; }
+
+.pillar {
+  top: 68px;
+  bottom: 0;
+  width: var(--pillar);
+  background:
+    repeating-linear-gradient(180deg, transparent 0 60px, rgba(122, 31, 48, 0.55) 60px 62px, transparent 62px 66px, rgba(255, 241, 196, 0.7) 66px 67px, transparent 67px 130px),
+    linear-gradient(90deg, #8a6420 0%, #e9c77f 30%, #fff1c4 45%, #d6ad60 62%, #8a6420 100%);
+  box-shadow: 0 0 8px rgba(90, 42, 20, 0.25);
+}
+
+.pillarLeft { left: 0; }
+.pillarRight { right: 0; }
+
+.paithaniBase {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  padding-top: 9px;
+  background: linear-gradient(#7a1f30, #5e1424);
+  border-top: 2px solid #d6ad60;
+}
+
+.topBand {
+  top: 11px;
+  left: 11px;
+  width: calc(100% - 22px);
+}
+
+/* ——— Mehendi ——— */
+.naraliTop,
+.naraliBottom {
+  left: 22px;
+  right: 22px;
+  height: 12px;
+  opacity: 0.9;
+}
+
+.naraliTop { top: 20px; }
+.naraliBottom { bottom: 20px; }
+
+/* A quarter mandala of fine gold rings and rays in each corner */
+.mandalaCorner {
+  width: 120px;
+  height: 120px;
+  background:
+    repeating-radial-gradient(circle at 0 0, transparent 0 16px, rgba(214, 173, 96, 0.55) 16px 17px, transparent 17px 26px),
+    repeating-conic-gradient(from 90deg at 0 0, rgba(214, 173, 96, 0.45) 0deg 1deg, transparent 1deg 7deg);
+  mask-image: radial-gradient(circle at 0 0, #000 30%, transparent 72%);
+  -webkit-mask-image: radial-gradient(circle at 0 0, #000 30%, transparent 72%);
+}
+
+.cornerTopLeft { top: 34px; left: 22px; }
+.cornerTopRight { top: 34px; right: 22px; transform: scaleX(-1); }
+.cornerBottomLeft { bottom: 34px; left: 22px; transform: scaleY(-1); }
+.cornerBottomRight { bottom: 34px; right: 22px; transform: scale(-1); }
+
+/* ——— Reception ——— */
+.receptionScene {
+  display: block;
+  width: min(100%, 400px);
+  margin: 0 auto var(--space-sm);
+}
+
+.fireworkA { top: 12%; right: 5%; }
+.fireworkB { top: 34%; left: 5%; }
+
+/* No room beside the stage on a phone */
+@media (max-width: 639px) {
+  .fireworkA,
+  .fireworkB {
+    display: none;
+  }
+}
+
+/* ——— Gentle motion; switched off for reduced motion in global.css ——— */
+.twinkle {
+  animation: twinkle 2.6s ease-in-out infinite;
+}
+
+.twinkleSlow {
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.flicker {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: flicker 1.8s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-1.3deg); }
+  75% { transform: rotate(1.3deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes flicker {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.82); }
+}
+
+@keyframes sweep {
+  0%, 100% { transform: rotate(var(--tilt)); }
+  50% { transform: rotate(calc(var(--tilt) * 0.55)); }
+}
