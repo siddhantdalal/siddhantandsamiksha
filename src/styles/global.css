@@ -32,6 +32,9 @@ body {
   background-attachment: fixed;
   color: var(--color-text);
   line-height: 1.6;
+  /* Cormorant's default old-style figures dip below the line ("o3 December");
+     lining figures sit level, as on the printed invitations */
+  font-variant-numeric: lining-nums;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
