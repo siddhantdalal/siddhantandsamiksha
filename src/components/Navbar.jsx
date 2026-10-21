@@ -2,12 +2,15 @@ import { useState, useEffect } from 'react';
 
 import content from '../data/content';
 import { useSide } from '../context/SideContext';
+import { usePageTone, toneClass } from '../hooks/usePageTone';
+import Medallion from './Medallion';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { side } = useSide();
+  const tone = toneClass(usePageTone('top'));
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -36,13 +39,13 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={styles.nav}>
+      <nav className={`${styles.nav} ${tone}`}>
         <div className={styles.inner}>
           <a href="#hero" className={styles.logo} onClick={(e) => handleClick(e, '#hero')}>
-            <img
-              src={`${import.meta.env.BASE_URL}images/logo.png`}
-              alt="S &amp; S"
-              className={`${styles.logoImg} ${scrolled ? styles.logoSmall : ''}`}
+            <Medallion
+              size={scrolled ? 44 : 76}
+              alt="Siddhant and Samiksha, back to top"
+              className={styles.medallion}
             />
           </a>
 
@@ -60,7 +63,7 @@ export default function Navbar() {
 
       {/* Hamburger button — rendered outside nav for z-index independence */}
       <button
-        className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
+        className={`${styles.hamburger} ${menuOpen ? styles.open : ''} ${menuOpen ? '' : tone}`}
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle menu"
       >

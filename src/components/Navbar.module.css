@@ -25,14 +25,9 @@
   text-decoration: none;
 }
 
-.logoImg {
-  height: 95px;
-  width: auto;
-  transition: height 0.3s ease;
-}
-
-.logoSmall {
-  height: 42px;
+/* Shrinks as the page scrolls; sized by its --size */
+.medallion {
+  transition: width 0.3s ease, height 0.3s ease;
 }
 
 /* Desktop links */

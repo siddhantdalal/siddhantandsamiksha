@@ -4,6 +4,8 @@
   --font-serif: 'Cormorant Garamond', 'Tiro Devanagari Marathi', 'Playfair Display', Georgia, serif;
   --font-script: 'Great Vibes', cursive;
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
+  --font-deva: 'Tiro Devanagari Marathi', serif;
 
   /* Font sizes */
   --text-xs: clamp(0.735rem, 0.84vw, 0.788rem);
@@ -82,6 +84,11 @@
   --door-groom: linear-gradient(160deg, #123f3a 0%, #0d2a27 55%, #0a1f1d 100%);
   --door-bride: linear-gradient(200deg, #7c1f43 0%, #58152f 55%, #400f22 100%);
   --glass-bg: rgba(29, 17, 25, 0.55);
+
+  --backdrop-opacity: 0.34;
+  --backdrop-filter: saturate(0.8) brightness(0.72) contrast(1.05);
+  /* thin offset edge on gold names, like foil printing */
+  --name-edge: #8a6420;
 }
 
 /* ————— Light: ivory paper & antique gold ————— */
@@ -92,10 +99,11 @@
     --color-bg-card: #fdf9f0;
     --color-bg-card-2: #f4ead7;
 
-    --color-gold: #a07d3a;
-    --color-gold-light: #c09a4e;
-    --color-gold-dark: #82632a;
-    --color-gold-foil: linear-gradient(105deg, #82632a 0%, #a07d3a 25%, #d3b269 50%, #a07d3a 75%, #82632a 100%);
+    /* deep enough for AA as text on ivory; the brighter gold is for ornament */
+    --color-gold: #85601f;
+    --color-gold-light: #a07d3a;
+    --color-gold-dark: #6b4c18;
+    --color-gold-foil: linear-gradient(105deg, #6b4c18 0%, #85601f 25%, #a97f36 50%, #85601f 75%, #6b4c18 100%);
 
     --color-rani: #a52b58;
     --color-rani-deep: #7c1f43;
@@ -104,7 +112,7 @@
 
     --color-text: #3a2a20;
     --color-text-muted: #6f5c4b;
-    --color-text-dim: #9c8a77;
+    --color-text-dim: #786656;
 
     --color-border: rgba(160, 125, 58, 0.25);
     --color-border-hover: rgba(160, 125, 58, 0.55);
@@ -127,5 +135,275 @@
     --door-groom: linear-gradient(160deg, #1c574f 0%, #123f3a 55%, #0d2a27 100%);
     --door-bride: linear-gradient(200deg, #8e2a4f 0%, #7c1f43 55%, #58152f 100%);
     --glass-bg: rgba(253, 249, 240, 0.6);
+
+    --backdrop-opacity: 0.3;
+    --backdrop-filter: saturate(0.75) brightness(1.04) contrast(0.98);
+    --name-edge: #e2c88f;
   }
+}
+
+/* ————— Siddhant's side: the page turns from day to night —————
+   App.jsx wraps the page in three phases. Each phase paints its stretch of
+   the sky, and its tone class sets text and accent colours readable on it.
+   Fixed chrome (nav, side toggle) picks up the tone of whatever is beneath it. */
+html.side-groom {
+  /* Night by default, for overlays such as the menu */
+  --color-bg: #561229;
+  --color-bg-deep: #36091a;
+  --color-bg-card: #651832;
+  --color-bg-card-2: #742039;
+  --color-gold: #e0b665;
+  --color-gold-light: #ecc77c;
+  --color-gold-dark: #c9963c;
+  --color-gold-foil: linear-gradient(105deg, #c9963c 0%, #e0b665 25%, #f6dfa4 50%, #e0b665 75%, #c9963c 100%);
+  --color-text: #f8ecd4;
+  --color-text-muted: #e3cfae;
+  --color-text-dim: #c9ab8a;
+  --color-border: rgba(236, 199, 124, 0.28);
+  --color-border-hover: rgba(236, 199, 124, 0.6);
+  --color-menu-bg: rgba(54, 9, 26, 0.97);
+  --glass-bg: rgba(86, 18, 41, 0.6);
+  --shadow-gold: 0 0 26px rgba(236, 199, 124, 0.18);
+  --shadow-gold-strong: 0 0 44px rgba(236, 199, 124, 0.3);
+  --backdrop-opacity: 0.3;
+  --backdrop-filter: saturate(0.8) brightness(0.7) contrast(1.05);
+  --name-edge: #8a6420;
+  background: linear-gradient(#fffaf0 50%, #36091a 50%);
+}
+
+html.side-groom body {
+  background: none;
+}
+
+html.side-groom .tone-day {
+  --color-bg: #fcf0d8;
+  --color-bg-deep: #f7dfae;
+  --color-bg-card: #fffaf0;
+  --color-bg-card-2: #fdf3e0;
+  /* deep enough to read as text on ivory (AA); bright gold is for ornament */
+  --color-gold: #7d5a1c;
+  --color-gold-light: #c9963c;
+  --color-gold-dark: #5e4313;
+  /* headings and names are maroon by day, as on the invite */
+  --color-gold-foil: linear-gradient(105deg, #6a1828 0%, #7a1f30 35%, #9a3346 50%, #7a1f30 65%, #6a1828 100%);
+  --color-rani: #a52b58;
+  --color-text: #5a2a14;
+  --color-text-muted: #6b4630;
+  --color-text-dim: #7a5a44;
+  --color-border: rgba(125, 90, 28, 0.28);
+  --color-border-hover: rgba(125, 90, 28, 0.55);
+  --color-shadow: rgba(90, 42, 20, 0.08);
+  --color-shadow-md: rgba(90, 42, 20, 0.12);
+  --color-shadow-lg: rgba(90, 42, 20, 0.16);
+  --shadow-md: 0 4px 18px rgba(90, 42, 20, 0.1);
+  --shadow-gold: 0 0 26px rgba(201, 150, 60, 0.16);
+  --shadow-gold-strong: 0 0 44px rgba(201, 150, 60, 0.26);
+  --color-hero-overlay-top: rgba(255, 250, 240, 0.5);
+  --color-hero-overlay-mid: rgba(255, 250, 240, 0.7);
+  --color-hero-overlay-bot: rgba(255, 250, 240, 0.9);
+  --glass-bg: rgba(255, 250, 240, 0.65);
+  --backdrop-opacity: 0.3;
+  --backdrop-filter: sepia(0.3) saturate(0.8) brightness(1.04) contrast(0.98);
+  --name-edge: #c9963c;
+  /* the hero ampersand: gold deep enough to hold 3:1 on ivory */
+  --amp-fill: linear-gradient(135deg, #8a6420 0%, #a97f36 50%, #7a5418 100%);
+}
+
+/* Sunset: the sky warms, so gold text deepens to stay readable */
+html.side-groom .tone-dusk {
+  --color-gold: #6f4e16;
+  --color-text-dim: #644832;
+}
+
+html.side-groom .tone-night {
+  --color-bg: #561229;
+  --color-bg-deep: #36091a;
+  --color-bg-card: #651832;
+  --color-bg-card-2: #742039;
+  --color-gold: #e0b665;
+  --color-gold-light: #ecc77c;
+  --color-gold-dark: #c9963c;
+  --color-gold-foil: linear-gradient(105deg, #c9963c 0%, #e0b665 25%, #f6dfa4 50%, #e0b665 75%, #c9963c 100%);
+  --color-rani: #e0457b;
+  --color-text: #f8ecd4;
+  --color-text-muted: #e3cfae;
+  --color-text-dim: #c9ab8a;
+  --color-border: rgba(236, 199, 124, 0.28);
+  --color-border-hover: rgba(236, 199, 124, 0.6);
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-shadow-md: rgba(0, 0, 0, 0.4);
+  --color-shadow-lg: rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 18px rgba(30, 4, 14, 0.45);
+  --glass-bg: rgba(86, 18, 41, 0.6);
+  --backdrop-opacity: 0.3;
+  --backdrop-filter: saturate(0.8) brightness(0.7) contrast(1.05);
+  --name-edge: #8a6420;
+}
+
+html.side-groom .phase-day {
+  background: linear-gradient(to bottom, #fffaf0 0%, #fcf0d8 55%, #f7dfae 100%);
+}
+
+html.side-groom .phase-dusk {
+  background: linear-gradient(to bottom, #f7dfae, #f3c690);
+}
+
+/* The sun sets across a band above the evening's events, then night falls */
+html.side-groom .phase-night {
+  --sunset: clamp(130px, 16vw, 210px);
+  position: relative;
+  padding-top: var(--sunset);
+  background: linear-gradient(
+    to bottom,
+    #f3c690 0,
+    #e9a487 calc(var(--sunset) * 0.35),
+    #c46a6c calc(var(--sunset) * 0.7),
+    #701c34 calc(var(--sunset) + 60px),
+    #561229 45%,
+    #36091a 100%
+  );
+}
+
+/* The last of the sun, sinking at the horizon */
+html.side-groom .phase-night::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(620px, 100%);
+  height: calc(var(--sunset) * 0.85);
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse 46% 70% at 50% 100%, rgba(255, 236, 190, 0.85) 0%, rgba(255, 206, 150, 0.4) 40%, transparent 72%);
+  pointer-events: none;
+}
+
+/* ————— Event panels: each one mirrors its printed invite —————
+   --ev-* tokens are read by EventPanel.module.css and EventDecor. */
+.ev-groom-mehendi,
+.ev-groom-lagna {
+  --ev-bg: linear-gradient(180deg, #fffaf0 0%, #fcf0d8 70%, #f7e6c2 100%);
+  --ev-ink: #5a2a14;
+  --ev-muted: #6b4630;
+  --ev-label: #7d5a1c;
+  --ev-title: #7a1f30;
+  --ev-title-fill: linear-gradient(#7a1f30, #7a1f30);
+  --ev-edge: #c9963c;
+  --ev-accent: #7a1f30;
+  --ev-on-accent: #fffaf0;
+  --ev-line: #c9963c;
+  --ev-qr: #7a1f30;
+  --ev-frame: rgba(201, 150, 60, 0.6);
+}
+
+.ev-groom-haldi {
+  --ev-bg: linear-gradient(180deg, #fffaf0 0%, #fdf0d2 60%, #fbe3b0 100%);
+  --ev-ink: #5a2a14;
+  --ev-muted: #6b4630;
+  --ev-label: #8a4a0c;
+  --ev-title: #b04c0a;
+  --ev-title-fill: linear-gradient(100deg, #c4570b 0%, #a8460a 100%);
+  --ev-edge: #f2c55c;
+  --ev-accent: #7a1f30;
+  --ev-on-accent: #fffaf0;
+  --ev-line: #e9a23b;
+  --ev-qr: #7a1f30;
+  --ev-frame: rgba(201, 150, 60, 0.55);
+}
+
+.ev-groom-sangeet {
+  --ev-bg: linear-gradient(180deg, #f7dfae 0%, #f3c690 55%, #eeb48a 100%);
+  --ev-ink: #5a2a14;
+  --ev-muted: #5e3424;
+  --ev-label: #7a1f30;
+  --ev-title: #7a1f30;
+  --ev-title-fill: linear-gradient(#7a1f30, #7a1f30);
+  --ev-edge: #fff3d6;
+  --ev-accent: #7a1f30;
+  --ev-on-accent: #fffaf0;
+  --ev-line: #b07a2c;
+  --ev-qr: #7a1f30;
+  --ev-frame: rgba(176, 122, 44, 0.55);
+}
+
+.ev-groom-reception {
+  --ev-bg: linear-gradient(180deg, #7a1f36 0%, #5e1529 55%, #430c1e 100%);
+  --ev-ink: #f8ecd4;
+  --ev-muted: #e3cfae;
+  --ev-label: #ecc77c;
+  --ev-title: #ecc77c;
+  --ev-title-fill: linear-gradient(100deg, #c9963c 0%, #ecc77c 45%, #f8e2a8 55%, #c9963c 100%);
+  --ev-edge: #6b4513;
+  --ev-accent: #e0b665;
+  --ev-on-accent: #430c1e;
+  --ev-line: #c9963c;
+  --ev-qr: #6b1530;
+  --ev-frame: rgba(236, 199, 124, 0.7);
+}
+
+.ev-bride-mehendi {
+  --ev-bg: radial-gradient(ellipse 90% 70% at 50% 30%, #4a1631 0%, #2c0b1d 75%, #22081a 100%);
+  --ev-ink: #f3e3c8;
+  --ev-muted: #d9c3a3;
+  --ev-label: #e0bf7a;
+  --ev-title: #e0bf7a;
+  --ev-title-fill: linear-gradient(100deg, #b8862f 0%, #f0d48e 45%, #fbe7b4 55%, #c9963c 100%);
+  --ev-edge: #6b4513;
+  --ev-accent: #e0bf7a;
+  --ev-on-accent: #2c0b1d;
+  --ev-line: #c9963c;
+  --ev-qr: #4a1631;
+  --ev-frame: rgba(201, 150, 60, 0.75);
+  --ev-teal: #2a7f74;
+  --ev-pink: #c13a6b;
+}
+
+.ev-bride-haldi {
+  --ev-bg: linear-gradient(180deg, #fffaf0 0%, #fef1c8 45%, #fde3a0 100%);
+  --ev-ink: #4a2410;
+  --ev-muted: #6b4126;
+  --ev-label: #86203f;
+  --ev-title: #86203f;
+  --ev-glow: linear-gradient(180deg, #d8690f 0%, #c4570b 100%);
+  --ev-edge: #f6c75a;
+  --ev-accent: #86203f;
+  --ev-on-accent: #fffaf0;
+  --ev-line: #ea7a17;
+  --ev-marigold: #ea7a17;
+  --ev-marigold-deep: #c95b0c;
+  --ev-leaf: #2f8150;
+  --ev-qr: #86203f;
+  --ev-frame: rgba(234, 122, 23, 0.45);
+}
+
+.ev-bride-sangeet {
+  --ev-bg: radial-gradient(ellipse 70% 45% at 50% 0%, rgba(240, 122, 163, 0.12), transparent 70%), linear-gradient(180deg, #0b2329 0%, #113940 55%, #0d2c32 100%);
+  --ev-ink: #f3ead8;
+  --ev-muted: #d6dccf;
+  --ev-label: #f07aa3;
+  --ev-title: #e3b866;
+  --ev-pink: #f07aa3;
+  --ev-pink-deep: #e0457b;
+  --ev-edge: #6b4513;
+  --ev-accent: #e3b866;
+  --ev-on-accent: #0b2329;
+  --ev-line: #e3b866;
+  --ev-qr: #113940;
+  --ev-frame: rgba(227, 184, 102, 0.55);
+}
+
+.ev-bride-lagna {
+  --ev-bg: linear-gradient(180deg, #fffaf1 0%, #fbf0dc 50%, #f6e7c9 100%);
+  --ev-ink: #4a1a2e;
+  --ev-muted: #6b3a4e;
+  --ev-label: #7a1f45;
+  --ev-title: #7a1f45;
+  --ev-gold-fill: linear-gradient(180deg, #b8892f 0%, #8a6420 100%);
+  --ev-pink: #d63b74;
+  --ev-sage: #8fa58a;
+  --ev-edge: #f3d27e;
+  --ev-accent: #7a1f45;
+  --ev-on-accent: #fffaf1;
+  --ev-line: #c99a3e;
+  --ev-qr: #7a1f45;
+  --ev-frame: rgba(214, 59, 116, 0.4);
 }
