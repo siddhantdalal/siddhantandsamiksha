@@ -39,7 +39,7 @@ export default {
   },
 
   ui: {
-    shloka: '|| श्री गणेशाय नमः ||',
+    shloka: '॥ श्री गणेशाय नमः ॥',
     weddingOf: 'The Wedding of',
     dateShort: '05 · 12 · 2026',
     openInvitation: 'Open the Invitation',

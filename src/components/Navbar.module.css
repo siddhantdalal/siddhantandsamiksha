@@ -19,17 +19,6 @@
   pointer-events: auto;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-/* Shrinks as the page scrolls; sized by its --size */
-.medallion {
-  transition: width 0.3s ease, height 0.3s ease;
-}
-
 /* Desktop links */
 .desktopLinks {
   display: flex;

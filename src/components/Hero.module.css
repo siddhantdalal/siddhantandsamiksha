@@ -118,7 +118,17 @@
 
 .crest {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+/* The Ganesh invocation that heads every invite */
+.shloka {
+  font-family: var(--font-deva);
+  font-size: var(--text-base);
+  letter-spacing: 0.06em;
+  color: var(--shloka, var(--color-gold));
   margin-bottom: var(--space-lg);
 }
 

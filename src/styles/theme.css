@@ -205,6 +205,8 @@ html.side-groom .tone-day {
   --backdrop-opacity: 0.3;
   --backdrop-filter: sepia(0.3) saturate(0.8) brightness(1.04) contrast(0.98);
   --name-edge: #c9963c;
+  /* the Ganesh invocation is printed in maroon on the invites */
+  --shloka: #7a1f30;
   /* the hero ampersand: gold deep enough to hold 3:1 on ivory */
   --amp-fill: linear-gradient(135deg, #8a6420 0%, #a97f36 50%, #7a5418 100%);
 }

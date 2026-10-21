@@ -3,12 +3,10 @@ import { useState, useEffect } from 'react';
 import content from '../data/content';
 import { useSide } from '../context/SideContext';
 import { usePageTone, toneClass } from '../hooks/usePageTone';
-import Medallion from './Medallion';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const { side } = useSide();
   const tone = toneClass(usePageTone('top'));
 
@@ -16,12 +14,6 @@ export default function Navbar() {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const handleClick = (e, href) => {
     e.preventDefault();
@@ -41,14 +33,6 @@ export default function Navbar() {
     <>
       <nav className={`${styles.nav} ${tone}`}>
         <div className={styles.inner}>
-          <a href="#hero" className={styles.logo} onClick={(e) => handleClick(e, '#hero')}>
-            <Medallion
-              size={scrolled ? 44 : 76}
-              alt="Siddhant and Samiksha, back to top"
-              className={styles.medallion}
-            />
-          </a>
-
           <ul className={styles.desktopLinks}>
             {content.nav.map((item) => (
               <li key={item.href}>

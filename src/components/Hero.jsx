@@ -106,6 +106,7 @@ export default function Hero() {
             show: { opacity: 1, scale: 1, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } },
           }}
         >
+          <p className={styles.shloka} lang="sa">{ui.shloka}</p>
           <Medallion size={84} alt="" />
         </motion.div>
 
