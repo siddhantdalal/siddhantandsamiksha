@@ -8,7 +8,7 @@ import styles from './Footer.module.css';
 const LANTERNS = [[8, 30, 22, 0], [18, 62, 16, -3], [30, 18, 14, -6], [70, 24, 15, -2], [82, 58, 20, -5], [92, 22, 14, -8], [56, 74, 12, -4]];
 const FIREWORKS = [[6, 8, 110, 0], [80, 4, 130, -1.6], [64, 46, 70, -3.2], [22, 52, 64, -2.4]];
 
-// Siddhant's side closes with sky lanterns drifting up between gold fireworks
+// The page closes with sky lanterns drifting up between gold fireworks
 function NightSky() {
   return (
     <div className={styles.sky} aria-hidden="true">
@@ -32,7 +32,7 @@ export default function Footer() {
   return (
     <footer className={`has-backdrop ${styles.footer}`}>
       <Backdrop src={`${import.meta.env.BASE_URL}images/backdrops/couple.jpg`} focus="center 30%" />
-      {side === 'groom' && <NightSky />}
+      <NightSky />
       <p className={styles.closing}>{content.footer.closing},</p>
       <p className={styles.names}>{names}</p>
       <div className={styles.divider} />
