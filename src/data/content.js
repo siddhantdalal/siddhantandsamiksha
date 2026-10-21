@@ -363,8 +363,7 @@ export default {
   hashtags: ['#SidKiSami', '#SamSaidSid', '#SiddhantWedsSamiksha', '#TheSidAndSamSaga'],
 
   footer: {
-    groom: { closing: 'With love & blessings', family: 'Dalal Family' },
-    bride: { closing: 'With love', family: 'Patil Family' },
+    closing: 'With Love',
     year: 2026,
   },
 
