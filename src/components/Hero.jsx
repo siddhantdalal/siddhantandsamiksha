@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import content from '../data/content';
 import { useSide } from '../context/SideContext';
 import FlipClock from './FlipClock';
+import Medallion from './Medallion';
 import styles from './Hero.module.css';
 
 function useCountdown(targetDate) {
@@ -72,8 +73,14 @@ export default function Hero() {
   const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '32%']);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
-  const firstName = side === 'bride' ? content.couple.brideFirst : content.couple.groomFirst;
-  const secondName = side === 'bride' ? content.couple.groomFirst : content.couple.brideFirst;
+  const { couple, ui } = content;
+  const isBride = side === 'bride';
+  const firstName = isBride ? couple.brideFirst : couple.groomFirst;
+  const secondName = isBride ? couple.groomFirst : couple.brideFirst;
+  // Parents and home cities follow the order of the names
+  const [firstFamily, secondFamily] = isBride
+    ? [couple.brideParents, couple.groomParents]
+    : [couple.groomParents, couple.brideParents];
   const welcomeMsg = side ? content.hero.welcome[side] : '';
 
   return (
@@ -91,6 +98,16 @@ export default function Hero() {
         <span className={`${styles.corner} ${styles.cornerTR}`} aria-hidden="true" />
         <span className={`${styles.corner} ${styles.cornerBL}`} aria-hidden="true" />
         <span className={`${styles.corner} ${styles.cornerBR}`} aria-hidden="true" />
+
+        <motion.div
+          className={styles.crest}
+          variants={{
+            hidden: { opacity: 0, scale: 0.85 },
+            show: { opacity: 1, scale: 1, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } },
+          }}
+        >
+          <Medallion size={84} alt="" />
+        </motion.div>
 
         <motion.p
           className={styles.tagline}
@@ -115,6 +132,31 @@ export default function Hero() {
           </motion.span>
           <StaggeredName text={secondName} offset={firstName.length + 2} />
         </h1>
+
+        <motion.div
+          className={styles.families}
+          variants={{
+            hidden: { opacity: 0, y: 12 },
+            show: { opacity: 1, y: 0, transition: { delay: 0.9, duration: 0.9 } },
+          }}
+        >
+          <div className={styles.parents}>
+            <p className={styles.parent}>
+              <span className={styles.relation}>{firstFamily.relation}</span>
+              {firstFamily.names}
+            </p>
+            <span className={styles.parentsDiamond} aria-hidden="true" />
+            <p className={styles.parent}>
+              <span className={styles.relation}>{secondFamily.relation}</span>
+              {secondFamily.names}
+            </p>
+          </div>
+          <p className={styles.cities}>
+            <span className={styles.city}>{firstFamily.city}</span>
+            <span className={styles.citiesLine}>{ui.citiesLine}</span>
+            <span className={styles.city}>{secondFamily.city}</span>
+          </p>
+        </motion.div>
 
         {welcomeMsg && (
           <motion.p
