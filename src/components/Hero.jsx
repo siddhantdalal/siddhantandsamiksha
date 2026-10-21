@@ -29,13 +29,17 @@ function calcTime(target) {
   };
 }
 
-const letterVariants = {
-  hidden: { opacity: 0, y: '0.6em', rotateX: -60 },
-  show: (i) => ({
+// Each name is written in from left to right, like a pen across the card.
+// The clip runs past the box on every side so the script's swashes aren't cut.
+const nameVariants = {
+  hidden: { opacity: 0, clipPath: 'inset(-30% 100% -30% -10%)' },
+  show: (delay) => ({
     opacity: 1,
-    y: 0,
-    rotateX: 0,
-    transition: { delay: 0.15 + i * 0.045, duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+    clipPath: 'inset(-30% -10% -30% -10%)',
+    transition: {
+      clipPath: { delay, duration: 1.3, ease: [0.45, 0, 0.25, 1] },
+      opacity: { delay, duration: 0.3 },
+    },
   }),
 };
 
@@ -46,21 +50,12 @@ const dollyIn = {
   show: { scale: 1, transition: { duration: 1.8, ease: [0.16, 1, 0.3, 1] } },
 };
 
-function StaggeredName({ text, offset = 0 }) {
+// Whole words, so the script's joined letters stay joined
+function ScriptName({ text, delay }) {
   return (
-    <span className={styles.nameRow} aria-label={text}>
-      {text.split('').map((ch, i) => (
-        <motion.span
-          key={i}
-          custom={offset + i}
-          variants={letterVariants}
-          className={styles.letter}
-          aria-hidden="true"
-        >
-          {ch}
-        </motion.span>
-      ))}
-    </span>
+    <motion.span className={styles.nameRow} custom={delay} variants={nameVariants}>
+      {text}
+    </motion.span>
   );
 }
 
@@ -114,14 +109,17 @@ export default function Hero() {
           {content.hero.tagline}
         </motion.p>
 
-        <h1 className={styles.names} key={`${firstName}-${secondName}`}>
-          <StaggeredName text={firstName} />
-          {/* Animates itself: on Samiksha's side the names swap and this heading
-              remounts after the hero has already been told to show */}
+        {/* Animates itself: on Samiksha's side the names swap and this heading
+            remounts after the hero has already been told to show */}
+        <motion.h1
+          className={styles.names}
+          key={`${firstName}-${secondName}`}
+          initial="hidden"
+          animate={side ? 'show' : 'hidden'}
+        >
+          <ScriptName text={firstName} delay={0.15} />
           <motion.span
             className={styles.ampersand}
-            initial="hidden"
-            animate={side ? 'show' : 'hidden'}
             variants={{
               hidden: { opacity: 0, scale: 0.6 },
               show: { opacity: 1, scale: 1, transition: { delay: 0.55, duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
@@ -129,8 +127,8 @@ export default function Hero() {
           >
             &amp;
           </motion.span>
-          <StaggeredName text={secondName} offset={firstName.length + 2} />
-        </h1>
+          <ScriptName text={secondName} delay={0.85} />
+        </motion.h1>
 
         {welcomeMsg && (
           <motion.p
