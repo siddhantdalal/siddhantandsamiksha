@@ -1,4 +1,4 @@
-import { Band, Firework, Kalash, Note, Sparkle, Strand } from './Motifs';
+import { Band, Firework, Kalash, Note, Strand } from './Motifs';
 import styles from './EventDecor.module.css';
 
 // Deterministic scatter, so decorations sit in the same place on every render
@@ -89,108 +89,6 @@ function DiscoBall({ className }) {
   );
 }
 
-// Marigolds and leaves bunched into a corner, as on the Dalal Haldi card
-function CornerSpray({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 120 110" aria-hidden="true">
-      <use href="#mf-leaf" transform="translate(8 12) rotate(-60) scale(2.2)" />
-      <use href="#mf-leaf" transform="translate(14 8) rotate(-115) scale(2)" />
-      <use href="#mf-leaf" transform="translate(20 30) rotate(-20) scale(1.7)" />
-      <use href="#mf-marigold-orange" transform="translate(30 26) scale(1.55)" />
-      <use href="#mf-marigold-yellow" transform="translate(56 18) scale(1.2)" />
-      <use href="#mf-marigold-orange" transform="translate(16 52) scale(1.2)" />
-      <use href="#mf-marigold-yellow" transform="translate(44 46) scale(1)" />
-      <use href="#mf-marigold-orange" transform="translate(76 10) scale(0.9)" />
-      <use href="#mf-marigold-orange" transform="translate(10 78) scale(0.85)" />
-    </svg>
-  );
-}
-
-// The Nagpur reception stage: a gold ring dressed in roses, a curtain of
-// fairy lights and a small chandelier, candle stands either side
-const RING = { cx: 180, cy: 146, r: 108 };
-const CURTAIN = Array.from({ length: 13 }, (_, i) => {
-  const x = 96 + i * 14;
-  const top = RING.cy - Math.sqrt(RING.r ** 2 - (x - RING.cx) ** 2) + 10;
-  const bulbs = [];
-  for (let y = top + 6; y < 248; y += 12) bulbs.push(+y.toFixed(1));
-  return { x, top, bulbs };
-});
-const ringPoint = (deg, offset = 0) => {
-  const a = (deg * Math.PI) / 180;
-  return [RING.cx + Math.cos(a) * (RING.r + offset), RING.cy + Math.sin(a) * (RING.r + offset)];
-};
-const ROSE_KINDS = ['white', 'blush', 'cream', 'white', 'blush'];
-const FLORALS = scatter(30, 23).map(([a, b, c], i) => {
-  // two clusters: the left arc of the ring and its lower right
-  const deg = i < 20 ? 120 + a * 130 : 10 + a * 55;
-  const [x, y] = ringPoint(deg, (b - 0.5) * 16);
-  return { x: +x.toFixed(1), y: +y.toFixed(1), kind: ROSE_KINDS[i % 5], size: +(0.95 + c * 0.75).toFixed(2), leaf: Math.round(c * 360) };
-});
-const BREATH = scatter(40, 5).map(([a, b], i) => {
-  const deg = i < 28 ? 115 + a * 140 : 5 + a * 65;
-  return ringPoint(deg, (b - 0.5) * 30).map((v) => +v.toFixed(1));
-});
-const CANDLES = [[44, 196, 0.9], [60, 176, 1], [76, 206, 0.8], [284, 206, 0.8], [300, 176, 1], [316, 196, 0.9]];
-
-function ReceptionScene({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 360 300" aria-hidden="true">
-      <defs>
-        <clipPath id="cp-ring"><circle cx={RING.cx} cy={RING.cy} r={RING.r - 3} /></clipPath>
-      </defs>
-      <circle cx={RING.cx} cy={RING.cy} r={RING.r + 30} fill="url(#gr-glow)" opacity="0.35" />
-
-      <g clipPath="url(#cp-ring)">
-        {CURTAIN.map(({ x, top, bulbs }) => (
-          <g key={x}>
-            <line x1={x} y1={top} x2={x} y2="250" stroke="rgba(246, 223, 164, 0.35)" strokeWidth="0.6" />
-            {bulbs.map((y, j) => (
-              <circle key={j} className={(j + x) % 3 ? '' : styles.twinkle} cx={x} cy={y} r="1.6" fill="#ffe9b0" />
-            ))}
-          </g>
-        ))}
-        <g transform="translate(180 54)" stroke="#e6c27a" fill="none" strokeWidth="1.2">
-          <line x1="0" y1="-20" x2="0" y2="8" />
-          <path d="M-22 12 Q0 26 22 12" />
-          <path d="M-14 8 Q0 18 14 8" />
-          {[-22, -11, 0, 11, 22].map((x) => (
-            <g key={x}>
-              <line x1={x} y1={x % 22 ? 16 : 12} x2={x} y2={x % 22 ? 26 : 22} strokeWidth="0.7" />
-              <circle cx={x} cy={x % 22 ? 28 : 24} r="1.6" fill="#fff6dc" stroke="none" />
-            </g>
-          ))}
-          <circle cx="0" cy="10" r="3" fill="#e6c27a" stroke="none" />
-        </g>
-      </g>
-
-      <circle cx={RING.cx} cy={RING.cy} r={RING.r} fill="none" stroke="url(#gr-gold)" strokeWidth="3.2" />
-
-      {FLORALS.map(({ x, y, kind, size, leaf }, i) => (
-        <g key={i} transform={`translate(${x} ${y})`}>
-          <use href="#mf-leaf-sage" transform={`rotate(${leaf}) scale(0.8)`} />
-          <use href={`#mf-rose-${kind}`} transform={`scale(${size})`} />
-        </g>
-      ))}
-      {BREATH.map(([x, y], i) => <circle key={i} cx={x} cy={y} r={i % 3 ? 0.9 : 1.3} fill="#fffaf2" />)}
-
-      {CANDLES.map(([x, top, scale]) => (
-        <g key={x}>
-          <line x1={x} y1={top + 14} x2={x} y2="266" stroke="url(#gr-gold)" strokeWidth={2 * scale} />
-          <path d={`M${x - 6} ${top + 14} H${x + 6} L${x + 3} ${top + 18} H${x - 3}Z`} fill="#d6ad60" />
-          <rect x={x - 3} y={top} width="6" height="14" rx="1" fill="#fbf3e2" />
-          <circle cx={x} cy={top - 5} r="7" fill="url(#gr-glow)" />
-          <ellipse className={styles.flicker} cx={x} cy={top - 4} rx="1.8" ry="3.2" fill="#ffcf6b" />
-        </g>
-      ))}
-
-      <path d="M58 266 H302 L314 280 H46Z" fill="#f4ead6" />
-      <path d="M58 266 H302" stroke="#d6ad60" strokeWidth="2" />
-      <path d="M50 276 H310" stroke="#d6ad60" strokeWidth="0.8" opacity="0.7" />
-    </svg>
-  );
-}
-
 // A fairy-light swag along the top edge of a card
 function LightSwag({ className }) {
   const bulbs = [];
@@ -226,28 +124,6 @@ const DECOR = {
     </>
   ),
 
-  'groom-haldi': () => (
-    <>
-      <span className={styles.turmericGlow} />
-      <Frame variant="frameThin" />
-      <CornerSpray className={styles.sprayTopLeft} />
-      <CornerSpray className={styles.sprayBottomRight} />
-      <Petals />
-    </>
-  ),
-
-  'groom-sangeet': () => (
-    <>
-      <span className={styles.settingSun} />
-      <Frame variant="frameThin" />
-      <LightSwag className={styles.lightSwag} />
-      <Note className={`${styles.float} ${styles.noteA}`} />
-      <Note className={`${styles.float} ${styles.noteB}`} size={14} />
-      <Sparkle className={`${styles.twinkle} ${styles.sparkleA}`} />
-      <Sparkle className={`${styles.twinkle} ${styles.sparkleB}`} size={10} />
-    </>
-  ),
-
   // A Maharashtrian mandap: kalash on a carved beam, toran, gold pillars, Paithani base
   'groom-lagna': () => (
     <>
@@ -270,18 +146,6 @@ const DECOR = {
       <LightSwag className={styles.lightSwag} />
       <Firework className={`${styles.twinkleSlow} ${styles.fireworkA}`} size={90} />
       <Firework className={`${styles.twinkleSlow} ${styles.fireworkB}`} size={64} />
-    </>
-  ),
-
-  'bride-mehendi': () => (
-    <>
-      <span className={styles.mehendiGlow} />
-      <Frame variant="frameMehendi" />
-      <div className={styles.naraliTop}><Band pattern="narali-down" height={12} /></div>
-      <div className={styles.naraliBottom}><Band pattern="narali" height={12} /></div>
-      {['TopLeft', 'TopRight', 'BottomLeft', 'BottomRight'].map((corner) => (
-        <span key={corner} className={`${styles.mandalaCorner} ${styles[`corner${corner}`]}`} />
-      ))}
     </>
   ),
 
@@ -325,10 +189,4 @@ const DECOR = {
 export default function EventDecor({ theme }) {
   const Decor = DECOR[theme];
   return Decor ? <div className={styles.decor} aria-hidden="true"><Decor /></div> : null;
-}
-
-// Illustrations that sit in the flow of the panel, above its title
-export function EventScene({ theme }) {
-  if (theme === 'groom-reception') return <ReceptionScene className={styles.receptionScene} />;
-  return null;
 }

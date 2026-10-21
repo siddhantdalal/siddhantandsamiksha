@@ -18,8 +18,6 @@ const invite = (file, title, alt) => ({
 const invites = {
   groomWedding: invite('groom-wedding-reception', 'Lagna Sohala & Reception',
     'Wedding and reception invitation from the Dalal family: Lagna Sohala on Saturday 05 December 2026 at Suvi Palace, Vasai-Virar, and the reception on Monday 07 December 2026 at Jerryl Lawns, Nagpur'),
-  brideMehendi: invite('bride-mehendi', 'Mehendi',
-    'Mehendi invitation from the Patil family: Thursday 03 December 2026, 1:00 PM onwards, at Suvi Palace, Vasai-Virar'),
   brideHaldi: invite('bride-haldi', 'The Glow Before the Vows',
     'Haldi invitation from the Patil family, “The Glow Before the Vows”: Friday 04 December 2026, morning, at Suvi Palace, Vasai-Virar'),
   brideSangeet: invite('bride-sangeet', 'The Dance Before the Seven Steps',
@@ -27,6 +25,9 @@ const invites = {
   brideWedding: invite('bride-wedding', 'Seven Steps to Forever',
     'Wedding invitation from the Patil family, “Seven Steps to Forever”: Lagna Sohala on Saturday 05 December 2026, muhurth 12:13 PM, at Suvi Palace, Vasai-Virar'),
 };
+
+// The couple as drawn on an invite, shown on that event's card
+const art = (file, width, height, alt) => ({ src: `${base}images/characters/${file}.jpg`, width, height, alt });
 
 export default {
   couple: {
@@ -145,11 +146,14 @@ export default {
     heading: 'Wedding Celebrations',
     subheading: 'Three days of love, laughter & togetherness',
     // Shared details sit on the event; `groom` and `bride` hold what differs by side.
-    // `title` is the bride's poetic name for the event; `invite` drives "View invite".
+    // `design` names the family whose card an event wears on both sides, `title`
+    // is its poetic name, `invite` drives "View invite" and `art` is the couple
+    // as drawn on the Patil family's invite for it.
     events: [
       {
         id: 'mehendi',
         name: 'Mehendi',
+        design: 'groom',
         day: 'Thursday',
         date: '03 December 2026',
         groom: {
@@ -164,7 +168,6 @@ export default {
           time: '1:00 PM onwards',
           description: 'Intricate henna, music, and an afternoon full of joy — right here at Suvi Palace.',
           venue: suviPalace,
-          invite: invites.brideMehendi,
         },
       },
       {
@@ -175,7 +178,10 @@ export default {
         time: 'Morning',
         venue: suviPalace,
         description: 'The auspicious halad ceremony — turmeric blessings from loved ones, laughter, and the golden glow of new beginnings.',
-        bride: { title: 'The Glow Before the Vows', invite: invites.brideHaldi },
+        design: 'bride',
+        title: 'The Glow Before the Vows',
+        invite: invites.brideHaldi,
+        art: art('haldi', 720, 619, 'Illustration of Samiksha and Siddhant laughing, smeared with haldi, seated on low wooden stools under a marigold arch with a bowl of turmeric before them'),
       },
       {
         id: 'sangeet',
@@ -185,7 +191,10 @@ export default {
         time: 'Evening',
         venue: suviPalace,
         description: 'A night of dance, music, and celebration. Come ready to move!',
-        bride: { title: 'The Dance Before the Seven Steps', invite: invites.brideSangeet },
+        design: 'bride',
+        title: 'The Dance Before the Seven Steps',
+        invite: invites.brideSangeet,
+        art: art('sangeet', 720, 493, 'Illustration of Samiksha in a pink lehenga and Siddhant in a white tuxedo dancing inside a ring of fairy lights and roses, with a speaker and a guitar beside them'),
       },
       {
         id: 'lagna',
@@ -196,6 +205,7 @@ export default {
         time: 'Muhurth · 12:13 PM',
         venue: suviPalace,
         description: 'The sacred ceremony where two hearts become one — Antarpat, Mangalashtaka and Saptapadi, followed by wedding celebrations.',
+        art: art('lagna', 720, 613, 'Illustration of Samiksha and Siddhant holding wedding garlands on either side of the antarpat, inside a ring of pink and yellow flowers'),
         groom: { invite: invites.groomWedding },
         bride: { title: 'Seven Steps to Forever', tagline: 'Two souls. One journey.', invite: invites.brideWedding },
       },
@@ -219,6 +229,8 @@ export default {
       },
       description: 'Join us for an unforgettable evening of celebration as we toast to new beginnings with the groom\'s loved ones.',
       invite: invites.groomWedding,
+      // The one card that shows the couple as drawn on the Dalal family's invite
+      art: art('reception', 720, 636, 'Illustration of Siddhant in a blue suit and Samiksha in an ivory lehenga on a reception stage, framed by a ring of roses, fairy lights and candles'),
       note: 'You\'re seeing details for the Nagpur reception based on your side selection.',
     },
     bride: {
@@ -235,7 +247,7 @@ export default {
     heading: 'Our Invitations',
     subheading: 'Tap an invitation to view it or save a copy',
     groom: [invites.groomWedding],
-    bride: [invites.brideMehendi, invites.brideHaldi, invites.brideSangeet, invites.brideWedding],
+    bride: [invites.brideHaldi, invites.brideSangeet, invites.brideWedding],
   },
 
   meetGroom: {

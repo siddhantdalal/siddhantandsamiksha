@@ -19,10 +19,7 @@ const MARIGOLDS = {
 
 const ROSES = {
   white: ['#fffaf2', '#e9dccb'],
-  blush: ['#f6cdd6', '#dc9aab'],
-  cream: ['#f8e6c4', '#dcbf8c'],
   pink: ['#e86a98', '#b8285e'],
-  red: ['#c8264f', '#8e1638'],
 };
 
 function MarigoldShape({ id, colors: [deep, main, light] }) {
@@ -74,10 +71,6 @@ export function MotifDefs() {
           <path d="M0 0 C5.4 4.6 5.6 13.4 0 19 C-5.6 13.4 -5.4 4.6 0 0Z" fill="#2f8150" />
           <path d="M0 1.5 V17" stroke="#1f5e39" strokeWidth="0.8" />
         </g>
-        <g id="mf-leaf-sage">
-          <path d="M0 0 C5.4 4.6 5.6 13.4 0 19 C-5.6 13.4 -5.4 4.6 0 0Z" fill="#8fa58a" />
-          <path d="M0 1.5 V17" stroke="#6f8a6a" strokeWidth="0.8" />
-        </g>
         <g id="mf-foot">{FOOT}</g>
         <path id="mf-sparkle" d="M0 -7 C0.9 -1.6 1.6 -0.9 7 0 C1.6 0.9 0.9 1.6 0 7 C-0.9 1.6 -1.6 0.9 -7 0 C-1.6 -0.9 -0.9 -1.6 0 -7Z" />
         <g id="mf-note">
@@ -125,10 +118,6 @@ export function MotifDefs() {
           <path d="M0 12 L7 2 L14 12Z" fill="#d6ad60" />
           <path d="M3.6 12 L7 7.2 L10.4 12Z" fill="#7a1f30" />
           <circle cx="7" cy="0.9" r="0.9" fill="#d6ad60" />
-        </pattern>
-        <pattern id="pt-narali-down" width="14" height="12" patternUnits="userSpaceOnUse">
-          <path d="M0 0 L7 10 L14 0Z" fill="#d6ad60" />
-          <circle cx="7" cy="11.1" r="0.9" fill="#d6ad60" />
         </pattern>
 
         {/* Toran: mango leaves under the beam with a marigold swag below */}
@@ -234,14 +223,6 @@ export function Footprints({ pairs = false, className }) {
           )}
         </g>
       ))}
-    </svg>
-  );
-}
-
-export function Sparkle({ size = 14, className, style }) {
-  return (
-    <svg className={className} style={style} width={size} height={size} viewBox="-7 -7 14 14" aria-hidden="true">
-      <use href="#mf-sparkle" fill="currentColor" />
     </svg>
   );
 }

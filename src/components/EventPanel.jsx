@@ -2,7 +2,7 @@ import content from '../data/content';
 import ScrollReveal from './ScrollReveal';
 import Medallion from './Medallion';
 import LocationQR from './LocationQR';
-import EventDecor, { EventScene } from './EventDecor';
+import EventDecor from './EventDecor';
 import { Footprints, Marigold, Paisleys } from './Motifs';
 import styles from './EventPanel.module.css';
 
@@ -12,7 +12,6 @@ const CREST_RING = Array.from({ length: 16 }, (_, i) => {
   return [+(Math.cos(a) * 49).toFixed(1), +(Math.sin(a) * 49).toFixed(1)];
 });
 const CREST_BEADS = {
-  'bride-mehendi': () => null,
   'bride-haldi': (i) => `#mf-marigold-${i % 2 ? 'yellow' : 'orange'}`,
   'bride-sangeet': (i) => (i % 2 ? '#mf-rose-pink' : null),
   'bride-lagna': (i) => (i % 2 ? '#mf-marigold-pink' : null),
@@ -24,16 +23,7 @@ function Crest({ theme }) {
   return (
     <div className={styles.crest}>
       <svg className={styles.crestRing} viewBox="-62 -62 124 124" aria-hidden="true">
-        {theme === 'bride-mehendi' && (
-          <g fill="none" stroke="#d6ad60" strokeWidth="0.8">
-            <circle r="56" strokeDasharray="1 3" />
-            <circle r="44" />
-            {CREST_RING.map(([x, y], i) => (
-              <ellipse key={i} cx={x * 1.02} cy={y * 1.02} rx="6" ry="3" transform={`rotate(${i * 22.5 + 90} ${x * 1.02} ${y * 1.02})`} />
-            ))}
-          </g>
-        )}
-        {theme !== 'bride-mehendi' && CREST_RING.map(([x, y], i) => {
+        {CREST_RING.map(([x, y], i) => {
           const href = bead(i);
           return href
             ? <use key={i} href={href} transform={`translate(${x} ${y}) scale(0.7)`} />
@@ -91,7 +81,7 @@ function Title({ theme, event, id }) {
   return (
     <>
       <h3 id={id} className={styles.script}>{event.name}</h3>
-      {theme === 'bride-mehendi' || theme === 'groom-mehendi'
+      {theme === 'groom-mehendi'
         ? <Paisleys className={styles.paisleys} />
         : <span className={styles.flourish} aria-hidden="true" />}
     </>
@@ -121,6 +111,21 @@ function When({ event, trio }) {
   );
 }
 
+// The couple as drawn on the invite, feathered into the card
+function Art({ art }) {
+  return (
+    <img
+      className={styles.art}
+      src={art.src}
+      alt={art.alt}
+      width={art.width}
+      height={art.height}
+      loading="lazy"
+      decoding="async"
+    />
+  );
+}
+
 const PinIcon = () => (
   <svg width="14" height="18" viewBox="0 0 10 13" fill="currentColor" aria-hidden="true">
     <path d="M5 0C2.2 0 0 2.2 0 4.9 0 8.6 5 13 5 13s5-4.4 5-8.1C10 2.2 7.8 0 5 0zm0 6.8a1.9 1.9 0 1 1 0-3.8 1.9 1.9 0 0 1 0 3.8z" />
@@ -134,14 +139,16 @@ const InviteIcon = () => (
   </svg>
 );
 
-// One event, dressed as its invite. `event` is already resolved for the side.
+// One event, dressed as its invite. `event` is already resolved for the side;
+// it wears its own family's design unless it names one for both sides.
 export default function EventPanel({ event, side, onViewInvite }) {
-  const theme = `${side}-${event.id}`;
+  const design = event.design || side;
+  const theme = `${design}-${event.id}`;
   const titleId = `event-${theme}`;
-  const { venue, invite } = event;
+  const { venue, invite, art } = event;
   const { ui } = content;
   const place = venue.name || 'the venue';
-  const isBride = side === 'bride';
+  const isBride = design === 'bride';
 
   return (
     // The card rests on a full-width band in a deeper tone of its own theme
@@ -152,12 +159,15 @@ export default function EventPanel({ event, side, onViewInvite }) {
 
           <div className={styles.body}>
             {isBride && <Crest theme={theme} />}
-            <EventScene theme={theme} />
+            {/* Placed as on the invites: above the title on the Dalal family's
+                cards, below it on the Patil family's */}
+            {art && !isBride && <Art art={art} />}
 
             {event.kicker && !isBride && <p className={styles.kicker} lang="mr">{event.kicker}</p>}
             {isBride && event.title && <p className={styles.label}>{event.name}</p>}
             <Title theme={theme} event={event} id={titleId} />
             {event.tagline && <p className={styles.tagline}>{event.tagline}</p>}
+            {art && isBride && <Art art={art} />}
 
             <When event={event} trio={isBride} />
             <p className={styles.description}>{event.description}</p>
