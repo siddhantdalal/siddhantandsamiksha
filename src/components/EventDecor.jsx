@@ -1,4 +1,5 @@
 import { Band, Firework, Note } from './Motifs';
+import { CandleFoot, LightToran } from './ReceptionDecor';
 import styles from './EventDecor.module.css';
 
 // Deterministic scatter, so decorations sit in the same place on every render
@@ -33,7 +34,7 @@ function Petals() {
   return PETALS.map((style, i) => <span key={i} className={styles.petal} style={style} />);
 }
 
-// A fairy-light swag along the top edge of a card
+// A fairy-light swag along the foot of the Sangeet card
 function LightSwag({ className }) {
   const bulbs = [];
   for (let swag = 0; swag < 4; swag++) {
@@ -111,7 +112,8 @@ const DECOR = {
   'groom-reception': () => (
     <>
       <Frame variant="frameThin" />
-      <LightSwag className={styles.lightSwag} />
+      <LightToran className={styles.lightToran} />
+      <CandleFoot className={styles.candleFoot} />
       <Firework className={`${styles.twinkleSlow} ${styles.fireworkA}`} size={90} />
       <Firework className={`${styles.twinkleSlow} ${styles.fireworkB}`} size={64} />
     </>

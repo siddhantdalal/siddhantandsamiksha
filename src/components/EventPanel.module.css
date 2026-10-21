@@ -104,7 +104,12 @@
   --ev-pad-x: calc(12px + 11%);
   --ev-pad-bottom: calc(36px + 10.5%);
 }
-:global(.ev-groom-reception) { --ev-pad-top: 56px; }
+/* the reception's chandelier hangs a sixth of the card's width; roses and candles line the foot */
+:global(.ev-groom-reception) { --ev-pad-top: calc(16px + 16%); --ev-pad-bottom: calc(24px + 9%); }
+@media (max-width: 639px) {
+  /* phones get a narrower drawing, so the same chandelier is a larger share of the card */
+  :global(.ev-groom-reception) { --ev-pad-top: calc(14px + 27%); --ev-pad-bottom: calc(20px + 21%); }
+}
 /* the invite torans leave their window for the title a fifth of the way down;
    the Mehendi garland along the foot is a tenth of the card's width tall */
 :global(.ev-bride-mehendi) { --ev-pad-top: 20%; --ev-pad-bottom: calc(28px + 10.8%); }

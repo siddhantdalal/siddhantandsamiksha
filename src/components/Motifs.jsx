@@ -27,6 +27,34 @@ function MarigoldShape({ id, colors: [deep, main, light] }) {
   );
 }
 
+// Roses from above, as on the reception invite: [outer petals, inner petals, heart]
+const ROSES = {
+  ivory: ['#fffdf7', '#f2e0cc', '#bf8f74'],
+  blush: ['#ffe8ec', '#f3a5b5', '#bd4c69'],
+  peach: ['#fff1e2', '#f7be8e', '#c47440'],
+};
+
+const ROSE_OUTER = ring(6, 5.6, 0.25);
+const ROSE_INNER = ring(4, 2.4);
+// The heart's spiral, unwinding from the middle
+const ROSE_HEART = 'M' + Array.from({ length: 13 }, (_, i) => {
+  const a = i * 0.85, r = 0.3 + i * 0.27;
+  return `${(Math.cos(a) * r).toFixed(2)} ${(Math.sin(a) * r).toFixed(2)}`;
+}).join(' L');
+
+// About 22 across, with a soft shadow beneath so it sits on dark cards
+function RoseShape({ id, colors: [outer, inner, heart] }) {
+  return (
+    <g id={id}>
+      <circle cx="0.8" cy="1.6" r="10.6" fill="#1e0309" opacity="0.4" />
+      {ROSE_OUTER.map(([x, y], i) => <circle key={i} cx={x} cy={y} r="5.1" fill={outer} stroke={inner} strokeWidth="0.6" />)}
+      <circle r="6.2" fill={outer} />
+      {ROSE_INNER.map(([x, y], i) => <circle key={i} cx={x} cy={y} r="3.2" fill={inner} stroke={heart} strokeWidth="0.4" strokeOpacity="0.55" />)}
+      <path d={ROSE_HEART} fill="none" stroke={heart} strokeWidth="0.7" strokeLinecap="round" />
+    </g>
+  );
+}
+
 // Sole and toes of a right foot, toes up, about 9 x 22
 const FOOT = (
   <>
@@ -78,6 +106,36 @@ export function MotifDefs() {
           <stop offset="0.4" stopColor="#ffd98a" stopOpacity="0.45" />
           <stop offset="1" stopColor="#ffd98a" stopOpacity="0" />
         </radialGradient>
+
+        {/* The reception's evening: roses and leaves, fairy lights, candle flames and crystals */}
+        {Object.entries(ROSES).map(([name, colors]) => (
+          <RoseShape key={name} id={`mf-rose-${name}`} colors={colors} />
+        ))}
+        {/* leaves grow from the origin along +x */}
+        <g id="mf-leaf">
+          <path d="M0 0 C4 -5.5 11 -5.2 17 0 C11 5.2 4 5.5 0 0Z" fill="#4d7547" />
+          <path d="M1 0 H14" stroke="#38593a" strokeWidth="0.6" />
+        </g>
+        <g id="mf-leaf-sage">
+          <ellipse cx="6.5" rx="6.5" ry="4.8" fill="#97b096" />
+          <path d="M0 0 H11" stroke="#7b977c" strokeWidth="0.5" />
+        </g>
+        <g id="mf-bulb">
+          <circle r="7" fill="url(#gr-glow)" />
+          <circle r="2.1" fill="#fff4d2" />
+        </g>
+        <linearGradient id="gr-flame" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stopColor="#ff9d3f" />
+          <stop offset="0.5" stopColor="#ffd56e" />
+          <stop offset="1" stopColor="#fff7dc" />
+        </linearGradient>
+        {/* a flame standing on the origin, in its own glow */}
+        <g id="mf-flame">
+          <circle cy="-4" r="12" fill="url(#gr-glow)" />
+          <path d="M0 0 C-2.7 -1.6 -2.5 -5.2 0 -9.5 C2.5 -5.2 2.7 -1.6 0 0Z" fill="url(#gr-flame)" />
+        </g>
+        {/* a crystal drop hanging from the origin */}
+        <path id="mf-crystal" d="M0 0 C2.4 2.6 2.6 5.4 0 7.4 C-2.6 5.4 -2.4 2.6 0 0Z" fill="#fff7e6" fillOpacity="0.85" stroke="#e8c47c" strokeWidth="0.45" />
       </defs>
     </svg>
   );
