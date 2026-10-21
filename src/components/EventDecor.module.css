@@ -320,6 +320,11 @@
   margin: 0 auto var(--space-sm);
 }
 
+.fireworkA,
+.fireworkB {
+  color: #e6c27a;
+}
+
 .fireworkA { top: 12%; right: 5%; }
 .fireworkB { top: 34%; left: 5%; }
 

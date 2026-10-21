@@ -38,25 +38,17 @@ export default function App() {
       </Suspense>
       <FilmGrain />
       <Navbar />
-      {/* On Siddhant's side the page runs from day to night (theme.css);
-          on Samiksha's these wrappers have no styling */}
       <main>
-        <div className="phase-day tone-day" data-tone="day">
-          <Hero />
-          <OurStory />
-          <AboutUs />
-          <Timeline />
-        </div>
-        <div className="phase-dusk tone-day tone-dusk" data-tone="dusk">
-          <EngagementDetails />
-        </div>
-        <div className="phase-night tone-night" data-tone="night">
-          <WeddingEvents />
-          <Reception />
-          <InviteGallery />
-          <MeetGroom />
-          <Hashtag />
-        </div>
+        <Hero />
+        <OurStory />
+        <AboutUs />
+        <Timeline />
+        <EngagementDetails />
+        <WeddingEvents />
+        <Reception />
+        <InviteGallery />
+        <MeetGroom />
+        <Hashtag />
       </main>
       <Footer />
     </SideProvider>

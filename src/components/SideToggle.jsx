@@ -1,16 +1,14 @@
 import content from '../data/content';
 import { useSide } from '../context/SideContext';
-import { usePageTone, toneClass } from '../hooks/usePageTone';
 import styles from './SideToggle.module.css';
 
 export default function SideToggle() {
   const { side, setSide } = useSide();
-  const tone = usePageTone('bottom');
 
   if (!side) return null;
 
   return (
-    <div className={`${styles.container} ${toneClass(tone)}`}>
+    <div className={styles.container}>
       <div className={styles.wrapper}>
         <button
           className={`${styles.capsule} ${side === 'groom' ? styles.active : ''}`}

@@ -2,13 +2,11 @@ import { useState, useEffect } from 'react';
 
 import content from '../data/content';
 import { useSide } from '../context/SideContext';
-import { usePageTone, toneClass } from '../hooks/usePageTone';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { side } = useSide();
-  const tone = toneClass(usePageTone('top'));
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -31,7 +29,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`${styles.nav} ${tone}`}>
+      <nav className={styles.nav}>
         <div className={styles.inner}>
           <ul className={styles.desktopLinks}>
             {content.nav.map((item) => (
@@ -47,7 +45,7 @@ export default function Navbar() {
 
       {/* Hamburger button — rendered outside nav for z-index independence */}
       <button
-        className={`${styles.hamburger} ${menuOpen ? styles.open : ''} ${menuOpen ? '' : tone}`}
+        className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle menu"
       >

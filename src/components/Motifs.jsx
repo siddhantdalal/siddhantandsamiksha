@@ -288,7 +288,7 @@ export function Kalash({ className }) {
 export function Firework({ size = 120, className, style }) {
   return (
     <svg className={className} style={style} width={size} height={size} viewBox="-50 -50 100 100" aria-hidden="true"
-      stroke="#e6c27a" strokeLinecap="round" fill="#f6dfa4">
+      stroke="currentColor" strokeLinecap="round" fill="currentColor">
       {ring(24, 1).map(([x, y], i) => {
         const inner = i % 2 ? 14 : 8;
         const outer = i % 2 ? 40 : 46;
