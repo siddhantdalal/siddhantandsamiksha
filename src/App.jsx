@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { MotionConfig } from 'framer-motion';
 import { SideProvider } from './context/SideContext';
 import InviteOpening from './components/InviteOpening';
@@ -17,8 +18,10 @@ import MeetGroom from './components/MeetGroom';
 import Hashtag from './components/Hashtag';
 import Footer from './components/Footer';
 import FilmGrain from './components/FilmGrain';
-import Particles from './components/Particles';
 import { MotifDefs } from './components/Motifs';
+
+// The particle engine is decorative and heavy, so it loads after first paint in its own chunk
+const Particles = lazy(() => import('./components/Particles'));
 
 export default function App() {
   return (
@@ -30,7 +33,9 @@ export default function App() {
       <ScrollProgress />
       <InviteOpening />
       <SideToggle />
-      <Particles />
+      <Suspense fallback={null}>
+        <Particles />
+      </Suspense>
       <FilmGrain />
       <Navbar />
       {/* On Siddhant's side the page runs from day to night (theme.css);
