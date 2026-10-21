@@ -13,18 +13,20 @@ export default function Reception() {
   const [invite, setInvite] = useState(null);
 
   return (
-    <section className={`section ${styles.section}`}>
+    <section className="section">
       <ScrollReveal>
         <SectionHeading>{content.reception.heading}</SectionHeading>
         <p className="section-subheading">{content.reception.subheading}</p>
       </ScrollReveal>
 
       {/* Nagpur's reception has its invite; Kolhapur's details are still to come */}
-      <ScrollReveal delay={0.1}>
-        {side === 'bride'
-          ? <KolhapurCard info={content.reception.bride} />
-          : <EventPanel event={content.reception.groom} side="groom" onViewInvite={setInvite} />}
-      </ScrollReveal>
+      {side === 'bride' ? (
+        <ScrollReveal delay={0.1}>
+          <KolhapurCard info={content.reception.bride} />
+        </ScrollReveal>
+      ) : (
+        <EventPanel event={content.reception.groom} side="groom" onViewInvite={setInvite} />
+      )}
 
       <InviteLightbox invite={invite} onClose={() => setInvite(null)} />
     </section>

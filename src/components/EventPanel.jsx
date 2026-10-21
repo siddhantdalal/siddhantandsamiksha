@@ -1,4 +1,5 @@
 import content from '../data/content';
+import ScrollReveal from './ScrollReveal';
 import Medallion from './Medallion';
 import LocationQR from './LocationQR';
 import EventDecor, { EventScene } from './EventDecor';
@@ -143,58 +144,63 @@ export default function EventPanel({ event, side, onViewInvite }) {
   const isBride = side === 'bride';
 
   return (
-    <article className={`${styles.panel} ev-${theme}`} aria-labelledby={titleId}>
-      <EventDecor theme={theme} />
+    // The card rests on a full-width band in a deeper tone of its own theme
+    <div className={`${styles.band} ev-${theme}`}>
+      <ScrollReveal>
+        <article className={styles.panel} aria-labelledby={titleId}>
+          <EventDecor theme={theme} />
 
-      <div className={styles.body}>
-        {isBride && <Crest theme={theme} />}
-        <EventScene theme={theme} />
+          <div className={styles.body}>
+            {isBride && <Crest theme={theme} />}
+            <EventScene theme={theme} />
 
-        {event.kicker && !isBride && <p className={styles.kicker} lang="mr">{event.kicker}</p>}
-        {isBride && event.title && <p className={styles.label}>{event.name}</p>}
-        <Title theme={theme} event={event} id={titleId} />
-        {event.tagline && <p className={styles.tagline}>{event.tagline}</p>}
+            {event.kicker && !isBride && <p className={styles.kicker} lang="mr">{event.kicker}</p>}
+            {isBride && event.title && <p className={styles.label}>{event.name}</p>}
+            <Title theme={theme} event={event} id={titleId} />
+            {event.tagline && <p className={styles.tagline}>{event.tagline}</p>}
 
-        <When event={event} trio={isBride} />
-        <p className={styles.description}>{event.description}</p>
+            <When event={event} trio={isBride} />
+            <p className={styles.description}>{event.description}</p>
 
-        <div className={styles.venueRow}>
-          <div className={styles.venue}>
-            {venue.name && <p className={styles.venueName}>{venue.name}</p>}
-            <p className={styles.address}>{venue.address}</p>
+            <div className={styles.venueRow}>
+              <div className={styles.venue}>
+                {venue.name && <p className={styles.venueName}>{venue.name}</p>}
+                <p className={styles.address}>{venue.address}</p>
+              </div>
+              {venue.mapLink && <LocationQR url={venue.mapLink} place={place} />}
+            </div>
+
+            <div className={styles.actions}>
+              {venue.mapLink && (
+                <a
+                  className={styles.primary}
+                  href={venue.mapLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${ui.getDirections} to ${place}`}
+                >
+                  <PinIcon />
+                  {ui.getDirections}
+                </a>
+              )}
+              {invite && (
+                <button
+                  type="button"
+                  className={styles.secondary}
+                  onClick={() => onViewInvite(invite)}
+                  aria-label={`${ui.viewInvite}: ${invite.title}`}
+                >
+                  <InviteIcon />
+                  {ui.viewInvite}
+                </button>
+              )}
+            </div>
+
+            {event.note && <p className={styles.note}>{event.note}</p>}
           </div>
-          {venue.mapLink && <LocationQR url={venue.mapLink} place={place} />}
-        </div>
-
-        <div className={styles.actions}>
-          {venue.mapLink && (
-            <a
-              className={styles.primary}
-              href={venue.mapLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${ui.getDirections} to ${place}`}
-            >
-              <PinIcon />
-              {ui.getDirections}
-            </a>
-          )}
-          {invite && (
-            <button
-              type="button"
-              className={styles.secondary}
-              onClick={() => onViewInvite(invite)}
-              aria-label={`${ui.viewInvite}: ${invite.title}`}
-            >
-              <InviteIcon />
-              {ui.viewInvite}
-            </button>
-          )}
-        </div>
-
-        {event.note && <p className={styles.note}>{event.note}</p>}
-      </div>
-    </article>
+        </article>
+      </ScrollReveal>
+    </div>
   );
 }
 

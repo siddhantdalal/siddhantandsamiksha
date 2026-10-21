@@ -16,7 +16,7 @@ export default function WeddingEvents() {
   if (!side) return <section id="events" className="section" />;
 
   return (
-    <section id="events" className={`section ${styles.section}`}>
+    <section id="events" className="section">
       <ScrollReveal>
         <SectionHeading>{heading}</SectionHeading>
         <p className="section-subheading">{subheading}</p>
@@ -24,9 +24,7 @@ export default function WeddingEvents() {
 
       <div className={styles.panels}>
         {events.map((event) => (
-          <ScrollReveal key={`${side}-${event.id}`}>
-            <EventPanel event={forSide(event, side)} side={side} onViewInvite={setInvite} />
-          </ScrollReveal>
+          <EventPanel key={`${side}-${event.id}`} event={forSide(event, side)} side={side} onViewInvite={setInvite} />
         ))}
       </div>
 

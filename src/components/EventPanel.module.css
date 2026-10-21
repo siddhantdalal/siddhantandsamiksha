@@ -1,5 +1,33 @@
-/* A full-width event card. Colours come from the --ev-* tokens of its
-   theme class in theme.css; decoration from EventDecor. */
+/* Full-bleed ground for a card, in a deeper tone of its theme. The colour
+   reaches up into the gap above and fades in there, so neighbouring bands
+   blend into one another and the first and last melt into the page. */
+.band {
+  --band-gap: clamp(40px, 8vw, 96px);
+  position: relative;
+  isolation: isolate;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: var(--band-gap) var(--space-md);
+}
+
+.band::before {
+  content: '';
+  position: absolute;
+  inset: calc(var(--band-gap) * -1) 0 0;
+  z-index: -1;
+  background: var(--ev-band);
+  mask-image: linear-gradient(to bottom, transparent, #000 calc(var(--band-gap) * 2));
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 calc(var(--band-gap) * 2));
+}
+
+.band:last-child::before {
+  bottom: calc(var(--band-gap) * -1);
+  mask-image: linear-gradient(to bottom, transparent, #000 calc(var(--band-gap) * 2), #000 calc(100% - var(--band-gap) * 2), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 calc(var(--band-gap) * 2), #000 calc(100% - var(--band-gap) * 2), transparent);
+}
+
+/* The event card. Colours come from the --ev-* tokens of its theme class
+   in theme.css; decoration from EventDecor. */
 .panel {
   position: relative;
   isolation: isolate;
@@ -178,7 +206,7 @@
   height: 0.6em;
   margin: 0 0.07em;
   align-self: center;
-  transform: translateY(-0.02em);
+  transform: translateY(-0.09em);
 }
 
 .sunO::before {

@@ -160,6 +160,7 @@
   --ev-line: #c9963c;
   --ev-qr: #7a1f30;
   --ev-frame: rgba(201, 150, 60, 0.6);
+  --ev-band: #ecd6aa;
 }
 
 .ev-groom-haldi {
@@ -175,6 +176,7 @@
   --ev-line: #e9a23b;
   --ev-qr: #7a1f30;
   --ev-frame: rgba(201, 150, 60, 0.55);
+  --ev-band: #f3cf83;
 }
 
 .ev-groom-sangeet {
@@ -190,6 +192,7 @@
   --ev-line: #b07a2c;
   --ev-qr: #7a1f30;
   --ev-frame: rgba(176, 122, 44, 0.55);
+  --ev-band: #dd9d7d;
 }
 
 .ev-groom-reception {
@@ -205,6 +208,7 @@
   --ev-line: #c9963c;
   --ev-qr: #6b1530;
   --ev-frame: rgba(236, 199, 124, 0.7);
+  --ev-band: #3a0918;
 }
 
 .ev-bride-mehendi {
@@ -222,6 +226,7 @@
   --ev-frame: rgba(201, 150, 60, 0.75);
   --ev-teal: #2a7f74;
   --ev-pink: #c13a6b;
+  --ev-band: #1d0613;
 }
 
 .ev-bride-haldi {
@@ -240,6 +245,7 @@
   --ev-leaf: #2f8150;
   --ev-qr: #86203f;
   --ev-frame: rgba(234, 122, 23, 0.45);
+  --ev-band: #f7cf76;
 }
 
 .ev-bride-sangeet {
@@ -256,6 +262,7 @@
   --ev-line: #e3b866;
   --ev-qr: #113940;
   --ev-frame: rgba(227, 184, 102, 0.55);
+  --ev-band: #071a1f;
 }
 
 .ev-bride-lagna {
@@ -273,4 +280,5 @@
   --ev-line: #c99a3e;
   --ev-qr: #7a1f45;
   --ev-frame: rgba(214, 59, 116, 0.4);
+  --ev-band: #f1d8bb;
 }
