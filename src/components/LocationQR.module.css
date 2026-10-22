@@ -1,16 +1,9 @@
-/* Desktop only: on a phone the directions button is the way there */
 .card {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-xs);
-    flex: none;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  flex: none;
 }
 
 /* Grows in place over the card when clicked, and back again on the next click */
@@ -27,6 +20,20 @@
   z-index: 5;
   transform: scale(2.4);
   cursor: zoom-out;
+}
+
+/* on a phone, twice the size still fills most of the card without leaving it */
+@media (max-width: 639px) {
+  .enlarged .zoom {
+    transform: scale(2);
+  }
+}
+
+/* beside the address on a tablet, the room to grow is on its left */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .zoom {
+    transform-origin: right center;
+  }
 }
 
 .enlarged .code {

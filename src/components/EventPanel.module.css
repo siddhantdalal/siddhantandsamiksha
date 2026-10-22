@@ -432,12 +432,13 @@
   margin-bottom: var(--space-lg);
 }
 
-/* ——— Venue, with the QR card beside it on desktop ——— */
+/* ——— Venue, with the QR card below it on a phone and beside it on wider screens ——— */
 .venueRow {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-xl);
+  gap: var(--space-md);
   margin-bottom: var(--space-lg);
 }
 
@@ -445,7 +446,12 @@
   max-width: 360px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 640px) {
+  .venueRow {
+    flex-direction: row;
+    gap: var(--space-xl);
+  }
+
   .venue {
     padding-right: var(--space-xl);
     border-right: 1px solid var(--ev-line);
