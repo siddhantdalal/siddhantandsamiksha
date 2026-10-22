@@ -11,22 +11,24 @@ import styles from './Reception.module.css';
 export default function Reception() {
   const { side } = useSide();
   const [invite, setInvite] = useState(null);
+  const { groom, bride } = content.reception;
+  const isBride = side === 'bride';
 
   return (
     <section className="section">
       <ScrollReveal>
         <SectionHeading>{content.reception.heading}</SectionHeading>
-        <p className="section-subheading">{content.reception.subheading}</p>
+        <p className="section-subheading">{(isBride ? bride : groom).subheading}</p>
       </ScrollReveal>
 
       {/* Nagpur's reception has its invite; Kolhapur's details are still to come */}
-      {side === 'bride' ? (
+      {isBride ? (
         <ScrollReveal delay={0.1}>
-          <KolhapurCard info={content.reception.bride} />
+          <KolhapurCard info={bride} />
         </ScrollReveal>
       ) : (
         <EventBands>
-          <EventPanel event={content.reception.groom} side="groom" onViewInvite={setInvite} />
+          <EventPanel event={groom} side="groom" onViewInvite={setInvite} />
         </EventBands>
       )}
 

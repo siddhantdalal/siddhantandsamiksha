@@ -223,8 +223,9 @@ export default {
 
   reception: {
     heading: 'Reception',
-    subheading: 'An evening of joy, laughter & togetherness',
+    // Nagpur's reception is in the evening, Kolhapur's in the morning
     groom: {
+      subheading: 'An evening of joy, laughter & togetherness',
       id: 'reception',
       name: 'Reception',
       kicker: 'स्वागत समारंभ',
@@ -243,11 +244,12 @@ export default {
       note: 'You\'re seeing details for the Nagpur reception based on your side selection.',
     },
     bride: {
+      subheading: 'A morning of joy, laughter & togetherness',
       city: 'Kolhapur',
       venue: 'A beautiful celebration in Kolhapur — to be revealed soon',
-      date: 'A heartfelt December evening in Kolhapur',
+      date: 'A heartfelt December morning in Kolhapur',
       time: 'When love fills the room',
-      description: 'An evening filled with warmth, laughter and love as we celebrate with the bride\'s nearest and dearest.',
+      description: 'A morning filled with warmth, laughter and love as we celebrate with the bride\'s nearest and dearest.',
       note: 'You\'re seeing details for the Kolhapur reception based on your side selection.',
     },
   },
