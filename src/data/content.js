@@ -67,6 +67,8 @@ export default {
     getDirections: 'Get directions',
     viewInvite: 'View invite',
     scanForLocation: 'Scan for location',
+    tapToClose: 'Tap anywhere to close',
+    closeQr: 'Close the enlarged QR code',
     download: 'Download',
     closeInvite: 'Close invitation',
   },

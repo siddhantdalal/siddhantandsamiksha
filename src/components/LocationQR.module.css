@@ -6,38 +6,11 @@
   flex: none;
 }
 
-/* Grows in place over the card when clicked, and back again on the next click */
 .zoom {
-  position: relative;
   display: block;
   padding: 0;
   border-radius: 10px;
   cursor: zoom-in;
-  transition: transform 0.4s var(--ease-royal);
-}
-
-.enlarged .zoom {
-  z-index: 5;
-  transform: scale(2.4);
-  cursor: zoom-out;
-}
-
-/* on a phone, twice the size still fills most of the card without leaving it */
-@media (max-width: 639px) {
-  .enlarged .zoom {
-    transform: scale(2);
-  }
-}
-
-/* beside the address on a tablet, the room to grow is on its left */
-@media (min-width: 640px) and (max-width: 1023px) {
-  .zoom {
-    transform-origin: right center;
-  }
-}
-
-.enlarged .code {
-  box-shadow: 0 0 0 1.5px rgba(201, 150, 60, 0.25), 0 10px 32px rgba(40, 10, 20, 0.35);
 }
 
 .zoom:focus-visible {
@@ -69,4 +42,91 @@
 
 .caption svg {
   fill: var(--ev-label);
+}
+
+/* ——— Enlarged: the code at the size of the screen, over the blurred page ——— */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  cursor: zoom-out;
+  touch-action: none;
+}
+
+/* A negative z-index keeps it beneath the code and label, within the overlay */
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  background: rgba(20, 6, 12, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.large {
+  flex: none;
+  /* as wide as the screen allows, leaving room beneath for the venue's name and the hints */
+  width: min(100%, 100svh - 136px);
+  padding: 14px;
+  border-radius: 14px;
+  background: #fffaf0;
+  border: 2px solid #c9963c;
+  box-shadow: 0 0 0 4px rgba(201, 150, 60, 0.2), 0 24px 70px rgba(0, 0, 0, 0.55);
+  cursor: zoom-out;
+}
+
+.large svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.large:focus-visible {
+  outline: 2px solid #f6dfa4;
+  outline-offset: 4px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  margin: 0;
+  opacity: 0;
+  text-align: center;
+  /* legible over the lighter cards blurred beneath */
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.place {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  line-height: 1.2;
+  color: #f6dfa4;
+}
+
+.hint,
+.closeHint {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(248, 236, 212, 0.9);
+}
+
+.hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hint svg {
+  fill: currentColor;
 }
